@@ -1,0 +1,7 @@
+## GET TO KNOW THE TRDM-K22F
+
+* chip: MK22FN 512VHL12
+
+www.nxp.com/FRDM-K22F
+
+
