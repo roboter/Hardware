@@ -1,0 +1,164 @@
+{
+    "WINDOW-SIZE": "MAXIMIZED",
+    "BOXES": {
+        "0": {
+            "BOX-H": {
+                "0": {
+                    "BOX-V": {
+                        "0": {
+                            "TABS": {
+                                "rel://source/libraries/ssd1306/src/ssd1306_console.cpp": {
+                                    "class": "Editor",
+                                    "tab-index": 0,
+                                    "data": {
+                                        "line": 26,
+                                        "index": 24,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/ssd1306_hal/io.h": {
+                                    "class": "Editor",
+                                    "tab-index": 1,
+                                    "data": {
+                                        "line": 72,
+                                        "index": 0,
+                                        "first-visible-line": 36,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/ssd1306_hal/template/io.h": {
+                                    "class": "Editor",
+                                    "tab-index": 2,
+                                    "data": {
+                                        "line": 145,
+                                        "index": 6,
+                                        "first-visible-line": 113,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "Console": {
+                                    "class": "Console"
+                                },
+                                "rel://source/libraries/ssd1306/src/ssd1306_hal/stm32/io.h": {
+                                    "class": "Editor",
+                                    "tab-index": 4,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 90,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/ssd1306_hal/stm32/platform.c": {
+                                    "class": "Editor",
+                                    "tab-index": 5,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 9,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/ssd1306_hal/template/platform.c": {
+                                    "class": "Editor",
+                                    "tab-index": 6,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 18,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/tools/sdl/sdl_oled_basic.h": {
+                                    "class": "Editor",
+                                    "tab-index": 7,
+                                    "data": {
+                                        "line": 28,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/tools/sdl/sdl2-config": {
+                                    "class": "Editor",
+                                    "tab-index": 8,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "CURRENT-INDEX": 0
+                            }
+                        }
+                    },
+                    "SIZES": [
+                        915
+                    ]
+                },
+                "1": {
+                    "BOX-V": {
+                        "0": {
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Filetree": {
+                                            "class": "FileExplorer"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "SymbolStack": {
+                                            "class": "Symbols"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                572,
+                                560
+                            ]
+                        },
+                        "1": {
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Project Dashboard": {
+                                            "class": "Dashboard"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "Diagnostics": {
+                                            "class": "Diagnostics"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                333,
+                                799
+                            ]
+                        }
+                    },
+                    "SIZES": [
+                        463,
+                        450
+                    ]
+                }
+            },
+            "SIZES": [
+                784,
+                1134
+            ]
+        }
+    }
+}
