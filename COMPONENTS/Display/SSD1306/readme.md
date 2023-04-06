@@ -16,5 +16,5 @@
 * Driver IC: SSD1306 
 
 
-Library for NXP
+# Library for NXP
 https://community.nxp.com/t5/LPC-Microcontrollers/LPC845-SSD1306-IIC-I2C-APPLICATION-EXAMPLE/m-p/1209656#M43523
