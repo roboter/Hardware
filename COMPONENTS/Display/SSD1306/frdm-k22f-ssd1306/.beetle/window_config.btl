@@ -33,11 +33,11 @@
                                     "data": {
                                         "line": 0,
                                         "index": 0,
-                                        "first-visible-line": 27,
+                                        "first-visible-line": 0,
                                         "x-view-offset": 0
                                     }
                                 },
-                                "rel://source/libraries/ssd1306/src/intf/i2c/ssd1306_i2c_embedded.c": {
+                                "rel://source/libraries/ssd1306/src/font6x8.h": {
                                     "class": "Editor",
                                     "tab-index": 3,
                                     "data": {
@@ -47,12 +47,162 @@
                                         "x-view-offset": 0
                                     }
                                 },
-                                "CURRENT-INDEX": 3
+                                "rel://source/libraries/ssd1306/src/ssd1306_hal/arduino/io.h": {
+                                    "class": "Editor",
+                                    "tab-index": 4,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 162,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/ssd1306_hal/arduino/platform.cpp": {
+                                    "class": "Editor",
+                                    "tab-index": 5,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 42,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/ssd1306_16bit.c": {
+                                    "class": "Editor",
+                                    "tab-index": 6,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/ssd1306_16bit.h": {
+                                    "class": "Editor",
+                                    "tab-index": 7,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/ssd1306_1bit.h": {
+                                    "class": "Editor",
+                                    "tab-index": 8,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/tools/font_format.txt": {
+                                    "class": "Editor",
+                                    "tab-index": 9,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/ssd1306_uart.h": {
+                                    "class": "Editor",
+                                    "tab-index": 10,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/ssd1306_uart.c": {
+                                    "class": "Editor",
+                                    "tab-index": 11,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 12,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/ssd1306_generic.h": {
+                                    "class": "Editor",
+                                    "tab-index": 12,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/ssd1306_generic.c": {
+                                    "class": "Editor",
+                                    "tab-index": 13,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/ssd1306_8bit.h": {
+                                    "class": "Editor",
+                                    "tab-index": 14,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/ssd1306_8bit.c": {
+                                    "class": "Editor",
+                                    "tab-index": 15,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/ssd1306.h": {
+                                    "class": "Editor",
+                                    "tab-index": 16,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 45,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/nano_gfx_types.h": {
+                                    "class": "Editor",
+                                    "tab-index": 17,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 21,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/libraries/ssd1306/src/Makefile.stm32": {
+                                    "class": "Editor",
+                                    "tab-index": 18,
+                                    "data": {
+                                        "line": 25,
+                                        "index": 34,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "CURRENT-INDEX": 18
                             }
                         }
                     },
                     "SIZES": [
-                        917
+                        952
                     ]
                 },
                 "1": {
@@ -107,8 +257,8 @@
                         }
                     },
                     "SIZES": [
-                        650,
-                        265
+                        675,
+                        275
                     ]
                 }
             },

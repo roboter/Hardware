@@ -1,0 +1,94 @@
+{
+    "WINDOW-SIZE": "MAXIMIZED",
+    "BOXES": {
+        "0": {
+            "BOX-H": {
+                "0": {
+                    "BOX-V": {
+                        "0": {
+                            "TABS": {
+                                "rel://source/Core/Src/ssd1306.c": {
+                                    "class": "Editor",
+                                    "tab-index": 0,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "Console": {
+                                    "class": "Console"
+                                },
+                                "CURRENT-INDEX": 1
+                            }
+                        }
+                    },
+                    "SIZES": [
+                        917
+                    ]
+                },
+                "1": {
+                    "BOX-V": {
+                        "0": {
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Filetree": {
+                                            "class": "FileExplorer"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "SymbolStack": {
+                                            "class": "Symbols"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                406,
+                                398
+                            ]
+                        },
+                        "1": {
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Project Dashboard": {
+                                            "class": "Dashboard"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "Diagnostics": {
+                                            "class": "Diagnostics"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                392,
+                                412
+                            ]
+                        }
+                    },
+                    "SIZES": [
+                        459,
+                        456
+                    ]
+                }
+            },
+            "SIZES": [
+                1112,
+                806
+            ]
+        }
+    }
+}

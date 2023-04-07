@@ -1,0 +1,22 @@
+embeetle_dry_run: \
+  default \
+  project/source/board/pin_mux.c.o \
+  project/source/drivers/fsl_common.c.o \
+  project/source/drivers/ssd1306/fsl_SSD1306_I2C.c.o \
+  project/source/drivers/fsl_common_arm.c.o \
+  project/source/component/lists/fsl_component_generic_list.c.o \
+  project/source/device/system_MK22F51212.c.o \
+  project/source/drivers/fsl_gpio.c.o \
+  project/source/startup/startup_MK22F51212.S.o \
+  project/source/component/uart/fsl_adapter_uart.c.o \
+  project/source/utilities/fsl_sbrk.c.o \
+  project/source/drivers/fsl_smc.c.o \
+  project/source/utilities/fsl_assert.c.o \
+  project/source/board/board.c.o \
+  project/source/drivers/fsl_i2c.c.o \
+  project/source/drivers/fsl_lpuart.c.o \
+  project/source/drivers/fsl_clock.c.o \
+  project/source/drivers/fsl_uart.c.o \
+  project/source/utilities/fsl_debug_console.c.o \
+  project/source/board/clock_config.c.o \
+  project/source/source/led_blinky.c.o

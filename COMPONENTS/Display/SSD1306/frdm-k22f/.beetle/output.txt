@@ -1,0 +1,11 @@
+set_memory_region(m_data         , present=True  , origin=536805376 , size=65536     , attributes=)
+set_memory_region(m_data_2       , present=True  , origin=536870912 , size=65536     , attributes=)
+set_memory_region(m_flash_config , present=True  , origin=1024      , size=16        , attributes=)
+set_memory_region(m_interrupts   , present=True  , origin=0         , size=1024      , attributes=)
+set_memory_region(m_text         , present=True  , origin=1040      , size=523248    , attributes=)
+Dashboard got message: restyle
+Dashboard got message: restyle
+Dashboard got message: restyle
+Dashboard got message: restyle
+Dashboard got message: show-project::C:/Users/roboter/F303-ssd1306-import
+Dashboard got message: show-project::C:/Users/roboter/F303-ssd1306-import

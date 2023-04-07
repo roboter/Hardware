@@ -17,35 +17,25 @@
                                         "x-view-offset": 0
                                     }
                                 },
-                                "rel://source/drivers/ssd1306/LPC845_SSD1306_OLED.example": {
+                                "rel://source/drivers/ssd1306/fsl_SSD1306_I2C.h": {
                                     "class": "Editor",
                                     "tab-index": 1,
                                     "data": {
-                                        "line": 0,
+                                        "line": 71,
                                         "index": 0,
-                                        "first-visible-line": 0,
+                                        "first-visible-line": 18,
                                         "x-view-offset": 0
                                     }
                                 },
-                                "Console": {
-                                    "class": "Console"
+                                "Preferences": {
+                                    "class": "Preferences"
                                 },
-                                "rel://source/drivers/ssd1306/fsl_SSD1306_I2C.c": {
-                                    "class": "Editor",
-                                    "tab-index": 3,
-                                    "data": {
-                                        "line": 36,
-                                        "index": 2,
-                                        "first-visible-line": 9,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "CURRENT-INDEX": 2
+                                "CURRENT-INDEX": 0
                             }
                         }
                     },
                     "SIZES": [
-                        917
+                        952
                     ]
                 },
                 "1": {
@@ -100,8 +90,8 @@
                         }
                     },
                     "SIZES": [
-                        459,
-                        456
+                        477,
+                        473
                     ]
                 }
             },
