@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+<html class="no-js" lang="en">
+
+<head>
+    
+
+    <title>NUCLEO-F303K8 | Mbed</title>
+    
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="user-scalable=yes,width=device-width,initial-scale=0.9" />
+
+    
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-1447836-8');
+ga('require', 'GTM-WXMLD4S')
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&gtm_auth=SMYNPwM0ICsV00c1ZHETqQ&gtm_preview=env-2&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M6FZ495');</script>
+
+
+    <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:971746,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" sizes="57x57" href="/static/img/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/static/img/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/static/img/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/static/img/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/static/img/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/static/img/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/static/img/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/static/img/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/static/img/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/static/img/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/static/img/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicons/favicon-16x16.png">
+<link rel="manifest" href="/static/img/favicons/manifest.json">
+<link rel="shortcut icon" href="/static/img/favicon.ico?">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/static/img/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+
+<link rel="stylesheet" href="/static/CACHE/css/output.811e2930ab34.css" type="text/css">
+
+
+    
+    
+
+    <link rel="stylesheet" type="text/css" href="/static/legacy-main.986d36e4640c.css">
+    <script type="text/javascript" src="/static/legacy-bundle.d4c318d04056.js"></script>
+
+    <script src="/static/CACHE/js/output.66210a54841f.js"></script>
+    <script type="text/javascript">
+        var MTIProjectId='531df303-da6d-4e1e-934d-ec3ecdc164a9';
+        (function() {
+            var mtiTracking = document.createElement('script');
+            mtiTracking.type='text/javascript';
+            mtiTracking.async='true';
+            mtiTracking.src="/static/js/mtiFontTrackingCode.js";
+            (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild( mtiTracking );
+        })();
+    </script>
+
+    
+    
+    
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6FZ495&gtm_auth=3a8Vwkp5SsDiYq6tYR1ObQ&gtm_preview=env-6&gtm_cookies_win=x"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    
+
+
+
+
+
+
+
+
+<div class="mbed-nav">
+    <div class="mbed-nav__mobile-menu-control">
+        <i class="mbed-nav__mobile-menu-control-open fas fa-bars fa-fw"></i>
+        <i class="mbed-nav__mobile-menu-control-close fas fa-times is-hidden fa-fw"></i>
+        <i class="mbed-nav__mobile-menu-control-back fas fa-angle-left is-hidden fa-fw"></i>
+    </div>
+    <div class="mbed-nav__logo">
+        <a href="https://os.mbed.com">
+            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#logo"></use></svg>
+        </a>
+    </div>
+    <div class="mbed-nav__menu">
+
+        <!-- Main menu -->
+        <nav class="mbed-nav__main-menu">
+            <ul class="mbed-nav__dropdown-menu">
+                <li class="has-dropdown">
+                    Overview
+
+                    <div class="mbed-nav__dropdown-menu-content">
+
+                        <!-- Overview dropdown menu -->
+                        <div class="mbed-nav__overview-menu">
+                            <section>
+                                <p>Operating system</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://os.mbed.com/mbed-os/" class="mbed-nav__icon-link-detail">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#mbed_os"></use></svg>
+                                            <div>
+                                                <p>Mbed OS</p>
+                                                <p>The open source OS for Cortex-M devices</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+
+                            <section>
+                                <p>Development tools</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://www.keil.arm.com/mbed/?utm_source=mbed_com&utm_medium=compiler_button&utm_campaign=mbed_com_promo" class="mbed-nav__icon-link-detail">
+                                             <svg><use href="/static/img/keil_studio_icon.2c56c28014c6.svg?#keil_studio_icon"></use></svg>
+                                            <div>
+                                                <p>Keil Studio Cloud</p>
+                                                <p>Arm's IDE for IoT, embedded and Mbed development</p>
+                                            </div>
+                                         </a>
+                                     </li>
+                                    <li>
+                                        <a href="https://os.mbed.com/studio/" class="mbed-nav__icon-link-detail">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#mbed_studio"></use></svg>
+                                            <div>
+                                                <p>Mbed Studio</p>
+                                                <p>Download the desktop IDE for Mbed OS</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://os.mbed.com/docs/mbed-os/latest/quick-start/offline-with-mbed-cli.html" class="mbed-nav__icon-link-detail">
+
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#mbed_cli"></use></svg>
+                                            <div>
+                                               <p>Mbed CLI</p>
+                                               <p>Command line access to Mbed tools and services</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+
+                            <section>
+                                <p>Security and Connectivity</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://tls.mbed.org" class="mbed-nav__icon-link-detail">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#mbed_tls_crypto"></use></svg>
+                                            <div>
+                                                <p>Mbed TLS and Mbed Crypto</p>
+                                                <p>Industry standard TLS stack and crypto library</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://os.mbed.com/connectivity-technologies/" class="mbed-nav__icon-link-detail">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#connectivity"></use></svg>
+                                            <div>
+                                                <p>Connectivity</p>
+                                                <p>BLE, WiFi, Cellular, LoRaWAN and more</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </li>
+                <li class="has-dropdown">
+                    Hardware
+
+                    <!-- Hardware dropdown menu -->
+                    <div class="mbed-nav__dropdown-menu-content">
+                        <div class="mbed-nav__hardware-dropdown">
+                            <ul class="mbed-nav__hardware-menu">
+                                <li>
+                                    <a href="https://os.mbed.com/platforms/" class="mbed-nav__icon-link-detail">
+                                        <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#boards"></use></svg>
+                                        <div>
+                                            <p>Boards</p>
+                                            <p>Build your Mbed projects with development boards for Arm Cortex processors and MCUs</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://os.mbed.com/modules/" class="mbed-nav__icon-link-detail">
+                                        <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#modules"></use></svg>
+                                        <div>
+                                            <p>Modules</p>
+                                            <p>Modules include a MCU, connectivity and onboard memory, making them ideal for designing IoT products for mass production</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://os.mbed.com/components/" class="mbed-nav__icon-link-detail">
+                                        <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#components"></use></svg>
+                                        <div>
+                                            <p>Components</p>
+                                            <p>The component database hosts libraries for different sensors, actuators, radios, inputs, middleware and IoT services</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://os.mbed.com/hardware/" class="mbed-nav__icon-link-detail">
+                                        <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#hardware_overview"></use></svg>
+                                        <div>
+                                            <p>Hardware overview & Mbed Enabled</p>
+                                            <p>Learn about hardware support for Mbed, as well as the Mbed Enabled program, which identifies Mbed compatible products</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://os.mbed.com/docs/mbed-os/latest/porting/arm-mbed-hdk.html" class="mbed-nav__icon-link-detail">
+                                        <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#mbed_hdk"></use></svg>
+                                        <div>
+                                            <p>Mbed HDK</p>
+                                            <p>Reference designs, schematics and board layouts to develop production hardware and Mbed-compatible development boards</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </li>
+                <li><a href="https://os.mbed.com/code/">Code</a></li>
+                <li class="has-dropdown">
+                    Documentation
+
+                    <!-- Documentation dropdown menu -->
+                    <div class="mbed-nav__dropdown-menu-content">
+                        <div class="mbed-nav__documentation-dropdown">
+                            <ul class="mbed-nav__documentation-menu">
+                                <li>
+                                    <a href="https://os.mbed.com/docs/mbed-os/">Mbed OS</a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://developer.arm.com/documentation/102497/latest/Arm-Keil-Studio-Cloud">
+                                        Keil Studio
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://os.mbed.com/docs/mbed-studio/">Mbed Studio</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="https://os.mbed.com/built-with-mbed/">Case studies</a></li>
+                <li class="has-dropdown">
+                    Community
+
+                    <!-- Community dropdown menu -->
+                    <div class="mbed-nav__dropdown-menu-content">
+                        <div class="mbed-nav__community-dropdown">
+                            <ul class="mbed-nav__community-menu">
+                                <li>
+                                    <a href="https://forums.mbed.com">Forum</a>
+                                </li>
+                                <li>
+                                    <a href="https://os.mbed.com/docs/mbed-os/latest/contributing/index.html">Contribute</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/playlist?list=PLKjl7IFAwc4R4plIZe4IuHlsn8zW7rvKh">Mbed OS Tech Forum</a>
+                                </li>
+                                <li>
+                                    <a href="https://os.mbed.com/support/">Report a problem</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://os.mbed.com/blog/">Blog</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="mbed-nav__user-controls">
+        <div class="mbed-nav__user-controls-top">
+            <div class="mbed-nav__search">
+                <form id="mbed-nav__search-box" class="is-hidden" action="https://os.mbed.com/search" method="GET">
+                    <div class="mbed-nav__search-box">
+                        <input type="search" name="q" placeholder="Search...">
+                        <button type="submit">
+                            <svg class="stroke-white"><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#search"></use></svg>
+                        </button>
+                    </div>
+                </form>
+                <i class="mbed-nav__search-close fas fa-times is-hidden"></i>
+                <svg class="mbed-nav__search-open stroke-white"><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#search"></use></svg>
+            </div>
+            <a class="mbed-nav__cta" href="https://studio.keil.arm.com" target="_blank">
+                Keil Studio Cloud
+            </a>
+
+            
+                
+                <nav class="mbed-nav__logged-out-nav">
+                    <ul class="mbed-nav__dropdown-menu">
+                        <li>
+                            <svg class="stroke-white"><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#profile"></use></svg>
+
+                            <!-- Logged out dropdown menu -->
+                            <div class="mbed-nav__dropdown-menu-content">
+                                <div class="mbed-nav__logged-out-dropdown">
+                                    <ul class="mbed-nav__logged-out-menu">
+                                        <li><a href="/account/login/?next=/platforms/ST-Nucleo-F303K8/">Log in or Sign up</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                
+            
+        </div>
+    </div>
+    <div class="mbed-nav__spacer"></div>
+</div>
+<div class="mbed-nav__mobile-menu-cover is-hidden">
+    <div class="mbed-nav__mobile-menu">
+
+        <div id="mbed-nav__main-menu-mobile">
+            <div class="mbed-nav__user-controls-mobile">
+                <div class="mbed-nav__user-controls-top-mobile">
+                    <form action="https://os.mbed.com/search" method="GET">
+                        <div class="mbed-nav__search-box mbed-nav__search-box--light">
+                            <input type="search" name="q" placeholder="Search...">
+                            <button type="submit">
+                                <svg class="stroke-dark-grey"><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#search"></use></svg>
+                            </button>
+                        </div>
+                    </form>
+                    
+                        
+                        <a href="/account/login/?next=/platforms/ST-Nucleo-F303K8/">Log in or Sign up</a>
+                        
+                    
+                </div>
+            </div>
+
+            <ul class="mbed-nav__side-menu">
+                <li>
+                    <input type="checkbox" name="accordion-toggle" id="overview-accordion">
+                    <label for="overview-accordion">Overview</label>
+                    <div class="accordion_content">
+                        <ul class="overview-menu-mobile">
+                            <li>
+                                <p>Operating system</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://os.mbed.com/mbed-os/" class="mbed-nav__icon-link">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#mbed_os"></use></svg>
+                                            <p>Mbed OS</p>
+                                        </a>
+                                    </li>
+                                    
+
+                                </ul>
+                            </li>
+                            <li>
+                                <p>Development tools</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://os.mbed.com/studio/" class="mbed-nav__icon-link">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#mbed_studio"></use></svg>
+                                            <p>Mbed Studio</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.keil.arm.com/mbed/?utm_source=mbed_com&utm_medium=compiler_button&utm_campaign=mbed_com_promo" class="mbed-nav__icon-link">
+                                             <svg><use href="/static/img/keil_studio_icon.2c56c28014c6.svg?#keil_studio_icon"></use></svg>
+                                            <p>Keil Studio</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://os.mbed.com/docs/mbed-os/latest/quick-start/offline-with-mbed-cli.html" class="mbed-nav__icon-link">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#mbed_cli"></use></svg>
+                                            <p>Mbed CLI</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>Security and connectivity</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://tls.mbed.org" class="mbed-nav__icon-link">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#mbed_tls_crypto"></use></svg>
+                                            <p>Mbed TLS and Mbed Crypto</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://os.mbed.com/connectivity-technologies/" class="mbed-nav__icon-link">
+                                            <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#connectivity"></use></svg>
+                                            <p>Connectivity</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <input type="checkbox" name="accordion-toggle" id="hardware-accordion">
+                    <label for="hardware-accordion">Hardware</label>
+                    <div class="accordion_content">
+                        <ul>
+                            <li>
+                                <a href="https://os.mbed.com/platforms/" class="mbed-nav__icon-link">
+                                    <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#boards"></use></svg>
+                                    <p>Boards</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://os.mbed.com/modules/" class="mbed-nav__icon-link">
+                                    <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#modules"></use></svg>
+                                    <p>Modules</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://os.mbed.com/components/" class="mbed-nav__icon-link">
+                                    <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#components"></use></svg>
+                                    <p>Components</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://os.mbed.com/hardware/" class="mbed-nav__icon-link">
+                                    <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#hardware_overview"></use></svg>
+                                    <p>Hardware overview & Mbed Enabled</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://os.mbed.com/docs/mbed-os/latest/porting/arm-mbed-hdk.html" class="mbed-nav__icon-link">
+                                    <svg><use xlink:href="/static/img/mbed_nav_spritesheet.8ac20221a123.svg?v3#mbed_hdk"></use></svg>
+                                    <p>Mbed HDK</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="https://os.mbed.com/code/">Code</a></li>
+                <li>
+                    <input type="checkbox" name="accordion-toggle" id="documentation-accordion">
+                    <label for="documentation-accordion">Documentation</label>
+                    <div class="accordion_content">
+                        <ul>
+                            <li><a href="https://os.mbed.com/docs/mbed-os/">Mbed OS</a></li>
+                            <li><a href="https://os.mbed.com/docs/mbed-studio/">Mbed Studio</a></li>
+                            <li>
+                              <a
+                                href="https://developer.arm.com/documentation/102497/1-5/Arm-Keil-Studio/?utm_source=mbed_com&utm_medium=nav_docs_link&utm_campaign=mbed_com_promo">
+                                Keil Studio
+                              </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="https://os.mbed.com/built-with-mbed/">Case studies</a></li>
+                <li>
+                    <input type="checkbox" name="accordion-toggle" id="community-accordion">
+                    <label for="community-accordion">Community</label>
+                    <div class="accordion_content">
+                        <ul>
+                            <li><a href="https://forums.mbed.com">Forum</a></li>
+                            <li><a href="https://os.mbed.com/docs/mbed-os/latest/contributing/index.html">Contribute</a></li>
+                            <li><a href="https://www.youtube.com/playlist?list=PLKjl7IFAwc4R4plIZe4IuHlsn8zW7rvKh">Mbed OS Tech Forum</a></li>
+                            <li><a href="https://os.mbed.com/support/">Report a problem</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="https://os.mbed.com/blog/">Blog</a></li>
+            </ul>
+        </div>
+
+        
+    </div>
+</div>
+
+
+
+    <div id="main-content">
+        
+
+        
+
+        
+
+        
+            
+
+        
+
+        
+        <div>
+            <div class="row" id="top">
+                <div class="six columns">
+                    <div class="breadcrumbs">
+                        
+    <a href="/platforms/">Boards</a> &raquo;
+    NUCLEO-F303K8
+
+
+                    </div>
+                </div>
+                <div class="six columns header search-block">
+                    
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+
+        
+<div class="row">
+    <div class="nine columns main-content" id="mbed-content">
+        
+
+    <div class="content-actions hide-on-print">
+        
+    </div>
+
+    <h1>NUCLEO-F303K8</h1>
+
+    <p>Affordable and flexible platform to ease prototyping using a STM32F303K8T6 microcontroller.</p>
+
+    
+        <img src="/media/cache/platforms/Nucleo32_MAIN.jpg.250x250_q85.jpg" width="250" height="250"  style="margin-left: auto; margin-right: auto; display: block;">
+
+    <p>
+        <div class="flashbox finfo action-bar"><h4>Table of Contents</h4><ol><li><a href="#overview">Overview</a></li><li><a href="#microcontroller-features">Microcontroller features</a></li><li><a href="#nucleo-features">Nucleo features</a></li><li><a href="#board-pinout">Board pinout</a></li><li><a href="#supported-shields">Supported Shields</a></li><li><a href="#technical-references">Technical references</a></li><li><a href="#known-limitations">Known limitations</a></li><li><a href="#tips-and-tricks">Tips and Tricks</a></li></ol></div><h2 id="overview">Overview<a href="#overview" class="wiki_permalink" title="Permalink to this heading">&para;</a></h2>
+<p>The STM32 Nucleo board provides an affordable and flexible way for users to try out new ideas and build prototypes with any STM32 microcontroller line, choosing from the various combinations of performance, power consumption and features.</p>
+<p>The Arduino™ connectivity support and ST Morpho headers make it easy to expand the
+functionality of the STM32 Nucleo open development platform with a wide choice of
+specialized shields.</p>
+<p>The STM32 Nucleo board does not require any separate probe as it integrates the ST-LINK/V2-1 debugger/programmer. </p>
+<p><br /></p>
+<h2 id="microcontroller-features">Microcontroller features<a href="#microcontroller-features" class="wiki_permalink" title="Permalink to this heading">&para;</a></h2>
+<ul><li>STM32F303K8T6 in LQFP32 package
+</li><li>ARM®32-bit Cortex®-M4 CPU with FPU
+</li><li>72 MHz max CPU frequency
+</li><li>VDD from 2.0 V to 3.6 V
+</li><li>64 KB Flash
+</li><li>12 KB SRAM
+</li><li>Timers Advanced Control (1)
+</li><li>Timers General Purpose (5)
+</li><li>Basic Timers (2)
+</li><li>SPI/I2S (1)
+</li><li>I2C (1)
+</li><li>USART (2)
+</li><li>CAN (1)
+</li><li>12-bit ADC (2), 9 channels
+</li><li>12-bit DAC (2), 3 channels
+</li><li>GPIO (25) with external interrupt capability
+</li><li>RTC
+</li></ul>
+<p><br /></p>
+<h2 id="nucleo-features">Nucleo features<a href="#nucleo-features" class="wiki_permalink" title="Permalink to this heading">&para;</a></h2>
+<ul><li>Two types of extension resources
+<ul><li>Arduino Uno Revision 3 connectivity
+</li><li>STMicroelectronics Morpho extension pin headers for full access to all STM32 I/Os
+</li></ul></li><li>On-board ST-LINK/V2-1 debugger/programmer with SWD connector
+<ul><li>Selection-mode switch to use the kit as a standalone ST-LINK/V2-1
+</li></ul></li><li>Flexible board power supply
+<ul><li>USB VBUS or external source (3.3 V, 5 V, 7 - 12 V)
+</li><li>Power management access point
+</li></ul></li><li>User LED (LD3)
+</li><li>One push buttons: RESET
+</li><li>USB re-enumeration capability: three different interfaces supported on USB
+<ul><li>Virtual Com port
+</li><li>Mass storage (USB Disk drive) for drag'n'drop programming
+</li><li>Debug port
+</li></ul></li></ul>
+<p><br /></p>
+<h2 id="board-pinout">Board pinout<a href="#board-pinout" class="wiki_permalink" title="Permalink to this heading">&para;</a></h2>
+<p><br /></p>
+<h3 id="pins-legend">Pins Legend<a href="#pins-legend" class="wiki_permalink" title="Permalink to this heading">&para;</a></h3>
+<p> <img src="/media/uploads/bcostm/pinout_legend_2017-06-28-2.png" alt="/media/uploads/bcostm/pinout_legend_2017-06-28-2.png" title="/media/uploads/bcostm/pinout_legend_2017-06-28-2.png" /> </p>
+<p>You can find more details on the available pins and labels in the following files (link to the latest mbed-dev library version):</p>
+<ul><li><a href="https://developer.mbed.org/users/mbed_official/code/mbed-dev/file/default/targets/TARGET_STM/TARGET_STM32F3/TARGET_STM32F303x8/TARGET_NUCLEO_F303K8/PeripheralPins.c">PeripheralPins.c</a>
+</li><li><a href="https://developer.mbed.org/users/mbed_official/code/mbed-dev/file/default/targets/TARGET_STM/TARGET_STM32F3/TARGET_STM32F303x8/TARGET_NUCLEO_F303K8/PinNames.h">PinNames.h</a>
+</li></ul>
+<h3 id="arduino-nano-compatible-headers">Arduino-Nano-compatible headers<a href="#arduino-nano-compatible-headers" class="wiki_permalink" title="Permalink to this heading">&para;</a></h3>
+<p> <img src="/media/uploads/bcostm/nucleo_f303k8_2017_10_10.png" alt="/media/uploads/bcostm/nucleo_f303k8_2017_10_10.png" title="/media/uploads/bcostm/nucleo_f303k8_2017_10_10.png" /> </p>
+<div class="flashbox finfo"><h4 class="ftitle">Information</h4><p>By default the PA_5 (A4) and PA_6 (A5) pins can only be used as Input floating (ADC function). Remove SB16 and SB18 solder bridges in order to use these pins as Digital output and have access to other functions (DigitalOut, SPI, PWM, etc...). Refer to the user manual for more details.</p>
+</div><p><br /></p>
+<h2 id="supported-shields">Supported Shields<a href="#supported-shields" class="wiki_permalink" title="Permalink to this heading">&para;</a></h2>
+<p><a href="http://www.gravitech.us/7sediforarna.html" rel="nofollow">Gravitech 7 Segment Display for Arduino Nano</a></p>
+<p><br /></p>
+<div class="flashbox fwarning"><h4 class="ftitle">Nucleo ST-LINK/V2 driver installation and firmware upgrade</h4><ul><li>Install the ST-LINK/V2 driver before connecting the Nucleo board to your PC the first time. Follow this <strong> <a href="/teams/ST/wiki/ST-Link-Driver">LINK</a> </strong> for all details.
+</li><li>For optimum performances, ensure that the Nucleo ST-LINK/V2 firmware is upgraded to the latest version. Follow this <strong> <a href="/teams/ST/wiki/Nucleo-Firmware">LINK</a> </strong> for all details. 
+</li></ul>
+</div><p><br /></p>
+<h2 id="technical-references">Technical references<a href="#technical-references" class="wiki_permalink" title="Permalink to this heading">&para;</a></h2>
+<p>For more information, please refer to:</p>
+<ul><li><a href="http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1576/LN1531/PF258877" rel="nofollow">STM32F303K8 Microcontroller</a>
+</li><li><a href="http://www.st.com/stm32nucleo" rel="nofollow">Nucleo board</a>
+</li><li><a href="/teams/ST/wiki/SDK-changes-log">SDK changes log</a>
+</li></ul>
+<p><br /></p>
+<h2 id="known-limitations">Known limitations<a href="#known-limitations" class="wiki_permalink" title="Permalink to this heading">&para;</a></h2>
+<p>The following section describes known limitations of the platform. Note that general issues are tracked into the <a href="https://github.com/mbedmicro/mbed" rel="nofollow">mbed repository</a> available on GitHub.</p>
+<p>This platform does not present any limitation.</p>
+<p><br /></p>
+<h2 id="tips-and-tricks">Tips and Tricks<a href="#tips-and-tricks" class="wiki_permalink" title="Permalink to this heading">&para;</a></h2>
+<p>Find more information in <a href="https://os.mbed.com/teams/ST/wiki/Special:Allpages" rel="nofollow">ST WIKI pages</a>.</p>
+
+    </p>
+
+    
+        
+        <p align="center">
+        <a class="button " href="https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-nucleo/nucleo-f303k8.html#samplebuy-scroll"><i class="fas fa-shopping-cart" aria-hidden="true"></i>&nbsp;Buy Now</a>
+        </p>
+        
+        <br/>
+   
+
+    
+
+    
+
+
+
+
+
+<div id="component-discussions">
+    <div class="component-community panel">
+        
+            
+                
+    <p> You need to <a href="/account/login/?next=/platforms/ST-Nucleo-F303K8/">log in</a> to post a discussion </p>
+
+            
+            
+                
+                <h2><a name="discussions" href="#discussions">Discussion topics</a></h2>
+                
+
+
+    
+
+
+
+    <table class="responsive styledtable" width="100%">
+        <tr><th>Topic</th><th>Replies</th><th>Last post</th></tr>
+        
+
+        
+            <tr class="tr-b">
+                <td>
+                    <i class="fas icon_topic" aria-hidden="true"></i>
+                    
+                        <span class="inline-taglist content-taglist">
+                            <i class="fas fa-tag" aria-hidden="true"></i>
+                            
+                                <a href="/search/?q=f303k8&type=Forum">f303k8</a>, 
+                            
+                                <a href="/search/?q=pwm&type=Forum">pwm</a>
+                            
+                        </span>
+                    
+                    <span class="topic  unread forum-title">
+                        <a href="/forum/platform-112-ST-Nucleo-F303K8-community/topic/36127/">Strange PWM problem</a>
+                        
+                    </span>
+                </td>
+                <td class="post_count">
+                    1
+                </td>
+                <td class="updated">
+                    
+                        <a href="/forum/platform-112-ST-Nucleo-F303K8-community/post/63067/"><abbr class="timeago" title="2019-09-04T07:10:49+00:00">04 Sep 2019</abbr></a>
+                    
+                    by 
+
+<span class="author_info">
+    <img class="icon" src="/media/cache/img/default_profile.jpg.16x16_q85_crop-center.jpg" alt="" />
+    <a href="/users/1979mgbgt/">Matt Blackler</a>
+</span>
+<br>
+                </td>
+            </tr>
+        
+            <tr class="tr-b">
+                <td>
+                    <i class="fas icon_topic" aria-hidden="true"></i>
+                    
+                        <span class="inline-taglist content-taglist">
+                            <i class="fas fa-tag" aria-hidden="true"></i>
+                            
+                                <a href="/search/?q=f303k8&type=Forum">f303k8</a>, 
+                            
+                                <a href="/search/?q=Serial&type=Forum">Serial</a>
+                            
+                        </span>
+                    
+                    <span class="topic  unread forum-title">
+                        <a href="/forum/platform-112-ST-Nucleo-F303K8-community/topic/27188/">bug/problem serial2 PB_3/PB_4</a>
+                        
+                    </span>
+                </td>
+                <td class="post_count">
+                    4
+                </td>
+                <td class="updated">
+                    
+                        <a href="/forum/platform-112-ST-Nucleo-F303K8-community/post/62525/"><abbr class="timeago" title="2019-02-11T10:37:17+00:00">11 Feb 2019</abbr></a>
+                    
+                    by 
+
+<span class="author_info">
+    <img class="icon" src="/media/cache/img/default_profile.jpg.16x16_q85_crop-center.jpg" alt="" />
+    <a href="/users/abudijana/">abudijana bherdin</a>
+</span>
+<br>
+                </td>
+            </tr>
+        
+            <tr class="tr-b">
+                <td>
+                    <i class="fas icon_topic" aria-hidden="true"></i>
+                    
+                        <span class="inline-taglist content-taglist">
+                            <i class="fas fa-tag" aria-hidden="true"></i>
+                            
+                                <a href="/search/?q=STM32F303K8&type=Forum">STM32F303K8</a>
+                            
+                        </span>
+                    
+                    <span class="topic  unread forum-title">
+                        <a href="/forum/platform-112-ST-Nucleo-F303K8-community/topic/30560/">com serial port led not turn to green stm32f3o3k8</a>
+                        
+                    </span>
+                </td>
+                <td class="post_count">
+                    0
+                </td>
+                <td class="updated">
+                    
+                        <a href="/forum/platform-112-ST-Nucleo-F303K8-community/post/56327/"><abbr class="timeago" title="2018-04-02T15:57:54+00:00">02 Apr 2018</abbr></a>
+                    
+                    by 
+
+<span class="author_info">
+    <img class="icon" src="/media/cache/img/default_profile.jpg.16x16_q85_crop-center.jpg" alt="" />
+    <a href="/users/Kornbot/">Chanapai  Chuadchum</a>
+</span>
+<br>
+                </td>
+            </tr>
+        
+            <tr class="tr-b">
+                <td>
+                    <i class="fas icon_topic" aria-hidden="true"></i>
+                    
+                        <span class="inline-taglist content-taglist">
+                            <i class="fas fa-tag" aria-hidden="true"></i>
+                            
+                                <a href="/search/?q=f303k8&type=Forum">f303k8</a>, 
+                            
+                                <a href="/search/?q=interrupt&type=Forum">interrupt</a>, 
+                            
+                                <a href="/search/?q=Interrupt priority&type=Forum">Interrupt priority</a>, 
+                            
+                                <a href="/search/?q=Nucleo&type=Forum">Nucleo</a>, 
+                            
+                                <a href="/search/?q=Ticker&type=Forum">Ticker</a>
+                            
+                        </span>
+                    
+                    <span class="topic  unread forum-title">
+                        <a href="/forum/platform-112-ST-Nucleo-F303K8-community/topic/27742/">Ticker and external interrupt</a>
+                        
+                    </span>
+                </td>
+                <td class="post_count">
+                    0
+                </td>
+                <td class="updated">
+                    
+                        <a href="/forum/platform-112-ST-Nucleo-F303K8-community/post/52647/"><abbr class="timeago" title="2017-04-30T10:40:59+00:00">30 Apr 2017</abbr></a>
+                    
+                    by 
+
+<span class="author_info">
+    <img class="icon" src="/media/cache/img/default_profile.jpg.16x16_q85_crop-center.jpg" alt="" />
+    <a href="/users/Slinkyfish/">Stephen</a>
+</span>
+<br>
+                </td>
+            </tr>
+        
+    </table>
+
+
+                
+                
+            
+        
+
+
+        
+            <h2><a name="questions"> <A href="#questions">Questions</a></h2>
+            
+                
+                    
+                        <div class="question">
+                            <a href="/questions/86929/Strange-PWM-issue/" style="color: inherit !important;">
+                                <div class="stats">
+                                    
+                                    <div class="answers hasanswers" title="This question has 2 answers.">
+                                    
+                                    2 answers
+                                    </div>
+                                </div>
+                            </a>
+
+                            
+
+                            <a href="/questions/86929/Strange-PWM-issue/" class="title" title="I’m using the F303K8 to output 4x PWM waveforms, which are fed to 4x MOSFETS for dimming LED circuits. 
+
+I quite happily wrote some code to loop a …">
+                                Strange PWM issue
+                            </a>
+
+                            <span class="qdata">
+                                <span class="authortext"><a href="/users/1979mgbgt/" ><img alt="" class="icon" width="16px" height="16px" src="/media/cache/img/default_profile.jpg.16x16_q85_crop-center.jpg" /></a> <a href="/users/1979mgbgt/" > Matt Blackler</a></span> <br />
+                                <abbr title="Fri 06 Sep 2019 02:15">3 years, 7 months ago</abbr>
+                            </span>
+
+                            <p class="tags">
+                            
+                                <i class="fas fa-tag" aria-hidden="true"></i>
+                                
+                                <a href="/questions/tag/f303k8">f303k8</a>, 
+                                
+                                <a href="/questions/tag/Nucleo">Nucleo</a>, 
+                                
+                                <a href="/questions/tag/pwm">pwm</a>
+                                
+                            
+                            </p>
+                        </div>
+                    
+                
+                    
+                        <div class="question">
+                            <a href="/questions/86394/Pin-conflicts-between-Digital-Out-and-An/" style="color: inherit !important;">
+                                <div class="stats">
+                                    
+                                    <div class="answers noanswers" title="This question has no answers.">
+                                    
+                                    0 answers
+                                    </div>
+                                </div>
+                            </a>
+
+                            
+
+                            <a href="/questions/86394/Pin-conflicts-between-Digital-Out-and-An/" class="title" title="Hi,
+
+Are there any know pin conflicts I should be aware of?
+
+https://os.mbed.com/forum/bugs-suggestions/topic/35953/
+
+I just raised this issue …">
+                                Pin conflicts between Digital Out and Analog in
+                            </a>
+
+                            <span class="qdata">
+                                <span class="authortext"><a href="/users/joeh/" ><img alt="" class="icon" width="16px" height="16px" src="/media/cache/img/default_profile.jpg.16x16_q85_crop-center.jpg" /></a> <a href="/users/joeh/" > joe holdsworth</a></span> <br />
+                                <abbr title="Mon 01 Jul 2019 16:50">3 years, 9 months ago</abbr>
+                            </span>
+
+                            <p class="tags">
+                            
+                                <i class="fas fa-tag" aria-hidden="true"></i>
+                                
+                                <a href="/questions/tag/NUCLEO-F303K8">NUCLEO-F303K8</a>
+                                
+                            
+                            </p>
+                        </div>
+                    
+                
+                    
+                        <div class="question">
+                            <a href="/questions/85159/SPI-Slave-device-with-thread/" style="color: inherit !important;">
+                                <div class="stats">
+                                    
+                                    <div class="answers noanswers" title="This question has no answers.">
+                                    
+                                    0 answers
+                                    </div>
+                                </div>
+                            </a>
+
+                            
+
+                            <a href="/questions/85159/SPI-Slave-device-with-thread/" class="title" title="Is it possible to use SPI Slave feature inside thread?
+
+Program works perfectly inside &quot;main() { while(1) {..} }&quot; loop, but crashes if moved into t…">
+                                SPI Slave device with thread
+                            </a>
+
+                            <span class="qdata">
+                                <span class="authortext"><a href="/users/jmarkowiak/" ><img alt="" class="icon" width="16px" height="16px" src="/media/cache/img/default_profile.jpg.16x16_q85_crop-center.jpg" /></a> <a href="/users/jmarkowiak/" > Jakub Markowiak</a></span> <br />
+                                <abbr title="Tue 19 Mar 2019 14:05">4 years ago</abbr>
+                            </span>
+
+                            <p class="tags">
+                            
+                                <i class="fas fa-tag" aria-hidden="true"></i>
+                                
+                                <a href="/questions/tag/NUCLEO-F303K8">NUCLEO-F303K8</a>
+                                
+                            
+                            </p>
+                        </div>
+                    
+                
+                    
+                        <div class="question">
+                            <a href="/questions/84778/I2C-doesn-t-work-on-F303K8/" style="color: inherit !important;">
+                                <div class="stats">
+                                    
+                                    <div class="answers hasanswers" title="This question has 2 answers.">
+                                    
+                                    2 answers
+                                    </div>
+                                </div>
+                            </a>
+
+                            
+
+                            <a href="/questions/84778/I2C-doesn-t-work-on-F303K8/" class="title" title="I connected a gyro to the I2C pins PB7 and PB_6 to test the I2C but i cant get it working.
+Same code works with my LPC1768.
+
+Searched around manua…">
+                                I2C doesn´t work on F303K8?
+                            </a>
+
+                            <span class="qdata">
+                                <span class="authortext"><a href="/users/Mateo_swe/" ><img alt="" class="icon" width="16px" height="16px" src="/media/cache/img/default_profile.jpg.16x16_q85_crop-center.jpg" /></a> <a href="/users/Mateo_swe/" > Mattias Hedlund</a></span> <br />
+                                <abbr title="Sun 24 Feb 2019 22:50">4 years, 1 month ago</abbr>
+                            </span>
+
+                            <p class="tags">
+                            
+                                <i class="fas fa-tag" aria-hidden="true"></i>
+                                
+                                <a href="/questions/tag/NUCLEO-F303K8">NUCLEO-F303K8</a>
+                                
+                            
+                            </p>
+                        </div>
+                    
+                
+                    
+                        <div class="question">
+                            <a href="/questions/82654/Keil-uVision-compilation-problem/" style="color: inherit !important;">
+                                <div class="stats">
+                                    
+                                    <div class="answers hasanswers" title="This question has 3 answers.">
+                                    
+                                    3 answers
+                                    </div>
+                                </div>
+                            </a>
+
+                            
+
+                            <a href="/questions/82654/Keil-uVision-compilation-problem/" class="title" title="Hi, this is Akif, I have a problem with Keil uVision v5.26.2. Exported default blinky project using f303k8 for Keil.  When I try to compile the proje…">
+                                Keil uVision compilation problem
+                            </a>
+
+                            <span class="qdata">
+                                <span class="authortext"><a href="/users/macolak/" ><img alt="" class="icon" width="16px" height="16px" src="/media/cache/img/default_profile.jpg.16x16_q85_crop-center.jpg" /></a> <a href="/users/macolak/" > M Akif Colak</a></span> <br />
+                                <abbr title="Thu 21 Feb 2019 05:33">4 years, 1 month ago</abbr>
+                            </span>
+
+                            <p class="tags">
+                            
+                                <i class="fas fa-tag" aria-hidden="true"></i>
+                                
+                                <a href="/questions/tag/NUCLEO-F303K8">NUCLEO-F303K8</a>
+                                
+                            
+                            </p>
+                        </div>
+                    
+                
+
+                
+                    
+                        <a href="/questions/related/72/112/ST-Nucleo-F303K8/">See more related questions</a>
+                    
+                
+
+            
+        
+    </div>
+</div>
+
+
+    </div>
+
+    <div class="three columns sidebar ">
+        
+    
+        <div class="panel promote">
+    <div class="row">
+        <div class="two columns">
+            <span class="fa-stack fa-lg">
+                <i class="fas fa-square fa-stack-2x"></i>
+                <i class="fas fa-terminal fa-stack-1x fa-inverse"></i>
+            </span>
+        </div>
+        <div class="ten columns">
+            <p class="promote-text toolbox">
+                To compile a program for this board using Mbed CLI, use
+                <span style="font-weight: 600;">
+                    nucleo_f303k8
+                </span>
+                as the target name.
+            </p>
+        </div>
+    </div>
+</div>
+    
+
+        
+            <div class="panel statspanel">
+              <h5 class="subheader">Board Partner</h5>
+              <a href="/teams/ST/">
+              
+                    <img src="/media/cache/group/ST_logo_2020_blue_V_cmyk.jpg.250x250_q85.jpg" width="250" height="192" >
+              </a>
+              <h3><a href="/teams/ST/">ST</a></h3>
+              <p>A world leader in providing the semiconductor solutions that make a positive contribution to people’s lives, both today and in the future.</p>
+            </div>
+        
+
+
+    
+
+    <div class="panel statspanel">
+        
+            
+                <p align="center">
+                    <a class="button" href="https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-nucleo/nucleo-f303k8.html#samplebuy-scroll"><i class="fas fa-shopping-cart" aria-hidden="true"></i>&nbsp;Buy Now</a>
+                </p>
+            
+        
+    </div>
+
+    
+    <div class="panel">
+        <h5 class="subheader">
+            <img src="/static/img/arm_mbed_enabled_block_lockup_vertical.svg" height="25" width="25"  alt="Mbed Enabled"/>
+            Mbed Enabled
+        </h5>
+        <ul class="mbed-support">
+            
+                <li>Baseline</li>
+            
+        </ul>
+    </div>
+
+
+
+    <div class="panel">
+        <h5 class="subheader">Mbed OS support</h5>
+        <ul class="mbed-support">
+            
+                <li>Mbed OS 2</li>
+            
+                <li>Mbed OS 5.10</li>
+            
+                <li>Mbed OS 5.11</li>
+            
+                <li>Mbed OS 5.12</li>
+            
+                <li>Mbed OS 5.13</li>
+            
+                <li>Mbed OS 5.14</li>
+            
+                <li>Mbed OS 5.15</li>
+            
+                <li>Mbed OS 6.0</li>
+            
+                <li>Mbed OS 6.1</li>
+            
+                <li>Mbed OS 6.10</li>
+            
+                <li>Mbed OS 6.11</li>
+            
+                <li>Mbed OS 6.12</li>
+            
+                <li>Mbed OS 6.13</li>
+            
+                <li>Mbed OS 6.14</li>
+            
+                <li>Mbed OS 6.15</li>
+            
+                <li>Mbed OS 6.2</li>
+            
+                <li>Mbed OS 6.3</li>
+            
+                <li>Mbed OS 6.4</li>
+            
+                <li>Mbed OS 6.5</li>
+            
+                <li>Mbed OS 6.6</li>
+            
+                <li>Mbed OS 6.7</li>
+            
+                <li>Mbed OS 6.8</li>
+            
+                <li>Mbed OS 6.9</li>
+            
+        </ul>
+    </div>
+
+
+
+
+    
+        <div class="panel ">
+            <h3 class="subheader">Example programs</h5>
+            <p>
+                
+                    
+
+<div class="contentitem repo-tiny">
+    <a class="repo-link" href="/teams/ST/code/STM32_ADC_InternalChannels/">
+    
+        <span class="repo-meta-os-version">
+            
+
+
+Mbed 2 <span class="warning-badge">deprecated</span>
+
+
+        </span>
+    
+    
+        <i title="This repository is a program" class="fas icon_program" aria-hidden="true"></i>
+    
+
+    STM32_ADC_InternalChannels
+</a>
+
+    <div class="repo-meta">
+        <ul>
+            
+            
+        </ul>
+        <ul>
+            <li>
+                <a title="Number of commits" href="/teams/ST/code/STM32_ADC_InternalChannels/}shortlog">
+                    <i class="fas icon_commits" aria-hidden="true"></i>
+                    <b>9</b>
+                </a>
+            </li>
+            <li>
+                <a title="How many times imported into the Mbed Online Compiler" href="/teams/ST/code/STM32_ADC_InternalChannels/">
+                    <i class="fas icon_imports" aria-hidden="true"></i>
+                    <b>49840</b>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="repo-description">
+        ADC internal channels read example.
+    </div>
+
+    
+        <div class="repo-tags">
+            <i class="fas fa-tag" aria-hidden="true"></i>
+            
+                <a href="/search/?q=Internal Channels">
+                    Internal Channels
+                </a>, 
+            
+                <a href="/search/?q=stm32">
+                    stm32
+                </a>, 
+            
+                <a href="/search/?q=temperature sensor">
+                    temperature sensor
+                </a>, 
+            
+                <a href="/search/?q=VBAT">
+                    VBAT
+                </a>
+            
+        </div>
+    
+
+    <div class="repo-last-updated">
+        
+        Last updated: <abbr class="timeago" title="2017-08-17T14:40:24+00:00">17 Aug 2017</abbr>
+        
+    </div>
+</div>
+
+                
+            </p>
+        </div>
+    
+    
+
+
+    </div>
+</div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            mbed.initDismissableBanners($('[data-dismissable]'));
+            mbed.initNavNotification();
+        });
+    </script>
+
+    
+<footer class="global-footer">
+    <ul class="global-footer-media global-footer-row">
+        <li>
+            <a class="footer-media-icon" title="Twitter" href="https://twitter.com/ArmSoftwareDev">
+                <span class="fab fa-twitter-square fa-2x"></span>
+                <span class="global-footer-show-on-large-screens">Twitter</span>
+            </a>
+        </li>
+        <li>
+            <a class="footer-media-icon" title="YouTube" href="https://www.youtube.com/c/ArmSoftwareDevelopers">
+                <span class="fab fa-youtube-square fa-2x"></span>
+                <span class="global-footer-show-on-large-screens">YouTube</span>
+            </a>
+        </li>
+        <li>
+            <a class="footer-media-icon" title="Forum" href="http://forums.mbed.com/">
+                <span class="fas fa-comments fa-2x"></span>
+                <span class="global-footer-show-on-large-screens">Forum</span>
+            </a>
+        </li>
+        <li>
+            <a class="footer-media-icon" title="Blog" href="http://blog.mbed.com/">
+                <span class="fas fa-pen-square fa-2x"></span>
+                <span class="global-footer-show-on-large-screens">Blog</span>
+            </a>
+        </li>
+    </ul>
+
+    <div class="global-footer-copyright global-footer-row">
+        <div class="copyright-statement">Copyright © <script>document.write(new Date().getFullYear());</script> Arm Limited (or its affiliates).</div>
+        <ul class="copyright-links">
+            <li><a href="https://os.mbed.com/">Home</a></li>
+            <li><a href="https://www.arm.com/company/policies/terms-and-conditions">Website Terms</a></li>
+            <li><a href="https://www.arm.com/company/policies/privacy">Privacy</a></li>
+            <li><a href="https://www.arm.com/company/policies/cookies">Cookies</a></li>
+            <li><a href="http://www.arm.com/company/policies/trademarks">Trademarks</a></li>
+        </ul>
+    </div>
+</footer>
+
+
+
+    <div id="cookiemodule">
+    <h5>Important Information for this Arm website</h5>
+    <div id="cookiecontent">
+        <p>
+            This site uses cookies to store information on your computer.
+            By continuing to use our site, you consent to our cookies.
+            If you are not happy with the use of these cookies, please review our
+            <a href="https://www.arm.com/company/policies/cookies">Cookie Policy</a>
+            to learn how they can be disabled.
+            By disabling cookies, some features of the site will not work.
+        </p>
+        <button id="acceptcookie">Accept and hide this message</button>
+    </div>
+</div>
+<script src="/static/js/cookie_law.js"></script>
+
+
+
+
+<div id="access-warning-modal" class="reveal-modal">
+    <h2>Access Warning</h2>
+    <p>You do not have the correct permissions to perform this operation.</p>
+    <a class="close-reveal-modal">&#215;</a>
+</div>
+
+
+
+</body>
+</html>
