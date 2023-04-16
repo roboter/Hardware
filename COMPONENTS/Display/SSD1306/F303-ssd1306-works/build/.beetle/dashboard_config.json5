@@ -1,0 +1,60 @@
+//=============================================================================//
+//                               DASHBOARD CONFIG                              //
+//=============================================================================//
+// COPYRIGHT (c) 2023 Embeetle                                                 //
+// This software component is licensed by Embeetle under the MIT license. Con- //
+// sult the license text at the bottom of this file.                           //
+//                                                                             //
+// SUMMARY                                                                     //
+// This file saves all your settings from the Dashboard.                       //
+//                                                                             //
+
+
+{
+  "project_type": "makefile",
+  "project_version": "latest",
+  "chip_name": null,
+  "board_name": null,
+  "probe_name": null,
+  "transport_protocol": null,
+  "COM_port": null,
+  "BUILD_DIR": null,
+  "BIN_FILE": null,
+  "ELF_FILE": null,
+  "BOOTLOADER_FILE": null,
+  "BOOTSWITCH_FILE": null,
+  "PARTITIONS_CSV_FILE": null,
+  "LINKERSCRIPT": null,
+  "MAKEFILE": null,
+  "GDB_FLASHFILE": null,
+  "OPENOCD_CHIPFILE": null,
+  "OPENOCD_PROBEFILE": null,
+  "PYOCD_FILE": null,
+  "PACKPATH": null,
+  "COMPILER_TOOLCHAIN": null,
+  "BUILD_AUTOMATION": null,
+  "FLASHTOOL": null,
+  "hash_value": "f6259250cf24a89bb8d186be762210b2"
+}
+
+// MIT LICENSE
+// ===========
+// COPYRIGHT (c) 2023 Embeetle
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is furn-
+// ished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.

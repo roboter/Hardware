@@ -1,7 +1,7 @@
 ################################################################################
 #                              MAKEFILE INCLUDES                               #
 ################################################################################
-# COPYRIGHT (c) 2020 Embeetle                                                  #
+# COPYRIGHT (c) 2023 Embeetle                                                  #
 # This software component is licensed by Embeetle under the MIT license. Con-  #
 # sult the license text at the bottom of this file.                            #
 #                                                                              #

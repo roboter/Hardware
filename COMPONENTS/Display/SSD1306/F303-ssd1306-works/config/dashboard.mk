@@ -33,139 +33,133 @@
 #                                                                              #
 ################################################################################
 
-CFG = default
+# 1. VERSION
+# ==========
+# Define the makefile interface version this 'dashboard.mk' file must be com-
+# patible with.
+EMBEETLE_MAKEFILE_INTERFACE_VERSION = 7
 
-################################################################################
-#                                [cfg: default]                                #
-################################################################################
-ifeq ($(CFG),default)
-  # 1. VERSION
-  # ==========
-  # Define the makefile interface version this 'dashboard.mk' file must be com-
-  # patible with.
-  EMBEETLE_MAKEFILE_INTERFACE_VERSION = 7
-  
-  # 2. TOOLS
-  # ========
-  # When invoking the makefile, Embeetle passes absolute paths to the toolchain
-  # (ARM, RISCV, ...) and the flash tool (OpenOCD, esptool, ...) on the command-
-  # line.
-  # Example:
-  #
-  #   > "TOOLPREFIX=C:/my_tools/gnu_arm_toolchain_9.2.1/bin/arm-none-eabi-"
-  #   > "FLASHTOOL=C:/my_tools/openocd_0.10.0_dev01138_32b/bin/openocd.exe"
-  #
-  # If you ever invoke the makefile without these commandline-arguments,
-  # you need a fallback mechanism. Therefore, we provide a default value
-  # for these variables here. Read more about the reasons in ADDENDUM 2.
-  TOOLPREFIX = arm-none-eabi-
-  FLASHTOOL = openocd
-  
-  # 3. PROJECT LAYOUT
-  # =================
-  # The PROJECT LAYOUT section in the dashboard points to all important config
-  # file locations (eg. linkerscript, openocd config files, ...). If you change
-  # any of those locations in the dashboard, Embeetle changes the variables be-
-  # low accordingly.
-  #
-  # NOTES:
-  #     - These paths are all relative to the build directory.
-  #     - Locations of 'dashboard.mk' and 'filetree.mk' are not
-  #       defined here. That's because they're always located in
-  #       the same folder with the makefile.
-  ELF_FILE = application.elf
-  SOURCE_DIR = ../
-  LINKERSCRIPT = ../config/linkerscript.ld
-  OPENOCD_CHIPFILE = ../config/openocd_chip.cfg
-  OPENOCD_PROBEFILE = ../config/openocd_probe.cfg
-  
-  # 4. BINARIES
-  # ===========
-  # Define the binaries that must be built.
-  BINARIES = \
-    $(ELF_FILE) \
-    $(ELF_FILE:.elf=.bin) \
-    $(ELF_FILE:.elf=.hex) \
-  # Define the rules to build these binaries from the .elf file.
-  %.bin: %.elf
+# 2. TOOLS
+# ========
+# When invoking the makefile, Embeetle passes absolute paths to the toolchain
+# (ARM, RISCV, ...) and the flash tool (OpenOCD, esptool, ...) on the command-
+# line.
+# Example:
+#
+#   > "TOOLPREFIX=C:/my_tools/gnu_arm_toolchain_9.2.1/bin/arm-none-eabi-"
+#   > "FLASHTOOL=C:/my_tools/openocd_0.10.0_dev01138_32b/bin/openocd.exe"
+#
+# If you ever invoke the makefile without these commandline-arguments,
+# you need a fallback mechanism. Therefore, we provide a default value
+# for these variables here. Read more about the reasons in ADDENDUM 2.
+TOOLPREFIX = arm-none-eabi-
+FLASHTOOL = openocd
+
+# 3. PROJECT LAYOUT
+# =================
+# The PROJECT LAYOUT section in the dashboard points to all important config
+# file locations (eg. linkerscript, openocd config files, ...). If you change
+# any of those locations in the dashboard, Embeetle changes the variables be-
+# low accordingly.
+#
+# NOTES:
+#     - These paths are all relative to the build directory.
+#     - Locations of 'dashboard.mk' and 'filetree.mk' are not
+#       defined here. That's because they're always located in
+#       the same folder with the makefile.
+ELF_FILE = application.elf
+SOURCE_DIR = ../
+LINKERSCRIPT = ../config/linkerscript.ld
+OPENOCD_CHIPFILE = ../config/openocd_chip.cfg
+OPENOCD_PROBEFILE = ../config/openocd_probe.cfg
+
+# 4. BINARIES
+# ===========
+# Define the binaries that must be built.
+BINARIES = \
+  $(ELF_FILE) \
+  $(ELF_FILE:.elf=.bin) \
+  $(ELF_FILE:.elf=.hex) \
+# Define the rules to build these binaries from the .elf file.
+%.bin: %.elf
 	$(info )
 	$(info )
 	$(info Preparing: $@)
 	$(OBJCOPY) -O binary $< $@
-  
-  %.hex: %.elf
+
+%.hex: %.elf
 	$(info )
 	$(info )
 	$(info Preparing: $@)
 	$(OBJCOPY) -O ihex $< $@
-  
-  # 5. COMPILATION FLAGS
-  # ====================
-  # CPU specific flags for C++, C and assembly compilation and linking.
-  TARGET_COMMONFLAGS = -mfpu=fpv4-sp-d16 \
-                       -mfloat-abi=hard \
-                       -mcpu=cortex-m4 \
-                       -mthumb \
-                       -DARM_MATH_CM4 \
-  
-  # CPU specific C compilation flags
-  TARGET_CFLAGS = -D__packed="__attribute__((__packed__))" \
+
+# 5. COMPILATION FLAGS
+# ====================
+# CPU specific flags for C++, C and assembly compilation and linking.
+TARGET_COMMONFLAGS = -mfpu=fpv4-sp-d16 \
+                     -mfloat-abi=hard \
+                     -mcpu=cortex-m4 \
+                     -mthumb \
+                     -DARM_MATH_CM4 \
+
+# CPU specific C compilation flags
+TARGET_CFLAGS = -D__packed="__attribute__((__packed__))" \
+                -D__weak="__attribute__((weak))" \
+                -DUSE_HAL_DRIVER \
+                -DSTM32F303x8 \
+
+# CPU specific C++ compilation flags
+TARGET_CXXFLAGS = -D__packed="__attribute__((__packed__))" \
                   -D__weak="__attribute__((weak))" \
                   -DUSE_HAL_DRIVER \
                   -DSTM32F303x8 \
-  
-  # CPU specific C++ compilation flags
-  TARGET_CXXFLAGS = -D__packed="__attribute__((__packed__))" \
-                    -D__weak="__attribute__((weak))" \
-                    -DUSE_HAL_DRIVER \
-                    -DSTM32F303x8 \
-  
-  # CPU specific assembler flags
-  TARGET_SFLAGS = -D__packed="__attribute__((__packed__))" \
-                  -D__weak="__attribute__((weak))" \
-  
-  # CPU specific linker flags
-  TARGET_LDFLAGS = --specs=nano.specs \
-                   --specs=nosys.specs \
-                   -T $(LINKERSCRIPT) \
-                   -L $(dir $(LINKERSCRIPT)) \
-  
-  # Libraries from the toolchain
-  TOOLCHAIN_LDLIBS = -lm \
-  
-  # NOTE:
-  # The -DARM_MATH_XX flag can be:
-  #     ARM_MATH_CM7
-  #     ARM_MATH_CM4
-  #     ARM_MATH_CM3
-  #     ARM_MATH_CM0PLUS
-  #     ARM_MATH_CM0
-  #     ARM_MATH_ARMV8MBL
-  #     ARM_MATH_ARMV8MML
-  
-  # 6. FLASH RULES
-  # ==============
-  # The 'flash' target flashes the binary to the target microcontroller. To
-  # achieve this, it invokes the OpenOCD tool:
-  .PHONY: flash
-  flash: $(BINARIES) print_flash
+
+# CPU specific assembler flags
+TARGET_SFLAGS = -D__packed="__attribute__((__packed__))" \
+                -D__weak="__attribute__((weak))" \
+
+# CPU specific linker flags
+TARGET_LDFLAGS = --specs=nano.specs \
+                 --specs=nosys.specs \
+                 -T $(LINKERSCRIPT) \
+                 -L $(dir $(LINKERSCRIPT)) \
+
+# Libraries from the toolchain
+TOOLCHAIN_LDLIBS = -lm \
+
+# NOTE:
+# The -DARM_MATH_XX flag can be:
+#     ARM_MATH_CM7
+#     ARM_MATH_CM4
+#     ARM_MATH_CM3
+#     ARM_MATH_CM0PLUS
+#     ARM_MATH_CM0
+#     ARM_MATH_ARMV8MBL
+#     ARM_MATH_ARMV8MML
+
+# 6. FLASH RULES
+# ==============
+# The 'flash' target flashes the binary to the target microcontroller. To
+# achieve this, it invokes the OpenOCD tool:
+.PHONY: flash
+flash: $(BINARIES) print_flash
 	"$(FLASHTOOL)" -f $(OPENOCD_PROBEFILE)\
-                 -f $(OPENOCD_CHIPFILE)\
-                 -c "program {$(ELF_FILE)} verify reset; shutdown;"
-  
-  # Let's figure out what the flags mean:
-  #
-  #   -f: Specify a config file for OpenOCD to use. We pass this flag
-  #       twice: once for the config file that defines the probe and
-  #       once to define the chip (microcontroller).
-  #
-  #   -c: Run the specified commands. The ones we pass are:
-  #         1) program {file} verify reset;
-  #            Upload the firmware to the flash memory and verify
-  #            if it was successful.
-  #         2) shutdown;
-  #            Quit OpenOCD.
-endif
+               -f $(OPENOCD_CHIPFILE)\
+               -c "program {$(ELF_FILE)} verify reset; shutdown;"
+
+# Let's figure out what the flags mean:
+#
+#   -f: Specify a config file for OpenOCD to use. We pass this flag
+#       twice: once for the config file that defines the probe and
+#       once to define the chip (microcontroller).
+#
+#   -c: Run the specified commands. The ones we pass are:
+#         1) program {file} verify reset;
+#            Upload the firmware to the flash memory and verify
+#            if it was successful.
+#         2) shutdown;
+#            Quit OpenOCD.
+
 
 # ADDENDUM 1. MIT LICENSE
 # =======================
