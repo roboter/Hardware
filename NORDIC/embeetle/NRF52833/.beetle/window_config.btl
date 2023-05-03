@@ -1,0 +1,117 @@
+{
+    "WINDOW-SIZE": "MAXIMIZED",
+    "BOXES": {
+        "0": {
+            "BOX-H": {
+                "0": {
+                    "BOX-V": {
+                        "0": {
+                            "TABS": {
+                                "Console": {
+                                    "class": "Console"
+                                },
+                                "rel://source/components/802_15_4/src/rng_entity.c": {
+                                    "class": "Editor",
+                                    "tab-index": 1,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/components/ble/ble_advertising/ble_advertising.c": {
+                                    "class": "Editor",
+                                    "tab-index": 2,
+                                    "data": {
+                                        "line": 39,
+                                        "index": 11,
+                                        "first-visible-line": 39,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/components/libraries/util/sdk_common.h": {
+                                    "class": "Editor",
+                                    "tab-index": 3,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "SATab": {
+                                    "class": "SATab"
+                                },
+                                "CURRENT-INDEX": 0
+                            }
+                        }
+                    },
+                    "SIZES": [
+                        915
+                    ]
+                },
+                "1": {
+                    "BOX-V": {
+                        "0": {
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Filetree": {
+                                            "class": "FileExplorer"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "SymbolStack": {
+                                            "class": "Symbols"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                485,
+                                476
+                            ]
+                        },
+                        "1": {
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Project Dashboard": {
+                                            "class": "Dashboard"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "Diagnostics": {
+                                            "class": "Diagnostics"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                468,
+                                493
+                            ]
+                        }
+                    },
+                    "SIZES": [
+                        458,
+                        455
+                    ]
+                }
+            },
+            "SIZES": [
+                955,
+                963
+            ]
+        }
+    }
+}

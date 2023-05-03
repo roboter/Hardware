@@ -1,0 +1,1 @@
+nRF52 device has AP lock engaged (see UICR APPROTECT register).
