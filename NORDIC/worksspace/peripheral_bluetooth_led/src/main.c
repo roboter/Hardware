@@ -169,9 +169,7 @@ static void button_changed(uint32_t button_state, uint32_t has_changed)
 
 static int init_button(void)
 {
-	int err;
-
-	err = dk_buttons_init(button_changed);
+	int err = dk_buttons_init(button_changed);
 	if (err) {
 		printk("Cannot init buttons (err: %d)\n", err);
 	}
