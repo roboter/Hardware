@@ -1,0 +1,4 @@
+{
+    "ewp": "${workspaceFolder}\\GD32\\GD32F20x_Firmware_Library_V2.4.0\\Examples\\USBFS\\USB_Device\\audio\\EWARM\\audio.ewp",
+    "configuration": "USBFS"
+}

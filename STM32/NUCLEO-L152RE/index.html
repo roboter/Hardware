@@ -1,0 +1,790 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>ST Nucleo L152RE &mdash; Zephyr Project Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/tabs.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.png"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script type="module" src="../../../../_static/js/dark-mode-toggle.min.mjs"></script>
+        <script src="https://www.googletagmanager.com/gtag/js?id=UA-831873-47"></script>
+        <script src="../../../../_static/js/ga-tracker.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../../copyright.html" />
+    <link rel="next" title="ST Nucleo L412RB-P" href="../../nucleo_l412rb_p/doc/index.html" />
+    <link rel="prev" title="ST Nucleo L073RZ" href="../../nucleo_l073rz/doc/index.html" />
+  <meta name="color-scheme" content="dark light">
+  
+  <link rel="stylesheet" href="../../../../_static/css/light.css" type="text/css" media="(prefers-color-scheme: light)"/>
+  <link rel="stylesheet" href="../../../../_static/css/dark.css" type="text/css" media="(prefers-color-scheme: dark)"/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html">
+          
+
+          
+            
+            <img src="../../../../_static/logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Zephyr Project</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Document Release Versions</dt>
+        
+          <dd><a href="/">latest</a></dd>
+        
+          <dd><a href="/2.6.0/">2.6.0</a></dd>
+        
+          <dd><a href="/2.5.0/">2.5.0</a></dd>
+        
+          <dd><a href="/2.4.0/">2.4.0</a></dd>
+        
+          <dd><a href="/2.3.0/">2.3.0</a></dd>
+        
+          <dd><a href="/2.2.0/">2.2.0</a></dd>
+        
+          <dd><a href="/1.14.1/">1.14.1</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+        <dd><a href="/2.7.0/zephyr.pdf">PDF</a></dd>
+      </dl>
+      <dl>
+        <dt>zephyrproject.org Links</dt>
+          <dd>
+            <a href="https://www.zephyrproject.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/sdk-ng/releases">SDK</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/zephyrproject-rtos/zephyr/releases">Releases</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+  
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contribute/index.html">Contribution Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../development_process/index.html">Development and Contribution Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../guides/build/index.html">Build and Configuration Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../application/index.html">Application Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../guides/index.html">User and Developer Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Supported Boards</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../x86/index.html">x86 Boards</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">ARM Boards</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../96b_aerocore2/doc/index.html">96Boards Aerocore2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../96b_argonkey/doc/index.html">96Boards Argonkey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../96b_avenger96/doc/index.html">96Boards Avenger96</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../96b_carbon/doc/index.html">96Boards Carbon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../96b_carbon_nrf51/doc/index.html">96Boards Carbon nRF51</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../96b_meerkat96/doc/index.html">96Boards Meerkat96</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../96b_neonkey/doc/index.html">96Boards Neonkey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../96b_nitrogen/doc/index.html">96Boards Nitrogen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../96b_stm32_sensor_mez/doc/index.html">96Boards STM32 Sensor Mezzanine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../96b_wistrio/doc/96b_wistrio.html">96Boards WisTrio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../actinius_icarus/doc/index.html">Actinius Icarus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../actinius_icarus_bee/doc/index.html">Actinius Icarus Bee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../actinius_icarus_som/doc/index.html">Actinius Icarus SoM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../adafruit_feather_m0_basic_proto/doc/index.html">Adafruit Feather M0 Basic Proto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../adafruit_feather_nrf52840/doc/index.html">Adafruit Feather nRF52840 Express</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../adafruit_feather_stm32f405/doc/index.html">Adafruit Feather STM32F405 Express</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../adafruit_itsybitsy_m4_express/doc/index.html">Adafruit ItsyBitsy M4 Express</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../adafruit_trinket_m0/doc/index.html">Adafruit Trinket M0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../arduino_due/doc/index.html">Arduino Due</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../arduino_nano_33_ble/doc/index.html">Arduino Nano 33 BLE (Sense)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../arduino_nano_33_iot/doc/index.html">Arduino Nano 33 IOT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../arduino_zero/doc/index.html">Arduino/Genuino Zero</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../arty/doc/index.html">Digilent Arty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../atsamd20_xpro/doc/index.html">SAM D20 Xplained Pro Evaluation Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../atsamd21_xpro/doc/index.html">SAM D21 Xplained Pro Evaluation Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../atsame54_xpro/doc/index.html">SAM E54 Xplained Pro Evaluation Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../atsamr21_xpro/doc/index.html">SAM R21 Xplained Pro Evaluation Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../b_l072z_lrwan1/doc/index.html">ST B-L072Z-LRWAN1 Discovery kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../b_l4s5i_iot01a/doc/index.html">ST B_L4S5I_IOT01A Discovery kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../b_u585i_iot02a/doc/index.html">ST B_U585I_IOT02A Discovery kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bbc_microbit/doc/index.html">BBC MicroBit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bbc_microbit_v2/doc/index.html">BBC MicroBit V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bcm958401m2/doc/index.html">Broadcom BCM958401M2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bcm958402m2_m7/doc/index.html">Broadcom BCM958402M2 (Cortex-M7)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bl5340_dvk/doc/index.html">Laird Connectivity BL5340 DVK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bl652_dvk/doc/bl652_dvk.html">Laird Connectivity BL652 DVK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bl653_dvk/doc/bl653_dvk.html">Laird Connectivity BL653 DVK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bl654_dvk/doc/bl654_dvk.html">Laird Connectivity BL654 DVK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bl654_sensor_board/doc/bl654_sensor_board.html">Laird Connectivity BL654 Sensor Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bl654_usb/doc/bl654_usb.html">Laird Connectivity BL654 USB (451-00004)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../black_f407ve/doc/index.html">Black STM32 F407VE Development Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../black_f407zg_pro/doc/index.html">Black STM32 F407ZG Pro Development Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../blackpill_f401ce/doc/index.html">WeAct Studio Black Pill V3.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../blackpill_f411ce/doc/index.html">WeAct Studio Black Pill V2.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bt510/doc/bt510.html">Laird Connectivity Sentrius BT510 Sensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bt6x0/doc/bt6x0.html">Laird Connectivity Sentrius BT6x0 Sensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cc1352r1_launchxl/doc/index.html">CC1352R1 LaunchXL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cc1352r_sensortag/doc/index.html">CC1352R SensorTag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cc26x2r1_launchxl/doc/index.html">CC26x2R1 LaunchXL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cc3220sf_launchxl/doc/index.html">CC3220SF LaunchXL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cc3235sf_launchxl/doc/index.html">CC3235SF LaunchXL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../circuitdojo_feather_nrf9160/doc/index.html">nRF9160 Feather</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../colibri_imx7d_m4/doc/index.html">NXP i.MX 7 Computer on Module - Colibri iMX7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contextualelectronics_abc/doc/index.html">Contextual Eletronics Advanced BLE Cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cy8ckit_062_ble/doc/index.html">PSoC63 BLE Pioneer Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../cy8ckit_062_wifi_bt/doc/index.html">PSoC6 WiFi-BT Pioneer Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../decawave_dwm1001_dev/doc/index.html">Decawave DWM1001</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../degu_evk/doc/index.html">Degu Evaluation Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../disco_l475_iot1/doc/index.html">ST Disco L475 IOT01 (B-L475E-IOT01A)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dragino_lsn50/doc/index.html">Dragino LSN50 LoRA Sensor Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dragino_nbsn95/doc/index.html">Dragino NBSN95 NB-IoT Sensor Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../efm32gg_slwstk6121a/doc/index.html">WGM160P Starter Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../efm32gg_stk3701a/doc/index.html">EFM32 Giant Gecko GG11 Starter Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../efm32hg_slstk3400a/doc/index.html">EFM32HG-SLSTK3400A</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../efm32pg_stk3401a/doc/index.html">EFM32 Pearl Gecko Starter Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../efm32pg_stk3402a/doc/index.html">EFM32 Pearl Gecko Starter Kit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../efm32wg_stk3800/doc/index.html">EFM32WG-STK3800</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../efr32_radio/doc/brd4104a.html">EFR32 BRD4104A (SLWRB4104A)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../efr32_radio/doc/brd4180a.html">EFR32 BRD4180A (SLWRB4180A)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../efr32_radio/doc/brd4250b.html">EFR32 BRD4250B (SLWRB4250B)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../efr32_radio/doc/brd4255a.html">EFR32 BRD4255A (SLWRB4255A)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../efr32_radio/doc/index.html">EFR32 Radio Boards</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../efr32mg_sltb004a/doc/index.html">EFR32MG-SLTB004A</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faze/doc/index.html">Seagate FireCuda Gaming SSD (FaZe) board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../frdm_k22f/doc/index.html">NXP FRDM-K22F</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../frdm_k64f/doc/index.html">NXP FRDM-K64F</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../frdm_k82f/doc/index.html">NXP FRDM-K82F</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../frdm_kl25z/doc/index.html">NXP FRDM-KL25Z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../frdm_kw41z/doc/index.html">NXP FRDM-KW41Z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../google_kukui/doc/index.html">Google Kukui EC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hexiwear_k64/doc/index.html">Hexiwear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../hexiwear_kw40z/doc/index.html">Hexiwear KW40Z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../holyiot_yj16019/doc/index.html">Holyiot YJ-16019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ip_k66f/doc/index.html">SEGGER IP Switch Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../legend/doc/index.html">Legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lora_e5_dev_board/doc/lora_e5_dev_board.html">Seeed Studio LoRa-E5 Dev Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lpcxpresso11u68/doc/index.html">NXP LPCXpresso11U68</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lpcxpresso54114/doc/index.html">NXP LPCXPRESSO54114</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lpcxpresso55s16/doc/index.html">NXP LPCXpresso55S16</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lpcxpresso55s28/doc/index.html">NXP LPCXpresso55S28</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lpcxpresso55s69/doc/index.html">NXP LPCXPRESSO55S69</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mec1501modular_assy6885/doc/index.html">MEC1501 Modular card ASSY6885</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mec15xxevb_assy6853/doc/index.html">MEC15xxEVB ASSY6853</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mec172xevb_assy6906/doc/index.html">MEC172xEVB ASSY6906</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mec2016evb_assy6797/doc/index.html">MEC2016EVB ASSY6797</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mikroe_clicker_2/doc/mikroe_clicker_2.html">MikroE Clicker 2 for STM32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mikroe_mini_m4_for_stm32/doc/mikroe_mini_m4_for_stm32.html">Mikroe MINI-M4 for STM32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mimx8mm_evk/doc/index.html">NXP MIMX8MM EVK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mimxrt1010_evk/doc/index.html">NXP MIMXRT1010-EVK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mimxrt1015_evk/doc/index.html">NXP MIMXRT1015-EVK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mimxrt1020_evk/doc/index.html">NXP MIMXRT1020-EVK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mimxrt1024_evk/doc/index.html">NXP MIMXRT1024-EVK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mimxrt1050_evk/doc/index.html">NXP MIMXRT1050-EVK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mimxrt1060_evk/doc/index.html">NXP MIMXRT1060-EVK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mimxrt1064_evk/doc/index.html">NXP MIMXRT1064-EVK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mimxrt1170_evk/doc/index.html">NXP MIMXRT1170-EVK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mimxrt685_evk/doc/index.html">NXP MIMXRT685-EVK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mm_feather/doc/index.html">MadMachine SwiftIO Feather</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mm_swiftio/doc/index.html">MadMachine SwiftIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mps2_an385/doc/index.html">ARM V2M MPS2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mps2_an521/doc/index.html">ARM MPS2+ AN521</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mps3_an547/doc/index.html">ARM MPS3 AN547</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../msp_exp432p401r_launchxl/doc/index.html">MSP-EXP432P401R LaunchXL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../npcx7m6fb_evb/doc/index.html">NPCX7M6FB_EVB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../npcx9m6f_evb/doc/index.html">NPCX9M6F_EVB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf21540dk_nrf52840/doc/index.html">nRF21540 DK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf51_ble400/doc/index.html">Waveshare BLE400</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf51_blenano/doc/index.html">Redbear Labs Nano</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf51_vbluno51/doc/index.html">nRF51-VBLUno51</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf51dk_nrf51422/doc/index.html">nRF51 DK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf51dongle_nrf51422/doc/index.html">nRF51 Dongle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf52832_mdk/doc/index.html">nRF52832-mdk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf52833dk_nrf52820/doc/index.html">nRF52820 emulation on nRF52833 DK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf52833dk_nrf52833/doc/index.html">nRF52833 DK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf52840_blip/doc/index.html">Electronut Labs Blip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf52840_mdk/doc/index.html">nRF52840-mdk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf52840_papyr/doc/nrf52840_papyr.html">Electronut Labs Papyr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf52840dk_nrf52811/doc/index.html">nRF52811 emulation on nRF52840 DK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf52840dk_nrf52840/doc/index.html">nRF52840 DK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf52840dongle_nrf52840/doc/index.html">nRF52840 Dongle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf52_adafruit_feather/doc/index.html">nRF52 Adafruit Feather</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf52_blenano2/doc/index.html">Redbear Labs Nano v2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf52_vbluno52/doc/index.html">nRF52-VBLUno52</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf52dk_nrf52805/doc/index.html">nRF52805 emulation on nRF52 DK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf52dk_nrf52810/doc/index.html">nRF52810 emulation on nRF52 DK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf52dk_nrf52832/doc/index.html">nRF52 DK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf5340dk_nrf5340/doc/index.html">nRF5340 DK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf9160_innblue21/doc/index.html">nRF9160 INNBLUE21</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf9160_innblue22/doc/index.html">nRF9160 INNBLUE22</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf9160dk_nrf52840/doc/index.html">nRF9160 DK - nRF52840</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nrf9160dk_nrf9160/doc/index.html">nRF9160 DK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f030r8/doc/index.html">ST Nucleo F030R8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f031k6/doc/index.html">ST Nucleo F031K6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f070rb/doc/index.html">ST Nucleo F070RB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f091rc/doc/index.html">ST Nucleo F091RC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f103rb/doc/index.html">ST Nucleo F103RB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f207zg/doc/index.html">ST Nucleo F207ZG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f302r8/doc/index.html">ST Nucleo F302R8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f303k8/doc/index.html">ST Nucleo F303K8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f303re/doc/index.html">ST Nucleo F303RE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f334r8/doc/index.html">ST Nucleo F334R8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f401re/doc/index.html">ST Nucleo F401RE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f410rb/doc/index.html">ST Nucleo F410RB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f411re/doc/index.html">ST Nucleo F411RE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f412zg/doc/index.html">ST Nucleo F412ZG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f413zh/doc/index.html">ST Nucleo F413ZH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f429zi/doc/index.html">ST Nucleo F429ZI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f446re/doc/index.html">ST Nucleo F446RE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f746zg/doc/index.html">ST Nucleo F746ZG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f756zg/doc/index.html">ST Nucleo F756ZG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_f767zi/doc/index.html">ST Nucleo F767ZI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_g071rb/doc/index.html">ST Nucleo G071RB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_g0b1re/doc/index.html">ST Nucleo G0B1RE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_g431rb/doc/index.html">ST Nucleo G431RB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_g474re/doc/index.html">ST Nucleo G474RE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_h723zg/doc/index.html">ST Nucleo H723ZG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_h743zi/doc/index.html">ST Nucleo H743ZI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_h745zi_q/doc/index.html">ST Nucleo H745ZI-Q</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_h753zi/doc/index.html">ST Nucleo H753ZI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_l011k4/doc/index.html">ST Nucleo L011K4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_l031k6/doc/index.html">ST Nucleo L031K6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_l053r8/doc/index.html">ST Nucleo L053R8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_l073rz/doc/index.html">ST Nucleo L073RZ</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ST Nucleo L152RE</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hardware">Hardware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programming-and-debugging">Programming and Debugging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_l412rb_p/doc/index.html">ST Nucleo L412RB-P</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_l432kc/doc/index.html">ST Nucleo L432KC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_l433rc_p/doc/index.html">ST Nucleo L433RC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_l452re/doc/index.html">ST Nucleo L452RE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_l476rg/doc/index.html">ST Nucleo L476RG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_l496zg/doc/index.html">ST Nucleo L496ZG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_l4r5zi/doc/index.html">ST Nucleo L4R5ZI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_l552ze_q/doc/nucleol552ze_q.html">ST Nucleo L552ZE Q</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_u575zi_q/doc/nucleou575zi_q.html">ST Nucleo U575ZI Q</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_wb55rg/doc/nucleo_wb55rg.html">ST Nucleo WB55RG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nucleo_wl55jc/doc/nucleo_wl55jc.html">ST Nucleo WL55JC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nuvoton_pfm_m487/doc/index.html">NUVOTON NUMAKER PFM M487</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../olimex_stm32_e407/doc/index.html">OLIMEX-STM32-E407</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../olimex_stm32_h103/doc/index.html">OLIMEX-STM32-H103</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../olimex_stm32_h407/doc/index.html">OLIMEX-STM32-H407</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../olimex_stm32_p405/doc/index.html">OLIMEX-STM32-P405</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../olimexino_stm32/doc/index.html">OLIMEXINO-STM32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../particle_argon/doc/index.html">Particle Argon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../particle_boron/doc/index.html">Particle Boron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../particle_xenon/doc/index.html">Particle Xenon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pico_pi_m4/doc/index.html">Pico-Pi i.MX7D - Android Things IoT Development Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pinetime_devkit0/doc/index.html">Pine64 PineTime DevKit0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../pinnacle_100_dvk/doc/index.html">Laird Connectivity Pinnacle 100 DVK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../qemu_cortex_m0/doc/index.html">ARM Cortex-M0 Emulation (QEMU)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../qemu_cortex_m3/doc/index.html">ARM Cortex-M3 Emulation (QEMU)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../qemu_cortex_r5/doc/index.html">ARM Cortex-R5 Emulation (QEMU)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quick_feather/doc/index.html">QuickFeather</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rak4631_nrf52840/doc/index.html">RAK4631</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rak5010_nrf52840/doc/index.html">RAK5010</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rcar_h3ulcb/doc/rcar_h3ulcb.html">Renesas R-Car H3ULCB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reel_board/doc/index.html">reel board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ronoth_lodev/doc/index.html">Ronoth LoDev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ronoth_lodev/doc/s76s.html">AcSIP S76S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ruuvi_ruuvitag/doc/index.html">Ruuvi RuuviTag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sam4e_xpro/doc/index.html">SAM4E Xplained Pro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sam4l_ek/doc/index.html">SAM4L-EK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sam4s_xplained/doc/index.html">SAM4S Xplained</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sam_e70_xplained/doc/index.html">SAM E70(B) Xplained</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sam_v71_xult/doc/index.html">SAM V71(B) Xplained Ultra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../seeeduino_xiao/doc/index.html">Seeeduino XIAO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../segger_trb_stm32f407/doc/index.html">Cortex-M Trace Reference Board V1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensortile_box/doc/index.html">ST SensorTile.box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../serpente/doc/index.html">Arturo182 Serpente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sparkfun_thing_plus_nrf9160/doc/index.html">nRF9160 Thing Plus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../steval_fcu001v1/doc/index.html">ST STM32 Flight Controller Unit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm3210c_eval/doc/index.html">ST STM3210C Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32373c_eval/doc/index.html">ST STM32373C Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32_min_dev/doc/index.html">STM32 Minimum Development Board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32f030_demo/doc/index.html">STM32F030 DEMO BOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32f072_eval/doc/index.html">ST STM32F072 Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32f072b_disco/doc/index.html">ST STM32F072B Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32f0_disco/doc/index.html">ST STM32F0 Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32f103_mini/doc/index.html">STM32F103 Mini</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32f3_disco/doc/index.html">ST STM32F3 Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32f411e_disco/doc/index.html">ST STM32F411E Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32f412g_disco/doc/index.html">ST STM32F412G Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32f429i_disc1/doc/index.html">ST STM32F429I Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32f469i_disco/doc/index.html">ST STM32F469I Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32f4_disco/doc/index.html">ST STM32F4 Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32f723e_disco/doc/index.html">ST STM32F723E Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32f746g_disco/doc/index.html">ST STM32F746G Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32f769i_disco/doc/index.html">ST STM32F769I Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32g0316_disco/doc/index.html">ST STM32G0316 Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32g071b_disco/doc/index.html">ST STM32G071B Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32h735g_disco/doc/index.html">ST STM32H735G Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32h747i_disco/doc/index.html">ST STM32H747I Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32l1_disco/doc/index.html">ST STM32L1 Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32l476g_disco/doc/index.html">ST STM32L476G Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32l496g_disco/doc/index.html">ST STM32L496G Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32l562e_dk/doc/index.html">ST STM32L562E-DK Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32mp157c_dk2/doc/stm32mp157_dk2.html">ST STM32MP157C-DK2 Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stm32vl_disco/doc/index.html">ST STM32VL Discovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../teensy4/doc/index.html">PJRC TEENSY 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../thingy52_nrf52832/doc/index.html">Thingy:52</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../thingy53_nrf5340/doc/index.html">Thingy:53</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../twr_ke18f/doc/index.html">NXP TWR-KE18F</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../twr_kv58f220m/doc/index.html">NXP TWR-KV58F220M</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ubx_bmd300eval_nrf52832/doc/index.html">u-blox EVK-BMD-30/35: BMD-300-EVAL, BMD-301-EVAL, and BMD-350-EVAL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ubx_bmd330eval_nrf52810/doc/index.html">u-blox EVK-BMD-330: BMD-330-EVAL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ubx_bmd340eval_nrf52840/doc/index.html">u-blox EVK-BMD-34/38: BMD-340-EVAL and BMD-341-EVAL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ubx_bmd345eval_nrf52840/doc/index.html">u-blox EVK-BMD-34/38: BMD-345-EVAL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ubx_bmd360eval_nrf52811/doc/index.html">u-blox EVK-BMD-360: BMD-360-EVAL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ubx_bmd380eval_nrf52840/doc/index.html">u-blox EVK-BMD-34/48: BMD-380-EVAL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ubx_evkannab1_nrf52832/doc/index.html">u-blox EVK-ANNA-B11x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ubx_evkninab1_nrf52832/doc/index.html">u-blox EVK NINA-B11x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ubx_evkninab3_nrf52840/doc/index.html">u-blox EVK-NINA-B3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ubx_evkninab4_nrf52833/doc/index.html">u-blox EVK NINA-B40x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../udoo_neo_full_m4/doc/index.html">UDOO Neo Full</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../usb_kw24d512/doc/index.html">NXP USB-KW24D512</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../v2m_beetle/doc/index.html">ARM V2M Beetle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../v2m_musca_b1/doc/index.html">ARM V2M Musca B1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../v2m_musca_s1/doc/index.html">ARM V2M Musca-S1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../warp7_m4/doc/index.html">WaRP7 - Next Generation IoT and Wearable Development Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../waveshare_open103z/doc/index.html">Waveshare Open103Z</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../xmc45_relax_kit/doc/index.html">INFINEON XMC45-RELAX-KIT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../arm64/index.html">ARM64 Boards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../arc/index.html">ARC Boards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../nios2/index.html">NIOS II Boards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../xtensa/index.html">XTENSA Boards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../posix/index.html">POSIX/NATIVE Boards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../riscv/index.html">RISCV Boards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sparc/index.html">SPARC Boards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../shields/index.html">Shields</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../releases/index.html">Release Notes</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Zephyr Project</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+  <!-- Docs / 2.7.0 -->
+  
+  
+
+  <li><a href="../../../../index.html">Docs / 2.7.0</a> &raquo;</li>
+  
+     <li><a href="../../../index.html">Supported Boards</a> &raquo;</li>
+  
+     <li><a href="../../index.html">ARM Boards</a> &raquo;</li>
+  
+  <li>ST Nucleo L152RE</li>
+  <dark-mode-toggle id="dark-mode-toggle" appearance="toggle" permanent="true"/>
+
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    <div class="wy-alert wy-alert-danger">
+      The <a href="/latest/boards/arm/nucleo_l152re/doc/index.html">latest development version</a>
+      of this page may be more current than this released 2.7.0 version.
+    </div>
+  
+  
+           <div itemprop="articleBody">
+            
+  <div class="section" id="st-nucleo-l152re">
+<span id="nucleo-l152re-board"></span><h1>ST Nucleo L152RE<a class="headerlink" href="#st-nucleo-l152re" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The STM32 Nucleo-64 development board with STM32L152RE MCU, supports Arduino™ and ST morpho connectivity.</p>
+<p>The STM32 Nucleo board provides an affordable, and flexible way for users to try out new concepts,
+and build prototypes with the STM32 microcontroller, choosing from the various
+combinations of performance, power consumption and features.</p>
+<p>The Arduino Uno V3 connectivity support and the ST morpho headers allow easy functionality
+expansion of the STM32 Nucleo open development platform with a wide choice of
+specialized shields.</p>
+<p>The STM32 Nucleo board integrates the ST-LINK/V2-1 debugger and programmer.</p>
+<p>The STM32 Nucleo board comes with the STM32 comprehensive software HAL library together
+with various packaged software examples.</p>
+<a class="reference internal image-reference" href="../../../../_images/nucleo_l152re.jpg"><img alt="NUCLEO-L152RE" class="align-center" src="../../../../_images/nucleo_l152re.jpg" style="width: 500px; height: 367px;" /></a>
+<p>More information about the board can be found at the <a class="reference external" href="https://www.st.com/en/evaluation-tools/nucleo-l152re.html">Nucleo L152RE website</a> <a class="footnote-reference brackets" href="#id1" id="id2">1</a>.</p>
+</div>
+<div class="section" id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
+<p>Nucleo L152RE provides the following hardware components:</p>
+<ul class="simple">
+<li><p>STM32 microcontroller in QFP64 package</p></li>
+<li><p>Two types of extension resources:</p>
+<ul>
+<li><p>Arduino Uno V3 connectivity</p></li>
+<li><p>ST morpho extension pin headers for full access to all STM32 I/Os</p></li>
+</ul>
+</li>
+<li><p>On-board ST-LINK/V2-1 debugger/programmer with SWD connector:</p>
+<ul>
+<li><p>Selection-mode switch to use the kit as a standalone ST-LINK/V2-1</p></li>
+</ul>
+</li>
+<li><p>Flexible board power supply:</p>
+<ul>
+<li><p>USB VBUS or external source (3.3V, 5V, 7 - 12V)</p></li>
+<li><p>Power management access point</p></li>
+</ul>
+</li>
+<li><p>Three LEDs:</p>
+<ul>
+<li><p>USB communication (LD1), user LED (LD2), power LED (LD3)</p></li>
+</ul>
+</li>
+<li><p>Two push-buttons: B1 (USER/blue) and B2 (RESET/black)</p></li>
+<li><p>USB re-enumeration capability. Three different interfaces supported on USB:</p>
+<ul>
+<li><p>Virtual COM port</p></li>
+<li><p>Mass storage</p></li>
+<li><p>Debug port</p></li>
+</ul>
+</li>
+</ul>
+<p>More information about STM32L152RE can be found here:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.st.com/resource/en/reference_manual/cd00240193.pdf">STM32L152 reference manual</a> <a class="footnote-reference brackets" href="#id3" id="id4">2</a></p></li>
+<li><p><a class="reference external" href="https://www.st.com/resource/en/datasheet/stm32l152re.pdf">STM32L152 data sheet</a> <a class="footnote-reference brackets" href="#id5" id="id6">3</a></p></li>
+</ul>
+<div class="section" id="supported-features">
+<h3>Supported Features<a class="headerlink" href="#supported-features" title="Permalink to this headline">¶</a></h3>
+<p>The Zephyr nucleo_l152re board configuration supports the following hardware features:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 20%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Interface</p></th>
+<th class="head"><p>Controller</p></th>
+<th class="head"><p>Driver/Component</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NVIC</p></td>
+<td><p>on-chip</p></td>
+<td><p>nested vector interrupt controller</p></td>
+</tr>
+<tr class="row-odd"><td><p>CLOCK</p></td>
+<td><p>on-chip</p></td>
+<td><p>reset and clock control</p></td>
+</tr>
+<tr class="row-even"><td><p>PINMUX</p></td>
+<td><p>on-chip</p></td>
+<td><p>pinmux</p></td>
+</tr>
+<tr class="row-odd"><td><p>UART</p></td>
+<td><p>on-chip</p></td>
+<td><p>serial port-polling;
+serial port-interrupt</p></td>
+</tr>
+<tr class="row-even"><td><p>GPIO</p></td>
+<td><p>on-chip</p></td>
+<td><p>gpio</p></td>
+</tr>
+<tr class="row-odd"><td><p>I2C</p></td>
+<td><p>on-chip</p></td>
+<td><p>i2c controller</p></td>
+</tr>
+<tr class="row-even"><td><p>EEPROM</p></td>
+<td><p>on-chip</p></td>
+<td><p>eeprom</p></td>
+</tr>
+<tr class="row-odd"><td><p>WATCHDOG</p></td>
+<td><p>on-chip</p></td>
+<td><p>independent watchdog</p></td>
+</tr>
+<tr class="row-even"><td><p>FLASH</p></td>
+<td><p>on-chip</p></td>
+<td><p>flash memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>COUNTER</p></td>
+<td><p>on-chip</p></td>
+<td><p>rtc</p></td>
+</tr>
+<tr class="row-even"><td><p>ADC</p></td>
+<td><p>on-chip</p></td>
+<td><p>ADC Controller</p></td>
+</tr>
+<tr class="row-odd"><td><p>DAC</p></td>
+<td><p>on-chip</p></td>
+<td><p>DAC Controller</p></td>
+</tr>
+<tr class="row-even"><td><p>PWM</p></td>
+<td><p>on-chip</p></td>
+<td><p>PWM</p></td>
+</tr>
+<tr class="row-odd"><td><p>DMA</p></td>
+<td><p>on-chip</p></td>
+<td><p>Direct Memory Access</p></td>
+</tr>
+</tbody>
+</table>
+<p>Other hardware features are not yet supported in this Zephyr port.</p>
+<p>The default configuration can be found in the defconfig file:
+<code class="docutils literal notranslate"><span class="pre">boards/arm/nucleo_l152re/nucleo_l152re_defconfig</span></code></p>
+</div>
+<div class="section" id="connections-and-ios">
+<h3>Connections and IOs<a class="headerlink" href="#connections-and-ios" title="Permalink to this headline">¶</a></h3>
+<p>Each of the GPIO pins can be configured by software as output (push-pull or open-drain), as
+input (with or without pull-up or pull-down), or as peripheral alternate function. Most of the
+GPIO pins are shared with digital or analog alternate functions. All GPIOs are high current
+capable except for analog inputs.</p>
+<div class="section" id="board-connectors">
+<h4>Board connectors:<a class="headerlink" href="#board-connectors" title="Permalink to this headline">¶</a></h4>
+<a class="reference internal image-reference" href="../../../../_images/nucleo_l152re_connectors.png"><img alt="Nucleo L152RE connectors" class="align-center" src="../../../../_images/nucleo_l152re_connectors.png" style="width: 800px; height: 619px;" /></a>
+</div>
+<div class="section" id="default-zephyr-peripheral-mapping">
+<h4>Default Zephyr Peripheral Mapping:<a class="headerlink" href="#default-zephyr-peripheral-mapping" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>UART_2 TX/RX : PA2/PA3 (ST-Link Virtual COM Port)</p></li>
+<li><p>I2C1 SCL/SDA : PB8/PB9 (Arduino I2C)</p></li>
+<li><p>B1 (USER/blue) : PC13</p></li>
+<li><p>LD1 : PA5</p></li>
+<li><p>DAC : PA4</p></li>
+<li><p>PWM_3_CH1 : PA6</p></li>
+</ul>
+<p>For mode details please refer to <a class="reference external" href="https://www.st.com/resource/en/user_manual/dm00105823.pdf">STM32 Nucleo-64 board User Manual</a> <a class="footnote-reference brackets" href="#id7" id="id8">4</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="programming-and-debugging">
+<h2>Programming and Debugging<a class="headerlink" href="#programming-and-debugging" title="Permalink to this headline">¶</a></h2>
+<p>Applications for the <code class="docutils literal notranslate"><span class="pre">nucleo_l152re</span></code> board configuration can be built and
+flashed in the usual way (see <a class="reference internal" href="../../../../application/index.html#build-an-application"><span class="std std-ref">Building an Application</span></a> and
+<a class="reference internal" href="../../../../application/index.html#application-run"><span class="std std-ref">Run an Application</span></a> for more details).</p>
+<div class="section" id="flashing">
+<h3>Flashing<a class="headerlink" href="#flashing" title="Permalink to this headline">¶</a></h3>
+<p>Nucleo L152RE board includes an ST-LINK/V2-1 embedded debug tool interface.
+This interface is supported by the openocd version included in the Zephyr SDK.</p>
+<div class="section" id="flashing-an-application-to-nucleo-l152re">
+<h4>Flashing an application to Nucleo L152RE<a class="headerlink" href="#flashing-an-application-to-nucleo-l152re" title="Permalink to this headline">¶</a></h4>
+<p>Here is an example for the <a class="reference internal" href="../../../../samples/basic/blinky/README.html#blinky-sample"><span class="std std-ref">Blinky</span></a> application.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>From the root of the zephyr repository
+<span class="go">west build -b nucleo_l152re samples/basic/blinky</span>
+<span class="go">west flash</span>
+</pre></div>
+</div>
+<p>You will see the LED blinking every second.</p>
+</div>
+</div>
+<div class="section" id="debugging">
+<h3>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h3>
+<p>You can debug an application in the usual way. Here is an example for the
+<a class="reference internal" href="../../../../samples/hello_world/README.html#hello-world"><span class="std std-ref">Hello World</span></a> application.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>From the root of the zephyr repository
+<span class="go">west build -b nucleo_l152re samples/hello_world</span>
+<span class="go">west debug</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<dl class="footnote brackets">
+<dt class="label" id="id1"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p><a class="reference external" href="https://www.st.com/en/evaluation-tools/nucleo-l152re.html">https://www.st.com/en/evaluation-tools/nucleo-l152re.html</a></p>
+</dd>
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id4">2</a></span></dt>
+<dd><p><a class="reference external" href="https://www.st.com/resource/en/reference_manual/cd00240193.pdf">https://www.st.com/resource/en/reference_manual/cd00240193.pdf</a></p>
+</dd>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id6">3</a></span></dt>
+<dd><p><a class="reference external" href="https://www.st.com/resource/en/datasheet/stm32l152re.pdf">https://www.st.com/resource/en/datasheet/stm32l152re.pdf</a></p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id8">4</a></span></dt>
+<dd><p><a class="reference external" href="https://www.st.com/resource/en/user_manual/dm00105823.pdf">https://www.st.com/resource/en/user_manual/dm00105823.pdf</a></p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; <a href="../../../../copyright.html">Copyright</a> 2015-2021 Zephyr Project members and individual contributors.
+      <span class="lastupdated">
+        Last updated on Oct 17, 2021.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

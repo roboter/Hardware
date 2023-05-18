@@ -1,0 +1,7 @@
+C:/Users/roboter/STM32Cube/Repository/STM32Cube_FW_L1_V1.10.3/Drivers/CMSIS/Include/core_cm3.h:1876:26:ITM_SendChar	16	static,ignoring_inline_asm
+../Core/Src/main.c:73:5:main	16	static
+../Core/Src/main.c:128:6:SystemClock_Config	80	static
+../Core/Src/main.c:172:13:MX_USART2_UART_Init	8	static
+../Core/Src/main.c:205:13:MX_GPIO_Init	40	static
+../Core/Src/main.c:243:5:__io_putchar	16	static
+../Core/Src/main.c:253:6:Error_Handler	4	static
