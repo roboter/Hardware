@@ -1,0 +1,56 @@
+{
+    "name": "Stm8Test",
+    "target": "Release",
+    "toolchain": "SDCC",
+    "toolchainLocation": "C:\\Users\\roboter\\.eide\\tools\\sdcc",
+    "toolchainCfgFile": "..\\cfg\\sdcc.model.json",
+    "buildMode": "normal|multhread",
+    "showRepathOnLog": true,
+    "threadNum": 8,
+    "rootDir": "c:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\EIDE\\Stm8Test\\Stm8Test",
+    "dumpPath": "build\\Release",
+    "outDir": "build\\Release",
+    "incDirs": [
+        "libraries/STM8S_StdPeriph_Driver/include",
+        "libraries/STM8S_StdPeriph_Driver",
+        "src"
+    ],
+    "libDirs": [],
+    "defines": [
+        "STM8S103"
+    ],
+    "sourceList": [
+        "libraries/STM8S_StdPeriph_Driver/lib/stm8s103.lib",
+        "src/main.c"
+    ],
+    "sourceParams": {},
+    "sourceParamsMtime": 1653829813937.0173,
+    "options": {
+        "version": 3,
+        "beforeBuildTasks": [],
+        "afterBuildTasks": [],
+        "global": {
+            "device": "stm8",
+            "optimize-type": "balanced"
+        },
+        "c/cpp-compiler": {
+            "language-c": "c99"
+        },
+        "asm-compiler": {
+            "$toolName": "sdasstm8"
+        },
+        "linker": {
+            "$mainFileName": "main",
+            "output-format": "hex"
+        }
+    },
+    "sha": {
+        "c/cpp-defines": "9554b37a2bdd12213d9e46b657bc8417",
+        "beforeBuildTasks": "d751713988987e9331980363e24189ce",
+        "afterBuildTasks": "d751713988987e9331980363e24189ce",
+        "global": "b316cf890ce1d95131d1490eefde0be7",
+        "c/cpp-compiler": "da5f97a8ee5c67c063f7044c46878c2c",
+        "asm-compiler": "2667ab60835c2a54787872b2cf17ea5c",
+        "linker": "d9e14929ad9416d382e45b49ec9fbdcf"
+    }
+}

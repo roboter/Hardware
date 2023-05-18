@@ -1,0 +1,26 @@
+{
+    "version": 3,
+    "beforeBuildTasks": [],
+    "afterBuildTasks": [
+        {
+            "name": "copy static lib",
+            "command": "copy /B /Y \"${OutDir}\\${targetName}.lib\" .\\libraries\\STM8S_StdPeriph_Driver\\lib\\stm8s103.lib"
+        },
+        {
+            "name": "clean",
+            "command": "cd \"${OutDir}\" && del *.sym *.asm *.cdb *.adb *._* *.rel *.d *.lst"
+        }
+    ],
+    "global": {
+        "device": "stm8",
+        "optimize-type": "balanced"
+    },
+    "c/cpp-compiler": {
+        "language-c": "c99"
+    },
+    "asm-compiler": {},
+    "linker": {
+        "$mainFileName": "main",
+        "output-format": "lib"
+    }
+}

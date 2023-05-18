@@ -1,0 +1,11 @@
+22:58:09 **** Incremental Build of configuration GD32VF103R for project GD32VF103R_START ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-none-embed-size --format=berkeley "GD32VF103R_START.elf"
+   text	   data	    bss	    dec	    hex	filename
+   6790	    104	   2198	   9092	   2384	GD32VF103R_START.elf
+Finished building: GD32VF103R_START.siz
+ 
+
+22:58:10 Build Finished. 0 errors, 0 warnings. (took 661ms)
+

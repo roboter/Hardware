@@ -1,0 +1,206 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 4.1.0 #12072 (MINGW64)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module main
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl __this_is_a_example
+                                     12 	.globl _TRAP_IRQHandler
+                                     13 	.globl _main
+                                     14 	.globl _TIM4_SelectOnePulseMode
+                                     15 	.globl _TIM4_TimeBaseInit
+                                     16 	.globl _GPIO_WriteReverse
+                                     17 	.globl _GPIO_Init
+                                     18 	.globl _CLK_HSIPrescalerConfig
+                                     19 	.globl _CLK_PeripheralClockConfig
+                                     20 	.globl _DelayInit
+                                     21 	.globl _DelayMs
+                                     22 ;--------------------------------------------------------
+                                     23 ; ram data
+                                     24 ;--------------------------------------------------------
+                                     25 	.area DATA
+                                     26 ;--------------------------------------------------------
+                                     27 ; ram data
+                                     28 ;--------------------------------------------------------
+                                     29 	.area INITIALIZED
+                                     30 ;--------------------------------------------------------
+                                     31 ; Stack segment in internal ram 
+                                     32 ;--------------------------------------------------------
+                                     33 	.area	SSEG
+      000001                         34 __start__stack:
+      000001                         35 	.ds	1
+                                     36 
+                                     37 ;--------------------------------------------------------
+                                     38 ; absolute external ram data
+                                     39 ;--------------------------------------------------------
+                                     40 	.area DABS (ABS)
+                                     41 
+                                     42 ; default segment ordering for linker
+                                     43 	.area HOME
+                                     44 	.area GSINIT
+                                     45 	.area GSFINAL
+                                     46 	.area CONST
+                                     47 	.area INITIALIZER
+                                     48 	.area CODE
+                                     49 
+                                     50 ;--------------------------------------------------------
+                                     51 ; interrupt vector 
+                                     52 ;--------------------------------------------------------
+                                     53 	.area HOME
+      008000                         54 __interrupt_vect:
+      008000 82 00 80 1B             55 	int s_GSINIT ; reset
+      008004 82 00 80 A8             56 	int _TRAP_IRQHandler ; trap
+      008008 82 00 00 00             57 	int 0x000000 ; int0
+      00800C 82 00 00 00             58 	int 0x000000 ; int1
+      008010 82 00 00 00             59 	int 0x000000 ; int2
+      008014 82 00 80 AE             60 	int __this_is_a_example ; int3
+                                     61 ;--------------------------------------------------------
+                                     62 ; global & static initialisations
+                                     63 ;--------------------------------------------------------
+                                     64 	.area HOME
+                                     65 	.area GSINIT
+                                     66 	.area GSFINAL
+                                     67 	.area GSINIT
+      00801B                         68 __sdcc_init_data:
+                                     69 ; stm8_genXINIT() start
+      00801B AE 00 00         [ 2]   70 	ldw x, #l_DATA
+      00801E 27 07            [ 1]   71 	jreq	00002$
+      008020                         72 00001$:
+      008020 72 4F 00 00      [ 1]   73 	clr (s_DATA - 1, x)
+      008024 5A               [ 2]   74 	decw x
+      008025 26 F9            [ 1]   75 	jrne	00001$
+      008027                         76 00002$:
+      008027 AE 00 00         [ 2]   77 	ldw	x, #l_INITIALIZER
+      00802A 27 09            [ 1]   78 	jreq	00004$
+      00802C                         79 00003$:
+      00802C D6 80 43         [ 1]   80 	ld	a, (s_INITIALIZER - 1, x)
+      00802F D7 00 00         [ 1]   81 	ld	(s_INITIALIZED - 1, x), a
+      008032 5A               [ 2]   82 	decw	x
+      008033 26 F7            [ 1]   83 	jrne	00003$
+      008035                         84 00004$:
+                                     85 ; stm8_genXINIT() end
+                                     86 	.area GSFINAL
+      008035 CC 80 18         [ 2]   87 	jp	__sdcc_program_startup
+                                     88 ;--------------------------------------------------------
+                                     89 ; Home
+                                     90 ;--------------------------------------------------------
+                                     91 	.area HOME
+                                     92 	.area HOME
+      008018                         93 __sdcc_program_startup:
+      008018 CC 80 44         [ 2]   94 	jp	_main
+                                     95 ;	return from main will return to caller
+                                     96 ;--------------------------------------------------------
+                                     97 ; code
+                                     98 ;--------------------------------------------------------
+                                     99 	.area CODE
+                                    100 ;	.\src\main.c: 20: void main(void)
+                                    101 ;	-----------------------------------------
+                                    102 ;	 function main
+                                    103 ;	-----------------------------------------
+      008044                        104 _main:
+                                    105 ;	.\src\main.c: 23: CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
+      008044 4B 00            [ 1]  106 	push	#0x00
+      008046 CD 83 32         [ 4]  107 	call	_CLK_HSIPrescalerConfig
+      008049 84               [ 1]  108 	pop	a
+                                    109 ;	.\src\main.c: 26: DelayInit();
+      00804A CD 80 71         [ 4]  110 	call	_DelayInit
+                                    111 ;	.\src\main.c: 29: GPIO_Init(LED_GPIO_PORT, (GPIO_Pin_TypeDef)LED_GPIO_PINS, GPIO_MODE_OUT_PP_LOW_FAST);
+      00804D 4B E0            [ 1]  112 	push	#0xe0
+      00804F 4B 20            [ 1]  113 	push	#0x20
+      008051 4B 05            [ 1]  114 	push	#0x05
+      008053 4B 50            [ 1]  115 	push	#0x50
+      008055 CD 80 BE         [ 4]  116 	call	_GPIO_Init
+      008058 5B 04            [ 2]  117 	addw	sp, #4
+                                    118 ;	.\src\main.c: 31: while (1)
+      00805A                        119 00102$:
+                                    120 ;	.\src\main.c: 33: GPIO_WriteReverse(LED_GPIO_PORT, (GPIO_Pin_TypeDef)LED_GPIO_PINS);
+      00805A 4B 20            [ 1]  121 	push	#0x20
+      00805C 4B 05            [ 1]  122 	push	#0x05
+      00805E 4B 50            [ 1]  123 	push	#0x50
+      008060 CD 81 4E         [ 4]  124 	call	_GPIO_WriteReverse
+      008063 5B 03            [ 2]  125 	addw	sp, #3
+                                    126 ;	.\src\main.c: 34: DelayMs(500);
+      008065 4B F4            [ 1]  127 	push	#0xf4
+      008067 4B 01            [ 1]  128 	push	#0x01
+      008069 CD 80 8A         [ 4]  129 	call	_DelayMs
+      00806C 5B 02            [ 2]  130 	addw	sp, #2
+      00806E 20 EA            [ 2]  131 	jra	00102$
+                                    132 ;	.\src\main.c: 36: }
+      008070 81               [ 4]  133 	ret
+                                    134 ;	.\src\main.c: 38: void DelayInit(void)
+                                    135 ;	-----------------------------------------
+                                    136 ;	 function DelayInit
+                                    137 ;	-----------------------------------------
+      008071                        138 _DelayInit:
+                                    139 ;	.\src\main.c: 40: CLK_PeripheralClockConfig(CLK_PERIPHERAL_TIMER4, ENABLE);
+      008071 4B 01            [ 1]  140 	push	#0x01
+      008073 4B 04            [ 1]  141 	push	#0x04
+      008075 CD 82 3D         [ 4]  142 	call	_CLK_PeripheralClockConfig
+      008078 5B 02            [ 2]  143 	addw	sp, #2
+                                    144 ;	.\src\main.c: 41: TIM4_TimeBaseInit(TIM4_PRESCALER_64, 249); // 1ms
+      00807A 4B F9            [ 1]  145 	push	#0xf9
+      00807C 4B 06            [ 1]  146 	push	#0x06
+      00807E CD 84 D9         [ 4]  147 	call	_TIM4_TimeBaseInit
+      008081 5B 02            [ 2]  148 	addw	sp, #2
+                                    149 ;	.\src\main.c: 42: TIM4_SelectOnePulseMode(TIM4_OPMODE_SINGLE);
+      008083 4B 01            [ 1]  150 	push	#0x01
+      008085 CD 85 3C         [ 4]  151 	call	_TIM4_SelectOnePulseMode
+      008088 84               [ 1]  152 	pop	a
+                                    153 ;	.\src\main.c: 43: }
+      008089 81               [ 4]  154 	ret
+                                    155 ;	.\src\main.c: 45: void DelayMs(uint16_t ms)
+                                    156 ;	-----------------------------------------
+                                    157 ;	 function DelayMs
+                                    158 ;	-----------------------------------------
+      00808A                        159 _DelayMs:
+      00808A 52 02            [ 2]  160 	sub	sp, #2
+                                    161 ;	.\src\main.c: 47: while (ms--)
+      00808C 1E 05            [ 2]  162 	ldw	x, (0x05, sp)
+      00808E                        163 00104$:
+      00808E 1F 01            [ 2]  164 	ldw	(0x01, sp), x
+      008090 5A               [ 2]  165 	decw	x
+      008091 16 01            [ 2]  166 	ldw	y, (0x01, sp)
+      008093 27 10            [ 1]  167 	jreq	00107$
+                                    168 ;	.\src\main.c: 49: TIM4->SR1 = (uint8_t)(~TIM4_FLAG_UPDATE);
+      008095 35 FE 53 44      [ 1]  169 	mov	0x5344+0, #0xfe
+                                    170 ;	.\src\main.c: 50: TIM4->CR1 |= TIM4_CR1_CEN;
+      008099 72 10 53 40      [ 1]  171 	bset	21312, #0
+                                    172 ;	.\src\main.c: 51: while ((TIM4->SR1 & (uint8_t)TIM4_FLAG_UPDATE) == 0)
+      00809D                        173 00101$:
+      00809D C6 53 44         [ 1]  174 	ld	a, 0x5344
+      0080A0 44               [ 1]  175 	srl	a
+      0080A1 25 EB            [ 1]  176 	jrc	00104$
+      0080A3 20 F8            [ 2]  177 	jra	00101$
+      0080A5                        178 00107$:
+                                    179 ;	.\src\main.c: 54: }
+      0080A5 5B 02            [ 2]  180 	addw	sp, #2
+      0080A7 81               [ 4]  181 	ret
+                                    182 ;	.\src\main.c: 67: INTERRUPT_HANDLER_TRAP(TRAP_IRQHandler)
+                                    183 ;	-----------------------------------------
+                                    184 ;	 function TRAP_IRQHandler
+                                    185 ;	-----------------------------------------
+      0080A8                        186 _TRAP_IRQHandler:
+      0080A8 4F               [ 1]  187 	clr	a
+      0080A9 62               [ 2]  188 	div	x, a
+                                    189 ;	.\src\main.c: 69: while (1)
+      0080AA                        190 00102$:
+                                    191 ;	.\src\main.c: 71: nop();
+      0080AA 9D               [ 1]  192 	nop
+      0080AB 20 FD            [ 2]  193 	jra	00102$
+                                    194 ;	.\src\main.c: 73: }
+      0080AD 80               [11]  195 	iret
+                                    196 ;	.\src\main.c: 80: INTERRUPT_HANDLER(_this_is_a_example, EXTI_PORTA_IRQn)
+                                    197 ;	-----------------------------------------
+                                    198 ;	 function _this_is_a_example
+                                    199 ;	-----------------------------------------
+      0080AE                        200 __this_is_a_example:
+                                    201 ;	.\src\main.c: 83: }
+      0080AE 80               [11]  202 	iret
+                                    203 	.area CODE
+                                    204 	.area CONST
+                                    205 	.area INITIALIZER
+                                    206 	.area CABS (ABS)

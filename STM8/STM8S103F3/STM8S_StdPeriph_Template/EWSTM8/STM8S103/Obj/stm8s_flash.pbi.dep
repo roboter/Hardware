@@ -1,0 +1,23 @@
+stm8s_flash.pbi: \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Libraries\STM8S_StdPeriph_Driver\src\stm8s_flash.c \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_flash.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc/stm8s.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\stm8s_conf.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_adc1.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_awu.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_beep.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_clk.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_exti.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_gpio.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_i2c.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_itc.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_iwdg.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_rst.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_spi.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_tim1.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_tim2.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_tim4.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_uart1.h \
+  D:\projects\HARDWARE\STM8\en.stsw-stm8069_v2.3.1\STM8S_StdPeriph_Lib\Project\STM8S_StdPeriph_Template\EWSTM8\..\..\..\Libraries\STM8S_StdPeriph_Driver\inc\stm8s_wwdg.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\c\intrinsics.h

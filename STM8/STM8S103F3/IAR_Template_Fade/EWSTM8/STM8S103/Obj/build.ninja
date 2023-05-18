@@ -1,0 +1,50 @@
+#Generating source browse information for project Project
+
+
+#Abbreviations
+cc = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.3\common\bin\SourceIndexer.exe
+ll = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.3\common\bin\PbdLink.exe
+bd = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.3\common\bin\makeBrowseData.exe
+
+
+
+#Rules
+rule index
+  depfile = $out.dep
+  command = $cc -out=$out -f $in
+rule link
+  command = $ll -M $out $in
+rule browsedata
+  command = $bd $in -output  $out
+
+
+
+#Build steps
+build stm8s_adc1.pbi : index stm8s_adc1.xcl
+build stm8s_awu.pbi : index stm8s_awu.xcl
+build stm8s_beep.pbi : index stm8s_beep.xcl
+build stm8s_clk.pbi : index stm8s_clk.xcl
+build stm8s_exti.pbi : index stm8s_exti.xcl
+build stm8s_flash.pbi : index stm8s_flash.xcl
+build stm8s_gpio.pbi : index stm8s_gpio.xcl
+build stm8s_i2c.pbi : index stm8s_i2c.xcl
+build stm8s_itc.pbi : index stm8s_itc.xcl
+build stm8s_iwdg.pbi : index stm8s_iwdg.xcl
+build stm8s_rst.pbi : index stm8s_rst.xcl
+build stm8s_spi.pbi : index stm8s_spi.xcl
+build stm8s_tim1.pbi : index stm8s_tim1.xcl
+build stm8s_tim2.pbi : index stm8s_tim2.xcl
+build stm8s_tim4.pbi : index stm8s_tim4.xcl
+build stm8s_uart1.pbi : index stm8s_uart1.xcl
+build stm8s_wwdg.pbi : index stm8s_wwdg.xcl
+build main.pbi : index main.xcl
+build stm8s_it.pbi : index stm8s_it.xcl
+build Project_part0.pbi : link stm8s_adc1.pbi stm8s_awu.pbi stm8s_beep.pbi stm8s_clk.pbi
+build Project_part1.pbi : link stm8s_exti.pbi stm8s_flash.pbi stm8s_gpio.pbi stm8s_i2c.pbi
+build Project_part2.pbi : link stm8s_itc.pbi stm8s_iwdg.pbi stm8s_rst.pbi stm8s_spi.pbi
+build Project_part3.pbi : link stm8s_tim1.pbi stm8s_tim2.pbi stm8s_tim4.pbi stm8s_uart1.pbi
+build Project_part4.pbi : link stm8s_wwdg.pbi main.pbi stm8s_it.pbi
+build Project.pbd : link Project_part0.pbi Project_part1.pbi Project_part2.pbi Project_part3.pbi Project_part4.pbi
+build Project.pbw : browsedata Project.pbd
+
+

@@ -11,15 +11,15 @@ List of all my arduinos, ESPs, STM32s modules
 </a>
 
 # ESP
-* <a href="/HELTEC"> Heltec WiFi Kit 8 <br/> 
-<img alt="Heltec WiFi Kit 8" src="HELTEC/heltec_front.jpg" width="128"></a>
-* <a href="/ESP32TTGO-OLED-18650">ESP32TTGO-OLED-18650 <br/>
-<img alt="ESP32TTGO-OLED-18650" src="ESP32TTGO-OLED-18650/TTGO_ESP32_LiOn.jpg" width="128"></a>
+* <a href="ESP/HELTEC"> Heltec WiFi Kit 8 <br/> 
+<img alt="Heltec WiFi Kit 8" src="ESP/HELTEC/heltec_front.jpg" width="128"></a>
+* <a href="ESP/ESP32TTGO-OLED-18650">ESP32TTGO-OLED-18650 <br/>
+<img alt="ESP32TTGO-OLED-18650" src="ESP/ESP32TTGO-OLED-18650/TTGO_ESP32_LiOn.jpg" width="128"></a>
 
 
-* <a href="/TTGO">TS V1.0 Esp32 1.44 TFT Display MicroSD Card Slot Speakers WIFI Bluetooth Module <br/><img alt="TS V1.0 Esp32 1.44 TFT Display MicroSD Card Slot Speakers WIFI Bluetooth Module" src="TTGO/s-l1600.jpg" width="128"></a>
+* <a href="ESP/TTGO">TS V1.0 Esp32 1.44 TFT Display MicroSD Card Slot Speakers WIFI Bluetooth Module <br/><img alt="TS V1.0 Esp32 1.44 TFT Display MicroSD Card Slot Speakers WIFI Bluetooth Module" src="ESP/TTGO/s-l1600.jpg" width="128"></a>
 
-* <a href="/TTGO">Wemos with Display<br/><img alt="Wemos with Display" src="Wemos-32-With-OLED/Wemos%2032%20(2).jpg" width="128"></a>
+* <a href="ESP/TTGO">Wemos with Display<br/><img alt="Wemos with Display" src="ESP/Wemos-32-With-OLED/Wemos%2032%20(2).jpg" width="128"></a>
 
 # STM32
 * <a href="/STM32">STM32</a>
@@ -34,14 +34,13 @@ List of all my arduinos, ESPs, STM32s modules
 * <a href="/Arduino/Digistump-ATTINY85">Digistump ATTINY85<br/><img alt="Digistump ATTINY85" src="Arduino/Digistump ATTINY85/attiny.jpg" width="128"></a>
 
 # GD32
-* <a href="GD32VF103">GD32VF103<br/><img alt="GD32VF103" src="GD32VF103/images/board.jpg" width="128"></a>
+* <a href="GigaDevice/GD32VF103">GD32VF103<br/><img alt="GD32VF103" src="GigaDevice/GD32VF103/images/board.jpg" width="128"></a>
 
 # Cypress
 * <a href="/cypress/CY8CKIT-059">CY8CKIT-059<br/><img alt="MCY8CKIT-059" src="Cypress/CY8CKIT-059/front.jpg" height="128"></a>
 
 # Shields (arduino)
-* <a href="/Multi_Function_Shield">Multi function Shield<br/><img alt="Multi function Shield" src="Multi_Function_Shield/shield.jpg" width="128"></a>
-
+* <a href="SHIELDS/Multi_Function_Shield">Multi function Shield<br/><img alt="Multi function Shield" src="SHIELDS/Multi_Function_Shield/shield.jpg" width="128"></a>
 
 # Battery Charger
 * <a href="/Battery_Charger/DD28CRTA">3.7V 3.8V 7.4V 11.1V 12V 14.8V 18.5V Lithium li-on Lipo 18650 Battery Charger<br/><img alt="DD28CRTA" src="Battery_Charger/DD28CRTA/s-l1600.jpg" width="128"></a>

@@ -1,0 +1,8 @@
+{
+  "execPath": "CC",
+  "gccDefaultCFlags": "-fsyntax-only -mstm8 --opt-code-size -DF_CPU=16000000L -DPLATFORMIO=60001 -DSTM8S_BLUE -DSTM8S103 -DUSE_STDPERIPH_DRIVER -DUSE_STDINT",
+  "gccDefaultCppFlags": "-fsyntax-only  -DF_CPU=16000000L -DPLATFORMIO=60001 -DSTM8S_BLUE -DSTM8S103 -DUSE_STDPERIPH_DRIVER -DUSE_STDINT",
+  "gccErrorLimit": 15,
+  "gccIncludePaths": "C:/Users/roboter/Documents/GitHub/HardwareModules/STM8/STM8S103F3/spl-uart-simple-printf/include,C:/Users/roboter/Documents/GitHub/HardwareModules/STM8/STM8S103F3/spl-uart-simple-printf/src,C:/Users/roboter/.platformio/packages/framework-ststm8spl/Libraries/STM8S_StdPeriph_Driver/inc,C:/Users/roboter/.platformio/packages/toolchain-sdcc/non-free/include",
+  "gccSuppressWarnings": false
+}

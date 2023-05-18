@@ -1,0 +1,394 @@
+[
+  {
+    "ID": "c:@F@LSIMeasurment",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "int LSIMeasurment(void)",
+    "location": {
+      "column": "10",
+      "line": "34",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\main.c"
+    },
+    "name": "LSIMeasurment",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@Delay",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void Delay(int)",
+    "location": {
+      "column": "6",
+      "line": "35",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\main.c"
+    },
+    "name": "Delay",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@F@CLK_Config",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void CLK_Config(void)",
+    "location": {
+      "column": "13",
+      "line": "36",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\main.c"
+    },
+    "name": "CLK_Config",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@main",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void main(void)",
+    "location": {
+      "column": "6",
+      "line": "39",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\main.c"
+    },
+    "name": "main",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.c@F@CLK_Config",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void CLK_Config(void)",
+    "location": {
+      "column": "13",
+      "line": "108",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\main.c"
+    },
+    "name": "CLK_Config",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@Delay",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void Delay(int)",
+    "location": {
+      "column": "6",
+      "line": "119",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\main.c"
+    },
+    "name": "Delay",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@LSIMeasurment",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int LSIMeasurment(void)",
+    "location": {
+      "column": "10",
+      "line": "135",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\main.c"
+    },
+    "name": "LSIMeasurment",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER_TRAP",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER_TRAP(int)",
+    "location": {
+      "column": "1",
+      "line": "63",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER_TRAP",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "1",
+      "line": "74",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "1",
+      "line": "86",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "1",
+      "line": "98",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "1",
+      "line": "110",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "1",
+      "line": "122",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "1",
+      "line": "134",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "1",
+      "line": "143",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "1",
+      "line": "155",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "1",
+      "line": "206",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "1",
+      "line": "218",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "1",
+      "line": "230",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "2",
+      "line": "267",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "2",
+      "line": "279",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "2",
+      "line": "321",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "2",
+      "line": "333",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "1",
+      "line": "346",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "2",
+      "line": "426",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "2",
+      "line": "455",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@INTERRUPT_HANDLER",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int INTERRUPT_HANDLER(void)",
+    "location": {
+      "column": "1",
+      "line": "468",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.c"
+    },
+    "name": "INTERRUPT_HANDLER",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:stm8s_it.h@1264@macro@__STM8S_IT_H",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "__STM8S_IT_H",
+    "location": {
+      "column": "9",
+      "line": "30",
+      "path": "C:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\STM8S_StdPeriph_Template\\stm8s_it.h"
+    },
+    "name": "__STM8S_IT_H",
+    "origin": "user_include",
+    "scope": null
+  }
+]

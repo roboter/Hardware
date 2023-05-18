@@ -1,0 +1,1 @@
+start /wait xcopy.exe "%cd%\openSourceTools" "%USERPROFILE%\openSourceTools" /c /e /h /r /k /y /i

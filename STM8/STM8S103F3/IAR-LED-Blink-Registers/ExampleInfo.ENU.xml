@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<infocenter_data version="1.0">
+  <iar_name>STM8L-Discovery LED Blink</iar_name>
+  <iar_description>STM8L-Discovery Simple LED Blink Example</iar_description>
+  <iar_curdir>$CUR_DIR$</iar_curdir>
+</infocenter_data>
