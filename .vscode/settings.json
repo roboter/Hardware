@@ -4,5 +4,6 @@
     "nrf-connect.applications": [
         "${workspaceFolder}\\NORDIC\\worksspace\\asset_tracker_v2"
     ],
-    "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools"
+    "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+    "FSharp.suggestGitignore": false
 }
