@@ -1,10 +1,10 @@
-// UTFT_Demo_400x240 (C)2012 Henning Karlsen
+// UTFT_Demo_400x240 (C)2014 Henning Karlsen
 // web: http://www.henningkarlsen.com/electronics
 //
 // This program is a demo of how to use most of the functions
 // of the library with a supported display modules.
 //
-// This demo was made for modules with a screen resolution
+// This demo was made for modules with a screen resolution 
 // of 400x240 pixels.
 //
 // This program requires the UTFT library.
@@ -15,16 +15,19 @@
 // Declare which fonts we will be using
 extern uint8_t SmallFont[];
 
-// Uncomment the next line for Arduino 2009/Uno
-//UTFT myGLCD(ITDB32WC,19,18,17,16);   // Remember to change the model parameter to suit your display module!
-
-// Uncomment the next line for Arduino Mega
-UTFT myGLCD(ITDB32WC,38,39,40,41);   // Remember to change the model parameter to suit your display module!
+// Set the pins to the correct ones for your development shield
+// ------------------------------------------------------------
+// My chipKit Uno32/uC32 shield                : <display model>,38,39,40,41
+// My chipKit Max32 shield                     : <display model>,82,83,84,85
+// AquaLEDSource All in One Super Screw Shield : <display model>,82,83,84,85
+//
+// Remember to change the model parameter to suit your display module!
+UTFT myGLCD(ITDB32WD,82,83,84,85);
 
 void setup()
 {
   randomSeed(analogRead(0));
-
+  
 // Setup the LCD
   myGLCD.InitLCD();
   myGLCD.setFont(SmallFont);
@@ -36,8 +39,6 @@ void loop()
   int x, x2;
   int y, y2;
   int r;
-  myGLCD.show_color_bar();
-  delay(2000);
 
 // Clear the screen and draw the frame
   myGLCD.clrScr();
@@ -66,14 +67,14 @@ void loop()
   for (int i=19; i<220; i+=10)
     myGLCD.drawLine(197, i, 201, i);
 
-// Draw sin-, cos- and tan-lines
+// Draw sin-, cos- and tan-lines  
   myGLCD.setColor(0,255,255);
   myGLCD.print("Sin", 5, 15);
   for (int i=1; i<398; i++)
   {
     myGLCD.drawPixel(i,119+(sin(((i*0.9)*3.14)/180)*95));
   }
-
+  
   myGLCD.setColor(255,0,0);
   myGLCD.print("Cos", 5, 27);
   for (int i=1; i<398; i++)
@@ -100,9 +101,8 @@ void loop()
   myGLCD.drawLine(1, 119, 398, 119);
 
 // Draw a moving sinewave
-myGLCD.clrScr();
   x=1;
-  for (int i=1; i<(398*20); i++)
+  for (int i=1; i<(398*20); i++) 
   {
     x++;
     if (x==399)
@@ -121,13 +121,12 @@ myGLCD.clrScr();
     buf[x-1]=y;
   }
 
-//  delay(2000);
-
+  delay(2000);
+  
   myGLCD.setColor(0,0,0);
   myGLCD.fillRect(1,15,398,224);
 
 // Draw some filled rectangles
-myGLCD.clrScr();
   for (int i=1; i<6; i++)
   {
     switch (i)
@@ -151,13 +150,12 @@ myGLCD.clrScr();
     myGLCD.fillRect(110+(i*20), 30+(i*20), 170+(i*20), 90+(i*20));
   }
 
-  //delay(2000);
-
+  delay(2000);
+  
   myGLCD.setColor(0,0,0);
   myGLCD.fillRect(1,15,398,224);
 
 // Draw some filled, rounded rectangles
-myGLCD.clrScr();
   for (int i=1; i<6; i++)
   {
     switch (i)
@@ -180,14 +178,13 @@ myGLCD.clrScr();
     }
     myGLCD.fillRoundRect(230-(i*20), 30+(i*20), 290-(i*20), 90+(i*20));
   }
-
-//  delay(2000);
-
+  
+  delay(2000);
+  
   myGLCD.setColor(0,0,0);
   myGLCD.fillRect(1,15,398,224);
 
 // Draw some filled circles
-myGLCD.clrScr();
   for (int i=1; i<6; i++)
   {
     switch (i)
@@ -210,14 +207,13 @@ myGLCD.clrScr();
     }
     myGLCD.fillCircle(110+(i*30),60+(i*20), 30);
   }
-
-  //delay(2000);
-
+  
+  delay(2000);
+  
   myGLCD.setColor(0,0,0);
   myGLCD.fillRect(1,15,398,224);
 
 // Draw some lines in a pattern
-myGLCD.clrScr();
   myGLCD.setColor (255,0,0);
   for (int i=15; i<224; i+=5)
   {
@@ -238,14 +234,13 @@ myGLCD.clrScr();
   {
     myGLCD.drawLine(398, i, 410-(i*1.77), 224);
   }
-
-//  delay(2000);
-
+  
+  delay(2000);
+  
   myGLCD.setColor(0,0,0);
-  myGLCD.fillRect(1,15,398,225);
+  myGLCD.fillRect(1,15,398,224);
 
 // Draw some random circles
-myGLCD.clrScr();
   for (int i=0; i<100; i++)
   {
     myGLCD.setColor(random(255), random(255), random(255));
@@ -255,13 +250,12 @@ myGLCD.clrScr();
     myGLCD.drawCircle(x, y, r);
   }
 
- // delay(2000);
-
+  delay(2000);
+  
   myGLCD.setColor(0,0,0);
   myGLCD.fillRect(1,15,398,224);
 
 // Draw some random rectangles
-myGLCD.clrScr();
   for (int i=0; i<100; i++)
   {
     myGLCD.setColor(random(255), random(255), random(255));
@@ -272,13 +266,12 @@ myGLCD.clrScr();
     myGLCD.drawRect(x, y, x2, y2);
   }
 
-//  delay(2000);
-
+  delay(2000);
+  
   myGLCD.setColor(0,0,0);
   myGLCD.fillRect(1,15,398,224);
 
 // Draw some random rounded rectangles
-myGLCD.clrScr();
   for (int i=0; i<100; i++)
   {
     myGLCD.setColor(random(255), random(255), random(255));
@@ -288,9 +281,9 @@ myGLCD.clrScr();
     y2=16+random(207);
     myGLCD.drawRoundRect(x, y, x2, y2);
   }
-  myGLCD.clrScr();
-  //delay(2000);
 
+  delay(2000);
+  
   myGLCD.setColor(0,0,0);
   myGLCD.fillRect(1,15,398,224);
 
@@ -304,8 +297,8 @@ myGLCD.clrScr();
     myGLCD.drawLine(x, y, x2, y2);
   }
 
-//  delay(2000);
- myGLCD.clrScr();
+  delay(2000);
+  
   myGLCD.setColor(0,0,0);
   myGLCD.fillRect(1,15,398,224);
 
@@ -315,22 +308,23 @@ myGLCD.clrScr();
     myGLCD.drawPixel(2+random(396), 16+random(209));
   }
 
-//  delay(2000);
-myGLCD.clrScr();
- // myGLCD.fillScr(0, 0, 255);
-//  myGLCD.setColor(255, 0, 0);
-//  myGLCD.fillRoundRect(120, 70, 279, 169);
+  delay(2000);
 
+  myGLCD.fillScr(0, 0, 255);
+  myGLCD.setColor(255, 0, 0);
+  myGLCD.fillRoundRect(120, 70, 279, 169);
+  
   myGLCD.setColor(255, 255, 255);
   myGLCD.setBackColor(255, 0, 0);
   myGLCD.print("That's it!", CENTER, 93);
   myGLCD.print("Restarting in a", CENTER, 119);
   myGLCD.print("few seconds...", CENTER, 132);
-
+  
   myGLCD.setColor(0, 255, 0);
   myGLCD.setBackColor(0, 0, 255);
   myGLCD.print("Runtime: (msecs)", CENTER, 210);
   myGLCD.printNumI(millis(), CENTER, 225);
-
+  
   delay (10000);
 }
+
