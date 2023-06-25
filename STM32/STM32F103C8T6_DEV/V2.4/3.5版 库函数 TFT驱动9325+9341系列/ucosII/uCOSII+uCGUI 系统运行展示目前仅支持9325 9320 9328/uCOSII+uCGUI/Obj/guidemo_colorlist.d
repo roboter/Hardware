@@ -1,0 +1,10 @@
+.\Obj\guidemo_colorlist.o: Source\uCGUI\uCGUIDemo\GUIDEMO_ColorList.c
+.\Obj\guidemo_colorlist.o: .\Source\uCGUI\Core\LCD_ConfDefaults.h
+.\Obj\guidemo_colorlist.o: .\Source\uCGUI\Config\LCDConf.h
+.\Obj\guidemo_colorlist.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\guidemo_colorlist.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\guidemo_colorlist.o: .\Source\uCGUI\Core\GUI.h
+.\Obj\guidemo_colorlist.o: .\Source\uCGUI\Core\GUIType.h
+.\Obj\guidemo_colorlist.o: .\Source\uCGUI\Core\LCD.h
+.\Obj\guidemo_colorlist.o: .\Source\uCGUI\Core\GUIVersion.h
+.\Obj\guidemo_colorlist.o: Source\uCGUI\uCGUIDemo\GUIDEMO.h

@@ -1,0 +1,634 @@
+[2010-06-12 01:33:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\uCOS_uCGUI_2.8(ALIENTEK MiniSTM32版)\uCOS+uCGUI(FSMC)\Obj\uCOSDemo.hex
+[2010-06-12 01:37:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-12 01:38:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-12 01:46:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-12 01:48:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-12 01:50:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例\Mini STM32  汉字显示 22\USER\TEST.hex
+[2010-06-12 01:50:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例\Mini STM32  汉字显示 22\USER\TEST.hex
+[2010-06-12 01:52:Program Success:38006D063059373529541943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例\Mini STM32  汉字显示 22\USER\TEST.hex
+[2010-06-12 01:54:Program Success:38006F063059373546521943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例\Mini STM32  汉字显示 22\USER\TEST.hex
+[2010-06-12 01:55:Program Success:38006F063059373546521943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例\Mini STM32  汉字显示 22\USER\TEST.hex
+[2010-06-12 01:55:Program Success:38006D063059373529541943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例\Mini STM32  汉字显示 22\USER\TEST.hex
+[2010-06-12 01:56:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\uCOS_uCGUI_2.8(ALIENTEK MiniSTM32版)\uCOS+uCGUI(FSMC)\Obj\uCOSDemo.hex
+[2010-06-12 01:57:Program Success:38006F063059373546521943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例\Mini STM32  红外遥控 16\USER\TEST.hex
+[2010-06-12 02:07:Program Success:38006D063059373529541943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例(初稿)\ALIENTEK MINISTM32 实验11 RTC实时时钟实验\USER\TEST.hex
+[2010-06-12 02:08:Program Success:38006D063059373529541943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例(初稿)\ALIENTEK MINISTM32 实验11 RTC实时时钟实验\USER\TEST.hex
+[2010-06-12 22:48:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例\Mini STM32  红外遥控 16\USER\TEST.hex
+[2010-06-12 22:48:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\Mini STM32 2.8寸液晶显示代码(温度)\USER\TEST.hex
+[2010-06-12 23:15:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\Mini STM32 2.8寸液晶显示代码(温度)\USER\TEST.hex
+[2010-06-12 23:16:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-12 23:27:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\Mini STM32 2.8寸液晶显示代码(温度)\USER\TEST.hex
+[2010-06-13 00:31:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\uCOS_uCGUI_2.8(ALIENTEK MiniSTM32版)\uCOS+uCGUI(FSMC)\Obj\uCOSDemo.hex
+[2010-06-13 20:53:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例(初稿1)\实例(初稿)\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-14 11:33:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-14 22:02:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例(dg)\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-14 22:47:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-14 22:49:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 17:37:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 17:48:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 17:51:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 17:52:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 17:52:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 17:53:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 17:54:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 17:55:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 17:55:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 17:56:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 18:11:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 22:04:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-15 22:07:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-15 22:11:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-15 22:12:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-15 22:23:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 22:27:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 22:29:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 22:40:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 22:44:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 22:50:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 22:57:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-15 23:14:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\半壶水24L01\nrf24发送(硬件SPI) BHS-STM32\out\ObjFlash\stm32.hex
+[2010-06-15 23:16:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\半壶水24L01\nrf24发送(硬件SPI) BHS-STM32\out\ObjFlash\stm32.hex
+[2010-06-15 23:18:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\半壶水24L01\nrf24发送(硬件SPI) BHS-STM32\out\ObjFlash\stm32.hex
+[2010-06-16 01:01:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\半壶水24L01\nrf24发送(硬件SPI) BHS-STM32\out\ObjFlash\stm32.hex
+[2010-06-16 01:02:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 01:13:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-16 15:10:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-16 15:11:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-16 15:11:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-16 15:23:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-16 15:27:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-16 15:34:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-16 15:35:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-16 21:05:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-16 21:05:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-16 21:06:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-16 21:08:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-16 21:11:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-16 21:21:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-16 21:22:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-16 21:31:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\24l01发送\USER\TEST.hex
+[2010-06-16 21:32:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\24l01发送\USER\TEST.hex
+[2010-06-16 21:34:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\24l01发送\USER\TEST.hex
+[2010-06-16 21:37:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\24l01接收\USER\TEST.hex
+[2010-06-16 21:39:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\24l01发送\USER\TEST.hex
+[2010-06-16 21:56:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\24l01接收\USER\TEST.hex
+[2010-06-16 21:57:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\24l01接收\USER\TEST.hex
+[2010-06-16 22:00:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\24l01接收\USER\TEST.hex
+[2010-06-16 22:01:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\24l01发送\USER\TEST.hex
+[2010-06-16 22:05:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\24l01发送\USER\TEST.hex
+[2010-06-16 22:11:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\24l01发送\USER\TEST.hex
+[2010-06-16 22:13:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\24l01发送\USER\TEST.hex
+[2010-06-16 22:14:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\24l01发送\USER\TEST.hex
+[2010-06-16 22:17:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\24l01发送\USER\TEST.hex
+[2010-06-16 22:17:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 22:47:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 22:48:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\24l01发送\USER\TEST.hex
+[2010-06-16 22:49:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 22:50:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 22:52:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 22:52:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 22:52:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 22:53:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 23:45:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 23:45:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 23:52:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 23:52:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 23:54:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 23:54:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 23:57:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 23:57:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-16 23:58:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-17 00:13:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-17 00:15:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-17 00:29:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-17 00:32:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-17 00:32:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-17 00:34:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-17 00:34:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-17 00:43:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-17 00:45:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-17 00:45:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-17 00:46:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-17 00:46:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-17 00:47:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-17 00:48:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-17 00:49:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 00:49:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 19:07:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 19:08:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 19:14:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 20:15:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 20:17:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 20:20:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 20:25:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 20:49:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 21:04:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 21:15:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 22:02:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 22:06:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 22:14:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 22:28:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 22:56:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 23:08:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 23:52:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-17 23:55:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-17 23:59:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-18 00:02:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-18 00:08:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-18 00:09:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-18 00:13:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-18 00:14:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-18 00:22:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-18 00:23:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-18 00:26:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-18 00:27:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-18 00:28:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-18 00:29:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-18 23:09:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验19 无线通信实验\USER\TEST.hex
+[2010-06-18 23:10:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验19 无线通信实验\USER\TEST.hex
+[2010-06-18 23:12:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验19 无线通信实验\USER\TEST.hex
+[2010-06-18 23:13:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验19 无线通信实验\USER\TEST.hex
+[2010-06-18 23:13:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验19 无线通信实验\USER\TEST.hex
+[2010-06-19 09:52:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例(dg)\ALIENTEK MINISTM32 实验26 USB鼠标实验\project\Obj\STM3210E-EVAL.hex
+[2010-06-19 09:59:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例(dg)\ALIENTEK MINISTM32 实验26 USB鼠标实验\project\Obj\STM3210E-EVAL.hex
+[2010-06-19 10:02:Program Success:30006E065837393148381843 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例(dg)\ALIENTEK MINISTM32 实验26 USB鼠标实验\project\Obj\STM3210E-EVAL.hex
+[2010-06-19 10:09:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 10:12:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 10:22:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 10:31:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 10:37:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 10:38:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 11:00:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 11:07:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 11:13:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 11:23:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 11:43:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 11:45:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 11:49:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 11:53:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 11:54:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 11:57:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 16:25:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 16:27:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 16:34:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 16:45:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 16:47:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 16:54:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 16:57:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 16:58:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 17:00:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 17:01:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 17:02:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 17:07:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 17:08:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 17:09:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 17:10:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 17:11:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 17:12:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验18 触摸屏实验\USER\TEST.hex
+[2010-06-19 17:23:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 17:27:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 17:36:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 17:38:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 17:43:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 17:48:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例(dg)\ALIENTEK MINISTM32 实验26 USB鼠标实验\USER\TEST.hex
+[2010-06-19 17:50:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-19 19:55:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-19 19:56:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-19 20:33:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验26 USB鼠标实验\USER\TEST.hex
+[2010-06-19 21:12:Program Success:38FF6D063047303539162043 G:\STM32 study\CRE开发板例程\MP3PLAYER(CRE)\USER\MP3.hex
+[2010-06-19 21:12:Program Success:38FF6D063047303539162043 G:\STM32 study\CRE开发板例程\TFTLCD代码\test.hex
+[2010-06-19 21:13:Program Success:38FF6D063047303539162043 G:\STM32 study\CRE开发板例程\MP3PLAYER(备份)\USER\MP3.hex
+[2010-06-19 21:36:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-19 21:45:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-19 21:51:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-19 21:52:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-19 21:54:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 21:57:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 21:59:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 22:00:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 22:27:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 22:27:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 22:32:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 22:34:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 22:36:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 22:43:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 22:46:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 22:48:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 22:50:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 23:43:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 23:45:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 23:56:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-19 23:58:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 00:00:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 00:07:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 00:08:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 00:10:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 00:12:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 00:17:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 00:17:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 00:19:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 00:20:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 00:23:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 00:27:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 00:32:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 00:35:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 00:42:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 00:45:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 00:54:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例(dg)\ALIENTEK MINISTM32 实验23 PS2鼠标实验\USER\TEST.hex
+[2010-06-20 01:05:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验23 PS2鼠标实验\USER\TEST.hex
+[2010-06-20 01:36:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验23 PS2鼠标实验\USER\TEST.hex
+[2010-06-20 01:40:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验23 PS2鼠标实验\USER\TEST.hex
+[2010-06-20 09:46:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验23 PS2鼠标实验\USER\TEST.hex
+[2010-06-20 09:47:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验23 PS2鼠标实验\USER\TEST.hex
+[2010-06-20 11:58:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验23 PS2鼠标实验\USER\TEST.hex
+[2010-06-20 12:05:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验23 PS2鼠标实验\USER\TEST.hex
+[2010-06-20 12:14:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验23 PS2鼠标实验\USER\TEST.hex
+[2010-06-20 12:16:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验23 PS2鼠标实验\USER\TEST.hex
+[2010-06-20 13:14:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例(dg)\ALIENTEK MINISTM32 实验26 USB鼠标实验\USER\TEST.hex
+[2010-06-20 13:21:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例(dg)\ALIENTEK MINISTM32 实验23 PS2鼠标实验\USER\TEST.hex
+[2010-06-20 13:33:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例(dg)\ALIENTEK MINISTM32 实验26 触控USB鼠标\USER\TEST.hex
+[2010-06-20 13:36:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验23 PS2鼠标实验\USER\TEST.hex
+[2010-06-20 13:37:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验23 PS2鼠标实验\USER\TEST.hex
+[2010-06-20 13:57:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 14:04:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 14:10:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 14:12:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 14:13:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 14:15:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 14:31:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 14:33:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 14:44:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 14:53:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 14:54:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-20 18:56:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-20 21:21:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-20 21:24:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-20 21:25:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-20 21:26:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-20 21:31:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-20 21:37:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-20 21:39:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-20 22:32:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-20 22:35:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-20 22:37:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-20 23:04:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-20 23:27:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-20 23:30:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-20 23:32:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-21 00:03:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-21 00:06:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-21 00:11:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-21 21:29:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 鼠标\USER\TEST.hex
+[2010-06-21 21:31:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 鼠标\USER\TEST.hex
+[2010-06-21 21:51:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 鼠标\USER\TEST.hex
+[2010-06-21 21:52:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 鼠标\USER\TEST.hex
+[2010-06-21 21:53:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 鼠标\USER\TEST.hex
+[2010-06-21 21:54:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 鼠标\USER\TEST.hex
+[2010-06-21 22:00:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 鼠标\USER\TEST.hex
+[2010-06-21 22:10:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 鼠标\USER\TEST.hex
+[2010-06-21 22:11:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 鼠标\USER\TEST.hex
+[2010-06-21 22:12:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 鼠标\USER\TEST.hex
+[2010-06-21 22:15:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 鼠标\USER\TEST.hex
+[2010-06-21 22:17:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-21 22:19:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-21 22:26:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-21 22:34:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-21 22:40:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-21 22:43:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-21 22:48:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-21 23:02:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-21 23:05:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-21 23:06:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-21 23:08:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-21 23:29:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-21 23:45:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-21 23:46:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-22 00:05:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-22 00:08:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-22 00:15:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-22 00:17:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-22 00:26:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-22 00:29:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-22 00:41:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-22 00:46:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-22 00:53:日志记录不属免费功能,请注册支持作者改进软件
+[2010-06-22 18:48:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-22 18:52:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-22 19:07:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-22 19:16:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-22 19:16:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-22 19:48:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-22 19:54:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-22 20:09:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-22 20:13:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-22 20:18:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-24 19:01:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验27 USB读卡器\USER\TEST.hex
+[2010-06-26 17:56:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例(dg)\ALIENTEK MINISTM32 实验3 串口实验\USER\TEST.hex
+[2010-06-26 17:58:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例(dg)\ALIENTEK MINISTM32 实验4 外部中断实验\USER\TEST.hex
+[2010-06-26 18:03:Program Success:380072063059373515511943 C:\Documents and Settings\Administrator\桌面\STM32mini板资料\实例(dg)\ALIENTEK MINISTM32 实验5 独立看门狗实验\USER\TEST.hex
+[2010-06-29 21:20:Program Success:38006D063059373529541943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-06-29 22:02:Program Success:38006D063059373529541943 C:\Documents and Settings\Administrator\桌面\TEST\USER\TEST.hex
+[2010-07-01 00:07:Program Success:38006D063059373529541943 E:\ALIENTEK 开发板资料\ALIENTEK MiniSTM32开发板例程\ALIENTEK MINISTM32 实验28 综合测试实验\USER\TEST.hex
+[2010-10-16 16:35:Program Success:370068063142303840570543 C:\Documents and Settings\Administrator\桌面\ALIENTEK MINISTM32 实验28 综合测试实验\USER\TEST.hex
+[2011-07-31 19:06:Program Success:55FF6D064886494920351387 C:\Jackson\电子技术\Alientek资料-刻录\ALIENTEK MiniSTM32开发板例程\ALIENTEK MINISTM32 实验28 综合测试实验\USER\TEST.hex
+[2011-08-17 23:33:Program Success:55FF6C064886494918201587 D:\专业\arm\ALIENTEK MiniSTM32开发板例程\ALIENTEK MINISTM32 实验6 窗口看门狗实验\USER\TEST.hex
+[2011-08-17 23:38:Program Success:55FF6C064886494918201587 D:\专业\arm\ALIENTEK MiniSTM32开发板例程\ALIENTEK MINISTM32 实验1 跑马灯\USER\TEST.hex
+[2011-09-05 00:25:Program Success:55FF6C064886494918201587 D:\单片机\arm\程序\开发板例程\ALIENTEK MINISTM32 实验28 综合测试实验\USER\TEST.hex
+[2011-09-12 00:59:Program Success:55FF6C064886494918201587 D:\单片机\arm\程序\开发板例程\ALIENTEK MINISTM32 实验28 综合测试实验\USER\TEST.hex
+[2012-03-03 15:16:Program Success:55FF6C064886494918201587 D:\单片机\STM32\32开发板资料\程序\开发板例程\ALIENTEK MINISTM32 实验1 跑马灯\USER\TEST.hex
+[2012-03-03 17:01:Program Success:55FF6C064886494918201587 D:\单片机\STM32\32开发板资料\程序\开发板例程\ALIENTEK MINISTM32 实验1 跑马灯\USER\TEST.hex
+[2012-03-09 14:32:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\stm32f103rbt6\user\zc.hex
+[2012-03-09 14:42:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\stm32f103rbt6\user\zc.hex
+[2012-03-09 14:44:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\stm32f103rbt6\user\zc.hex
+[2012-03-16 11:24:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\stm32f103rbt6\user\zc.hex
+[2012-03-16 14:16:Program Success:55FF6C064886494918201587 D:\单片机\arm\程序\开发板程序\实验4 外部中断实验\USER\TEST.hex
+[2012-03-20 14:03:Program Success:55FF6C064886494918201587 D:\单片机\arm\程序\开发板程序\实验4 外部中断实验\USER\TEST.hex
+[2012-03-20 14:04:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\STM32学习\stm32f103rbt6\user\zc.hex
+[2012-03-20 14:07:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验5 独立看门狗实验\USER\TEST.hex
+[2012-03-20 14:18:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\STM32学习\stm32f103rbt6\user\zc.hex
+[2012-03-20 17:21:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\STM32学习\stm32f103rbt6\user\zc.hex
+[2012-03-20 17:22:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\STM32学习\stm32f103rbt6\user\zc.hex
+[2012-03-20 17:23:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\STM32学习\stm32f103rbt6\user\zc.hex
+[2012-03-20 17:23:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验7 定时器中断实验\USER\TEST.hex
+[2012-03-20 18:03:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\STM32学习\stm32f103rbt6\user\zc.hex
+[2012-03-20 18:04:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\STM32学习\stm32f103rbt6\user\zc.hex
+[2012-03-20 18:06:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\STM32学习\stm32f103rbt6\user\zc.hex
+[2012-03-20 18:07:日志记录不属免费功能,请注册支持作者改进软件
+[2012-03-20 18:08:日志记录不属免费功能,请注册支持作者改进软件
+[2012-03-20 18:08:日志记录不属免费功能,请注册支持作者改进软件
+[2012-03-20 18:17:日志记录不属免费功能,请注册支持作者改进软件
+[2012-03-20 18:53:日志记录不属免费功能,请注册支持作者改进软件
+[2012-03-21 09:38:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验8 PWM输出实验\USER\TEST.hex
+[2012-03-21 10:01:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验8 PWM输出实验\USER\TEST.hex
+[2012-03-21 10:01:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验8 PWM输出实验\USER\TEST.hex
+[2012-03-21 14:17:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验8 PWM输出实验\USER\TEST.hex
+[2012-03-21 14:20:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验8 PWM输出实验\USER\TEST.hex
+[2012-03-21 14:54:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\STM32学习\stm32f103rbt6\user\zc.hex
+[2012-03-21 15:04:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\STM32学习\stm32f103rbt6\user\zc.hex
+[2012-03-21 15:06:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\STM32学习\stm32f103rbt6\user\zc.hex
+[2012-03-21 15:10:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\STM32学习\stm32f103rbt6\user\zc.hex
+[2012-03-21 15:10:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\STM32学习\stm32f103rbt6\user\zc.hex
+[2012-03-21 15:11:Program Success:55FF6C064886494918201587 C:\Documents and Settings\Administrator\桌面\STM32学习\stm32f103rbt6\user\zc.hex
+[2012-03-21 16:00:日志记录不属免费功能,请注册支持作者改进软件
+[2012-03-21 18:34:日志记录不属免费功能,请注册支持作者改进软件
+[2012-03-22 14:23:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验10 TFTLCD显示实验\USER\TEST.hex
+[2012-03-22 14:24:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验10 TFTLCD显示实验\USER\TEST.hex
+[2012-03-22 14:25:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验10 TFTLCD显示实验\USER\TEST.hex
+[2012-03-22 14:25:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验10 TFTLCD显示实验\USER\TEST.hex
+[2012-03-22 14:26:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验10 TFTLCD显示实验\USER\TEST.hex
+[2012-03-22 14:27:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验10 TFTLCD显示实验\USER\TEST.hex
+[2012-03-22 14:27:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验10 TFTLCD显示实验\USER\TEST.hex
+[2012-03-22 14:28:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验10 TFTLCD显示实验\USER\TEST.hex
+[2012-03-22 14:28:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验10 TFTLCD显示实验\USER\TEST.hex
+[2012-03-22 14:29:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验10 TFTLCD显示实验\USER\TEST.hex
+[2012-03-22 14:29:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验10 TFTLCD显示实验\USER\TEST.hex
+[2012-03-22 14:32:日志记录不属免费功能,请注册支持作者改进软件
+[2012-04-17 18:00:Program Success:55FF6C064886494918201587 H:\单片机\STM32\32开发板资料\程序\开发板例程\实验18 触摸屏实验\USER\TEST.hex
+[2012-11-11 09:06:Program Success:55FF6C064886494918201587 I:\单片机\STM32\32开发板资料\程序\开发板例程\实验28 综合测试实验\USER\TEST.hex
+[2012-11-11 09:08:Program Success:55FF6C064886494918201587 I:\单片机\STM32\32开发板资料\程序\开发板例程\实验18 触摸屏实验\USER\TEST.hex
+[2012-11-11 09:26:Program Success:55FF6C064886494918201587 I:\单片机\STM32\32开发板资料\程序\开发板例程\实验10 TFTLCD显示实验\USER\TEST.hex
+[2012-11-11 09:42:Program Success:55FF6C064886494918201587 I:\单片机\STM32\32开发板资料\程序\开发板例程\实验10 TFTLCD显示实验\USER\TEST.hex
+[2012-11-11 09:58:Program Success:55FF6C064886494918201587 I:\单片机\STM32\32开发板资料\程序\开发板例程\实验1 跑马灯\USER\TEST.hex
+[2012-11-11 10:26:Program Success:55FF6C064886494918201587 I:\单片机\STM32\32开发板资料\程序\开发板例程\实验10 TFTLCD显示实验\USER\TEST.hex
+[2012-11-11 10:38:Program Success:55FF6C064886494918201587 I:\单片机\STM32\32开发板资料\程序\开发板例程\实验10 TFTLCD显示实验\USER\TEST.hex
+[2012-11-11 11:22:Program Success:55FF6C064886494918201587 I:\单片机\STM32\32开发板资料\程序\开发板例程\实验8 PWM输出实验\USER\TEST.hex
+[2012-11-11 11:22:Program Success:55FF6C064886494918201587 I:\单片机\STM32\32开发板资料\程序\开发板例程\实验8 PWM输出实验\USER\TEST.hex
+[2012-11-11 11:24:Program Success:55FF6C064886494918201587 I:\单片机\STM32\32开发板资料\程序\开发板例程\实验2 按键输入\USER\TEST.hex
+[2012-11-11 11:25:Program Success:55FF6C064886494918201587 I:\单片机\STM32\32开发板资料\程序\开发板例程\实验5 独立看门狗实验\USER\TEST.hex
+[2012-11-11 11:26:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 11:27:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 11:55:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:06:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:07:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:09:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:12:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:12:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:13:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:13:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:14:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:15:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:15:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:16:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:16:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:16:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:16:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:17:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:17:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:18:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:18:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:19:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:19:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:20:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:20:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:20:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:21:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:21:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:22:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:22:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:23:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:23:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:25:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:30:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:30:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:31:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:32:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:32:日志记录不属免费功能,请注册支持作者改进软件
+[2012-11-11 12:32:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-28 18:27:Program Success:51FF6B064985485549480487 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-28 18:27:Program Success:51FF6B064985485549480487 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-28 18:28:Program Success:51FF6B064985485549480487 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 09:51:Program Success:51FF6B064985485549480487 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 09:51:Program Success:51FF6B064985485549480487 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 09:52:Program Success:51FF6B064985485549480487 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 09:53:Program Success:51FF6B064985485549480487 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 09:53:Program Success:51FF6B064985485549480487 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 09:53:Program Success:51FF6B064985485549480487 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 09:53:Program Success:51FF6B064985485549480487 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 15:32:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 15:32:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 15:32:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 15:33:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 15:33:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 15:33:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 15:34:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 15:41:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 15:41:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 15:41:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 15:44:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 15:44:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 15:45:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 15:46:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 15:46:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 15:47:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:02:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:02:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:02:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:03:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:03:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:11:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:11:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:11:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:11:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:11:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:19:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:19:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:19:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:49:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:50:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:50:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:50:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:51:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:51:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:51:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 16:51:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 17:41:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 17:41:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 17:42:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 17:44:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 17:44:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 17:44:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 17:45:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 17:46:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 17:46:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 17:46:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 17:46:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 17:47:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 17:47:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-29 17:50:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 17:50:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 17:50:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-29 17:51:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-31 09:00:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-31 09:00:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-31 09:06:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-31 09:06:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-31 09:06:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-31 09:06:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-31 09:06:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-31 09:06:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-31 09:07:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-31 09:09:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-31 09:09:Program Success:52FF6A065187565340302067 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2012-12-31 09:09:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-31 09:09:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-31 09:09:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-31 09:10:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-31 09:10:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-31 09:10:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-31 09:11:日志记录不属免费功能,请注册支持作者改进软件
+[2012-12-31 09:11:日志记录不属免费功能,请注册支持作者改进软件
+[2013-01-15 17:56:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2013-01-15 17:56:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2013-01-15 17:56:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2013-01-15 17:56:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2013-01-15 17:56:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2013-01-15 17:57:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2013-01-15 18:32:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2013-01-15 18:33:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\STM32\MDK\obj\test.hex
+[2013-01-15 18:33:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-15 18:34:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-15 18:36:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-16 15:41:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-16 15:51:Program Success:48FF6F065266484928430167 D:\STM32\李涛\TFT\model.hex
+[2013-01-16 15:54:Program Success:48FF6F065266484928430167 D:\STM32\李涛\TFT\model.hex
+[2013-01-16 15:57:Program Success:48FF6F065266484928430167 D:\STM32\李涛\TFT\model.hex
+[2013-01-16 19:06:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-16 19:06:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-17 12:27:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-17 12:27:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-17 12:39:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-17 12:40:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-17 12:41:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-17 12:42:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-17 12:42:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-17 12:43:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-17 12:45:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-17 13:50:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-17 14:32:Program Success:48FF6F065266484928430167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-01-17 14:34:日志记录不属免费功能,请注册支持作者改进软件
+[2013-01-17 14:34:日志记录不属免费功能,请注册支持作者改进软件
+[2013-01-17 14:35:日志记录不属免费功能,请注册支持作者改进软件
+[2013-01-21 15:20:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\实验1 跑马灯\USER\TEST.hex
+[2013-03-13 18:41:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\复件 1 LED实验\OBJ\template.hex
+[2013-03-13 18:42:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\复件 1 LED实验\OBJ\template.hex
+[2013-03-13 18:42:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\复件 1 LED实验\OBJ\template.hex
+[2013-03-13 18:43:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\复件 1 LED实验\OBJ\template.hex
+[2013-03-13 18:43:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\复件 1 LED实验\OBJ\template.hex
+[2013-03-13 18:44:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\复件 1 LED实验\OBJ\template.hex
+[2013-03-13 18:44:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\复件 1 LED实验\OBJ\template.hex
+[2013-03-13 18:44:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\复件 1 LED实验\OBJ\template.hex
+[2013-03-13 18:44:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\复件 1 LED实验\OBJ\template.hex
+[2013-03-13 18:44:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\复件 1 LED实验\OBJ\template.hex
+[2013-03-13 18:44:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\复件 1 LED实验\OBJ\template.hex
+[2013-03-13 18:45:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-13 18:45:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-13 18:45:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-13 18:45:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-13 18:45:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-13 18:45:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-13 18:47:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\复件 1 LED实验\OBJ\template.hex
+[2013-03-13 18:48:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\3 串口实验\OBJ\template.hex
+[2013-03-13 18:52:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 18:52:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 18:52:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 18:53:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 18:53:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 18:54:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 18:54:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 18:55:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 18:55:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 19:00:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 19:01:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 19:01:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 19:01:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 19:01:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 19:04:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 19:04:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 19:04:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 19:05:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 19:05:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 19:05:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-13 19:05:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-13 19:06:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-14 08:04:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-14 08:04:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-14 08:05:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-14 08:06:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-14 08:06:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-14 08:07:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-14 08:08:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\复件 1 LED实验\OBJ\template.hex
+[2013-03-23 17:46:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\9 TFT-图片显示\OBJ\template.hex
+[2013-03-23 17:47:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-23 17:47:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-23 17:48:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-23 17:49:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-23 17:49:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-23 17:49:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-23 17:49:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-23 17:49:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-23 17:50:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-23 17:50:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-23 17:52:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 17:54:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 17:55:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 17:56:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 17:56:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 17:58:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 17:58:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 17:58:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 17:59:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 17:59:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 18:00:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 18:00:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 18:02:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 18:07:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 18:08:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 18:08:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 18:09:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 18:09:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-23 18:15:日志记录不属免费功能,请注册支持作者改进软件
+[2013-03-27 12:35:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\新建文件夹\9 SPI读取flash\OBJ\template.hex
+[2013-03-27 12:35:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\8 TFT-图片显示\OBJ\template.hex
+[2013-03-28 17:41:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-28 17:48:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex
+[2013-03-28 17:51:Program Success:48FF73065266484927530167 C:\Documents and Settings\Administrator\桌面\启光电子 STM32 资料\3.5版 库函数 程序部分\1 LED实验\OBJ\template.hex

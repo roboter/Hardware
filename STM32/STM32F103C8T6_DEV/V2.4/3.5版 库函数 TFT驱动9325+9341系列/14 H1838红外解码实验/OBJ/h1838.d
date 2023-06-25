@@ -1,0 +1,17 @@
+..\OBJ\h1838.o: ..\HARDWARE\H1838\H1838.c
+..\OBJ\h1838.o: ..\HARDWARE\H1838\h1838.h
+..\OBJ\h1838.o: ..\USER\stm32f10x.h
+..\OBJ\h1838.o: ..\CORE\core_cm3.h
+..\OBJ\h1838.o: C:\Keil\ARM\RV31\Inc\stdint.h
+..\OBJ\h1838.o: ..\USER\system_stm32f10x.h
+..\OBJ\h1838.o: ..\USER\stm32f10x_conf.h
+..\OBJ\h1838.o: ..\FWLIB\inc\stm32f10x_dbgmcu.h
+..\OBJ\h1838.o: ..\USER\stm32f10x.h
+..\OBJ\h1838.o: ..\FWLIB\inc\stm32f10x_gpio.h
+..\OBJ\h1838.o: ..\FWLIB\inc\stm32f10x_rcc.h
+..\OBJ\h1838.o: ..\FWLIB\inc\stm32f10x_spi.h
+..\OBJ\h1838.o: ..\FWLIB\inc\stm32f10x_tim.h
+..\OBJ\h1838.o: ..\FWLIB\inc\stm32f10x_usart.h
+..\OBJ\h1838.o: ..\FWLIB\inc\misc.h
+..\OBJ\h1838.o: ..\DELAY\delay.h
+..\OBJ\h1838.o: ..\HARDWARE\LED\led.h

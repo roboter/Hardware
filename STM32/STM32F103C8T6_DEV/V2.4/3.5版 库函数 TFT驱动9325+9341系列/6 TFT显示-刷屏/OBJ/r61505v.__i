@@ -1,0 +1,1 @@
+-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\USER -I..\FWLIB\inc -I..\CORE -I..\DELAY -I..\HARDWARE\LED -I..\R61505V -I "C:\Keil\ARM\CMSIS\Include" -I "C:\Keil\ARM\INC\ST\STM32F10x" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -o "..\OBJ\r61505v.o" --omf_browse "..\OBJ\r61505v.crf" --depend "..\OBJ\r61505v.d" "..\R61505V\r61505v.c"

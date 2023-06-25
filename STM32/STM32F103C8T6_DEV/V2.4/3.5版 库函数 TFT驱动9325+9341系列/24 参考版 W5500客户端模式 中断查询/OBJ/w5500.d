@@ -1,0 +1,17 @@
+..\OBJ\w5500.o: ..\HARDWARE\W5500\W5500.c
+..\OBJ\w5500.o: ..\USER\stm32f10x.h
+..\OBJ\w5500.o: ..\CORE\core_cm3.h
+..\OBJ\w5500.o: C:\Keil\ARM\RV31\Inc\stdint.h
+..\OBJ\w5500.o: ..\USER\system_stm32f10x.h
+..\OBJ\w5500.o: ..\USER\stm32f10x_conf.h
+..\OBJ\w5500.o: ..\FWLIB\inc\stm32f10x_dbgmcu.h
+..\OBJ\w5500.o: ..\USER\stm32f10x.h
+..\OBJ\w5500.o: ..\FWLIB\inc\stm32f10x_exti.h
+..\OBJ\w5500.o: ..\FWLIB\inc\stm32f10x_gpio.h
+..\OBJ\w5500.o: ..\FWLIB\inc\stm32f10x_rcc.h
+..\OBJ\w5500.o: ..\FWLIB\inc\stm32f10x_spi.h
+..\OBJ\w5500.o: ..\FWLIB\inc\stm32f10x_usart.h
+..\OBJ\w5500.o: ..\FWLIB\inc\misc.h
+..\OBJ\w5500.o: ..\HARDWARE\SPI\spi.h
+..\OBJ\w5500.o: ..\HARDWARE\W5500\W5500.h
+..\OBJ\w5500.o: ..\DELAY\delay.h

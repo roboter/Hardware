@@ -1,0 +1,16 @@
+..\OBJ\main.o: main.c
+..\OBJ\main.o: ..\DELAY\delay.h
+..\OBJ\main.o: ..\USER\stm32f10x.h
+..\OBJ\main.o: ..\CORE\core_cm3.h
+..\OBJ\main.o: C:\Keil\ARM\RV31\Inc\stdint.h
+..\OBJ\main.o: ..\USER\system_stm32f10x.h
+..\OBJ\main.o: ..\USER\stm32f10x_conf.h
+..\OBJ\main.o: ..\FWLIB\inc\stm32f10x_dbgmcu.h
+..\OBJ\main.o: ..\USER\stm32f10x.h
+..\OBJ\main.o: ..\FWLIB\inc\stm32f10x_gpio.h
+..\OBJ\main.o: ..\FWLIB\inc\stm32f10x_rcc.h
+..\OBJ\main.o: ..\FWLIB\inc\stm32f10x_tim.h
+..\OBJ\main.o: ..\FWLIB\inc\stm32f10x_usart.h
+..\OBJ\main.o: ..\FWLIB\inc\misc.h
+..\OBJ\main.o: ..\HARDWARE\LED\led.h
+..\OBJ\main.o: ..\HARDWARE\TIMER\timer.h

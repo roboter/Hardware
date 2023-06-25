@@ -1,0 +1,10 @@
+.\Obj\guidemo_lut.o: Source\uCGUI\uCGUIDemo\GUIDEMO_LUT.c
+.\Obj\guidemo_lut.o: .\Source\uCGUI\Core\GUI.H
+.\Obj\guidemo_lut.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\guidemo_lut.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\guidemo_lut.o: .\Source\uCGUI\Core\GUIType.h
+.\Obj\guidemo_lut.o: .\Source\uCGUI\Core\LCD.h
+.\Obj\guidemo_lut.o: .\Source\uCGUI\Core\GUIVersion.h
+.\Obj\guidemo_lut.o: Source\uCGUI\uCGUIDemo\GUIDEMO.H
+.\Obj\guidemo_lut.o: .\Source\uCGUI\Core\LCD_ConfDefaults.h
+.\Obj\guidemo_lut.o: .\Source\uCGUI\Config\LCDConf.h

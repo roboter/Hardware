@@ -1,0 +1,1 @@
+-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\USER -I..\FWLIB\inc -I..\CORE -I..\DELAY -I..\HARDWARE\LED -I..\TFT -I..\USART -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\ST\STM32F10x" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -o "..\OBJ\usart.o" --omf_browse "..\OBJ\usart.crf" --depend "..\OBJ\usart.d" "..\USART\usart.c"

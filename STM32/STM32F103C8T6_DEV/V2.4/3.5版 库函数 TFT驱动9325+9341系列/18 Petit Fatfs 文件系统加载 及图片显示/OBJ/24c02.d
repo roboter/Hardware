@@ -1,0 +1,17 @@
+..\OBJ\24c02.o: ..\24c02\24C02.c
+..\OBJ\24c02.o: ..\DELAY\delay.h
+..\OBJ\24c02.o: ..\USER\stm32f10x.h
+..\OBJ\24c02.o: ..\CORE\core_cm3.h
+..\OBJ\24c02.o: C:\Keil\ARM\RV31\Inc\stdint.h
+..\OBJ\24c02.o: ..\USER\system_stm32f10x.h
+..\OBJ\24c02.o: ..\USER\stm32f10x_conf.h
+..\OBJ\24c02.o: ..\FWLIB\inc\stm32f10x_dbgmcu.h
+..\OBJ\24c02.o: ..\USER\stm32f10x.h
+..\OBJ\24c02.o: ..\FWLIB\inc\stm32f10x_gpio.h
+..\OBJ\24c02.o: ..\FWLIB\inc\stm32f10x_rcc.h
+..\OBJ\24c02.o: ..\FWLIB\inc\stm32f10x_spi.h
+..\OBJ\24c02.o: ..\FWLIB\inc\stm32f10x_usart.h
+..\OBJ\24c02.o: ..\FWLIB\inc\misc.h
+..\OBJ\24c02.o: ..\GUI\gui.h
+..\OBJ\24c02.o: ..\24c02\i2c.h
+..\OBJ\24c02.o: ..\24c02\z24C02.h

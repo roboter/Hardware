@@ -1,0 +1,16 @@
+..\OBJ\sccb.o: ..\HARDWARE\OV7670\sccb.c
+..\OBJ\sccb.o: ..\USER\stm32f10x.h
+..\OBJ\sccb.o: ..\CORE\core_cm3.h
+..\OBJ\sccb.o: C:\Keil\ARM\RV31\Inc\stdint.h
+..\OBJ\sccb.o: ..\USER\system_stm32f10x.h
+..\OBJ\sccb.o: ..\USER\stm32f10x_conf.h
+..\OBJ\sccb.o: ..\FWLIB\inc\stm32f10x_dbgmcu.h
+..\OBJ\sccb.o: ..\USER\stm32f10x.h
+..\OBJ\sccb.o: ..\FWLIB\inc\stm32f10x_exti.h
+..\OBJ\sccb.o: ..\FWLIB\inc\stm32f10x_gpio.h
+..\OBJ\sccb.o: ..\FWLIB\inc\stm32f10x_rcc.h
+..\OBJ\sccb.o: ..\FWLIB\inc\stm32f10x_spi.h
+..\OBJ\sccb.o: ..\FWLIB\inc\stm32f10x_usart.h
+..\OBJ\sccb.o: ..\FWLIB\inc\misc.h
+..\OBJ\sccb.o: ..\HARDWARE\OV7670\sccb.h
+..\OBJ\sccb.o: ..\DELAY\delay.h

@@ -1,0 +1,16 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Administrator\Desktop\STM32F103VCVET6系列 2.3版启光\3.5版 库函数 程序部分9325+9341系列\6 oled显示实验\USER\template.uvproj
+Project File Date:  10/12/2017
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+assembling startup_stm32f10x_hd.s...
+linking...
+Program Size: Code=4612 RO-data=2408 RW-data=428 ZI-data=1636  
+FromELF: creating hex file...
+"..\OBJ\template.axf" - 0 Error(s), 0 Warning(s).
