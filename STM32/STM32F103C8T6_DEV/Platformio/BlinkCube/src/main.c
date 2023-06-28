@@ -4,6 +4,7 @@
 // #include <ee24.h>
 
 #include <z24c02.h>
+#include "st7789.h"
 
 #define LED_PIN GPIO_PIN_1
 #define LED_GPIO_PORT GPIOA
