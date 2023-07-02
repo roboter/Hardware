@@ -1,14 +1,13 @@
 # Geehy APM32F072VB Mini Board
 
-## Geehy-APM32F072VB-Mini-Board
-### Performance
+## Performance
 
 * 32 bit Arm® Cortex® M0+
 * Max frequency: 48MHz
 * Flash: 128KB
 * SRAM: 16KB
 
-### Interface and Resources
+## Interface and Resources
 
 * USB: 1 (Type B)
 * SWD: 1
