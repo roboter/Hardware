@@ -1,4 +1,17 @@
 {
-    "ewp": "${workspaceFolder}\\GD32\\GD32F20x_Firmware_Library_V2.4.0\\Examples\\USBFS\\USB_Device\\audio\\EWARM\\audio.ewp",
-    "configuration": "USBFS"
+  "ewp": "${workspaceFolder}\\GD32\\GD32F20x_Firmware_Library_V2.4.0\\Examples\\USBFS\\USB_Device\\audio\\EWARM\\audio.ewp",
+  "configuration": "USBFS",
+  "workspace": {
+    "path": "${workspaceFolder}\\Geehy\\APM32F072VB\\APM32F0xx_SDK_v1.6\\Examples\\ADC\\ADC_AnalogWindowWatchdog\\Project\\IAR\\ADC_AnalogWindowWatchdog.eww"
+  },
+  "workspaces": {
+    "${workspaceFolder}\\Geehy\\APM32F072VB\\APM32F0xx_SDK_v1.6\\Examples\\ADC\\ADC_AnalogWindowWatchdog\\Project\\IAR\\ADC_AnalogWindowWatchdog.eww": {
+      "configs": {
+        "${workspaceFolder}\\Geehy\\APM32F072VB\\APM32F0xx_SDK_v1.6\\Examples\\ADC\\ADC_AnalogWindowWatchdog\\Project\\IAR\\ADC_AnalogWindowWatchdog.ewp": "APM32F030"
+      },
+      "selected": {
+        "path": "${workspaceFolder}\\Geehy\\APM32F072VB\\APM32F0xx_SDK_v1.6\\Examples\\ADC\\ADC_AnalogWindowWatchdog\\Project\\IAR\\ADC_AnalogWindowWatchdog.ewp"
+      }
+    }
+  }
 }
