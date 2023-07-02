@@ -100,7 +100,7 @@ void USBD_MSC_BOT_Init(void);
 void USBD_MSC_BOT_OutData(uint8_t ep);
 void USBD_MSC_BOT_InData(uint8_t ep);
 void USBD_MSC_BOT_TxCSW(uint8_t cswStatus);
-void USBD_MSC_BOT_Stall(void);
+static void USBD_MSC_BOT_Stall(void);
 void USBD_MSV_BOT_ClearFeatureHandler(void);
 
 #endif
