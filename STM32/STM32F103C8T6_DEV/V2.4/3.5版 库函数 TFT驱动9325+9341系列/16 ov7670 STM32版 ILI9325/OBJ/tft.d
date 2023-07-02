@@ -1,0 +1,16 @@
+..\OBJ\tft.o: ..\TFT\TFT.c
+..\OBJ\tft.o: ..\TFT\tft.h
+..\OBJ\tft.o: ..\USER\stm32f10x.h
+..\OBJ\tft.o: ..\CORE\core_cm3.h
+..\OBJ\tft.o: C:\Keil\ARM\RV31\Inc\stdint.h
+..\OBJ\tft.o: ..\USER\system_stm32f10x.h
+..\OBJ\tft.o: ..\USER\stm32f10x_conf.h
+..\OBJ\tft.o: ..\FWLIB\inc\stm32f10x_dbgmcu.h
+..\OBJ\tft.o: ..\USER\stm32f10x.h
+..\OBJ\tft.o: ..\FWLIB\inc\stm32f10x_exti.h
+..\OBJ\tft.o: ..\FWLIB\inc\stm32f10x_gpio.h
+..\OBJ\tft.o: ..\FWLIB\inc\stm32f10x_rcc.h
+..\OBJ\tft.o: ..\FWLIB\inc\stm32f10x_spi.h
+..\OBJ\tft.o: ..\FWLIB\inc\stm32f10x_usart.h
+..\OBJ\tft.o: ..\FWLIB\inc\misc.h
+..\OBJ\tft.o: ..\DELAY\delay.h

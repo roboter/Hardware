@@ -1,0 +1,10 @@
+.\Obj\maintask.o: Source\uCGUI\uCGUIDemo\MainTask.c
+.\Obj\maintask.o: .\Source\uCGUI\Core\GUI.h
+.\Obj\maintask.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\maintask.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\maintask.o: .\Source\uCGUI\Core\GUIType.h
+.\Obj\maintask.o: .\Source\uCGUI\Core\LCD.h
+.\Obj\maintask.o: .\Source\uCGUI\Core\GUIVersion.h
+.\Obj\maintask.o: Source\uCGUI\uCGUIDemo\GUIDEMO.h
+.\Obj\maintask.o: .\Source\uCGUI\Core\LCD_ConfDefaults.h
+.\Obj\maintask.o: .\Source\uCGUI\Config\LCDConf.h

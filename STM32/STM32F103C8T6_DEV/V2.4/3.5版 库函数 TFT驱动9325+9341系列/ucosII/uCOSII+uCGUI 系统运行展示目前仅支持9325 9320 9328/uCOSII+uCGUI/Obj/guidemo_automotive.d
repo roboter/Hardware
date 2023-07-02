@@ -1,0 +1,12 @@
+.\Obj\guidemo_automotive.o: Source\uCGUI\uCGUIDemo\GUIDEMO_Automotive.c
+.\Obj\guidemo_automotive.o: .\Source\uCGUI\Core\GUI.h
+.\Obj\guidemo_automotive.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\Obj\guidemo_automotive.o: .\Source\uCGUI\Config\GUIConf.h
+.\Obj\guidemo_automotive.o: .\Source\uCGUI\Core\GUIType.h
+.\Obj\guidemo_automotive.o: .\Source\uCGUI\Core\LCD.h
+.\Obj\guidemo_automotive.o: .\Source\uCGUI\Core\GUIVersion.h
+.\Obj\guidemo_automotive.o: Source\uCGUI\uCGUIDemo\GUIDEMO.h
+.\Obj\guidemo_automotive.o: .\Source\uCGUI\Core\LCD_ConfDefaults.h
+.\Obj\guidemo_automotive.o: .\Source\uCGUI\Config\LCDConf.h
+.\Obj\guidemo_automotive.o: .\Source\uCGUI\WM\WM.h
+.\Obj\guidemo_automotive.o: .\Source\uCGUI\WM\WM_GUI.h

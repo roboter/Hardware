@@ -1,0 +1,17 @@
+..\OBJ\diskio.o: ..\FATFS\diskio.c
+..\OBJ\diskio.o: ..\FATFS\diskio.h
+..\OBJ\diskio.o: ..\FATFS\integer.h
+..\OBJ\diskio.o: ..\USER\stm32f10x.h
+..\OBJ\diskio.o: ..\CORE\core_cm3.h
+..\OBJ\diskio.o: C:\Keil\ARM\RV31\Inc\stdint.h
+..\OBJ\diskio.o: ..\USER\system_stm32f10x.h
+..\OBJ\diskio.o: ..\USER\stm32f10x_conf.h
+..\OBJ\diskio.o: ..\FWLIB\inc\stm32f10x_dbgmcu.h
+..\OBJ\diskio.o: ..\USER\stm32f10x.h
+..\OBJ\diskio.o: ..\FWLIB\inc\stm32f10x_gpio.h
+..\OBJ\diskio.o: ..\FWLIB\inc\stm32f10x_rcc.h
+..\OBJ\diskio.o: ..\FWLIB\inc\stm32f10x_spi.h
+..\OBJ\diskio.o: ..\FWLIB\inc\stm32f10x_usart.h
+..\OBJ\diskio.o: ..\FWLIB\inc\misc.h
+..\OBJ\diskio.o: ..\HARDWARE\SPI\spi.h
+..\OBJ\diskio.o: ..\HARDWARE\sd\sd.h

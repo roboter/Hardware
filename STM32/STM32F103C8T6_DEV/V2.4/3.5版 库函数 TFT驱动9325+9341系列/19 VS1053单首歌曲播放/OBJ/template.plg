@@ -1,0 +1,15 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Administrator\Desktop\STM32F103VCVET6系列 2.3版启光\3.5版 库函数 程序部分9325+9341系列\19 VS1053单首歌曲播放\USER\template.uvproj
+Project File Date:  10/12/2017
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling startup_stm32f10x_hd.s...
+linking...
+Program Size: Code=17370 RO-data=1954 RW-data=60 ZI-data=6284  
+FromELF: creating hex file...
+"..\OBJ\template.axf" - 0 Error(s), 0 Warning(s).

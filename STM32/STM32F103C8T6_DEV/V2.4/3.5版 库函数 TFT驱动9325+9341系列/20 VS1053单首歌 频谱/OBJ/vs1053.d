@@ -1,0 +1,16 @@
+..\OBJ\vs1053.o: ..\HARDWARE\vs1053\vs1053.c
+..\OBJ\vs1053.o: ..\HARDWARE\vs1053\vs1053.h
+..\OBJ\vs1053.o: ..\USER\stm32f10x.h
+..\OBJ\vs1053.o: ..\CORE\core_cm3.h
+..\OBJ\vs1053.o: C:\Keil\ARM\RV31\Inc\stdint.h
+..\OBJ\vs1053.o: ..\USER\system_stm32f10x.h
+..\OBJ\vs1053.o: ..\USER\stm32f10x_conf.h
+..\OBJ\vs1053.o: ..\FWLIB\inc\stm32f10x_dbgmcu.h
+..\OBJ\vs1053.o: ..\USER\stm32f10x.h
+..\OBJ\vs1053.o: ..\FWLIB\inc\stm32f10x_gpio.h
+..\OBJ\vs1053.o: ..\FWLIB\inc\stm32f10x_rcc.h
+..\OBJ\vs1053.o: ..\FWLIB\inc\stm32f10x_spi.h
+..\OBJ\vs1053.o: ..\FWLIB\inc\stm32f10x_usart.h
+..\OBJ\vs1053.o: ..\FWLIB\inc\misc.h
+..\OBJ\vs1053.o: ..\DELAY\delay.h
+..\OBJ\vs1053.o: ..\HARDWARE\SPI\spi.h

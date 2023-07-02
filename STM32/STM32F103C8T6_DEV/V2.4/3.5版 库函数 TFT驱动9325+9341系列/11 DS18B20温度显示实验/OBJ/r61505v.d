@@ -1,0 +1,16 @@
+..\OBJ\r61505v.o: ..\R61505V\r61505v.c
+..\OBJ\r61505v.o: ..\R61505V\r61505v.h
+..\OBJ\r61505v.o: ..\USER\stm32f10x.h
+..\OBJ\r61505v.o: ..\CORE\core_cm3.h
+..\OBJ\r61505v.o: C:\Keil\ARM\RV31\INC\stdint.h
+..\OBJ\r61505v.o: ..\USER\system_stm32f10x.h
+..\OBJ\r61505v.o: ..\USER\stm32f10x_conf.h
+..\OBJ\r61505v.o: ..\FWLIB\inc\stm32f10x_dbgmcu.h
+..\OBJ\r61505v.o: ..\USER\stm32f10x.h
+..\OBJ\r61505v.o: ..\FWLIB\inc\stm32f10x_gpio.h
+..\OBJ\r61505v.o: ..\FWLIB\inc\stm32f10x_rcc.h
+..\OBJ\r61505v.o: ..\FWLIB\inc\stm32f10x_spi.h
+..\OBJ\r61505v.o: ..\FWLIB\inc\stm32f10x_usart.h
+..\OBJ\r61505v.o: ..\FWLIB\inc\misc.h
+..\OBJ\r61505v.o: ..\R61505V\zifu8x16.h
+..\OBJ\r61505v.o: ..\DELAY\delay.h

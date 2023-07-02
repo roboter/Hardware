@@ -1,0 +1,1005 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;/*!
+    2 00000000         ; * @file       startup_apm32f030.s
+    3 00000000         ; *
+    4 00000000         ; * @brief      CMSIS Cortex-M0 PLUS based Core Device S
+                       tartup File for Device startup_apm32f030
+    5 00000000         ; *
+    6 00000000         ; * @version    V1.0.2
+    7 00000000         ; *
+    8 00000000         ; * @date       2022-02-21
+    9 00000000         ; *
+   10 00000000         ; * @attention
+   11 00000000         ; *
+   12 00000000         ; *  Copyright (C) 2020-2022 Geehy Semiconductor
+   13 00000000         ; *
+   14 00000000         ; *  You may not use this file except in compliance with
+                        the
+   15 00000000         ; *  GEEHY COPYRIGHT NOTICE (GEEHY SOFTWARE PACKAGE LICE
+                       NSE).
+   16 00000000         ; *
+   17 00000000         ; *  The program is only for reference, which is distrib
+                       uted in the hope
+   18 00000000         ; *  that it will be usefull and instructional for custo
+                       mers to develop
+   19 00000000         ; *  their software. Unless required by applicable law o
+                       r agreed to in
+   20 00000000         ; *  writing, the program is distributed on an "AS IS" B
+                       ASIS, WITHOUT
+   21 00000000         ; *  ANY WARRANTY OR CONDITIONS OF ANY KIND, either expr
+                       ess or implied.
+   22 00000000         ; *  See the GEEHY SOFTWARE PACKAGE LICENSE for the gove
+                       rning permissions
+   23 00000000         ; *  and limitations under the License.
+   24 00000000         ; */
+   25 00000000         
+   26 00000000         ; <h> Stack Configuration
+   27 00000000         ;  <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   28 00000000         ; </h>
+   29 00000000         
+   30 00000000 00000400 
+                       Stack_Size
+                               EQU              0x00000400
+   31 00000000         
+   32 00000000                 AREA             STACK, NOINIT, READWRITE, ALIGN
+=3
+   33 00000000         Stack_Mem
+                               SPACE            Stack_Size
+   34 00000400         __initial_sp
+   35 00000400         
+   36 00000400         
+   37 00000400         ; <h> Heap Configuration
+   38 00000400         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   39 00000400         ; </h>
+   40 00000400         
+   41 00000400 00000200 
+                       Heap_Size
+                               EQU              0x00000200
+   42 00000400         
+   43 00000400                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
+3
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   44 00000000         __heap_base
+   45 00000000         Heap_Mem
+                               SPACE            Heap_Size
+   46 00000200         __heap_limit
+   47 00000200         
+   48 00000200                 PRESERVE8
+   49 00000200                 THUMB
+   50 00000200         
+   51 00000200         
+   52 00000200         ; Vector Table Mapped to Address 0 at Reset
+   53 00000200                 AREA             RESET, DATA, READONLY
+   54 00000000                 EXPORT           __Vectors
+   55 00000000                 EXPORT           __Vectors_End
+   56 00000000                 EXPORT           __Vectors_Size
+   57 00000000         
+   58 00000000 00000000 
+                       __Vectors
+                               DCD              __initial_sp ; Top of Stack
+   59 00000004 00000000        DCD              Reset_Handler ; Reset Handler
+   60 00000008 00000000        DCD              NMI_Handler ; NMI Handler
+   61 0000000C 00000000        DCD              HardFault_Handler ; Hard Fault 
+                                                            Handler
+   62 00000010 00000000        DCD              0           ; Reserved
+   63 00000014 00000000        DCD              0           ; Reserved
+   64 00000018 00000000        DCD              0           ; Reserved
+   65 0000001C 00000000        DCD              0           ; Reserved
+   66 00000020 00000000        DCD              0           ; Reserved
+   67 00000024 00000000        DCD              0           ; Reserved
+   68 00000028 00000000        DCD              0           ; Reserved
+   69 0000002C 00000000        DCD              SVC_Handler ; SVCall Handler
+   70 00000030 00000000        DCD              0           ; Reserved
+   71 00000034 00000000        DCD              0           ; Reserved
+   72 00000038 00000000        DCD              PendSV_Handler ; PendSV Handler
+                                                            
+   73 0000003C 00000000        DCD              SysTick_Handler 
+                                                            ; SysTick Handler
+   74 00000040         
+   75 00000040         ; External Interrupts
+   76 00000040 00000000        DCD              WWDT_IRQHandler 
+                                                            ; Window Watchdog
+   77 00000044 00000000        DCD              0           ; Reserved
+   78 00000048 00000000        DCD              RTC_IRQHandler ; RTC through EI
+                                                            NT Line
+   79 0000004C 00000000        DCD              FLASH_IRQHandler ; FLASH
+   80 00000050 00000000        DCD              RCM_IRQHandler ; RCM
+   81 00000054 00000000        DCD              EINT0_1_IRQHandler 
+                                                            ; EINT Line 0 and 1
+                                                            
+   82 00000058 00000000        DCD              EINT2_3_IRQHandler 
+                                                            ; EINT Line 2 and 3
+                                                            
+   83 0000005C 00000000        DCD              EINT4_15_IRQHandler 
+                                                            ; EINT Line 4 to 15
+                                                            
+   84 00000060 00000000        DCD              0           ; Reserved
+   85 00000064 00000000        DCD              DMA1_CH1_IRQHandler 
+                                                            ; DMA1 Channel 1
+   86 00000068 00000000        DCD              DMA1_CH2_3_IRQHandler ; DMA1 Ch
+                                                            annel 2 and Channel
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+                                                             3
+   87 0000006C 00000000        DCD              DMA1_CH4_5_IRQHandler ; DMA1 Ch
+                                                            annel 4 and Channel
+                                                             5
+   88 00000070 00000000        DCD              ADC1_IRQHandler ; ADC1
+   89 00000074 00000000        DCD              TMR1_BRK_UP_TRG_COM_IRQHandler 
+                                                            ; TMR1 Break, Updat
+                                                            e, Trigger and Comm
+                                                            utation
+   90 00000078 00000000        DCD              TMR1_CC_IRQHandler ; TMR1 Captu
+                                                            re Compare
+   91 0000007C 00000000        DCD              0           ; Reserved
+   92 00000080 00000000        DCD              TMR3_IRQHandler ; TMR3
+   93 00000084 00000000        DCD              TMR6_IRQHandler ; TMR6
+   94 00000088 00000000        DCD              TMR7_IRQHandler ; TMR7
+   95 0000008C 00000000        DCD              TMR14_IRQHandler ; TMR14
+   96 00000090 00000000        DCD              TMR15_IRQHandler ; TMR15
+   97 00000094 00000000        DCD              TMR16_IRQHandler ; TMR16
+   98 00000098 00000000        DCD              TMR17_IRQHandler ; TMR17
+   99 0000009C 00000000        DCD              I2C1_IRQHandler ; I2C1
+  100 000000A0 00000000        DCD              I2C2_IRQHandler ; I2C2
+  101 000000A4 00000000        DCD              SPI1_IRQHandler ; SPI1
+  102 000000A8 00000000        DCD              SPI2_IRQHandler ; SPI2
+  103 000000AC 00000000        DCD              USART1_IRQHandler ; USART1
+  104 000000B0 00000000        DCD              USART2_IRQHandler ; USART2
+  105 000000B4 00000000        DCD              USART3_6_IRQHandler ; USART3,US
+                                                            ART4,USART5,USART6
+  106 000000B8         
+  107 000000B8         __Vectors_End
+  108 000000B8         
+  109 000000B8 000000B8 
+                       __Vectors_Size
+                               EQU              __Vectors_End - __Vectors
+  110 000000B8         
+  111 000000B8                 AREA             |.text|, CODE, READONLY
+  112 00000000         
+  113 00000000         ; Reset handler routine
+  114 00000000         Reset_Handler
+                               PROC
+  115 00000000                 EXPORT           Reset_Handler                 [
+WEAK]
+  116 00000000                 IMPORT           __main
+  117 00000000                 IMPORT           SystemInit
+  118 00000000 4804            LDR              R0, =SystemInit
+  119 00000002 4780            BLX              R0
+  120 00000004 4804            LDR              R0, =__main
+  121 00000006 4700            BX               R0
+  122 00000008                 ENDP
+  123 00000008         
+  124 00000008         ; Dummy Exception Handlers (infinite loops which can be 
+                       modified)
+  125 00000008         
+  126 00000008         NMI_Handler
+                               PROC
+  127 00000008                 EXPORT           NMI_Handler                    
+[WEAK]
+  128 00000008 E7FE            B                .
+  129 0000000A                 ENDP
+  131 0000000A         HardFault_Handler
+
+
+
+ARM Macro Assembler    Page 4 
+
+
+                               PROC
+  132 0000000A                 EXPORT           HardFault_Handler              
+[WEAK]
+  133 0000000A E7FE            B                .
+  134 0000000C                 ENDP
+  135 0000000C         SVC_Handler
+                               PROC
+  136 0000000C                 EXPORT           SVC_Handler                    
+[WEAK]
+  137 0000000C E7FE            B                .
+  138 0000000E                 ENDP
+  139 0000000E         PendSV_Handler
+                               PROC
+  140 0000000E                 EXPORT           PendSV_Handler                 
+[WEAK]
+  141 0000000E E7FE            B                .
+  142 00000010                 ENDP
+  143 00000010         SysTick_Handler
+                               PROC
+  144 00000010                 EXPORT           SysTick_Handler                
+[WEAK]
+  145 00000010 E7FE            B                .
+  146 00000012                 ENDP
+  147 00000012         
+  148 00000012         Default_Handler
+                               PROC
+  149 00000012         
+  150 00000012                 EXPORT           WWDT_IRQHandler                
+[WEAK]
+  151 00000012                 EXPORT           RTC_IRQHandler                 
+[WEAK]
+  152 00000012                 EXPORT           FLASH_IRQHandler               
+[WEAK]
+  153 00000012                 EXPORT           RCM_IRQHandler                 
+[WEAK]
+  154 00000012                 EXPORT           EINT0_1_IRQHandler             
+[WEAK]
+  155 00000012                 EXPORT           EINT2_3_IRQHandler             
+[WEAK]
+  156 00000012                 EXPORT           EINT4_15_IRQHandler            
+[WEAK]
+  157 00000012                 EXPORT           DMA1_CH1_IRQHandler            
+[WEAK]
+  158 00000012                 EXPORT           DMA1_CH2_3_IRQHandler          
+[WEAK]
+  159 00000012                 EXPORT           DMA1_CH4_5_IRQHandler          
+[WEAK]
+  160 00000012                 EXPORT           ADC1_IRQHandler                
+[WEAK]
+  161 00000012                 EXPORT           TMR1_BRK_UP_TRG_COM_IRQHandler 
+[WEAK]
+  162 00000012                 EXPORT           TMR1_CC_IRQHandler             
+[WEAK]
+  163 00000012                 EXPORT           TMR3_IRQHandler                
+[WEAK]
+  164 00000012                 EXPORT           TMR6_IRQHandler                
+[WEAK]
+  165 00000012                 EXPORT           TMR7_IRQHandler                
+[WEAK]
+
+
+
+ARM Macro Assembler    Page 5 
+
+
+  166 00000012                 EXPORT           TMR14_IRQHandler               
+[WEAK]
+  167 00000012                 EXPORT           TMR15_IRQHandler               
+[WEAK]
+  168 00000012                 EXPORT           TMR16_IRQHandler               
+[WEAK]
+  169 00000012                 EXPORT           TMR17_IRQHandler               
+[WEAK]
+  170 00000012                 EXPORT           I2C1_IRQHandler                
+[WEAK]
+  171 00000012                 EXPORT           I2C2_IRQHandler                
+[WEAK]
+  172 00000012                 EXPORT           SPI1_IRQHandler                
+[WEAK]
+  173 00000012                 EXPORT           SPI2_IRQHandler                
+[WEAK]
+  174 00000012                 EXPORT           USART1_IRQHandler              
+[WEAK]
+  175 00000012                 EXPORT           USART2_IRQHandler              
+[WEAK]
+  176 00000012                 EXPORT           USART3_6_IRQHandler            
+[WEAK]
+  177 00000012         
+  178 00000012         
+  179 00000012         WWDT_IRQHandler
+  180 00000012         RTC_IRQHandler
+  181 00000012         FLASH_IRQHandler
+  182 00000012         RCM_IRQHandler
+  183 00000012         EINT0_1_IRQHandler
+  184 00000012         EINT2_3_IRQHandler
+  185 00000012         EINT4_15_IRQHandler
+  186 00000012         DMA1_CH1_IRQHandler
+  187 00000012         DMA1_CH2_3_IRQHandler
+  188 00000012         DMA1_CH4_5_IRQHandler
+  189 00000012         ADC1_IRQHandler
+  190 00000012         TMR1_BRK_UP_TRG_COM_IRQHandler
+  191 00000012         TMR1_CC_IRQHandler
+  192 00000012         TMR3_IRQHandler
+  193 00000012         TMR6_IRQHandler
+  194 00000012         TMR7_IRQHandler
+  195 00000012         TMR14_IRQHandler
+  196 00000012         TMR15_IRQHandler
+  197 00000012         TMR16_IRQHandler
+  198 00000012         TMR17_IRQHandler
+  199 00000012         I2C1_IRQHandler
+  200 00000012         I2C2_IRQHandler
+  201 00000012         SPI1_IRQHandler
+  202 00000012         SPI2_IRQHandler
+  203 00000012         USART1_IRQHandler
+  204 00000012         USART2_IRQHandler
+  205 00000012         USART3_6_IRQHandler
+  206 00000012         
+  207 00000012 E7FE            B                .
+  208 00000014         
+  209 00000014                 ENDP
+  210 00000014         
+  211 00000014                 ALIGN
+  212 00000014         
+  213 00000014         ;*******************************************************
+
+
+
+ARM Macro Assembler    Page 6 
+
+
+                       ************************
+  214 00000014         ; User Stack and Heap initialization
+  215 00000014         ;*******************************************************
+                       ************************
+  216 00000014                 IF               :DEF:__MICROLIB
+  217 00000014         
+  218 00000014                 EXPORT           __initial_sp
+  219 00000014                 EXPORT           __heap_base
+  220 00000014                 EXPORT           __heap_limit
+  221 00000014         
+  222 00000014                 ELSE
+  237                          ENDIF
+  238 00000014         
+  239 00000014                 END
+              00000000 
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M0+ --dep
+end=.\out\apm32f030\startup_apm32f030.d -o.\out\apm32f030\startup_apm32f030.o -
+IC:\Users\roboter\AppData\Local\Arm\Packs\Geehy\APM32F0xx_DFP\1.0.9\Device\Devi
+ce\Geehy\APM32F0xx\Include -IC:\Users\roboter\AppData\Local\Arm\Packs\Geehy\APM
+32F0xx_DFP\1.0.9\Device\Include --predefine="__EVAL SETA 1" --predefine="__MICR
+OLIB SETA 1" --predefine="__UVISION_VERSION SETA 538" --predefine="APM32F030X8 
+SETA 1" --list=.\listings\apm32f030\startup_apm32f030.lst ..\..\..\..\..\Librar
+y\Device\Geehy\APM32F0xx\Source\arm\startup_apm32f030.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+STACK 00000000
+
+Symbol: STACK
+   Definitions
+      At line 32 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+   Uses
+      None
+Comment: STACK unused
+Stack_Mem 00000000
+
+Symbol: Stack_Mem
+   Definitions
+      At line 33 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+   Uses
+      None
+Comment: Stack_Mem unused
+__initial_sp 00000400
+
+Symbol: __initial_sp
+   Definitions
+      At line 34 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+   Uses
+      At line 58 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 218 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+HEAP 00000000
+
+Symbol: HEAP
+   Definitions
+      At line 43 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+   Uses
+      None
+Comment: HEAP unused
+Heap_Mem 00000000
+
+Symbol: Heap_Mem
+   Definitions
+      At line 45 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+   Uses
+      None
+Comment: Heap_Mem unused
+__heap_base 00000000
+
+Symbol: __heap_base
+   Definitions
+      At line 44 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+   Uses
+      At line 219 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+Comment: __heap_base used once
+__heap_limit 00000200
+
+Symbol: __heap_limit
+   Definitions
+      At line 46 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+   Uses
+      At line 220 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+Comment: __heap_limit used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 53 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 58 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+   Uses
+      At line 54 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 109 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+__Vectors_End 000000B8
+
+Symbol: __Vectors_End
+   Definitions
+      At line 107 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 55 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 109 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 111 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      None
+Comment: .text unused
+ADC1_IRQHandler 00000012
+
+Symbol: ADC1_IRQHandler
+   Definitions
+      At line 189 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 88 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 160 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+DMA1_CH1_IRQHandler 00000012
+
+Symbol: DMA1_CH1_IRQHandler
+   Definitions
+      At line 186 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 85 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 157 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+DMA1_CH2_3_IRQHandler 00000012
+
+Symbol: DMA1_CH2_3_IRQHandler
+   Definitions
+      At line 187 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 86 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 158 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+DMA1_CH4_5_IRQHandler 00000012
+
+Symbol: DMA1_CH4_5_IRQHandler
+   Definitions
+      At line 188 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 87 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 159 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+Default_Handler 00000012
+
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+Symbol: Default_Handler
+   Definitions
+      At line 148 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      None
+Comment: Default_Handler unused
+EINT0_1_IRQHandler 00000012
+
+Symbol: EINT0_1_IRQHandler
+   Definitions
+      At line 183 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 81 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 154 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+EINT2_3_IRQHandler 00000012
+
+Symbol: EINT2_3_IRQHandler
+   Definitions
+      At line 184 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 82 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 155 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+EINT4_15_IRQHandler 00000012
+
+Symbol: EINT4_15_IRQHandler
+   Definitions
+      At line 185 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 83 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 156 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+FLASH_IRQHandler 00000012
+
+Symbol: FLASH_IRQHandler
+   Definitions
+      At line 181 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 79 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 152 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+HardFault_Handler 0000000A
+
+Symbol: HardFault_Handler
+   Definitions
+
+
+
+ARM Macro Assembler    Page 3 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 131 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 61 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 132 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+I2C1_IRQHandler 00000012
+
+Symbol: I2C1_IRQHandler
+   Definitions
+      At line 199 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 99 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 170 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+I2C2_IRQHandler 00000012
+
+Symbol: I2C2_IRQHandler
+   Definitions
+      At line 200 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 100 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+      At line 171 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+NMI_Handler 00000008
+
+Symbol: NMI_Handler
+   Definitions
+      At line 126 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 60 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 127 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+PendSV_Handler 0000000E
+
+Symbol: PendSV_Handler
+   Definitions
+      At line 139 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 72 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 140 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+RCM_IRQHandler 00000012
+
+Symbol: RCM_IRQHandler
+
+
+
+ARM Macro Assembler    Page 4 Alphabetic symbol ordering
+Relocatable symbols
+
+   Definitions
+      At line 182 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 80 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 153 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+RTC_IRQHandler 00000012
+
+Symbol: RTC_IRQHandler
+   Definitions
+      At line 180 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 78 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 151 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 114 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 59 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 115 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+SPI1_IRQHandler 00000012
+
+Symbol: SPI1_IRQHandler
+   Definitions
+      At line 201 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 101 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+      At line 172 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+SPI2_IRQHandler 00000012
+
+Symbol: SPI2_IRQHandler
+   Definitions
+      At line 202 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 102 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+      At line 173 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+SVC_Handler 0000000C
+
+
+
+
+ARM Macro Assembler    Page 5 Alphabetic symbol ordering
+Relocatable symbols
+
+Symbol: SVC_Handler
+   Definitions
+      At line 135 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 69 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 136 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+SysTick_Handler 00000010
+
+Symbol: SysTick_Handler
+   Definitions
+      At line 143 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 73 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 144 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+TMR14_IRQHandler 00000012
+
+Symbol: TMR14_IRQHandler
+   Definitions
+      At line 195 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 95 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 166 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+TMR15_IRQHandler 00000012
+
+Symbol: TMR15_IRQHandler
+   Definitions
+      At line 196 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 96 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 167 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+TMR16_IRQHandler 00000012
+
+Symbol: TMR16_IRQHandler
+   Definitions
+      At line 197 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 97 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 168 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+TMR17_IRQHandler 00000012
+
+
+
+ARM Macro Assembler    Page 6 Alphabetic symbol ordering
+Relocatable symbols
+
+
+Symbol: TMR17_IRQHandler
+   Definitions
+      At line 198 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 98 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 169 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+TMR1_BRK_UP_TRG_COM_IRQHandler 00000012
+
+Symbol: TMR1_BRK_UP_TRG_COM_IRQHandler
+   Definitions
+      At line 190 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 89 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 161 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+TMR1_CC_IRQHandler 00000012
+
+Symbol: TMR1_CC_IRQHandler
+   Definitions
+      At line 191 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 90 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 162 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+TMR3_IRQHandler 00000012
+
+Symbol: TMR3_IRQHandler
+   Definitions
+      At line 192 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 92 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 163 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+TMR6_IRQHandler 00000012
+
+Symbol: TMR6_IRQHandler
+   Definitions
+      At line 193 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 93 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 164 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+
+
+
+ARM Macro Assembler    Page 7 Alphabetic symbol ordering
+Relocatable symbols
+
+TMR7_IRQHandler 00000012
+
+Symbol: TMR7_IRQHandler
+   Definitions
+      At line 194 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 94 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 165 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+USART1_IRQHandler 00000012
+
+Symbol: USART1_IRQHandler
+   Definitions
+      At line 203 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 103 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+      At line 174 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+USART2_IRQHandler 00000012
+
+Symbol: USART2_IRQHandler
+   Definitions
+      At line 204 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 104 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+      At line 175 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+USART3_6_IRQHandler 00000012
+
+Symbol: USART3_6_IRQHandler
+   Definitions
+      At line 205 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 105 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+      At line 176 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+WWDT_IRQHandler 00000012
+
+Symbol: WWDT_IRQHandler
+   Definitions
+      At line 179 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 76 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+      At line 150 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+
+
+
+ARM Macro Assembler    Page 8 Alphabetic symbol ordering
+Relocatable symbols
+
+
+35 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+Heap_Size 00000200
+
+Symbol: Heap_Size
+   Definitions
+      At line 41 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+   Uses
+      At line 45 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+Comment: Heap_Size used once
+Stack_Size 00000400
+
+Symbol: Stack_Size
+   Definitions
+      At line 30 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+   Uses
+      At line 33 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+Comment: Stack_Size used once
+__Vectors_Size 000000B8
+
+Symbol: __Vectors_Size
+   Definitions
+      At line 109 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 56 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\a
+rm\startup_apm32f030.s
+Comment: __Vectors_Size used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+SystemInit 00000000
+
+Symbol: SystemInit
+   Definitions
+      At line 117 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 118 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+Comment: SystemInit used once
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 116 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+   Uses
+      At line 120 in file ..\..\..\..\..\Library\Device\Geehy\APM32F0xx\Source\
+arm\startup_apm32f030.s
+Comment: __main used once
+2 symbols
+386 symbols in table

@@ -1,0 +1,16 @@
+..\OBJ\ds18b20.o: ..\HARDWARE\ds18b20\ds18b20.c
+..\OBJ\ds18b20.o: ..\HARDWARE\ds18b20\ds18b20.h
+..\OBJ\ds18b20.o: ..\DELAY\delay.h
+..\OBJ\ds18b20.o: ..\USER\stm32f10x.h
+..\OBJ\ds18b20.o: ..\CORE\core_cm3.h
+..\OBJ\ds18b20.o: C:\Keil\ARM\RV31\Inc\stdint.h
+..\OBJ\ds18b20.o: ..\USER\system_stm32f10x.h
+..\OBJ\ds18b20.o: ..\USER\stm32f10x_conf.h
+..\OBJ\ds18b20.o: ..\FWLIB\inc\stm32f10x_dbgmcu.h
+..\OBJ\ds18b20.o: ..\USER\stm32f10x.h
+..\OBJ\ds18b20.o: ..\FWLIB\inc\stm32f10x_gpio.h
+..\OBJ\ds18b20.o: ..\FWLIB\inc\stm32f10x_rcc.h
+..\OBJ\ds18b20.o: ..\FWLIB\inc\stm32f10x_spi.h
+..\OBJ\ds18b20.o: ..\FWLIB\inc\stm32f10x_usart.h
+..\OBJ\ds18b20.o: ..\FWLIB\inc\misc.h
+..\OBJ\ds18b20.o: ..\GUI\gui.h
