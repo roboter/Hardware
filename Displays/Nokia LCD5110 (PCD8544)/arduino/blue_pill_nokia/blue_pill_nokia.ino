@@ -76,6 +76,7 @@ void setup() {
   digitalWrite(RST, LOW);
   digitalWrite(RST, HIGH);
 
+  // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED, OUTPUT);
 }
 
@@ -86,15 +87,14 @@ void loop() {
   LcdWriteCmd(0x04);                                 // set temp coefficent
   LcdWriteCmd(0x14);                                 // LCD bias mode 1:40
   LcdWriteCmd(0x20);                                 // LCD basic commands
+  // LcdWriteCmd(0x09); -- BLACK SCREEN
   LcdWriteCmd(0x0C);                                 // LCD normal video
-                                                     //LcdWriteCmd(0x09);
-  for (int i = 0; i < 504; i++) LcdWriteData(0x00);  // clear LCD
+  
+  //for (int i = 0; i < 504; i++) LcdWriteData(0xFF);  // clear LCD
 
   LcdXY(20, 2);
   LcdWriteString("THE END");
-  // // initialize digital pin LED_BUILTIN as an output.
-
-
+  
   digitalWrite(LED, HIGH);  // turn the LED on (HIGH is the voltage level)
   delay(1000);              // wait for a second
   digitalWrite(LED, LOW);   // turn the LED off by making the voltage LOW
