@@ -12,18 +12,18 @@
 
 //BluePill
 // #define RST PC14
-// #define CE PC15   
-// #define DC PA0  
-// #define DIN PA1   
-// #define CLK PA2   
+// #define CE PC15
+// #define DC PA0
+// #define DIN PA1
+// #define CLK PA2
 #define LED PB5
 
 //maple
-#define RST PB4 
-#define CE PA4   
-#define DC PB6  
-#define DIN PA7  
-#define CLK PA5 
+#define RST PB4
+#define CE PA4
+#define DC PB6
+#define DIN PA7
+#define CLK PA5
 
 
 //#define LED PB1
@@ -82,19 +82,19 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
-  LcdWriteCmd(0x21);                                 // LCD extended commands
-  LcdWriteCmd(0xBF);                                 // set LCD Vop (contrast)
-  LcdWriteCmd(0x04);                                 // set temp coefficent
-  LcdWriteCmd(0x14);                                 // LCD bias mode 1:40
-  LcdWriteCmd(0x20);                                 // LCD basic commands
+  LcdWriteCmd(0x21);  // LCD extended commands
+  LcdWriteCmd(0xBF);  // set LCD Vop (contrast)
+  LcdWriteCmd(0x04);  // set temp coefficent
+  LcdWriteCmd(0x14);  // LCD bias mode 1:40
+  LcdWriteCmd(0x20);  // LCD basic commands
   // LcdWriteCmd(0x09); -- BLACK SCREEN
-  LcdWriteCmd(0x0C);                                 // LCD normal video
-  
+  LcdWriteCmd(0x0C);  // LCD normal video
+
   //for (int i = 0; i < 504; i++) LcdWriteData(0xFF);  // clear LCD
 
   LcdXY(20, 2);
   LcdWriteString("THE END");
-  
+
   digitalWrite(LED, HIGH);  // turn the LED on (HIGH is the voltage level)
   delay(1000);              // wait for a second
   digitalWrite(LED, LOW);   // turn the LED off by making the voltage LOW
