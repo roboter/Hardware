@@ -1,0 +1,23 @@
+Project: STM32F429I-Discovery_Demo
+Converter: Atollic TrueSTUDIO project converter
+Date: 20230217
+
+Warning: Failed to find matching mcu for null
+Unknown value type "" for id com.atollic.truestudio.gcc.symbols.defined on tool com.atollic.truestudio.exe.debug.toolchain.as
+Option com.atollic.truestudio.common_options.target.endianess is no longer supported
+Warning: MCU STM32F429ZI matched multiple possible MCUs: [STM32F429ZITx, STM32F429ZIYx]
+Option com.atollic.truestudio.common_options.target.instr_set is no longer supported
+Option com.atollic.truestudio.common_options.target.endianess is no longer supported
+Option com.atollic.truestudio.common_options.target.instr_set is no longer supported
+Option com.atollic.truestudio.common_options.target.endianess is no longer supported
+Option com.atollic.truestudio.common_options.target.instr_set is no longer supported
+No map found for id: com.atollic.truestudio.ld.optimization.malloc_page_size
+Unknown value type "" for id com.atollic.truestudio.gpp.optimization.fno_rtti on tool com.atollic.truestudio.exe.debug.toolchain.gpp
+Unknown value type "" for id com.atollic.truestudio.gpp.optimization.fno_exceptions on tool com.atollic.truestudio.exe.debug.toolchain.gpp
+Option com.atollic.truestudio.common_options.target.endianess is no longer supported
+Option com.atollic.truestudio.common_options.target.instr_set is no longer supported
+Option com.atollic.truestudio.common_options.target.endianess is no longer supported
+Option com.atollic.truestudio.common_options.target.instr_set is no longer supported
+Warning: Failed to find matching mcu for null
+Warning: Failed to find matching mcu for null
+No map found for id: org.eclipse.cdt.managedbuilder.ui.rcbs

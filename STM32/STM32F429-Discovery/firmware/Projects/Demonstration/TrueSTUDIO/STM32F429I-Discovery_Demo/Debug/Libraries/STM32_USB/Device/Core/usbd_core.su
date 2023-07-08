@@ -1,0 +1,15 @@
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c:367:16:USBD_Resume	8	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c:384:16:USBD_Suspend	8	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c:401:16:USBD_SOF	8	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c:445:16:USBD_IsoINIncomplete	8	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c:457:16:USBD_IsoOUTIncomplete	8	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c:470:16:USBD_DevConnected	8	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c:483:16:USBD_DevDisconnected	8	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c:339:16:USBD_Reset	8	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c:179:16:USBD_SetupStage	16	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c:261:16:USBD_DataInStage	16	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c:213:16:USBD_DataOutStage	8	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c:134:6:USBD_Init	32	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c:166:13:USBD_DeInit	0	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c:417:13:USBD_SetCfg	8	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Core/src/usbd_core.c:433:13:USBD_ClrCfg	8	static

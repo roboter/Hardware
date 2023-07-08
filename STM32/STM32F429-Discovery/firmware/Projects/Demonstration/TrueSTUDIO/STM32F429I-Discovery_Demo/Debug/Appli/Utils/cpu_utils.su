@@ -1,0 +1,5 @@
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Lib/cpu_utils.c:65:6:vApplicationIdleHook	8	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Lib/cpu_utils.c:79:6:vApplicationTickHook	0	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Lib/cpu_utils.c:102:6:StartIdleMonitor	8	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Lib/cpu_utils.c:115:6:EndIdleMonitor	8	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Lib/cpu_utils.c:130:10:FreeRTOS_GetCPUUsage	0	static

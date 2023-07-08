@@ -1,0 +1,4 @@
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Utilities/Third_Party/fat_fs/src/option/syscall.c:21:5:ff_cre_syncobj	8	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Utilities/Third_Party/fat_fs/src/option/syscall.c:44:5:ff_del_syncobj	8	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Utilities/Third_Party/fat_fs/src/option/syscall.c:62:5:ff_req_grant	8	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Utilities/Third_Party/fat_fs/src/option/syscall.c:81:6:ff_rel_grant	0	static

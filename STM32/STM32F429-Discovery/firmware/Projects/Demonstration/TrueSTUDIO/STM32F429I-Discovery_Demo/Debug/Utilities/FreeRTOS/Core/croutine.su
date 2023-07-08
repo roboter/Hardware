@@ -1,0 +1,4 @@
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Utilities/Third_Party/FreeRTOS/Source/croutine.c:138:22:xCoRoutineCreate	32	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Utilities/Third_Party/FreeRTOS/Source/croutine.c:195:6:vCoRoutineAddToDelayedList	24	static
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Utilities/Third_Party/FreeRTOS/Source/croutine.c:314:6:vCoRoutineSchedule	48	static,ignoring_inline_asm
+C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Utilities/Third_Party/FreeRTOS/Source/croutine.c:364:22:xCoRoutineRemoveFromEventList	16	static
