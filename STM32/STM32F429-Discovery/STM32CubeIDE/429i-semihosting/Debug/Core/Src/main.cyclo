@@ -1,0 +1,9 @@
+core_cm4.h:2064:26:ITM_SendChar	4
+main.c:67:5:main	1
+main.c:113:6:SystemClock_Config	4
+main.c:164:13:MX_TIM4_Init	4
+main.c:211:13:MX_TIM14_Init	2
+main.c:240:13:MX_GPIO_Init	1
+main.c:291:6:HAL_TIM_PeriodElapsedCallback	1
+main.c:302:5:__io_putchar	1
+main.c:313:6:Error_Handler	1

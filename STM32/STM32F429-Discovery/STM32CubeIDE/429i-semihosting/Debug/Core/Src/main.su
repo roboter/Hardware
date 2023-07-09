@@ -1,0 +1,9 @@
+../Drivers/CMSIS/Include/core_cm4.h:2064:26:ITM_SendChar	16	static,ignoring_inline_asm
+../Core/Src/main.c:67:5:main	8	static
+../Core/Src/main.c:113:6:SystemClock_Config	88	static
+../Core/Src/main.c:164:13:MX_TIM4_Init	48	static
+../Core/Src/main.c:211:13:MX_TIM14_Init	8	static
+../Core/Src/main.c:240:13:MX_GPIO_Init	48	static
+../Core/Src/main.c:291:6:HAL_TIM_PeriodElapsedCallback	16	static
+../Core/Src/main.c:302:5:__io_putchar	16	static
+../Core/Src/main.c:313:6:Error_Handler	4	static,ignoring_inline_asm
