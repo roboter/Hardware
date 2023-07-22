@@ -20,15 +20,16 @@
 #error "Unsupported STM32 Family"
 #endif
 
-#define LED_PIN                                GPIO_PIN_14
-#define LED_GPIO_PORT                          GPIOG
-#define LED_GPIO_CLK_ENABLE()                  __HAL_RCC_GPIOA_CLK_ENABLE()
+#define LED_PIN GPIO_PIN_14
+#define LED_GPIO_PORT GPIOG
+#define LED_GPIO_CLK_ENABLE() __HAL_RCC_GPIOA_CLK_ENABLE()
+#include <stdio.h>
 
 int main(void)
 {
   HAL_Init();
 
-  //LED_GPIO_CLK_ENABLE();
+  // LED_GPIO_CLK_ENABLE();
   __HAL_RCC_GPIOG_CLK_ENABLE();
 
   GPIO_InitTypeDef GPIO_InitStruct;
@@ -44,6 +45,8 @@ int main(void)
     HAL_GPIO_TogglePin(LED_GPIO_PORT, LED_PIN);
 
     HAL_Delay(1000);
+
+    printf("SWO test!\r\n");
   }
 }
 
@@ -58,29 +61,35 @@ void NMI_Handler(void)
 
 void HardFault_Handler(void)
 {
-  while (1) {}
+  while (1)
+  {
+  }
 }
-
 
 void MemManage_Handler(void)
 {
-  while (1) {}
+  while (1)
+  {
+  }
 }
 
 void BusFault_Handler(void)
 {
-  while (1) {}
+  while (1)
+  {
+  }
 }
 
 void UsageFault_Handler(void)
 {
-  while (1) {}
+  while (1)
+  {
+  }
 }
 
 void SVC_Handler(void)
 {
 }
-
 
 void DebugMon_Handler(void)
 {
