@@ -1,9 +1,0 @@
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_stdreq.c:121:13:USBH_Get_DevDesc	24	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_stdreq.c:153:13:USBH_Get_CfgDesc	88	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_stdreq.c:196:13:USBH_Get_StringDesc	24	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_stdreq.c:228:13:USBH_GetDescriptor	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_stdreq.c:258:13:USBH_SetAddress	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_stdreq.c:281:13:USBH_SetCfg	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_stdreq.c:303:13:USBH_SetInterface	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_stdreq.c:328:13:USBH_ClrFeature	4	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_stdreq.c:576:21:USBH_GetNextDesc	0	static

@@ -1,6 +1,0 @@
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Class/hid/src/usbd_hid_core.c:450:18:USBD_HID_GetCfgDesc	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Class/hid/src/usbd_hid_core.c:463:17:USBD_HID_DataIn	8	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Class/hid/src/usbd_hid_core.c:346:17:USBD_HID_Setup	8	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Class/hid/src/usbd_hid_core.c:328:17:USBD_HID_DeInit	8	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Class/hid/src/usbd_hid_core.c:302:17:USBD_HID_Init	8	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_Device_Library/Class/hid/src/usbd_hid_core.c:432:9:USBD_HID_SendReport	8	static

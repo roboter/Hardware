@@ -1,5 +1,0 @@
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32F4xx_StdPeriph_Driver/src/misc.c:118:6:NVIC_PriorityGroupConfig	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32F4xx_StdPeriph_Driver/src/misc.c:136:6:NVIC_Init	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32F4xx_StdPeriph_Driver/src/misc.c:180:6:NVIC_SetVectorTable	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32F4xx_StdPeriph_Driver/src/misc.c:199:6:NVIC_SystemLPConfig	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32F4xx_StdPeriph_Driver/src/misc.c:223:6:SysTick_CLKSourceConfig	0	static

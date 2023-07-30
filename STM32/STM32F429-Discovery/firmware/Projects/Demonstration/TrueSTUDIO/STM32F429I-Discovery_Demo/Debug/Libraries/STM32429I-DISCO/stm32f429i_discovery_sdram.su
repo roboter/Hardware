@@ -1,5 +1,0 @@
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Utilities/STM32F429I-Discovery/stm32f429i_discovery_sdram.c:122:6:SDRAM_GPIOConfig	24	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Utilities/STM32F429I-Discovery/stm32f429i_discovery_sdram.c:250:6:SDRAM_InitSequence	32	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Utilities/STM32F429I-Discovery/stm32f429i_discovery_sdram.c:65:6:SDRAM_Init	88	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Utilities/STM32F429I-Discovery/stm32f429i_discovery_sdram.c:346:6:SDRAM_WriteBuffer	24	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Utilities/STM32F429I-Discovery/stm32f429i_discovery_sdram.c:378:6:SDRAM_ReadBuffer	24	static

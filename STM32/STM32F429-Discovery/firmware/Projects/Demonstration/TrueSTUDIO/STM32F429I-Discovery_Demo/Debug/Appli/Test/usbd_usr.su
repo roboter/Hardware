@@ -1,7 +1,0 @@
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Test_Program/usbd_usr.c:119:6:USBD_USR_Init	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Test_Program/usbd_usr.c:129:6:USBD_USR_DeviceReset	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Test_Program/usbd_usr.c:183:6:USBD_USR_DeviceResumed	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Test_Program/usbd_usr.c:140:6:USBD_USR_DeviceConfigured	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Test_Program/usbd_usr.c:151:6:USBD_USR_DeviceConnected	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Test_Program/usbd_usr.c:162:6:USBD_USR_DeviceDisconnected	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Test_Program/usbd_usr.c:172:6:USBD_USR_DeviceSuspended	0	static

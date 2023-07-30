@@ -1,8 +1,0 @@
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_core.c:118:9:USBH_Connected	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_core.c:131:9:USBH_Disconnected	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_core.c:144:9:USBH_SOF	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_core.c:156:6:USBH_Init	24	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_core.c:193:13:USBH_DeInit	16	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_core.c:371:6:USBH_ErrorHandle	8	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_core.c:587:13:USBH_HandleControl	16	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_core.c:219:6:USBH_Process	96	static

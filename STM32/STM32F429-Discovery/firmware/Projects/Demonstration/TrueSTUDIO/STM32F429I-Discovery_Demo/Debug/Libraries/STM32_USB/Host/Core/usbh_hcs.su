@@ -1,5 +1,0 @@
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_hcs.c:102:9:USBH_Open_Channel	16	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_hcs.c:140:9:USBH_Modify_Channel	8	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_hcs.c:174:9:USBH_Alloc_Channel	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_hcs.c:193:9:USBH_Free_Channel	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Libraries/STM32_USB_HOST_Library/Core/src/usbh_hcs.c:209:9:USBH_DeAllocate_AllChannel	0	static

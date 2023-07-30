@@ -1,7 +1,0 @@
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Test_Program/usbd_desc.c:188:12:USBD_USR_DeviceDescriptor	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Test_Program/usbd_desc.c:201:12:USBD_USR_LangIDStrDescriptor	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Test_Program/usbd_desc.c:237:12:USBD_USR_ManufacturerStrDescriptor	8	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Test_Program/usbd_desc.c:215:12:USBD_USR_ProductStrDescriptor	8	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Test_Program/usbd_desc.c:250:12:USBD_USR_SerialStrDescriptor	8	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Test_Program/usbd_desc.c:270:12:USBD_USR_ConfigStrDescriptor	8	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/Test_Program/usbd_desc.c:291:12:USBD_USR_InterfaceStrDescriptor	8	static

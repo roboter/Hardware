@@ -1,4 +1,0 @@
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/User/bsp.c:52:10:LowLevel_Init	48	static,ignoring_inline_asm
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/User/bsp.c:103:10:BSP_TSC_Init	8	static,ignoring_inline_asm
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/User/bsp.c:116:6:BSP_Pointer_Update	32	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/User/bsp.c:152:6:Alarm_Init	24	static,ignoring_inline_asm

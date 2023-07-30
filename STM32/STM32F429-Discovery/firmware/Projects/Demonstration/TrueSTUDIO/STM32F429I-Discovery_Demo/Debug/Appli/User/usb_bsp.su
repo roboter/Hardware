@@ -1,7 +1,0 @@
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/User/usb_bsp.c:116:6:USB_OTG_BSP_Init	16	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/User/usb_bsp.c:150:6:USB_OTG_BSP_EnableInterrupt	16	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/User/usb_bsp.c:168:6:USB_OTG_BSP_DriveVBUS	0	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/User/usb_bsp.c:202:7:USB_OTG_BSP_ConfigVBUS	24	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/User/usb_bsp.c:253:6:USB_OTG_BSP_uDelay	8	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/User/usb_bsp.c:280:6:USB_OTG_BSP_mDelay	8	static
-C:/Users/roboter/Documents/GitHub/HardwareModules/STM32/STM32F429-Discovery/STM32F429I-Discovery_FW_V1.0.3/Projects/Demonstration/Core/User/usb_bsp.c:298:6:USB_OTG_BSP_TimerIRQ	0	static
