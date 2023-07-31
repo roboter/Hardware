@@ -1,0 +1,6 @@
+STM32F103C8T6 v2.0 Board
+SWO Working
+LED ON PC13
+
+USB - WORKS
+
