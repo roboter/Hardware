@@ -95,9 +95,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	printf("hello world!\n");
-	HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
-	HAL_Delay(100);
+	//printf("hello world!\n");
+	//HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+	//HAL_Delay(100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
