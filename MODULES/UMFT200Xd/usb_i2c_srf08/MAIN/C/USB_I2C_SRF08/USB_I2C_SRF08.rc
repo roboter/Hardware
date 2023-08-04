@@ -1,0 +1,241 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About USB_I2C_SRF08"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "USB_I2C_SRF08 Version 1.0",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 2006",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_USB_I2C_SRFxx_DIALOG DIALOGEX 0, 0, 162, 146
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "USB_I2C_SRF08"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Exit",IDOK,115,120,35,15
+    CONTROL         "Com1",IDC_COM1,"Button",BS_AUTORADIOBUTTON,20,25,34,10
+    CONTROL         "Com2",IDC_COM2,"Button",BS_AUTORADIOBUTTON,20,35,34,10
+    CONTROL         "Com3",IDC_COM3,"Button",BS_AUTORADIOBUTTON,20,45,34,10
+    CONTROL         "Com4",IDC_COM4,"Button",BS_AUTORADIOBUTTON,20,55,34,10
+    CONTROL         "Com5",IDC_COM5,"Button",BS_AUTORADIOBUTTON,20,65,34,10
+    CONTROL         "Com6",IDC_COM6,"Button",BS_AUTORADIOBUTTON,20,75,34,10
+    CONTROL         "Com7",IDC_COM7,"Button",BS_AUTORADIOBUTTON,20,85,34,10
+    CONTROL         "Com8",IDC_COM8,"Button",BS_AUTORADIOBUTTON,20,95,34,10
+    GROUPBOX        "CommPort",IDC_STATIC,10,10,50,100
+    EDITTEXT        IDC_SRF08_INCH,115,25,35,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Inches",IDC_STATIC,90,25,22,8
+    EDITTEXT        IDC_SRF08_US,115,55,35,12,ES_AUTOHSCROLL | ES_READONLY
+    RTEXT           "uS",IDC_STATIC,90,55,20,8
+    EDITTEXT        IDC_SRF08_CM,115,40,35,12,ES_AUTOHSCROLL | ES_READONLY
+    RTEXT           "cm",IDC_STATIC,90,40,20,8
+    EDITTEXT        IDC_SRF08_LIGHT,115,70,35,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    RTEXT           "Light",IDC_STATIC,90,70,20,8
+    EDITTEXT        IDC_MSG,10,120,90,15,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_SRF08_ADDR,115,85,35,12,ES_AUTOHSCROLL | ES_READONLY
+    RTEXT           "Address",IDC_STATIC,80,85,30,8
+    EDITTEXT        IDC_SRF08_VER,115,100,35,12,ES_AUTOHSCROLL | ES_READONLY
+    RTEXT           "SRFxx Ver",IDC_STATIC,75,100,35,8
+    EDITTEXT        IDC_USB_I2C_VER,115,5,35,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "USB_I2C Ver",IDC_STATIC,70,5,43,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "USB_I2C_SRF08 MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "USB_I2C_SRF08\0"
+            VALUE "LegalCopyright", "Copyright (C) 2006\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "USB_I2C_SRF08.EXE\0"
+            VALUE "ProductName", "USB_I2C_SRF08 Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_USB_I2C_SRFxx_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 155
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 139
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About USB_I2C_SRF08..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.K.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\USB_I2C_SRF08.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\USB_I2C_SRF08.ico"
+#endif    // English (U.K.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\USB_I2C_SRF08.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
