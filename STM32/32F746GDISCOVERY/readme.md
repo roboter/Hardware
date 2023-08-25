@@ -1,0 +1,1 @@
+um1907-discovery-kit-for-stm32f7-series-with-stm32f746ng-mcu-stmicroelectronics.pdf UM1907 User manual
