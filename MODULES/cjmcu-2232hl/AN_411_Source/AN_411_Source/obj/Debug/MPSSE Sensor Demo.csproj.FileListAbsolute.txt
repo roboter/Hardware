@@ -1,0 +1,79 @@
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\USB Power Meter v0_1\bin\Debug\SensorDemo.exe
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\USB Power Meter v0_1\bin\Debug\SensorDemo.pdb
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\USB Power Meter v0_1\bin\Debug\FTD2XX_NET.dll
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\USB Power Meter v0_1\bin\Debug\FTD2XX_NET.xml
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\USB Power Meter v0_1\obj\Debug\MPSSE Sensor Demo.csprojResolveAssemblyReference.cache
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\USB Power Meter v0_1\obj\Debug\SensorDemo.Form1.resources
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\USB Power Meter v0_1\obj\Debug\SensorDemo.Properties.Resources.resources
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\USB Power Meter v0_1\obj\Debug\MPSSE Sensor Demo.csproj.GenerateResource.Cache
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\USB Power Meter v0_1\obj\Debug\SensorDemo.exe
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\USB Power Meter v0_1\obj\Debug\SensorDemo.pdb
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\AN_411_Source v0_2\obj\Debug\SensorDemo.exe
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\AN_411_Source v0_2\obj\Debug\SensorDemo.pdb
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\AN_411_Source v0_2\obj\Debug\MPSSE Sensor Demo.csprojResolveAssemblyReference.cache
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\AN_411_Source v0_2\obj\Debug\SensorDemo.Form1.resources
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\AN_411_Source v0_2\obj\Debug\SensorDemo.Properties.Resources.resources
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\AN_411_Source v0_2\obj\Debug\MPSSE Sensor Demo.csproj.GenerateResource.Cache
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\AN_411_Source v0_2\bin\Debug\SensorDemo.exe
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\AN_411_Source v0_2\bin\Debug\SensorDemo.pdb
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\AN_411_Source v0_2\bin\Debug\FTD2XX_NET.dll
+Y:\My_Application_Notes\ANxyz  C# Sensor Demo\AN_411_Source v0_2\bin\Debug\FTD2XX_NET.xml
+C:\SourceFiles\AN_411\AN_411_Source v0_2\obj\Debug\SensorDemo.exe
+C:\SourceFiles\AN_411\AN_411_Source v0_2\obj\Debug\SensorDemo.pdb
+C:\SourceFiles\AN_411\AN_411_Source v0_2\bin\Debug\SensorDemo.exe
+C:\SourceFiles\AN_411\AN_411_Source v0_2\bin\Debug\SensorDemo.pdb
+C:\SourceFiles\AN_411\AN_411_Source v0_2\bin\Debug\FTD2XX_NET.dll
+C:\SourceFiles\AN_411\AN_411_Source v0_2\bin\Debug\FTD2XX_NET.xml
+C:\SourceFiles\AN_411\AN_411_Source v0_2\obj\Debug\MPSSE Sensor Demo.csprojResolveAssemblyReference.cache
+C:\SourceFiles\AN_411\AN_411_Source v0_2\obj\Debug\SensorDemo.Form1.resources
+C:\SourceFiles\AN_411\AN_411_Source v0_2\obj\Debug\SensorDemo.Properties.Resources.resources
+C:\SourceFiles\AN_411\AN_411_Source v0_2\obj\Debug\MPSSE Sensor Demo.csproj.GenerateResource.Cache
+C:\SourceFiles\AN_411\AN_411_Source\obj\Debug\SensorDemo.exe
+C:\SourceFiles\AN_411\AN_411_Source\obj\Debug\SensorDemo.pdb
+C:\SourceFiles\AN_411\AN_411_Source\bin\Debug\SensorDemo.exe
+C:\SourceFiles\AN_411\AN_411_Source\bin\Debug\SensorDemo.pdb
+C:\SourceFiles\AN_411\AN_411_Source\bin\Debug\FTD2XX_NET.dll
+C:\SourceFiles\AN_411\AN_411_Source\bin\Debug\FTD2XX_NET.xml
+C:\SourceFiles\AN_411\AN_411_Source\obj\Debug\SensorDemo.Form1.resources
+C:\SourceFiles\AN_411\AN_411_Source\obj\Debug\SensorDemo.Properties.Resources.resources
+C:\SourceFiles\AN_411\AN_411_Source\obj\Debug\MPSSE Sensor Demo.csproj.GenerateResource.Cache
+C:\AppNoteTest\AN_411_Source\AN_411_Source\obj\Debug\SensorDemo.exe
+C:\AppNoteTest\AN_411_Source\AN_411_Source\obj\Debug\SensorDemo.pdb
+C:\AppNoteTest\AN_411_Source\AN_411_Source\bin\Debug\SensorDemo.exe
+C:\AppNoteTest\AN_411_Source\AN_411_Source\bin\Debug\SensorDemo.pdb
+C:\AppNoteTest\AN_411_Source\AN_411_Source\bin\Debug\FTD2XX_NET.dll
+C:\AppNoteTest\AN_411_Source\AN_411_Source\bin\Debug\FTD2XX_NET.xml
+C:\AppNoteTest\AN_411_Source\AN_411_Source\obj\Debug\SensorDemo.Form1.resources
+C:\AppNoteTest\AN_411_Source\AN_411_Source\obj\Debug\SensorDemo.Properties.Resources.resources
+C:\AppNoteTest\AN_411_Source\AN_411_Source\obj\Debug\MPSSE Sensor Demo.csproj.GenerateResource.Cache
+C:\AppNote\AN_411_Source\AN_411_Source\obj\Debug\SensorDemo.exe
+C:\AppNote\AN_411_Source\AN_411_Source\obj\Debug\SensorDemo.pdb
+C:\AppNote\AN_411_Source\AN_411_Source\bin\Debug\SensorDemo.exe
+C:\AppNote\AN_411_Source\AN_411_Source\bin\Debug\SensorDemo.pdb
+C:\AppNote\AN_411_Source\AN_411_Source\bin\Debug\FTD2XX_NET.dll
+C:\AppNote\AN_411_Source\AN_411_Source\bin\Debug\FTD2XX_NET.xml
+C:\AppNote\AN_411_Source\AN_411_Source\obj\Debug\SensorDemo.Form1.resources
+C:\AppNote\AN_411_Source\AN_411_Source\obj\Debug\SensorDemo.Properties.Resources.resources
+C:\AppNote\AN_411_Source\AN_411_Source\obj\Debug\MPSSE Sensor Demo.csproj.GenerateResource.Cache
+C:\SourceFiles\AN_411_Source\AN_411_Source\AN_411_Source\obj\Debug\SensorDemo.exe
+C:\SourceFiles\AN_411_Source\AN_411_Source\AN_411_Source\obj\Debug\SensorDemo.pdb
+C:\SourceFiles\AN_411_Source\AN_411_Source\AN_411_Source\bin\Debug\SensorDemo.exe
+C:\SourceFiles\AN_411_Source\AN_411_Source\AN_411_Source\bin\Debug\SensorDemo.pdb
+C:\SourceFiles\AN_411_Source\AN_411_Source\AN_411_Source\bin\Debug\FTD2XX_NET.dll
+C:\SourceFiles\AN_411_Source\AN_411_Source\AN_411_Source\bin\Debug\FTD2XX_NET.xml
+C:\SourceFiles\AN_411_Source\AN_411_Source\AN_411_Source\obj\Debug\MPSSE Sensor Demo.csprojResolveAssemblyReference.cache
+C:\SourceFiles\AN_411_Source\AN_411_Source\AN_411_Source\obj\Debug\SensorDemo.Form1.resources
+C:\SourceFiles\AN_411_Source\AN_411_Source\AN_411_Source\obj\Debug\SensorDemo.Properties.Resources.resources
+C:\SourceFiles\AN_411_Source\AN_411_Source\AN_411_Source\obj\Debug\MPSSE Sensor Demo.csproj.GenerateResource.Cache
+C:\Users\roboter\Documents\GitHub\HARDWARE\Hardware\MODULES\UMFT200Xd\AN_411_Source\AN_411_Source\bin\Debug\SensorDemo.exe
+C:\Users\roboter\Documents\GitHub\HARDWARE\Hardware\MODULES\UMFT200Xd\AN_411_Source\AN_411_Source\bin\Debug\SensorDemo.pdb
+C:\Users\roboter\Documents\GitHub\HARDWARE\Hardware\MODULES\UMFT200Xd\AN_411_Source\AN_411_Source\bin\Debug\FTD2XX_NET.dll
+C:\Users\roboter\Documents\GitHub\HARDWARE\Hardware\MODULES\UMFT200Xd\AN_411_Source\AN_411_Source\bin\Debug\FTD2XX_NET.xml
+C:\Users\roboter\Documents\GitHub\HARDWARE\Hardware\MODULES\UMFT200Xd\AN_411_Source\AN_411_Source\obj\Debug\MPSSE Sensor Demo.csproj.AssemblyReference.cache
+C:\Users\roboter\Documents\GitHub\HARDWARE\Hardware\MODULES\UMFT200Xd\AN_411_Source\AN_411_Source\obj\Debug\SensorDemo.Form1.resources
+C:\Users\roboter\Documents\GitHub\HARDWARE\Hardware\MODULES\UMFT200Xd\AN_411_Source\AN_411_Source\obj\Debug\SensorDemo.Properties.Resources.resources
+C:\Users\roboter\Documents\GitHub\HARDWARE\Hardware\MODULES\UMFT200Xd\AN_411_Source\AN_411_Source\obj\Debug\MPSSE Sensor Demo.csproj.GenerateResource.cache
+C:\Users\roboter\Documents\GitHub\HARDWARE\Hardware\MODULES\UMFT200Xd\AN_411_Source\AN_411_Source\obj\Debug\MPSSE Sensor Demo.csproj.CoreCompileInputs.cache
+C:\Users\roboter\Documents\GitHub\HARDWARE\Hardware\MODULES\UMFT200Xd\AN_411_Source\AN_411_Source\obj\Debug\MPSSE Sensor Demo.csproj.CopyComplete
+C:\Users\roboter\Documents\GitHub\HARDWARE\Hardware\MODULES\UMFT200Xd\AN_411_Source\AN_411_Source\obj\Debug\SensorDemo.exe
+C:\Users\roboter\Documents\GitHub\HARDWARE\Hardware\MODULES\UMFT200Xd\AN_411_Source\AN_411_Source\obj\Debug\SensorDemo.pdb
