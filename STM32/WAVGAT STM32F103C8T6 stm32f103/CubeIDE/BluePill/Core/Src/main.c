@@ -28,16 +28,25 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-// Define the I2C
-//extern I2C_HandleTypeDef hi2c1;
-//#define EEPROM_I2C &hi2c1
-//
-//// EEPROM ADDRESS (8bits)
-//#define EEPROM_ADDR 0xA0
-//
-//// Define the Page Size and number of pages
-//#define PAGE_SIZE 64     // in Bytes
-//#define PAGE_NUM  512    // number of pages
+
+#define EEPROM_ADDR 0xA0
+uint8_t toWrite1[] =
+		"English is a WestGermanic language of the IndoEuropean language";
+uint8_t toWrite2[] =
+		"The STM32 family of 32-bit microcontrollers based on Arm Cortex";
+uint8_t toWriteA[] = "Hello";
+uint8_t toWriteB[] = "Hi";
+uint8_t toWriteM[] = "Microcontroller is a compressed micro computer";
+uint8_t toWriteL[] =
+		"EEPROM stands for electrically erasable programmable readonly M";
+uint8_t toRead1[64];
+uint8_t toRead2[64];
+uint8_t toReadA[5];
+uint8_t toReadB[2];
+uint8_t toReadM[64];
+uint8_t toReadL[64];
+uint8_t Buffer[25] = { 0 };
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -53,6 +62,8 @@
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
 
+UART_HandleTypeDef huart1;
+
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -61,13 +72,41 @@ I2C_HandleTypeDef hi2c1;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_I2C1_Init(void);
+static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void I2C_Scan(void) {
+	for (uint8_t i = 0; i < 128; i++) {
 
+		if (HAL_I2C_IsDeviceReady(&hi2c1, (uint16_t) (i << 1), 3, 5)
+				== HAL_OK) {
+			// We got an ack
+			printf("%2x ", i);
+			sprintf(Buffer, "%x ", i);
+			HAL_UART_Transmit(&huart1, Buffer, 4, 10000);
+		} else {
+			printf("-- ");
+			HAL_UART_Transmit(&huart1, "-- ", sizeof("-- ") - 1, 10000);
+		}
+
+		if (i > 0 && (i + 1) % 16 == 0) {
+			printf("\n");
+			HAL_UART_Transmit(&huart1, "\n", sizeof("\n") - 1, 10000);
+		}
+	}
+
+	printf("\n");
+}
+uint8_t dataWrite[100] = { 0xFF, 0xFE, 0xAA };
+uint8_t dataRead[100] = { };
+
+uint8_t Space[] = " - ";
+uint8_t StartMSG[] = "Starting I2C Scanning: \r\n";
+uint8_t EndMSG[] = "Done! \r\n\r\n";
 /* USER CODE END 0 */
 
 /**
@@ -76,8 +115,7 @@ static void MX_I2C1_Init(void);
  */
 int main(void) {
 	/* USER CODE BEGIN 1 */
-	uint8_t dataWrite[100] = { 0xFF, 0xFE, 0xAA };
-	uint8_t dataRead[100] = {};
+
 	/* USER CODE END 1 */
 
 	/* MCU Configuration--------------------------------------------------------*/
@@ -100,18 +138,48 @@ int main(void) {
 	MX_GPIO_Init();
 	MX_USB_DEVICE_Init();
 	MX_I2C1_Init();
+	MX_USART1_UART_Init();
 	/* USER CODE BEGIN 2 */
-	memset(dataRead, 0, sizeof(dataRead));
-	EEPROM_Write(0, 0, dataWrite, 100);
-	EEPROM_Read(0, 0, dataRead, 100);
+
+	HAL_Delay(10000);
+	uint8_t i = 0, ret;
+	I2C_Scan();
+	/*-[ I2C Bus Scanning ]-*/
+	HAL_UART_Transmit(&huart1, StartMSG, sizeof(StartMSG), 10000);
+	CDC_Transmit_FS(StartMSG, sizeof(StartMSG));
+	for (i = 1; i < 128; i++) {
+		ret = HAL_I2C_IsDeviceReady(&hi2c1, (uint16_t) (i << 1), 3, 5);
+		if (ret != HAL_OK) /* No ACK Received At That Address */
+		{
+			HAL_UART_Transmit(&huart1, Space, sizeof(Space), 10000);
+		} else if (ret == HAL_OK) {
+
+		}
+	}
+	HAL_UART_Transmit(&huart1, EndMSG, sizeof(EndMSG), 10000);
+	/*--[ Scanning Done ]--*/
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 	while (1) {
+		for (i = 1; i < 128; i++) {
+			ret = HAL_I2C_IsDeviceReady(&hi2c1, (uint16_t) (i << 1), 3, 5);
+			if (ret != HAL_OK) /* No ACK Received At That Address */
+			{
+				HAL_UART_Transmit(&huart1, Space, sizeof(Space), 10000);
+			} else if (ret == HAL_OK) {
+				sprintf(Buffer, "0x%X", i);
+				printf("%2x ", i);
+				CDC_Transmit_FS(Buffer, sizeof(Buffer));
+				HAL_UART_Transmit(&huart1, Buffer, sizeof(Buffer), 10000);
+			}
+		}
+		HAL_Delay(100);
+		CDC_Transmit_FS(EndMSG, sizeof(EndMSG));
 		//printf("hello world!\n");
-		//HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
-		//HAL_Delay(100);
+		HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+		HAL_Delay(100);
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
@@ -176,7 +244,7 @@ static void MX_I2C1_Init(void) {
 
 	/* USER CODE END I2C1_Init 1 */
 	hi2c1.Instance = I2C1;
-	hi2c1.Init.ClockSpeed = 400000;
+	hi2c1.Init.ClockSpeed = 100000;
 	hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
 	hi2c1.Init.OwnAddress1 = 0;
 	hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
@@ -190,6 +258,37 @@ static void MX_I2C1_Init(void) {
 	/* USER CODE BEGIN I2C1_Init 2 */
 //	HAL_I2CEx_AnalogFilter_Config(&hi2c1, I2C_ANALOGFILTER_ENABLED);
 	/* USER CODE END I2C1_Init 2 */
+
+}
+
+/**
+ * @brief USART1 Initialization Function
+ * @param None
+ * @retval None
+ */
+static void MX_USART1_UART_Init(void) {
+
+	/* USER CODE BEGIN USART1_Init 0 */
+
+	/* USER CODE END USART1_Init 0 */
+
+	/* USER CODE BEGIN USART1_Init 1 */
+
+	/* USER CODE END USART1_Init 1 */
+	huart1.Instance = USART1;
+	huart1.Init.BaudRate = 115200;
+	huart1.Init.WordLength = UART_WORDLENGTH_8B;
+	huart1.Init.StopBits = UART_STOPBITS_1;
+	huart1.Init.Parity = UART_PARITY_NONE;
+	huart1.Init.Mode = UART_MODE_TX_RX;
+	huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+	huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+	if (HAL_UART_Init(&huart1) != HAL_OK) {
+		Error_Handler();
+	}
+	/* USER CODE BEGIN USART1_Init 2 */
+
+	/* USER CODE END USART1_Init 2 */
 
 }
 

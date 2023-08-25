@@ -1,0 +1,8 @@
+../Core/Src/EEPROM.c:22:10:bytestowrite	2
+../Core/Src/EEPROM.c:35:6:EEPROM_Write	3
+../Core/Src/EEPROM.c:68:6:float2Bytes	2
+../Core/Src/EEPROM.c:82:7:Bytes2float	2
+../Core/Src/EEPROM.c:102:6:EEPROM_Write_NUM	1
+../Core/Src/EEPROM.c:115:7:EEPROM_Read_NUM	1
+../Core/Src/EEPROM.c:129:6:EEPROM_Read	3
+../Core/Src/EEPROM.c:154:6:EEPROM_PageErase	1

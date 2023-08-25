@@ -1,0 +1,9 @@
+../Core/Src/main.c:89:9:read_eeprom_reg	40	static
+../Core/Src/main.c:132:6:write_eeprom_reg	32	static
+../Core/Src/main.c:162:5:main	48	static
+../Core/Src/main.c:232:6:SystemClock_Config	64	static
+../Core/Src/main.c:266:13:MX_CRC_Init	8	static
+../Core/Src/main.c:295:13:MX_I2C1_Init	8	static
+../Core/Src/main.c:340:13:MX_USART2_UART_Init	8	static
+../Core/Src/main.c:374:13:MX_GPIO_Init	56	static
+../Core/Src/main.c:417:6:Error_Handler	8	static,ignoring_inline_asm

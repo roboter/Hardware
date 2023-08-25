@@ -1,0 +1,8 @@
+../Core/Src/EEPROM.c:22:10:bytestowrite	16	static
+../Core/Src/EEPROM.c:35:6:EEPROM_Write	80	static
+../Core/Src/EEPROM.c:68:6:float2Bytes	24	static
+../Core/Src/EEPROM.c:82:7:Bytes2float	32	static
+../Core/Src/EEPROM.c:102:6:EEPROM_Write_NUM	16	static
+../Core/Src/EEPROM.c:115:7:EEPROM_Read_NUM	32	static
+../Core/Src/EEPROM.c:129:6:EEPROM_Read	80	static
+../Core/Src/EEPROM.c:154:6:EEPROM_PageErase	304	static
