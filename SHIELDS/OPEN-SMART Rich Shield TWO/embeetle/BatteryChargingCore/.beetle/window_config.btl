@@ -1,0 +1,94 @@
+{
+    "WINDOW-SIZE": "MAXIMIZED",
+    "BOXES": {
+        "0": {
+            "BOX-H": {
+                "0": {
+                    "BOX-V": {
+                        "0": {
+                            "TABS": {
+                                "rel://source/user_code/arduino-uno-r3-serial.ino.cpp": {
+                                    "class": "Editor",
+                                    "tab-index": 0,
+                                    "data": {
+                                        "line": 106,
+                                        "index": 13,
+                                        "first-visible-line": 78,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "Output": {
+                                    "class": "Console"
+                                },
+                                "CURRENT-INDEX": 1
+                            }
+                        }
+                    },
+                    "SIZES": [
+                        859
+                    ]
+                },
+                "1": {
+                    "BOX-V": {
+                        "0": {
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Filetree": {
+                                            "class": "FileExplorer"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "SymbolStack": {
+                                            "class": "Symbols"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                264,
+                                259
+                            ]
+                        },
+                        "1": {
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Project Dashboard": {
+                                            "class": "Dashboard"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "Diagnostics": {
+                                            "class": "Diagnostics"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                255,
+                                268
+                            ]
+                        }
+                    },
+                    "SIZES": [
+                        431,
+                        426
+                    ]
+                }
+            },
+            "SIZES": [
+                1393,
+                525
+            ]
+        }
+    }
+}

@@ -26,6 +26,6 @@ void charging()
   for(uint8_t level = 0; level < 8; level ++)
   {
     batteryDisplay.displayLevel(level);
-	delay(500);
+	  delay(500);
   }
 }
