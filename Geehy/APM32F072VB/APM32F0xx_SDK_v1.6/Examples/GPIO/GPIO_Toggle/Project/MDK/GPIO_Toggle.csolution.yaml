@@ -1,0 +1,13 @@
+solution:
+  created-by: uv2csolution@1.1.0
+  created-for: CMSIS-Toolbox@2.0.0
+  compiler: AC6
+  target-types:
+    - type: APM32F030
+      device: APM32F072VB
+      optimize: none
+    - type: APM32F072
+      device: APM32F072V8
+      optimize: none
+  projects:
+    - project: GPIO_Toggle.cproject.yaml

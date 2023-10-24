@@ -1,0 +1,10 @@
+solution:
+  created-by: uv2csolution@1.1.0
+  created-for: CMSIS-Toolbox@2.0.0
+  compiler: AC6
+  target-types:
+    - type: GD32E230FSTART
+      device: GD32E230F8
+      optimize: none
+  projects:
+    - project: Project.cproject.yaml

@@ -1,0 +1,148 @@
+project:
+  packs:
+    - pack: Geehy::APM32F0xx_DFP
+  setups:
+    - setup: Options for APM32F030
+      for-context: +APM32F030
+      processor:
+        trustzone: non-secure
+      add-path:
+        - ../../../../../Library/APM32F0xx_StdPeriphDriver/inc
+        - ../../../../../Library/CMSIS/Include
+        - ../../../../../Library/Device/Geehy/APM32F0xx/Include
+        - ../../../../../Board
+        - ../../Include
+      debug: "on"
+      define:
+        - BOARD_APM32F030_MINI
+        - APM32F030x8
+        - __MICROLIB
+      misc:
+        - C:
+            - -std=c99
+          C-CPP:
+            - -fno-rtti
+            - -funsigned-char
+            - -fshort-enums
+            - -fshort-wchar
+            - -ffunction-sections
+            - -Wno-packed
+            - -Wno-missing-variable-declarations
+            - -Wno-missing-prototypes
+            - -Wno-missing-noreturn
+            - -Wno-sign-conversion
+            - -Wno-nonportable-include-path
+            - -Wno-reserved-id-macro
+            - -Wno-unused-macros
+            - -Wno-documentation-unknown-command
+            - -Wno-documentation
+            - -Wno-license-management
+            - -Wno-parentheses-equality
+          CPP:
+            - -xc++
+            - -std=c++03
+          Link:
+            - --library_type=microlib
+            - --map
+            - --load_addr_map_info
+            - --xref
+            - --callgraph
+            - --symbols
+            - --info sizes
+            - --info totals
+            - --info unused
+            - --info veneers
+            - --list
+            - --strict
+            - --summary_stderr
+            - --info summarysizes
+    - setup: Options for APM32F072
+      for-context: +APM32F072
+      processor:
+        trustzone: non-secure
+      add-path:
+        - ../../../../../Library/APM32F0xx_StdPeriphDriver/inc
+        - ../../../../../Library/CMSIS/Include
+        - ../../../../../Library/Device/Geehy/APM32F0xx/Include
+        - ../../../../../Board
+        - ../../Include
+      debug: "on"
+      define:
+        - BOARD_APM32F072_MINI
+        - APM32F072xB
+        - __MICROLIB
+      misc:
+        - C:
+            - -std=c99
+          C-CPP:
+            - -fno-rtti
+            - -funsigned-char
+            - -fshort-enums
+            - -fshort-wchar
+            - -ffunction-sections
+            - -Wno-packed
+            - -Wno-missing-variable-declarations
+            - -Wno-missing-prototypes
+            - -Wno-missing-noreturn
+            - -Wno-sign-conversion
+            - -Wno-nonportable-include-path
+            - -Wno-reserved-id-macro
+            - -Wno-unused-macros
+            - -Wno-documentation-unknown-command
+            - -Wno-documentation
+            - -Wno-license-management
+            - -Wno-parentheses-equality
+          CPP:
+            - -xc++
+            - -std=c++03
+          Link:
+            - --library_type=microlib
+            - --map
+            - --load_addr_map_info
+            - --xref
+            - --callgraph
+            - --symbols
+            - --info sizes
+            - --info totals
+            - --info unused
+            - --info veneers
+            - --list
+            - --strict
+            - --summary_stderr
+            - --info summarysizes
+  linker:
+    - script: GPIO_Toggle_APM32F030.sct
+      for-context: +APM32F030
+    - script: GPIO_Toggle_APM32F072.sct
+      for-context: +APM32F072
+  groups:
+    - group: CMSIS
+      for-context: +APM32F030
+      files:
+        - file: ../../../../../Library/Device/Geehy/APM32F0xx/Source/system_apm32f0xx.c
+        - file: ../../../../../Library/Device/Geehy/APM32F0xx/Source/arm/startup_apm32f030.s
+          misc:
+            - ASM:
+                - -masm=auto
+    - group: StdPeriphLib
+      files:
+        - file: ../../../../../Library/APM32F0xx_StdPeriphDriver/src/apm32f0xx_eint.c
+        - file: ../../../../../Library/APM32F0xx_StdPeriphDriver/src/apm32f0xx_gpio.c
+        - file: ../../../../../Library/APM32F0xx_StdPeriphDriver/src/apm32f0xx_rcm.c
+        - file: ../../../../../Library/APM32F0xx_StdPeriphDriver/src/apm32f0xx_usart.c
+        - file: ../../../../../Library/APM32F0xx_StdPeriphDriver/src/apm32f0xx_misc.c
+    - group: Board
+      files:
+        - file: ../../../../../Board/Board.c
+    - group: Application
+      files:
+        - file: ../../Source/main.c
+        - file: ../../Source/apm32f0xx_int.c
+    - group: CMSIS
+      for-context: +APM32F072
+      files:
+        - file: ../../../../../Library/Device/Geehy/APM32F0xx/Source/system_apm32f0xx.c
+        - file: ../../../../../Library/Device/Geehy/APM32F0xx/Source/arm/startup_apm32f072.s
+          misc:
+            - ASM:
+                - -masm=auto

@@ -3,11 +3,11 @@
 
 #include <Arduino.h>
 
-#define MOVE_NOT    1
-#define MOVE_UP       2
-#define MOVE_DOWN 3
-#define MOVE_RIGHT 4
-#define MOVE_LEFT    5
+#define MOVE_NOT	1
+#define MOVE_UP		2
+#define MOVE_DOWN	3
+#define MOVE_RIGHT	4
+#define MOVE_LEFT	5
 class SingleJoystick{
 
 private:
