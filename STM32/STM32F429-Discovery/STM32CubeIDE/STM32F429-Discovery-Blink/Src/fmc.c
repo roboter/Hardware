@@ -1,3 +1,4 @@
+/* USER CODE BEGIN Header */
 /**
   ******************************************************************************
   * File Name          : FMC.c
@@ -6,16 +7,17 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2023 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2023 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license
-  * SLA0044, the "License"; You may not use this file except in compliance with
-  * the License. You may obtain a copy of the License at:
-  *                             www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
+/* USER CODE END Header */
+
 /* Includes ------------------------------------------------------------------*/
 #include "fmc.h"
 
@@ -28,7 +30,15 @@ SDRAM_HandleTypeDef hsdram1;
 /* FMC initialization function */
 void MX_FMC_Init(void)
 {
+  /* USER CODE BEGIN FMC_Init 0 */
+
+  /* USER CODE END FMC_Init 0 */
+
   FMC_SDRAM_TimingTypeDef SdramTiming = {0};
+
+  /* USER CODE BEGIN FMC_Init 1 */
+
+  /* USER CODE END FMC_Init 1 */
 
   /** Perform the SDRAM1 memory initialization sequence
   */
@@ -58,6 +68,9 @@ void MX_FMC_Init(void)
     Error_Handler( );
   }
 
+  /* USER CODE BEGIN FMC_Init 2 */
+
+  /* USER CODE END FMC_Init 2 */
 }
 
 static uint32_t FMC_Initialized = 0;
@@ -71,6 +84,7 @@ static void HAL_FMC_MspInit(void){
     return;
   }
   FMC_Initialized = 1;
+
   /* Peripheral clock enable */
   __HAL_RCC_FMC_CLK_ENABLE();
 
@@ -282,5 +296,3 @@ void HAL_SDRAM_MspDeInit(SDRAM_HandleTypeDef* sdramHandle){
 /**
   * @}
   */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -5,5 +5,8 @@
         "${workspaceFolder}\\NORDIC\\worksspace\\asset_tracker_v2"
     ],
     "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
-    "FSharp.suggestGitignore": false
+    "FSharp.suggestGitignore": false,
+    "files.associations": {
+        "stm32f4xx_rcc.h": "c"
+    }
 }

@@ -17,7 +17,6 @@
  ******************************************************************************
  */
 /* USER CODE END Header */
-
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
@@ -62,6 +61,14 @@
 void SystemClock_Config(void);
 void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
+int _write(int32_t file, uint8_t *ptr, int32_t len)
+{
+    for (int i = 0; i < len; i++)
+    {
+        ITM_SendChar(*ptr++);
+    }
+    return len;
+}
 
 /* USER CODE END PFP */
 
@@ -116,12 +123,12 @@ int main(void) {
 	/* Start scheduler */
 	osKernelStart();
 
-	/* We should never get here as control is now taken by the scheduler */
 
+	/* We should never get here as control is now taken by the scheduler */
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
+	printf("Init\n");
 	while (1) {
-		//MX_TOGGLE_PIN();
 
 		/* USER CODE END WHILE */
 
@@ -137,13 +144,13 @@ int main(void) {
 void SystemClock_Config(void) {
 	RCC_OscInitTypeDef RCC_OscInitStruct = { 0 };
 	RCC_ClkInitTypeDef RCC_ClkInitStruct = { 0 };
-	RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = { 0 };
 
-	/** Configure the main internal regulator output voltage
-	 */
+	/** Configure the main internal regulator output voltage */
 	__HAL_RCC_PWR_CLK_ENABLE();
 	__HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE3);
-	/** Initializes the CPU, AHB and APB busses clocks
+
+	/** Initializes the RCC Oscillators according to the specified parameters
+	 * in the RCC_OscInitTypeDef structure.
 	 */
 	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
 	RCC_OscInitStruct.HSEState = RCC_HSE_ON;
@@ -156,8 +163,8 @@ void SystemClock_Config(void) {
 	if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
 		Error_Handler();
 	}
-	/** Initializes the CPU, AHB and APB busses clocks
-	 */
+
+	/** Initializes the CPU, AHB and APB buses clocks */
 	RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK
 			| RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
 	RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
@@ -166,13 +173,6 @@ void SystemClock_Config(void) {
 	RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
 	if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK) {
-		Error_Handler();
-	}
-	PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_LTDC;
-	PeriphClkInitStruct.PLLSAI.PLLSAIN = 50;
-	PeriphClkInitStruct.PLLSAI.PLLSAIR = 2;
-	PeriphClkInitStruct.PLLSAIDivR = RCC_PLLSAIDIVR_2;
-	if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK) {
 		Error_Handler();
 	}
 }
@@ -197,7 +197,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 		HAL_IncTick();
 	}
 	/* USER CODE BEGIN Callback 1 */
-	HAL_GPIO_TogglePin(GPIOG, LD3_Pin);
+	printf("Timer\n");
+	HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
 	/* USER CODE END Callback 1 */
 }
 
@@ -228,5 +229,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

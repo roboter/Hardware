@@ -1,0 +1,109 @@
+project:
+  packs:
+    - pack: GigaDevice::GD32E23x_DFP
+    - pack: ARM::CMSIS
+    - pack: ARM::CMSIS-NN
+    - pack: ARM::CMSIS-DSP
+  setups:
+    - setup: Options for GD32E230CEVAL
+      processor:
+        trustzone: non-secure
+      add-path:
+        - ../../../../GD32E23x_Firmware_Library/CMSIS/GD/GD32E23x/Include
+        - ../../../Utilities
+        - ..
+        - ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Include
+        - ../Soft_Drive
+      debug: "on"
+      define:
+        - GD32E230
+        - __MICROLIB
+      misc:
+        - C:
+            - -std=c99
+          C-CPP:
+            - -fno-rtti
+            - -funsigned-char
+            - -fshort-enums
+            - -fshort-wchar
+            - -ffunction-sections
+            - -Wno-packed
+            - -Wno-missing-variable-declarations
+            - -Wno-missing-prototypes
+            - -Wno-missing-noreturn
+            - -Wno-sign-conversion
+            - -Wno-nonportable-include-path
+            - -Wno-reserved-id-macro
+            - -Wno-unused-macros
+            - -Wno-documentation-unknown-command
+            - -Wno-documentation
+            - -Wno-license-management
+            - -Wno-parentheses-equality
+          CPP:
+            - -xc++
+            - -std=c++11
+          Link:
+            - --library_type=microlib
+            - --map
+            - --load_addr_map_info
+            - --xref
+            - --callgraph
+            - --symbols
+            - --info sizes
+            - --info totals
+            - --info unused
+            - --info veneers
+            - --list
+            - --strict
+            - --summary_stderr
+            - --info summarysizes
+  linker:
+    - script: Project_GD32E230CEVAL.sct
+  groups:
+    - group: Application
+      files:
+        - file: ../main.c
+        - file: ../systick.c
+        - file: ../gd32e23x_it.c
+    - group: CMSIS
+      files:
+        - file: ../../../../GD32E23x_Firmware_Library/CMSIS/GD/GD32E23x/Source/system_gd32e23x.c
+    - group: GD32E23x_Peripherals
+      files:
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_adc.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_cmp.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_crc.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_dbg.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_dma.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_exti.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_fmc.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_fwdgt.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_gpio.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_i2c.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_misc.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_pmu.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_rcu.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_rtc.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_spi.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_syscfg.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_timer.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_usart.c
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_wwdgt.c
+    - group: GD32E230_EVAL
+      files:
+        - file: ../../../Utilities/gd32e230c_eval.c
+    - group: Soft_Drive
+      files:
+        - file: ../Soft_Drive/rc5_decode.c
+        - file: ../Soft_Drive/rc5_encode.c
+    - group: Startup
+      files:
+        - file: ../../../../GD32E23x_Firmware_Library/CMSIS/GD/GD32E23x/Source/ARM/startup_gd32e23x.s
+          misc:
+            - ASM:
+                - -masm=auto
+    - group: Doc
+      files:
+        - file: ../readme.txt
+  components:
+    - component: ARM::CMSIS:CORE

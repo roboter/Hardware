@@ -17,6 +17,7 @@ int SingleJoystick::getX()
 {
   return analogRead(xPin);
 }
+
 int SingleJoystick::getY()
 {
   return analogRead(yPin);
@@ -24,7 +25,7 @@ int SingleJoystick::getY()
 
 uint8_t SingleJoystick::isChange()
 {
-  uint8_t  flag_change = 0;
+  uint8_t flag_change = 0;
 
   nowX = getX();
   if((nowX < (preX-50)) || nowX > (preX+50))
@@ -41,6 +42,7 @@ uint8_t SingleJoystick::isChange()
   
   return flag_change;
 }
+
 uint8_t SingleJoystick::multipleRead() {
 	if (isUp()) {
 		return MOVE_UP;

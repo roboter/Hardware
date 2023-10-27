@@ -21,9 +21,7 @@ void setup()
 }
 
 void loop()
-
-{
-  
+{  
   if(joystick.isChange())
   {
 	int x,y; 

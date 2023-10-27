@@ -326,7 +326,7 @@ USBH_StatusTypeDef USBH_LL_ResetPort(USBH_HandleTypeDef *phost)
 }
 
 /**
-  * @brief  Return the last transfered packet size.
+  * @brief  Return the last transferred packet size.
   * @param  phost: Host handle
   * @param  pipe: Pipe index
   * @retval Packet size
@@ -445,8 +445,8 @@ USBH_URBStateTypeDef USBH_LL_GetURBState(USBH_HandleTypeDef *phost, uint8_t pipe
   * @param  phost: Host handle
   * @param  state : VBUS state
   *          This parameter can be one of the these values:
-  *           0 : VBUS Active
-  *           1 : VBUS Inactive
+  *           0 : VBUS Inactive
+  *           1 : VBUS Active
   * @retval Status
   */
 USBH_StatusTypeDef USBH_LL_DriverVBUS(USBH_HandleTypeDef *phost, uint8_t state)
@@ -521,7 +521,7 @@ void USBH_Delay(uint32_t Delay)
 }
 
 /**
-  * @brief  Retuns the USB status depending on the HAL status:
+  * @brief  Returns the USB status depending on the HAL status:
   * @param  hal_status: HAL status
   * @retval USB status
   */
@@ -550,4 +550,3 @@ USBH_StatusTypeDef USBH_Get_USB_Status(HAL_StatusTypeDef hal_status)
   return usb_status;
 }
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
