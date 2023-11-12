@@ -1,0 +1,107 @@
+{
+    "WINDOW-SIZE": [
+        1722,
+        1166
+    ],
+    "BOXES": {
+        "0": {
+            "BOX-H": {
+                "0": {
+                    "BOX-V": {
+                        "0": {
+                            "TABS": {
+                                "Output": {
+                                    "class": "Console"
+                                },
+                                "rel://source/Core/Src/main.c": {
+                                    "class": "Editor",
+                                    "tab-index": 1,
+                                    "data": {
+                                        "line": 721,
+                                        "index": 0,
+                                        "first-visible-line": 639,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/Core/Src/freertos.c": {
+                                    "class": "Editor",
+                                    "tab-index": 2,
+                                    "data": {
+                                        "line": 119,
+                                        "index": 0,
+                                        "first-visible-line": 33,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "CURRENT-INDEX": 0
+                            }
+                        }
+                    },
+                    "SIZES": [
+                        1055
+                    ]
+                },
+                "1": {
+                    "BOX-V": {
+                        "0": {
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Filetree": {
+                                            "class": "FileExplorer"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "SymbolStack": {
+                                            "class": "Symbols"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                436,
+                                426
+                            ]
+                        },
+                        "1": {
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Project Dashboard": {
+                                            "class": "Dashboard"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "Diagnostics": {
+                                            "class": "Diagnostics"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                420,
+                                442
+                            ]
+                        }
+                    },
+                    "SIZES": [
+                        530,
+                        523
+                    ]
+                }
+            },
+            "SIZES": [
+                856,
+                864
+            ]
+        }
+    }
+}
