@@ -35,3 +35,7 @@ https://github.com/rogerclarkmelbourne/Arduino_STM32/wiki/Installation
 # More info
     https://stm32-base.org/boards/STM32F103C8T6-Black-Board
     
+
+    https://item.taobao.com/item.htm?spm=a312a.7700824.w4004-25037159111.13.2a9e7b32OinQKy&id=533835156907
+
+    https://drive.google.com/drive/folders/1ILp-uZoT5DasWUy2G_Jp88a2F-UB3hnd
