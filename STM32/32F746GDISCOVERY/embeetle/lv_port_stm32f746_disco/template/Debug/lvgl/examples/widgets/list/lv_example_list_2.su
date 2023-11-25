@@ -1,0 +1,8 @@
+../lvgl/examples/widgets/list/lv_example_list_2.c:12:13:event_handler	16	static
+../lvgl/examples/widgets/list/lv_example_list_2.c:109:13:event_handler_swap	24	static
+../lvgl/examples/widgets/list/lv_example_list_2.c:45:13:event_handler_top	8	static
+../lvgl/examples/widgets/list/lv_example_list_2.c:98:13:event_handler_bottom	16	static
+../lvgl/examples/widgets/list/lv_example_list_2.c:69:13:event_handler_center	8	static
+../lvgl/examples/widgets/list/lv_example_list_2.c:85:13:event_handler_dn	8	static
+../lvgl/examples/widgets/list/lv_example_list_2.c:56:13:event_handler_up	8	static
+../lvgl/examples/widgets/list/lv_example_list_2.c:129:6:lv_example_list_2	24	static

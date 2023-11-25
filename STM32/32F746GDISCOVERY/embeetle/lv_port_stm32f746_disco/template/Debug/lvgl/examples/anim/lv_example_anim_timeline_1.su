@@ -1,0 +1,8 @@
+../lvgl/examples/anim/lv_example_anim_timeline_1.c:23:13:anim_timeline_create	424	static
+../lvgl/examples/anim/lv_example_anim_timeline_1.c:18:13:set_height	0	static
+../lvgl/examples/anim/lv_example_anim_timeline_1.c:13:13:set_width	0	static
+../lvgl/examples/anim/lv_example_anim_timeline_1.c:122:13:slider_prg_event_handler	16	static
+../lvgl/examples/anim/lv_example_anim_timeline_1.c:114:13:btn_stop_event_handler	0	static
+../lvgl/examples/anim/lv_example_anim_timeline_1.c:105:13:btn_del_event_handler	8	static
+../lvgl/examples/anim/lv_example_anim_timeline_1.c:92:13:btn_start_event_handler	16	static
+../lvgl/examples/anim/lv_example_anim_timeline_1.c:137:6:lv_example_anim_timeline_1	16	static
