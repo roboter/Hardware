@@ -1,3 +1,0 @@
-../lvgl/examples/widgets/menu/lv_example_menu_5.c:121:13:switch_handler	16	static
-../lvgl/examples/widgets/menu/lv_example_menu_5.c:110:13:back_event_handler	24	static
-../lvgl/examples/widgets/menu/lv_example_menu_5.c:20:6:lv_example_menu_5	56	static

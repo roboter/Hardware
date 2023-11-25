@@ -1,5 +1,0 @@
-../lvgl/examples/anim/lv_example_anim_3.c:65:16:anim_path_bezier3_cb	1
-../lvgl/examples/anim/lv_example_anim_3.c:86:13:anim_x_cb	1
-../lvgl/examples/anim/lv_example_anim_3.c:91:13:run_btn_event_handler	2
-../lvgl/examples/anim/lv_example_anim_3.c:99:13:slider_event_cb	3
-../lvgl/examples/anim/lv_example_anim_3.c:37:6:lv_example_anim_3	2

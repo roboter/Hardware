@@ -1,3 +1,0 @@
-../lvgl/examples/widgets/table/lv_example_table_2.c:40:13:change_event_cb	16	static
-../lvgl/examples/widgets/table/lv_example_table_2.c:6:13:draw_event_cb	80	static
-../lvgl/examples/widgets/table/lv_example_table_2.c:55:6:lv_example_table_2	96	static
