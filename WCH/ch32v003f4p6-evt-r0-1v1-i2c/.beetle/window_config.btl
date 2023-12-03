@@ -23,7 +23,7 @@
                                     "data": {
                                         "line": 142,
                                         "index": 1,
-                                        "first-visible-line": 129,
+                                        "first-visible-line": 123,
                                         "x-view-offset": 0
                                     }
                                 },
@@ -31,9 +31,9 @@
                                     "class": "Editor",
                                     "tab-index": 2,
                                     "data": {
-                                        "line": 94,
-                                        "index": 1,
-                                        "first-visible-line": 57,
+                                        "line": 15,
+                                        "index": 0,
+                                        "first-visible-line": 30,
                                         "x-view-offset": 0
                                     }
                                 },
@@ -77,7 +77,7 @@
                                         "x-view-offset": 0
                                     }
                                 },
-                                "CURRENT-INDEX": 1
+                                "CURRENT-INDEX": 2
                             }
                         },
                         "1": {
@@ -91,13 +91,16 @@
                                 "Project Dashboard": {
                                     "class": "Dashboard"
                                 },
+                                "SEARCH RESULTS": {
+                                    "class": "SearchResultsWindow"
+                                },
                                 "CURRENT-INDEX": 0
                             }
                         }
                     },
                     "SIZES": [
-                        306,
-                        551
+                        607,
+                        214
                     ]
                 },
                 "1": {

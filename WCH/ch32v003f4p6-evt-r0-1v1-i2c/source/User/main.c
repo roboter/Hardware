@@ -1,48 +1,18 @@
 /********************************** (C) COPYRIGHT *******************************
  * File Name          : main.c
- * Author             : WCH
+ * Author             : Robby Roboter
  * Version            : V1.0.0
  * Date               : 2022/08/08
  * Description        : Main program body.
-*********************************************************************************
-* Copyright (c) 2021 Nanjing Qinheng Microelectronics Co., Ltd.
-* Attention: This software (modified or not) and binary are used for 
-* microcontroller manufactured by Nanjing Qinheng Microelectronics.
-*******************************************************************************/
 
 /*
- *@Note
- 7-bit addressing mode, master/slave mode, transceiver routine:
- I2C1_SCL(PC2)\I2C1_SDA(PC1).
-  This routine demonstrates that Master sends and Slave receives.
-  Note: The two boards download the Master and Slave programs respectively,
-   and power on at the same time.
       Hardware connection:
-            PC2 -- PC2
-            PC1 -- PC1
-
+			      PC1 -- SDA
+            PC2 -- SCL
 */
 
 #include "debug.h"
 #include <oled_segment.h>     // OLED functions
-//#include "oled_exp.h"
-
-/* I2C Mode Definition */
-#define HOST_MODE   0
-#define SLAVE_MODE   1
-
-/* I2C Communication Mode Selection */
-#define I2C_MODE   HOST_MODE
-//#define I2C_MODE   SLAVE_MODE
-
-/* Global define */
-#define Size   6
-#define RXAdderss   0x02
-#define TxAdderss   0x02
-
-/* Global Variable */
-u8 TxData[Size] = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06 };
-u8 RxData[5][Size];
 
 /*********************************************************************
  * @fn      IIC_Init
@@ -79,10 +49,7 @@ void IIC_Init(u32 bound, u16 address)
 
     I2C_Cmd( I2C1, ENABLE );
 
-#if (I2C_MODE == HOST_MODE)
     I2C_AcknowledgeConfig( I2C1, ENABLE );
-
-#endif
 }
 
 // ===================================================================================
