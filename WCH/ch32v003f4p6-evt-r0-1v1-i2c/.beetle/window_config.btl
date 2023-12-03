@@ -1,0 +1,134 @@
+{
+    "WINDOW-SIZE": "MAXIMIZED",
+    "BOXES": {
+        "0": {
+            "BOX-H": {
+                "0": {
+                    "BOX-V": {
+                        "0": {
+                            "TABS": {
+                                "rel://source/ssd1306/oled_segment.h": {
+                                    "class": "Editor",
+                                    "tab-index": 0,
+                                    "data": {
+                                        "line": 95,
+                                        "index": 25,
+                                        "first-visible-line": 78,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/ssd1306/oled_segment.c": {
+                                    "class": "Editor",
+                                    "tab-index": 1,
+                                    "data": {
+                                        "line": 142,
+                                        "index": 1,
+                                        "first-visible-line": 129,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/User/main.c": {
+                                    "class": "Editor",
+                                    "tab-index": 2,
+                                    "data": {
+                                        "line": 94,
+                                        "index": 1,
+                                        "first-visible-line": 57,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/ssd1306/led5x7.h": {
+                                    "class": "Editor",
+                                    "tab-index": 3,
+                                    "data": {
+                                        "line": 108,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/ssd1306/i2c_tx.h": {
+                                    "class": "Editor",
+                                    "tab-index": 4,
+                                    "data": {
+                                        "line": 40,
+                                        "index": 6,
+                                        "first-visible-line": 21,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/ssd1306/i2c_tx.c": {
+                                    "class": "Editor",
+                                    "tab-index": 5,
+                                    "data": {
+                                        "line": 79,
+                                        "index": 1,
+                                        "first-visible-line": 69,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/ssd1306/oled_font.h": {
+                                    "class": "Editor",
+                                    "tab-index": 6,
+                                    "data": {
+                                        "line": 97,
+                                        "index": 2,
+                                        "first-visible-line": 27,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "CURRENT-INDEX": 1
+                            }
+                        },
+                        "1": {
+                            "TABS": {
+                                "Output": {
+                                    "class": "Console"
+                                },
+                                "DebuggerWindow": {
+                                    "class": "Debugger"
+                                },
+                                "Project Dashboard": {
+                                    "class": "Dashboard"
+                                },
+                                "CURRENT-INDEX": 0
+                            }
+                        }
+                    },
+                    "SIZES": [
+                        306,
+                        551
+                    ]
+                },
+                "1": {
+                    "BOX-H": {
+                        "0": {
+                            "TABS": {
+                                "Filetree": {
+                                    "class": "FileExplorer"
+                                },
+                                "CURRENT-INDEX": 0
+                            }
+                        },
+                        "1": {
+                            "TABS": {
+                                "Diagnostics": {
+                                    "class": "Diagnostics"
+                                },
+                                "CURRENT-INDEX": 0
+                            }
+                        }
+                    },
+                    "SIZES": [
+                        460,
+                        371
+                    ]
+                }
+            },
+            "SIZES": [
+                1085,
+                833
+            ]
+        }
+    }
+}
