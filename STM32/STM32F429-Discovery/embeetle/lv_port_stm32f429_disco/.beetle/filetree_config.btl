@@ -31,6 +31,199 @@
       "source-analysis-status-hdir": null,
       "source-analysis-type": "source",
       "source-analysis-mode": null
+    },
+    "source/lv_demos/src/lv_demo_stress": {
+      "type": "directory",
+      "name": "lv_demo_stress",
+      "relative-path": "source/lv_demos/src/lv_demo_stress",
+      "directories": {
+        "assets": {
+          "type": "directory",
+          "name": "assets",
+          "relative-path": "source/lv_demos/src/lv_demo_stress/assets",
+          "directories": {},
+          "files": {
+            "lv_font_montserrat_12_compr_az.c": {
+              "type": "file",
+              "name": "lv_font_montserrat_12_compr_az.c",
+              "relative-path": "source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_12_compr_az.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "lv_font_montserrat_16_compr_az.c": {
+              "type": "file",
+              "name": "lv_font_montserrat_16_compr_az.c",
+              "relative-path": "source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_16_compr_az.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "lv_font_montserrat_28_compr_az.c": {
+              "type": "file",
+              "name": "lv_font_montserrat_28_compr_az.c",
+              "relative-path": "source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_28_compr_az.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            }
+          },
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-locked": true,
+          "source-analysis-status-hdir": 1,
+          "source-analysis-status-hdir-files": null,
+          "source-analysis-status-hdir-manual": "force-included",
+          "source-analysis-mode": null
+        }
+      },
+      "files": {
+        "lv_demo_stress.c": {
+          "type": "file",
+          "name": "lv_demo_stress.c",
+          "relative-path": "source/lv_demos/src/lv_demo_stress/lv_demo_stress.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "lv_demo_stress.h": {
+          "type": "file",
+          "name": "lv_demo_stress.h",
+          "relative-path": "source/lv_demos/src/lv_demo_stress/lv_demo_stress.h",
+          "source-analysis-status-file": null,
+          "source-analysis-status-file-manual": null,
+          "source-analysis-status-hdir": 1,
+          "source-analysis-type": "header",
+          "source-analysis-mode": null
+        },
+        "README.md": {
+          "type": "file",
+          "name": "README.md",
+          "relative-path": "source/lv_demos/src/lv_demo_stress/README.md",
+          "source-analysis-status-file": null,
+          "source-analysis-status-file-manual": null,
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": null,
+          "source-analysis-mode": null
+        },
+        "screenshot1.gif": {
+          "type": "file",
+          "name": "screenshot1.gif",
+          "relative-path": "source/lv_demos/src/lv_demo_stress/screenshot1.gif",
+          "source-analysis-status-file": null,
+          "source-analysis-status-file-manual": null,
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": null,
+          "source-analysis-mode": null
+        },
+        "screenshot1.png": {
+          "type": "file",
+          "name": "screenshot1.png",
+          "relative-path": "source/lv_demos/src/lv_demo_stress/screenshot1.png",
+          "source-analysis-status-file": null,
+          "source-analysis-status-file-manual": null,
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": null,
+          "source-analysis-mode": null
+        }
+      },
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-locked": true,
+      "source-analysis-status-hdir": 1,
+      "source-analysis-status-hdir-files": 1,
+      "source-analysis-status-hdir-manual": "force-included",
+      "source-analysis-mode": null
+    },
+    "source/lv_demos/src/lv_demo_stress/assets": {
+      "type": "directory",
+      "name": "assets",
+      "relative-path": "source/lv_demos/src/lv_demo_stress/assets",
+      "directories": {},
+      "files": {
+        "lv_font_montserrat_12_compr_az.c": {
+          "type": "file",
+          "name": "lv_font_montserrat_12_compr_az.c",
+          "relative-path": "source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_12_compr_az.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "lv_font_montserrat_16_compr_az.c": {
+          "type": "file",
+          "name": "lv_font_montserrat_16_compr_az.c",
+          "relative-path": "source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_16_compr_az.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "lv_font_montserrat_28_compr_az.c": {
+          "type": "file",
+          "name": "lv_font_montserrat_28_compr_az.c",
+          "relative-path": "source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_28_compr_az.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        }
+      },
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-locked": true,
+      "source-analysis-status-hdir": 1,
+      "source-analysis-status-hdir-files": null,
+      "source-analysis-status-hdir-manual": "force-included",
+      "source-analysis-mode": null
+    },
+    "source/lv_demos/src/lv_demo_stress/lv_demo_stress.c": {
+      "type": "file",
+      "name": "lv_demo_stress.c",
+      "relative-path": "source/lv_demos/src/lv_demo_stress/lv_demo_stress.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_12_compr_az.c": {
+      "type": "file",
+      "name": "lv_font_montserrat_12_compr_az.c",
+      "relative-path": "source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_12_compr_az.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_16_compr_az.c": {
+      "type": "file",
+      "name": "lv_font_montserrat_16_compr_az.c",
+      "relative-path": "source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_16_compr_az.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_28_compr_az.c": {
+      "type": "file",
+      "name": "lv_font_montserrat_28_compr_az.c",
+      "relative-path": "source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_28_compr_az.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
     }
   }
 }

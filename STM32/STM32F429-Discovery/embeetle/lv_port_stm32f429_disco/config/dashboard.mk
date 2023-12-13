@@ -109,12 +109,14 @@ TARGET_CFLAGS = -D__packed="__attribute__((__packed__))" \
                 -D__weak="__attribute__((weak))" \
                 -DUSE_HAL_DRIVER \
                 -DSTM32F429xx \
+                -DSTM32F4 \
 
 # CPU specific C++ compilation flags
 TARGET_CXXFLAGS = -D__packed="__attribute__((__packed__))" \
                   -D__weak="__attribute__((weak))" \
                   -DUSE_HAL_DRIVER \
                   -DSTM32F429xx \
+                  -DSTM32F4 \
 
 # CPU specific assembler flags
 TARGET_SFLAGS = -D__packed="__attribute__((__packed__))" \

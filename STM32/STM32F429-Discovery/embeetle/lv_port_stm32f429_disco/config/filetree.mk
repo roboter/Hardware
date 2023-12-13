@@ -70,6 +70,14 @@ project/source/hal_stm_lvgl/tft/tft.c.o \
 project/source/hal_stm_lvgl/touchpad/stmpe811.c.o \
 project/source/hal_stm_lvgl/touchpad/touchpad.c.o \
 project/source/lv_demos/src/lv_demo_music/lv_demo_music_main.c.o \
+project/source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_12_compr_az.c.o \
+project/source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_16_compr_az.c.o \
+project/source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_28_compr_az.c.o \
+project/source/lv_demos/src/lv_demo_stress/lv_demo_stress.c.o \
+project/source/lv_demos/src/lv_demo_widgets/assets/img_clothes.c.o \
+project/source/lv_demos/src/lv_demo_widgets/assets/img_demo_widgets_avatar.c.o \
+project/source/lv_demos/src/lv_demo_widgets/assets/img_lvgl_logo.c.o \
+project/source/lv_demos/src/lv_demo_widgets/lv_demo_widgets.c.o \
 project/source/lvgl/src/core/lv_disp.c.o \
 project/source/lvgl/src/core/lv_event.c.o \
 project/source/lvgl/src/core/lv_group.c.o \
@@ -100,6 +108,7 @@ project/source/lvgl/src/extra/layouts/grid/lv_grid.c.o \
 project/source/lvgl/src/extra/lv_extra.c.o \
 project/source/lvgl/src/extra/themes/default/lv_theme_default.c.o \
 project/source/lvgl/src/extra/widgets/calendar/lv_calendar.c.o \
+project/source/lvgl/src/extra/widgets/calendar/lv_calendar_header_dropdown.c.o \
 project/source/lvgl/src/extra/widgets/chart/lv_chart.c.o \
 project/source/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c.o \
 project/source/lvgl/src/extra/widgets/keyboard/lv_keyboard.c.o \
@@ -171,7 +180,9 @@ HDIR_FLAGS = \
 -I$(SOURCE_DIR)source/HAL_Driver/Inc \
 -I$(SOURCE_DIR)source/inc \
 -I$(SOURCE_DIR)source/lv_demos \
+-I$(SOURCE_DIR)source/lv_demos/src \
 -I$(SOURCE_DIR)source/lv_demos/src/lv_demo_stress \
+-I$(SOURCE_DIR)source/lv_demos/src/lv_demo_stress/assets \
 -I$(SOURCE_DIR)source/lv_demos/src/lv_demo_widgets \
 -I$(SOURCE_DIR)source/lvgl \
 -I$(SOURCE_DIR)source/lvgl/src \

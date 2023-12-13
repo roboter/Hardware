@@ -11,46 +11,66 @@
                                     "class": "Editor",
                                     "tab-index": 0,
                                     "data": {
-                                        "line": 44,
-                                        "index": 18,
-                                        "first-visible-line": 33,
+                                        "line": 17,
+                                        "index": 27,
+                                        "first-visible-line": 12,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/lv_demos/src/lv_demo_stress/lv_demo_stress.c": {
+                                    "class": "Editor",
+                                    "tab-index": 1,
+                                    "data": {
+                                        "line": 458,
+                                        "index": 0,
+                                        "first-visible-line": 0,
                                         "x-view-offset": 0
                                     }
                                 },
                                 "rel://source/hal_stm_lvgl/touchpad/touchpad.c": {
                                     "class": "Editor",
-                                    "tab-index": 1,
+                                    "tab-index": 2,
                                     "data": {
                                         "line": 51,
                                         "index": 0,
-                                        "first-visible-line": 9,
+                                        "first-visible-line": 6,
                                         "x-view-offset": 0
                                     }
                                 },
-                                "rel://source/lv_demos/src/lv_demo_benchmark/README.md": {
-                                    "class": "Editor",
-                                    "tab-index": 2,
-                                    "data": {
-                                        "line": 49,
-                                        "index": 0,
-                                        "first-visible-line": 0,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "rel://source/lv_demos/src/lv_demo_stress/lv_demo_stress.h": {
+                                "rel://config/filetree.mk": {
                                     "class": "Editor",
                                     "tab-index": 3,
                                     "data": {
-                                        "line": 27,
-                                        "index": 19,
+                                        "line": 0,
+                                        "index": 10,
                                         "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://config/makefile": {
+                                    "class": "Editor",
+                                    "tab-index": 4,
+                                    "data": {
+                                        "line": 698,
+                                        "index": 7,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://config/dashboard.mk": {
+                                    "class": "Editor",
+                                    "tab-index": 5,
+                                    "data": {
+                                        "line": 117,
+                                        "index": 33,
+                                        "first-visible-line": 87,
                                         "x-view-offset": 0
                                     }
                                 },
                                 "Output": {
                                     "class": "Console"
                                 },
-                                "CURRENT-INDEX": 3
+                                "CURRENT-INDEX": 6
                             }
                         }
                     },
@@ -91,10 +111,7 @@
                                         "Project Dashboard": {
                                             "class": "Dashboard"
                                         },
-                                        "SEARCH RESULTS": {
-                                            "class": "SearchResultsWindow"
-                                        },
-                                        "CURRENT-INDEX": 1
+                                        "CURRENT-INDEX": 0
                                     }
                                 },
                                 "1": {
