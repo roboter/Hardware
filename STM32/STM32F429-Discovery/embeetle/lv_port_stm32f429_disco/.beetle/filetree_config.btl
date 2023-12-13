@@ -1,0 +1,36 @@
+{
+  "version-generated": 1,
+  "version-minimum": 1,
+  "items": {
+    "source/HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_alarm_template.c": {
+      "type": "file",
+      "name": "stm32f4xx_hal_timebase_rtc_alarm_template.c",
+      "relative-path": "source/HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_alarm_template.c",
+      "source-analysis-status-file": 0,
+      "source-analysis-status-file-manual": "force-excluded",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c": {
+      "type": "file",
+      "name": "stm32f4xx_hal_timebase_rtc_wakeup_template.c",
+      "relative-path": "source/HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c",
+      "source-analysis-status-file": 0,
+      "source-analysis-status-file-manual": "force-excluded",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/HAL_Driver/Src/stm32f4xx_hal_timebase_tim_template.c": {
+      "type": "file",
+      "name": "stm32f4xx_hal_timebase_tim_template.c",
+      "relative-path": "source/HAL_Driver/Src/stm32f4xx_hal_timebase_tim_template.c",
+      "source-analysis-status-file": 0,
+      "source-analysis-status-file-manual": "force-excluded",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    }
+  }
+}
