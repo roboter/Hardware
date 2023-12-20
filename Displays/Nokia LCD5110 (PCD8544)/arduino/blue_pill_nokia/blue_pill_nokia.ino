@@ -68,7 +68,7 @@ void setup();
 void loop();
 
 void setup() {
-  USBDevi
+
   pinMode(RST, OUTPUT);
   pinMode(CE, OUTPUT);
   pinMode(DC, OUTPUT);
