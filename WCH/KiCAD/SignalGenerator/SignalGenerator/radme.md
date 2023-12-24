@@ -18,3 +18,12 @@ DOWN		1360
 RIGHT		2080
 ENTER		3020
 NONE		4095
+
+
+
+Display: ssd1306
+
+128x64
+
+12 lines is yellow
+48 blue
