@@ -35,6 +35,8 @@ int adc_value;
 char temp_str[20];
 int freq = 0;
 int treshhold = 10;
+int x = 0;
+int y = 0;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -110,10 +112,10 @@ int main(void) {
 	MX_ADC1_Init();
 	/* USER CODE BEGIN 2 */
 	ssd1306_Init();
-	char myText[] = "HelloOLED!";
+	char myText[] = "Signal Generator v0.1";
 	// ssd1306_Fill(White);
-	ssd1306_SetCursor(5, 5);
-//  ssd1306_WriteString(myText, Font_11x18, White);
+	ssd1306_SetCursor(0, 0);
+	ssd1306_WriteString(myText, Font_6x8, White);
 
 	ssd1306_UpdateScreen();
 	/* USER CODE END 2 */
@@ -135,20 +137,26 @@ int main(void) {
 
 		// get the ADC conversion value
 		adc_value = HAL_ADC_GetValue(&hadc1);
+		ssd1306_DrawRectangle(0 + x * 8, 8 + y * 8, 8 + x * 8, 16 + y * 8, Black);
 
 		if (adc_value > LEFT - treshhold && adc_value < LEFT + treshhold) {
 			freq--;
+			x--;
 		} else if (adc_value > RIGHT - treshhold
 				&& adc_value < RIGHT + treshhold) {
 			freq++;
+			x++;
 		} else if (adc_value > UP - treshhold && adc_value < UP + treshhold) {
 			freq += 100;
+			y--;
 		} else if (adc_value > DOWN - treshhold
 				&& adc_value < DOWN + treshhold) {
-			freq += 100;
+			freq -= 100;
+			y++;
 		} else if (adc_value > ENTER - treshhold
 				&& adc_value < ENTER + treshhold) {
 			freq = 0;
+			x = y = 0;
 		}
 
 		sprintf(temp_str, "%d  \n", freq);
@@ -156,8 +164,11 @@ int main(void) {
 		// end ADC convertion
 		HAL_ADC_Stop(&hadc1);
 
-		ssd1306_SetCursor(5, 5);
-		ssd1306_WriteString(temp_str, Font_11x18, White);
+		//ssd1306_SetCursor(0, 16);
+		//ssd1306_WriteString(temp_str, Font_11x18, White);
+		//ssd1306_Line(0,16,128,15, White); - Line between blue and yellow
+		ssd1306_DrawRectangle(0 + x * 8, 8 + y * 8, 8 + x * 8, 16 + y * 8,
+				White);
 
 		ssd1306_UpdateScreen();
 		/* USER CODE END WHILE */
