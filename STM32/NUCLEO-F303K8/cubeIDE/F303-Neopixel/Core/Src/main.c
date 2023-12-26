@@ -75,7 +75,7 @@ int32_t CH1_DC = 0;
 uint32_t *pBuff;
 int i, j, k;
 uint16_t stepSize;
-PixelRGB_t pixel[NUM_PIXELS];
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -91,7 +91,7 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 
-	//pixel[NUM_PIXELS] ;
+	PixelRGB_t pixel[NUM_PIXELS] = {0};
 	uint32_t dmaBuffer[DMA_BUFF_SIZE] = { 0 };
   /* USER CODE END 1 */
 
