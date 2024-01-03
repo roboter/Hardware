@@ -1,3 +1,0 @@
-REDLED PB8 Yellow Wire
-GREENLED PB9 Black Wire
-RED to 5V

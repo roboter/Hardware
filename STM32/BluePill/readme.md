@@ -23,3 +23,6 @@ https://wiki.stm32duino.com/index.php?title=Blue_Pill
 # Pinout
 ![bluepill-pinout.gif](bluepill-pinout.gif)
 
+
+# Neopixel
+https://www.thevfdcollective.com/blog/stm32-and-sk6812-rgbw-led
