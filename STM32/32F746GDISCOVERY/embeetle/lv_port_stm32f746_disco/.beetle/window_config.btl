@@ -10,12 +10,72 @@
                                 "Output": {
                                     "class": "Console"
                                 },
-                                "CURRENT-INDEX": 0
+                                "rel://source/user_code/main.c": {
+                                    "class": "Editor",
+                                    "tab-index": 1,
+                                    "data": {
+                                        "line": 7,
+                                        "index": 26,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/lvgl/demos/benchmark/lv_demo_benchmark.c": {
+                                    "class": "Editor",
+                                    "tab-index": 2,
+                                    "data": {
+                                        "line": 417,
+                                        "index": 30,
+                                        "first-visible-line": 374,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/lvgl/demos/music/lv_demo_music.c": {
+                                    "class": "Editor",
+                                    "tab-index": 3,
+                                    "data": {
+                                        "line": 1,
+                                        "index": 22,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/lvgl/demos/lv_demos.h": {
+                                    "class": "Editor",
+                                    "tab-index": 4,
+                                    "data": {
+                                        "line": 17,
+                                        "index": 15,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/lv_conf.h": {
+                                    "class": "Editor",
+                                    "tab-index": 5,
+                                    "data": {
+                                        "line": 692,
+                                        "index": 37,
+                                        "first-visible-line": 610,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/lvgl/lvgl.h": {
+                                    "class": "Editor",
+                                    "tab-index": 6,
+                                    "data": {
+                                        "line": 143,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "CURRENT-INDEX": 6
                             }
                         }
                     },
                     "SIZES": [
-                        1266
+                        1241
                     ]
                 },
                 "1": {
@@ -51,7 +111,10 @@
                                         "Project Dashboard": {
                                             "class": "Dashboard"
                                         },
-                                        "CURRENT-INDEX": 0
+                                        "SEARCH RESULTS": {
+                                            "class": "SearchResultsWindow"
+                                        },
+                                        "CURRENT-INDEX": 1
                                     }
                                 },
                                 "1": {
@@ -70,8 +133,8 @@
                         }
                     },
                     "SIZES": [
-                        635,
-                        629
+                        832,
+                        407
                     ]
                 }
             },

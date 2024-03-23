@@ -1,5 +1,1559 @@
 {
   "version-generated": 1,
   "version-minimum": 1,
-  "items": {}
+  "items": {
+    "source/lvgl/demos/music": {
+      "type": "directory",
+      "name": "music",
+      "relative-path": "source/lvgl/demos/music",
+      "directories": {
+        "assets": {
+          "type": "directory",
+          "name": "assets",
+          "relative-path": "source/lvgl/demos/music/assets",
+          "directories": {},
+          "files": {
+            "img_lv_demo_music_btn_corner_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_corner_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_corner_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_btn_list_pause.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_list_pause.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_list_pause.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_btn_list_pause_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_list_pause_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_list_pause_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_btn_list_play.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_list_play.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_list_play.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_btn_list_play_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_list_play_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_list_play_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_btn_loop.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_loop.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_loop.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_btn_loop_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_loop_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_loop_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_btn_next.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_next.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_next.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_btn_next_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_next_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_next_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_btn_pause.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_pause.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_pause.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_btn_pause_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_pause_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_pause_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_btn_play.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_play.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_play.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_btn_play_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_play_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_play_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_btn_prev.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_prev.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_prev.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_btn_prev_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_prev_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_prev_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_btn_rnd.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_rnd.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_rnd.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_btn_rnd_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_btn_rnd_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_rnd_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_corner_left.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_corner_left.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_corner_left.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_corner_left_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_corner_left_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_corner_left_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_corner_right.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_corner_right.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_corner_right.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_corner_right_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_corner_right_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_corner_right_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_cover_1.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_cover_1.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_1.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_cover_1_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_cover_1_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_1_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_cover_2.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_cover_2.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_2.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_cover_2_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_cover_2_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_2_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_cover_3.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_cover_3.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_3.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_cover_3_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_cover_3_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_3_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_icon_1.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_icon_1.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_1.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_icon_1_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_icon_1_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_1_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_icon_2.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_icon_2.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_2.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_icon_2_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_icon_2_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_2_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_icon_3.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_icon_3.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_3.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_icon_3_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_icon_3_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_3_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_icon_4.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_icon_4.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_4.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_icon_4_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_icon_4_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_4_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_list_border.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_list_border.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_list_border.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_list_border_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_list_border_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_list_border_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_logo.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_logo.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_logo.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_slider_knob.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_slider_knob.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_slider_knob.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_slider_knob_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_slider_knob_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_slider_knob_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_wave_bottom.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_wave_bottom.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_wave_bottom.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_wave_bottom_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_wave_bottom_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_wave_bottom_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_wave_top.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_wave_top.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_wave_top.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "img_lv_demo_music_wave_top_large.c": {
+              "type": "file",
+              "name": "img_lv_demo_music_wave_top_large.c",
+              "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_wave_top_large.c",
+              "source-analysis-status-file": 1,
+              "source-analysis-status-file-manual": "force-included",
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": "source",
+              "source-analysis-mode": null
+            },
+            "spectrum.py": {
+              "type": "file",
+              "name": "spectrum.py",
+              "relative-path": "source/lvgl/demos/music/assets/spectrum.py",
+              "source-analysis-status-file": null,
+              "source-analysis-status-file-manual": null,
+              "source-analysis-status-hdir": null,
+              "source-analysis-type": null,
+              "source-analysis-mode": null
+            },
+            "spectrum_1.h": {
+              "type": "file",
+              "name": "spectrum_1.h",
+              "relative-path": "source/lvgl/demos/music/assets/spectrum_1.h",
+              "source-analysis-status-file": null,
+              "source-analysis-status-file-manual": null,
+              "source-analysis-status-hdir": 1,
+              "source-analysis-type": "header",
+              "source-analysis-mode": null
+            },
+            "spectrum_2.h": {
+              "type": "file",
+              "name": "spectrum_2.h",
+              "relative-path": "source/lvgl/demos/music/assets/spectrum_2.h",
+              "source-analysis-status-file": null,
+              "source-analysis-status-file-manual": null,
+              "source-analysis-status-hdir": 1,
+              "source-analysis-type": "header",
+              "source-analysis-mode": null
+            },
+            "spectrum_3.h": {
+              "type": "file",
+              "name": "spectrum_3.h",
+              "relative-path": "source/lvgl/demos/music/assets/spectrum_3.h",
+              "source-analysis-status-file": null,
+              "source-analysis-status-file-manual": null,
+              "source-analysis-status-hdir": 1,
+              "source-analysis-type": "header",
+              "source-analysis-mode": null
+            }
+          },
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-locked": true,
+          "source-analysis-status-hdir": 1,
+          "source-analysis-status-hdir-files": 1,
+          "source-analysis-status-hdir-manual": "force-included",
+          "source-analysis-mode": null
+        }
+      },
+      "files": {
+        "lv_demo_music.c": {
+          "type": "file",
+          "name": "lv_demo_music.c",
+          "relative-path": "source/lvgl/demos/music/lv_demo_music.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "lv_demo_music.h": {
+          "type": "file",
+          "name": "lv_demo_music.h",
+          "relative-path": "source/lvgl/demos/music/lv_demo_music.h",
+          "source-analysis-status-file": null,
+          "source-analysis-status-file-manual": null,
+          "source-analysis-status-hdir": 1,
+          "source-analysis-type": "header",
+          "source-analysis-mode": null
+        },
+        "lv_demo_music_list.c": {
+          "type": "file",
+          "name": "lv_demo_music_list.c",
+          "relative-path": "source/lvgl/demos/music/lv_demo_music_list.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "lv_demo_music_list.h": {
+          "type": "file",
+          "name": "lv_demo_music_list.h",
+          "relative-path": "source/lvgl/demos/music/lv_demo_music_list.h",
+          "source-analysis-status-file": null,
+          "source-analysis-status-file-manual": null,
+          "source-analysis-status-hdir": 1,
+          "source-analysis-type": "header",
+          "source-analysis-mode": null
+        },
+        "lv_demo_music_main.c": {
+          "type": "file",
+          "name": "lv_demo_music_main.c",
+          "relative-path": "source/lvgl/demos/music/lv_demo_music_main.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "lv_demo_music_main.h": {
+          "type": "file",
+          "name": "lv_demo_music_main.h",
+          "relative-path": "source/lvgl/demos/music/lv_demo_music_main.h",
+          "source-analysis-status-file": null,
+          "source-analysis-status-file-manual": null,
+          "source-analysis-status-hdir": 1,
+          "source-analysis-type": "header",
+          "source-analysis-mode": null
+        },
+        "README.md": {
+          "type": "file",
+          "name": "README.md",
+          "relative-path": "source/lvgl/demos/music/README.md",
+          "source-analysis-status-file": null,
+          "source-analysis-status-file-manual": null,
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": null,
+          "source-analysis-mode": null
+        },
+        "screenshot1.gif": {
+          "type": "file",
+          "name": "screenshot1.gif",
+          "relative-path": "source/lvgl/demos/music/screenshot1.gif",
+          "source-analysis-status-file": null,
+          "source-analysis-status-file-manual": null,
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": null,
+          "source-analysis-mode": null
+        }
+      },
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-locked": true,
+      "source-analysis-status-hdir": 1,
+      "source-analysis-status-hdir-files": 1,
+      "source-analysis-status-hdir-manual": "force-included",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets": {
+      "type": "directory",
+      "name": "assets",
+      "relative-path": "source/lvgl/demos/music/assets",
+      "directories": {},
+      "files": {
+        "img_lv_demo_music_btn_corner_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_corner_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_corner_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_btn_list_pause.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_list_pause.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_list_pause.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_btn_list_pause_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_list_pause_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_list_pause_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_btn_list_play.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_list_play.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_list_play.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_btn_list_play_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_list_play_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_list_play_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_btn_loop.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_loop.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_loop.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_btn_loop_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_loop_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_loop_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_btn_next.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_next.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_next.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_btn_next_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_next_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_next_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_btn_pause.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_pause.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_pause.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_btn_pause_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_pause_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_pause_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_btn_play.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_play.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_play.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_btn_play_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_play_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_play_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_btn_prev.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_prev.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_prev.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_btn_prev_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_prev_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_prev_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_btn_rnd.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_rnd.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_rnd.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_btn_rnd_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_btn_rnd_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_rnd_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_corner_left.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_corner_left.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_corner_left.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_corner_left_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_corner_left_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_corner_left_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_corner_right.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_corner_right.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_corner_right.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_corner_right_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_corner_right_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_corner_right_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_cover_1.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_cover_1.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_1.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_cover_1_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_cover_1_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_1_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_cover_2.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_cover_2.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_2.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_cover_2_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_cover_2_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_2_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_cover_3.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_cover_3.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_3.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_cover_3_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_cover_3_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_3_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_icon_1.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_icon_1.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_1.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_icon_1_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_icon_1_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_1_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_icon_2.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_icon_2.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_2.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_icon_2_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_icon_2_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_2_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_icon_3.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_icon_3.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_3.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_icon_3_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_icon_3_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_3_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_icon_4.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_icon_4.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_4.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_icon_4_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_icon_4_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_4_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_list_border.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_list_border.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_list_border.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_list_border_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_list_border_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_list_border_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_logo.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_logo.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_logo.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_slider_knob.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_slider_knob.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_slider_knob.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_slider_knob_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_slider_knob_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_slider_knob_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_wave_bottom.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_wave_bottom.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_wave_bottom.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_wave_bottom_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_wave_bottom_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_wave_bottom_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_wave_top.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_wave_top.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_wave_top.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "img_lv_demo_music_wave_top_large.c": {
+          "type": "file",
+          "name": "img_lv_demo_music_wave_top_large.c",
+          "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_wave_top_large.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "spectrum.py": {
+          "type": "file",
+          "name": "spectrum.py",
+          "relative-path": "source/lvgl/demos/music/assets/spectrum.py",
+          "source-analysis-status-file": null,
+          "source-analysis-status-file-manual": null,
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": null,
+          "source-analysis-mode": null
+        },
+        "spectrum_1.h": {
+          "type": "file",
+          "name": "spectrum_1.h",
+          "relative-path": "source/lvgl/demos/music/assets/spectrum_1.h",
+          "source-analysis-status-file": null,
+          "source-analysis-status-file-manual": null,
+          "source-analysis-status-hdir": 1,
+          "source-analysis-type": "header",
+          "source-analysis-mode": null
+        },
+        "spectrum_2.h": {
+          "type": "file",
+          "name": "spectrum_2.h",
+          "relative-path": "source/lvgl/demos/music/assets/spectrum_2.h",
+          "source-analysis-status-file": null,
+          "source-analysis-status-file-manual": null,
+          "source-analysis-status-hdir": 1,
+          "source-analysis-type": "header",
+          "source-analysis-mode": null
+        },
+        "spectrum_3.h": {
+          "type": "file",
+          "name": "spectrum_3.h",
+          "relative-path": "source/lvgl/demos/music/assets/spectrum_3.h",
+          "source-analysis-status-file": null,
+          "source-analysis-status-file-manual": null,
+          "source-analysis-status-hdir": 1,
+          "source-analysis-type": "header",
+          "source-analysis-mode": null
+        }
+      },
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-locked": true,
+      "source-analysis-status-hdir": 1,
+      "source-analysis-status-hdir-files": 1,
+      "source-analysis-status-hdir-manual": "force-included",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/lv_demo_music.c": {
+      "type": "file",
+      "name": "lv_demo_music.c",
+      "relative-path": "source/lvgl/demos/music/lv_demo_music.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/lv_demo_music_list.c": {
+      "type": "file",
+      "name": "lv_demo_music_list.c",
+      "relative-path": "source/lvgl/demos/music/lv_demo_music_list.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/lv_demo_music_main.c": {
+      "type": "file",
+      "name": "lv_demo_music_main.c",
+      "relative-path": "source/lvgl/demos/music/lv_demo_music_main.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_corner_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_corner_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_corner_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_list_pause.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_list_pause.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_list_pause.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_list_pause_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_list_pause_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_list_pause_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_list_play.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_list_play.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_list_play.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_list_play_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_list_play_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_list_play_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_loop.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_loop.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_loop.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_loop_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_loop_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_loop_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_next.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_next.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_next.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_next_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_next_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_next_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_pause.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_pause.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_pause.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_pause_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_pause_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_pause_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_play.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_play.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_play.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_play_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_play_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_play_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_prev.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_prev.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_prev.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_prev_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_prev_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_prev_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_rnd.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_rnd.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_rnd.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_btn_rnd_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_btn_rnd_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_btn_rnd_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_corner_left.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_corner_left.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_corner_left.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_corner_left_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_corner_left_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_corner_left_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_corner_right.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_corner_right.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_corner_right.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_corner_right_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_corner_right_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_corner_right_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_cover_1.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_cover_1.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_1.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_cover_1_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_cover_1_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_1_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_cover_2.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_cover_2.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_2.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_cover_2_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_cover_2_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_2_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_cover_3.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_cover_3.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_3.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_cover_3_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_cover_3_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_cover_3_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_icon_1.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_icon_1.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_1.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_icon_1_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_icon_1_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_1_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_icon_2.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_icon_2.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_2.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_icon_2_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_icon_2_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_2_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_icon_3.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_icon_3.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_3.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_icon_3_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_icon_3_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_3_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_icon_4.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_icon_4.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_4.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_icon_4_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_icon_4_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_icon_4_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_list_border.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_list_border.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_list_border.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_list_border_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_list_border_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_list_border_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_logo.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_logo.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_logo.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_slider_knob.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_slider_knob.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_slider_knob.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_slider_knob_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_slider_knob_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_slider_knob_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_wave_bottom.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_wave_bottom.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_wave_bottom.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_wave_bottom_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_wave_bottom_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_wave_bottom_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_wave_top.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_wave_top.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_wave_top.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    },
+    "source/lvgl/demos/music/assets/img_lv_demo_music_wave_top_large.c": {
+      "type": "file",
+      "name": "img_lv_demo_music_wave_top_large.c",
+      "relative-path": "source/lvgl/demos/music/assets/img_lv_demo_music_wave_top_large.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
+      "source-analysis-mode": null
+    }
+  }
 }
