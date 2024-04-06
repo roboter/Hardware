@@ -57,17 +57,10 @@ void IIC_Init(u32 bound, u16 address)
 // Update Function
 // ===================================================================================
 void update(void) {
-//	OLED_drawPixel(0, 0, 1);
-//	OLED_drawPixel(1, 1, 1);
-//	OLED_drawPixel(2, 2, 1);
 	char str[] = "Hello World!5\n";
-	//OLED_fill(0xA0);
-	
-	//OLED_draw_bmp(0, 0, 128, 64, image_bmp);
-	//Delay_Ms(1500);
 	//OLED_printS(str);
 	OLED_DrawPixel(0,0,White);
-	OLED_UpdateScreen();
+	OLED_EmbeetleLogo();
 	
 }
 

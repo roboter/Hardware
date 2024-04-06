@@ -75,7 +75,7 @@ const uint8_t ssd1306_init_sequence [] = {	// Initialization Sequence
 	0xD3, 0x00,		// Set display offset. 00 = no offset
 	0x40 | 0x00,	// Set start line address, at 0.
 	0x8D, 0x14,		// Charge Pump Setting, 14h = Enable Charge Pump
-	0x20, 0x01,		// Set Memory Addressing Mode - 00=Horizontal, 01=Vertical, 10=Page, 11=Invalid
+	0x20, 0x00,		// Set Memory Addressing Mode - 00=Horizontal, 01=Vertical, 10=Page, 11=Invalid
 	0xA0 | 0x01,	// Set Segment Re-map
 	0xC8,			// Set COM Output Scan Direction
 	0xDA, 0x12,		// Set COM Pins Hardware Configuration - 128x32:0x02, 128x64:0x12
@@ -285,8 +285,6 @@ void OLED_fill2(uint8_t p) {
 		I2C_stop(); // Finish transmission of data	
 }
 
-
-
 // OLED draw bitmap
 void OLED_draw_bmp(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, const uint8_t* bmp) {
 	
@@ -327,26 +325,10 @@ void OLED_DrawPixel(uint8_t x, uint8_t y, SSD1306_COLOR color) {
 }
 
 /* Write the screenbuffer with changed to the screen */
-void OLED_UpdateScreen(void) {
-    // Write data to each page of RAM. Number of pages
-    // depends on the screen height:
-    //
-    //  * 32px   ==  4 pages
-    //  * 64px   ==  8 pages
-//    //  * 128px  ==  16 pages
-//    for(uint8_t i = 0; i < SSD1306_HEIGHT/8; i++) {
-//        I2C_start(0xB0 + i); // Set the current RAM page address.
-//			  I2C_write(OLED_CMD_MODE);
-//        I2C_write(0x00 + SSD1306_X_OFFSET_LOWER);
-//        I2C_write(0x10 + SSD1306_X_OFFSET_UPPER);
-//			  I2C_write(OLED_DAT_MODE);
-//        I2C_write(&SSD1306_Buffer[SSD1306_WIDTH*i],SSD1306_WIDTH);
-//    }
-SSD1306_Buffer[0] = 0xFF;
-SSD1306_Buffer[1] = 0xFF;
+void OLED_EmbeetleLogo(void) {
 		OLED_setpos(0, 0);                      // set cursor to display start
 		I2C_start(OLED_ADDR);                   // start transmission to OLED
 		I2C_write(OLED_DAT_MODE);               // set data mode
-		for(uint16_t i=128*8; i; i--) I2C_write(image_bmp[i]); // send pattern
+		for(uint16_t i=0; i!=128*8; i++) I2C_write(image_bmp[i]); // send pattern
 		I2C_stop();                             // stop transmission
 }

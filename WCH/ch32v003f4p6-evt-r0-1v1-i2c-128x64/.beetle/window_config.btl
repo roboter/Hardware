@@ -25,90 +25,17 @@
                     "BOX-V": {
                         "0": {
                             "TABS": {
-                                "rel://source/Peripheral/src/ch32v00x_tim.c": {
+                                "rel://source/User/main.c": {
                                     "class": "Editor",
                                     "tab-index": 0,
                                     "data": {
-                                        "line": 20,
-                                        "index": 22,
-                                        "first-visible-line": 45,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "rel://source/Peripheral/src/ch32v00x_usart.c": {
-                                    "class": "Editor",
-                                    "tab-index": 1,
-                                    "data": {
-                                        "line": 165,
-                                        "index": 21,
-                                        "first-visible-line": 243,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "SymbolStack": {
-                                    "class": "Symbols"
-                                },
-                                "rel://source/User/main.c": {
-                                    "class": "Editor",
-                                    "tab-index": 3,
-                                    "data": {
-                                        "line": 15,
-                                        "index": 33,
+                                        "line": 52,
+                                        "index": 42,
                                         "first-visible-line": 0,
                                         "x-view-offset": 0
                                     }
                                 },
-                                "rel://source/ssd1306/oled_segment.h": {
-                                    "class": "Editor",
-                                    "tab-index": 4,
-                                    "data": {
-                                        "line": 105,
-                                        "index": 29,
-                                        "first-visible-line": 66,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "rel://source/ssd1306/oled_segment.c": {
-                                    "class": "Editor",
-                                    "tab-index": 5,
-                                    "data": {
-                                        "line": 77,
-                                        "index": 11,
-                                        "first-visible-line": 64,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "rel://source/Debug/debug.c": {
-                                    "class": "Editor",
-                                    "tab-index": 6,
-                                    "data": {
-                                        "line": 74,
-                                        "index": 0,
-                                        "first-visible-line": 122,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "rel://source/ssd1306/embeetle_logo_128x64.c": {
-                                    "class": "Editor",
-                                    "tab-index": 7,
-                                    "data": {
-                                        "line": 9,
-                                        "index": 30,
-                                        "first-visible-line": 0,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "rel://source/Startup/startup_ch32v00x.S": {
-                                    "class": "Editor",
-                                    "tab-index": 8,
-                                    "data": {
-                                        "line": 17,
-                                        "index": 0,
-                                        "first-visible-line": 0,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "CURRENT-INDEX": 5
+                                "CURRENT-INDEX": 0
                             }
                         },
                         "1": {
@@ -124,8 +51,8 @@
                         }
                     },
                     "SIZES": [
-                        782,
-                        474
+                        766,
+                        465
                     ]
                 },
                 "1": {
@@ -150,8 +77,8 @@
                                 }
                             },
                             "SIZES": [
-                                629,
-                                627
+                                616,
+                                615
                             ]
                         },
                         "1": {
@@ -161,27 +88,24 @@
                                         "Diagnostics": {
                                             "class": "Diagnostics"
                                         },
-                                        "Serial Monitor": {
-                                            "class": "SerialConsole"
-                                        },
-                                        "CURRENT-INDEX": 1
+                                        "CURRENT-INDEX": 0
                                     }
                                 }
                             },
                             "SIZES": [
-                                1258
+                                1233
                             ]
                         }
                     },
                     "SIZES": [
-                        390,
-                        536
+                        428,
+                        589
                     ]
                 }
             },
             "SIZES": [
-                1630,
-                928
+                1539,
+                1019
             ]
         }
     }

@@ -103,7 +103,7 @@ void OLED_setpos(uint8_t x, uint8_t y);
 void OLED_fill(uint8_t p);
 void OLED_draw_bmp(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, const uint8_t *bmp);
 void OLED_DrawPixel(uint8_t x, uint8_t y, SSD1306_COLOR color);
-void OLED_UpdateScreen(void);
+void OLED_EmbeetleLogo(void);
 
 #ifdef __cplusplus
 };
