@@ -1,0 +1,188 @@
+{
+    "SCREEN-DATA": {
+        "NUMBER-OF-SCREENS": 2,
+        "SCREEN-RESOLUTIONS": [
+            [
+                1920,
+                1080
+            ],
+            [
+                2560,
+                1440
+            ]
+        ]
+    },
+    "WINDOW-SIZE": "MAXIMIZED",
+    "SCREEN-INDEX": 1,
+    "X-Y-OFFSET": [
+        1920,
+        -7
+    ],
+    "BOXES": {
+        "0": {
+            "BOX-H": {
+                "0": {
+                    "BOX-V": {
+                        "0": {
+                            "TABS": {
+                                "rel://source/Peripheral/src/ch32v00x_tim.c": {
+                                    "class": "Editor",
+                                    "tab-index": 0,
+                                    "data": {
+                                        "line": 20,
+                                        "index": 22,
+                                        "first-visible-line": 45,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/Peripheral/src/ch32v00x_usart.c": {
+                                    "class": "Editor",
+                                    "tab-index": 1,
+                                    "data": {
+                                        "line": 165,
+                                        "index": 21,
+                                        "first-visible-line": 243,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "SymbolStack": {
+                                    "class": "Symbols"
+                                },
+                                "rel://source/User/main.c": {
+                                    "class": "Editor",
+                                    "tab-index": 3,
+                                    "data": {
+                                        "line": 15,
+                                        "index": 33,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/ssd1306/oled_segment.h": {
+                                    "class": "Editor",
+                                    "tab-index": 4,
+                                    "data": {
+                                        "line": 105,
+                                        "index": 29,
+                                        "first-visible-line": 66,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/ssd1306/oled_segment.c": {
+                                    "class": "Editor",
+                                    "tab-index": 5,
+                                    "data": {
+                                        "line": 77,
+                                        "index": 11,
+                                        "first-visible-line": 64,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/Debug/debug.c": {
+                                    "class": "Editor",
+                                    "tab-index": 6,
+                                    "data": {
+                                        "line": 74,
+                                        "index": 0,
+                                        "first-visible-line": 122,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/ssd1306/embeetle_logo_128x64.c": {
+                                    "class": "Editor",
+                                    "tab-index": 7,
+                                    "data": {
+                                        "line": 9,
+                                        "index": 30,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/Startup/startup_ch32v00x.S": {
+                                    "class": "Editor",
+                                    "tab-index": 8,
+                                    "data": {
+                                        "line": 17,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "CURRENT-INDEX": 5
+                            }
+                        },
+                        "1": {
+                            "TABS": {
+                                "Output": {
+                                    "class": "Console"
+                                },
+                                "Project Dashboard": {
+                                    "class": "Dashboard"
+                                },
+                                "CURRENT-INDEX": 0
+                            }
+                        }
+                    },
+                    "SIZES": [
+                        782,
+                        474
+                    ]
+                },
+                "1": {
+                    "BOX-H": {
+                        "0": {
+                            "BOX-V": {
+                                "0": {
+                                    "TABS": {
+                                        "Filetree": {
+                                            "class": "FileExplorer"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "DebuggerWindow": {
+                                            "class": "Debugger"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                629,
+                                627
+                            ]
+                        },
+                        "1": {
+                            "BOX-V": {
+                                "0": {
+                                    "TABS": {
+                                        "Diagnostics": {
+                                            "class": "Diagnostics"
+                                        },
+                                        "Serial Monitor": {
+                                            "class": "SerialConsole"
+                                        },
+                                        "CURRENT-INDEX": 1
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                1258
+                            ]
+                        }
+                    },
+                    "SIZES": [
+                        390,
+                        536
+                    ]
+                }
+            },
+            "SIZES": [
+                1630,
+                928
+            ]
+        }
+    }
+}
