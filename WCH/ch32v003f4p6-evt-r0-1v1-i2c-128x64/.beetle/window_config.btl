@@ -29,11 +29,14 @@
                                     "class": "Editor",
                                     "tab-index": 0,
                                     "data": {
-                                        "line": 52,
-                                        "index": 42,
-                                        "first-visible-line": 0,
+                                        "line": 80,
+                                        "index": 9,
+                                        "first-visible-line": 42,
                                         "x-view-offset": 0
                                     }
+                                },
+                                "SymbolStack": {
+                                    "class": "Symbols"
                                 },
                                 "CURRENT-INDEX": 0
                             }
@@ -51,8 +54,8 @@
                         }
                     },
                     "SIZES": [
-                        766,
-                        465
+                        782,
+                        474
                     ]
                 },
                 "1": {
@@ -77,8 +80,8 @@
                                 }
                             },
                             "SIZES": [
-                                616,
-                                615
+                                629,
+                                627
                             ]
                         },
                         "1": {
@@ -93,7 +96,7 @@
                                 }
                             },
                             "SIZES": [
-                                1233
+                                1258
                             ]
                         }
                     },

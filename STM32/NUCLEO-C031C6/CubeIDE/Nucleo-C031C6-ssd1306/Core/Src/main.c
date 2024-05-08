@@ -112,7 +112,7 @@ int main(void) {
 	MX_ADC1_Init();
 	/* USER CODE BEGIN 2 */
 	ssd1306_Init();
-	char myText[] = "Signal Generator v0.1";
+	char myText[] = "Hello World!";
 	// ssd1306_Fill(White);
 	ssd1306_SetCursor(0, 0);
 	ssd1306_WriteString(myText, Font_6x8, White);
@@ -137,7 +137,7 @@ int main(void) {
 
 		// get the ADC conversion value
 		adc_value = HAL_ADC_GetValue(&hadc1);
-		ssd1306_DrawRectangle(0 + x * 8, 8 + y * 8, 8 + x * 8, 16 + y * 8, Black);
+	//	ssd1306_DrawRectangle(0 + x * 8, 8 + y * 8, 8 + x * 8, 16 + y * 8, Black);
 
 		if (adc_value > LEFT - treshhold && adc_value < LEFT + treshhold) {
 			freq--;
@@ -167,8 +167,7 @@ int main(void) {
 		//ssd1306_SetCursor(0, 16);
 		//ssd1306_WriteString(temp_str, Font_11x18, White);
 		//ssd1306_Line(0,16,128,15, White); - Line between blue and yellow
-		ssd1306_DrawRectangle(0 + x * 8, 8 + y * 8, 8 + x * 8, 16 + y * 8,
-				White);
+	//	ssd1306_DrawRectangle(0 + x * 8, 8 + y * 8, 8 + x * 8, 16 + y * 8, White);
 
 		ssd1306_UpdateScreen();
 		/* USER CODE END WHILE */

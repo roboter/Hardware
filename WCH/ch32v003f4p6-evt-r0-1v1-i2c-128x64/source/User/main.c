@@ -78,5 +78,6 @@ int main(void)
 	//OLED_clear2();
 	update();
 
+while(1);
 	Delay_Ms(1500);
 }

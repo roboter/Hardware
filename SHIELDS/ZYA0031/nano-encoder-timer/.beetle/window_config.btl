@@ -1,0 +1,121 @@
+{
+    "SCREEN-DATA": {
+        "NUMBER-OF-SCREENS": 2,
+        "SCREEN-RESOLUTIONS": [
+            [
+                1920,
+                1080
+            ],
+            [
+                2560,
+                1440
+            ]
+        ]
+    },
+    "WINDOW-SIZE": "MAXIMIZED",
+    "SCREEN-INDEX": 1,
+    "X-Y-OFFSET": [
+        1920,
+        -7
+    ],
+    "BOXES": {
+        "0": {
+            "BOX-H": {
+                "0": {
+                    "BOX-V": {
+                        "0": {
+                            "TABS": {
+                                "rel://source/user_code/nano-timer.cpp": {
+                                    "class": "Editor",
+                                    "tab-index": 0,
+                                    "data": {
+                                        "line": 90,
+                                        "index": 11,
+                                        "first-visible-line": 57,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "Serial Monitor": {
+                                    "class": "SerialConsole"
+                                },
+                                "CURRENT-INDEX": 0
+                            }
+                        },
+                        "1": {
+                            "TABS": {
+                                "Output": {
+                                    "class": "Console"
+                                },
+                                "CURRENT-INDEX": 0
+                            }
+                        }
+                    },
+                    "SIZES": [
+                        628,
+                        628
+                    ]
+                },
+                "1": {
+                    "BOX-V": {
+                        "0": {
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Filetree": {
+                                            "class": "FileExplorer"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "SymbolStack": {
+                                            "class": "Symbols"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                391,
+                                384
+                            ]
+                        },
+                        "1": {
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Project Dashboard": {
+                                            "class": "Dashboard"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "Diagnostics": {
+                                            "class": "Diagnostics"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                378,
+                                397
+                            ]
+                        }
+                    },
+                    "SIZES": [
+                        632,
+                        624
+                    ]
+                }
+            },
+            "SIZES": [
+                1781,
+                777
+            ]
+        }
+    }
+}
