@@ -65,7 +65,14 @@ project/source/core/arduino/Stream.cpp.o \
 project/source/core/arduino/WString.cpp.o \
 project/source/core/arduino/abi.cpp.o \
 project/source/core/arduino/main.cpp.o \
+project/source/libraries/ArduinoMenu_library/src/items.cpp.o \
+project/source/libraries/ArduinoMenu_library/src/menu.cpp.o \
+project/source/libraries/ArduinoMenu_library/src/menuBase.cpp.o \
+project/source/libraries/ArduinoMenu_library/src/menuIO/serialOut.cpp.o \
+project/source/libraries/ArduinoMenu_library/src/menuIo.cpp.o \
+project/source/libraries/ArduinoMenu_library/src/nav.cpp.o \
 project/source/libraries/LiquidCrystal/src/LiquidCrystal.cpp.o \
+project/source/libraries/PCINT-master/src/pcint.cpp.o \
 project/source/user_code/nano-timer.cpp.o
 
 # INCLUDED SFILES:
@@ -77,7 +84,10 @@ OFILES = $(C_OFILES) $(CXX_OFILES) $(S_OFILES)
 # INCLUDED HDIRS:
 HDIR_FLAGS = \
 -I$(SOURCE_DIR)source/core/arduino \
+-I$(SOURCE_DIR)source/libraries/ArduinoMenu_library/src \
 -I$(SOURCE_DIR)source/libraries/LiquidCrystal/src \
+-I$(SOURCE_DIR)source/libraries/PCINT-master/src \
+-I$(SOURCE_DIR)source/libraries/Wire/src \
 -I$(SOURCE_DIR)source/variants/eightanaloginputs
 
 # INCLUDED ARCHIVES
