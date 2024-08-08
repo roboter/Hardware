@@ -1,0 +1,29 @@
+
+.post-container > img {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.about-subtitle {
+  font-weight: 300;
+  margin: 0 0 10px;
+}
+
+.category-panel {
+  background-image: url('/img/arduino_lcd_low.jpg');
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.1) 80%), url('/img/arduino_lcd_low.jpg');
+  background-size: cover;
+  height: 170px;
+  max-height: 170px;
+  padding: 5px;
+  margin: 10px 0px;
+}
+
+.category-container {
+  min-height: 160px;
+  background-color: white;
+  opacity: 0.96;
+  filter: alpha(opacity=96);
+  padding: 5px;
+  margin: 0px;
+}
