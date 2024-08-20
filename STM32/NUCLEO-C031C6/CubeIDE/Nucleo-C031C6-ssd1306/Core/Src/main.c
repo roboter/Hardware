@@ -51,7 +51,7 @@ int y = 0;
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+void I2C_Scan(void);
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -85,6 +85,7 @@ static void MX_ADC1_Init(void);
  * @retval int
  */
 int main(void) {
+
 	/* USER CODE BEGIN 1 */
 
 	/* USER CODE END 1 */
@@ -125,6 +126,7 @@ int main(void) {
 	uint16_t ADC_Buffer[1] = { 0 };
 	HAL_ADC_Start_DMA(&hadc1, ADC_Buffer, 1);
 
+	I2C_Scan();
 	while (1) {
 		HAL_GPIO_TogglePin(Led_GPIO_Port, Led_Pin);
 		//HAL_Delay(1500);
@@ -137,7 +139,7 @@ int main(void) {
 
 		// get the ADC conversion value
 		adc_value = HAL_ADC_GetValue(&hadc1);
-	//	ssd1306_DrawRectangle(0 + x * 8, 8 + y * 8, 8 + x * 8, 16 + y * 8, Black);
+		//	ssd1306_DrawRectangle(0 + x * 8, 8 + y * 8, 8 + x * 8, 16 + y * 8, Black);
 
 		if (adc_value > LEFT - treshhold && adc_value < LEFT + treshhold) {
 			freq--;
@@ -164,10 +166,10 @@ int main(void) {
 		// end ADC convertion
 		HAL_ADC_Stop(&hadc1);
 
-		//ssd1306_SetCursor(0, 16);
-		//ssd1306_WriteString(temp_str, Font_11x18, White);
+		ssd1306_SetCursor(0, 16);
+		ssd1306_WriteString(temp_str, Font_11x18, White);
 		//ssd1306_Line(0,16,128,15, White); - Line between blue and yellow
-	//	ssd1306_DrawRectangle(0 + x * 8, 8 + y * 8, 8 + x * 8, 16 + y * 8, White);
+		//	ssd1306_DrawRectangle(0 + x * 8, 8 + y * 8, 8 + x * 8, 16 + y * 8, White);
 
 		ssd1306_UpdateScreen();
 		/* USER CODE END WHILE */
@@ -233,7 +235,7 @@ static void MX_ADC1_Init(void) {
 	hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
 	hadc1.Init.Resolution = ADC_RESOLUTION_12B;
 	hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-	hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+	hadc1.Init.ScanConvMode = ADC_SCAN_SEQ_FIXED;
 	hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
 	hadc1.Init.LowPowerAutoWait = DISABLE;
 	hadc1.Init.LowPowerAutoPowerOff = DISABLE;
@@ -245,7 +247,6 @@ static void MX_ADC1_Init(void) {
 	hadc1.Init.DMAContinuousRequests = DISABLE;
 	hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
 	hadc1.Init.SamplingTimeCommon1 = ADC_SAMPLETIME_160CYCLES_5;
-	hadc1.Init.SamplingTimeCommon2 = ADC_SAMPLETIME_1CYCLE_5;
 	hadc1.Init.OversamplingMode = DISABLE;
 	hadc1.Init.TriggerFrequencyMode = ADC_TRIGGER_FREQ_HIGH;
 	if (HAL_ADC_Init(&hadc1) != HAL_OK) {
@@ -255,8 +256,7 @@ static void MX_ADC1_Init(void) {
 	/** Configure Regular Channel
 	 */
 	sConfig.Channel = ADC_CHANNEL_0;
-	sConfig.Rank = ADC_REGULAR_RANK_1;
-	sConfig.SamplingTime = ADC_SAMPLINGTIME_COMMON_1;
+	sConfig.Rank = ADC_RANK_CHANNEL_NUMBER;
 	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK) {
 		Error_Handler();
 	}
@@ -386,6 +386,31 @@ static void MX_GPIO_Init(void) {
 }
 
 /* USER CODE BEGIN 4 */
+void I2C_Scan(void) {
+	printf("Scanning I2C bus:\r\n");
+	HAL_StatusTypeDef result;
+	uint8_t i;
+	for (i = 1; i < 128; i++) {
+		/*
+		 * the HAL wants a left aligned i2c address
+		 * &hi2c1 is the handle
+		 * (uint16_t)(i<<1) is the i2c address left aligned
+		 * retries 2
+		 * timeout 2
+		 */
+		result = HAL_I2C_IsDeviceReady(&hi2c1, (uint16_t) (i << 1), 2, 2);
+		if (result != HAL_OK) // HAL_ERROR or HAL_BUSY or HAL_TIMEOUT
+				{
+			printf("."); // No ACK received at that address
+		}
+		if (result == HAL_OK) {
+			printf("0x%X", i); // Received an ACK at that address
+			//sprintf(test, "0x%X", i);
+			//HAL_UART_Transmit(&huart2, (uint8_t*) test, strlen(test), 100);
+		}
+	}
+	printf("\r\n");
+}
 
 /* USER CODE END 4 */
 
