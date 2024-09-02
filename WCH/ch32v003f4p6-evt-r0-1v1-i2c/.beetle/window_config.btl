@@ -1,5 +1,19 @@
 {
+    "SCREEN-DATA": {
+        "NUMBER-OF-SCREENS": 1,
+        "SCREEN-RESOLUTIONS": [
+            [
+                1920,
+                1080
+            ]
+        ]
+    },
     "WINDOW-SIZE": "MAXIMIZED",
+    "SCREEN-INDEX": 0,
+    "X-Y-OFFSET": [
+        0,
+        -8
+    ],
     "BOXES": {
         "0": {
             "BOX-H": {
@@ -27,7 +41,10 @@
                                         "x-view-offset": 0
                                     }
                                 },
-                                "CURRENT-INDEX": 1
+                                "SymbolStack": {
+                                    "class": "Symbols"
+                                },
+                                "CURRENT-INDEX": 2
                             }
                         },
                         "1": {
@@ -46,8 +63,8 @@
                         }
                     },
                     "SIZES": [
-                        708,
-                        149
+                        740,
+                        156
                     ]
                 },
                 "1": {

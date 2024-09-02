@@ -1,22 +1,18 @@
 {
     "SCREEN-DATA": {
-        "NUMBER-OF-SCREENS": 2,
+        "NUMBER-OF-SCREENS": 1,
         "SCREEN-RESOLUTIONS": [
             [
                 1920,
                 1080
-            ],
-            [
-                2560,
-                1440
             ]
         ]
     },
     "WINDOW-SIZE": "MAXIMIZED",
-    "SCREEN-INDEX": 1,
+    "SCREEN-INDEX": 0,
     "X-Y-OFFSET": [
-        1920,
-        -7
+        0,
+        -8
     ],
     "BOXES": {
         "0": {
@@ -31,14 +27,24 @@
                                     "data": {
                                         "line": 80,
                                         "index": 9,
-                                        "first-visible-line": 42,
+                                        "first-visible-line": 36,
                                         "x-view-offset": 0
                                     }
                                 },
                                 "SymbolStack": {
                                     "class": "Symbols"
                                 },
-                                "CURRENT-INDEX": 0
+                                "rel://source/Peripheral/src/ch32v00x_usart.c": {
+                                    "class": "Editor",
+                                    "tab-index": 2,
+                                    "data": {
+                                        "line": 796,
+                                        "index": 0,
+                                        "first-visible-line": 87,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "CURRENT-INDEX": 2
                             }
                         },
                         "1": {
@@ -54,8 +60,8 @@
                         }
                     },
                     "SIZES": [
-                        782,
-                        474
+                        558,
+                        338
                     ]
                 },
                 "1": {
@@ -80,8 +86,8 @@
                                 }
                             },
                             "SIZES": [
-                                629,
-                                627
+                                449,
+                                447
                             ]
                         },
                         "1": {
@@ -96,19 +102,19 @@
                                 }
                             },
                             "SIZES": [
-                                1258
+                                898
                             ]
                         }
                     },
                     "SIZES": [
-                        428,
-                        589
+                        321,
+                        441
                     ]
                 }
             },
             "SIZES": [
-                1539,
-                1019
+                1154,
+                764
             ]
         }
     }

@@ -1,0 +1,2 @@
+BOARD: 
+I2C1 PB6 => SCL PB7 => SDA
