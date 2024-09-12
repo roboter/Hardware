@@ -303,6 +303,28 @@ void OLED_draw_bmp(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, const uint8_t
   }
 }
 
+/*
+ * Draw a bitmap from x0 & y0 with the w & h sizes
+ * x0 => X origin coordinate
+ * y0 => Y origin coordinate
+ * w  => Width in pixels of the bitmap
+ * h  => Heiht in pixels of the bitmap
+ * bmp  => Bitmap array
+ */
+void OLED_draw_bmp_by_size(uint8_t x0, uint8_t y0, uint8_t w, uint8_t h, const uint8_t* bmp) {
+	int z=0;
+  for(uint8_t y = y0; y < y0+(h/8); y++) {
+    OLED_setpos(x0, y);
+    I2C_start(OLED_ADDR);
+    I2C_write(OLED_DAT_MODE);
+    for(uint8_t x = x0; x < x0+w; x++)
+		{
+			I2C_write(bmp[z]);
+			z++;
+		}
+    I2C_stop();
+  }
+}
 
 /*
  * Draw one pixel in the screenbuffer
