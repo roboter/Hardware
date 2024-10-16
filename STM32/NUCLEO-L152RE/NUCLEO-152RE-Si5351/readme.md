@@ -1,0 +1,6 @@
+BOARD: 
+I2C1 PB8 => SCL PB9 => SDA
+
+0x60
+
+Si5351
