@@ -21,7 +21,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
+#include <string.h>
+
+#include "si5351.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -60,6 +62,46 @@ void I2C_Scan(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 char test[] = "Hello World L152RE\n";
+
+void UART_TransmitString(const char *str) {
+	HAL_UART_Transmit(&huart2, (uint8_t*) str, strlen(str), HAL_MAX_DELAY);
+}
+
+void I2C_Scan() {
+	UART_TransmitString("Scanning I2C bus...\r\n");
+	HAL_StatusTypeDef res;
+	for (uint16_t i = 0; i < 128; i++) {
+		res = HAL_I2C_IsDeviceReady(&hi2c1, i << 1, 1, 10);
+		if (res == HAL_OK) {
+			char msg[64];
+			snprintf(msg, sizeof(msg), "0x%02X", i);
+			UART_TransmitString(msg);
+		} else {
+			UART_TransmitString(".");
+		}
+	}
+
+	UART_TransmitString("\r\n");
+}
+
+void init() {
+	UART_TransmitString("Calling I2C_Scan()...\r\n");
+	I2C_Scan();
+
+	UART_TransmitString("Initializing Si5351...\r\n");
+	const int32_t correction = 978;
+	si5351_Init(correction);
+	si5351_SetupCLK0(28000000, SI5351_DRIVE_STRENGTH_4MA);
+	si5351_SetupCLK2(144000000, SI5351_DRIVE_STRENGTH_4MA);
+	si5351_EnableOutputs((1 << 0) | (1 << 2));
+
+	UART_TransmitString("Ready!\r\n");
+}
+
+void loop() {
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+	HAL_Delay(1000);
+}
 /* USER CODE END 0 */
 
 /**
@@ -93,17 +135,19 @@ int main(void) {
 	MX_USART2_UART_Init();
 	MX_I2C1_Init();
 	/* USER CODE BEGIN 2 */
-	I2C_Scan();
+	//I2C_Scan();
+	init();
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 	while (1) {
 		/* USER CODE END WHILE */
-		HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
-		HAL_Delay(200);
-		HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
-		HAL_Delay(200);
+		loop();
+//		HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
+//		HAL_Delay(200);
+//		HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
+//		HAL_Delay(200);
 		/* USER CODE BEGIN 3 */
 	}
 	/* USER CODE END 3 */
@@ -249,7 +293,7 @@ static void MX_GPIO_Init(void) {
 }
 
 /* USER CODE BEGIN 4 */
-void I2C_Scan(void) {
+void I2C_Scan_my(void) {
 	printf("Scanning I2C bus:\r\n");
 	HAL_StatusTypeDef result;
 	uint8_t i;

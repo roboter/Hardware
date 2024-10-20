@@ -4,7 +4,7 @@ https://forum.digikey.com/t/controlling-neopixels-with-stm32/20527
 
 
 from maga shield arduino source:
- NEO_KHZ800  800 KHz bitstream (most NeoPixel products w/WS2812 LEDs)
+ NEO_KHZ800 800 KHz bitstream (most NeoPixel products w/WS2812 LEDs)
  
  
  

@@ -40,7 +40,7 @@
                                     "data": {
                                         "line": 796,
                                         "index": 0,
-                                        "first-visible-line": 87,
+                                        "first-visible-line": 111,
                                         "x-view-offset": 0
                                     }
                                 },
@@ -79,7 +79,10 @@
                                 "1": {
                                     "TABS": {
                                         "DebuggerWindow": {
-                                            "class": "Debugger"
+                                            "class": "Debugger",
+                                            "data": {
+                                                "gdb-url": "localhost:3333"
+                                            }
                                         },
                                         "CURRENT-INDEX": 0
                                     }

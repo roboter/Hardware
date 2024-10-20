@@ -124,7 +124,7 @@ TARGET_LDFLAGS = --specs=nano.specs \
                  -L $(dir $(LINKERSCRIPT)) \
 
 # Libraries from the toolchain
-TOOLCHAIN_LDLIBS = 
+TOOLCHAIN_LDLIBS = -lm \
 
 # 6. FLASH RULES
 # ==============
