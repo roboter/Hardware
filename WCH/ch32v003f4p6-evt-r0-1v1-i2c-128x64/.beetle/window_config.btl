@@ -25,9 +25,9 @@
                                     "class": "Editor",
                                     "tab-index": 0,
                                     "data": {
-                                        "line": 80,
-                                        "index": 9,
-                                        "first-visible-line": 0,
+                                        "line": 82,
+                                        "index": 1,
+                                        "first-visible-line": 60,
                                         "x-view-offset": 0
                                     }
                                 },

@@ -1,0 +1,121 @@
+{
+    "SCREEN-DATA": {
+        "NUMBER-OF-SCREENS": 1,
+        "SCREEN-RESOLUTIONS": [
+            [
+                1920,
+                1080
+            ]
+        ]
+    },
+    "WINDOW-SIZE": "MAXIMIZED",
+    "SCREEN-INDEX": 0,
+    "X-Y-OFFSET": [
+        0,
+        -8
+    ],
+    "BOXES": {
+        "0": {
+            "BOX-H": {
+                "0": {
+                    "BOX-V": {
+                        "0": {
+                            "TABS": {
+                                "SymbolStack": {
+                                    "class": "Symbols"
+                                },
+                                "Output": {
+                                    "class": "Console"
+                                },
+                                "Serial Monitor": {
+                                    "class": "SerialConsole"
+                                },
+                                "rel://readme.txt": {
+                                    "class": "Editor",
+                                    "tab-index": 3,
+                                    "data": {
+                                        "line": 87,
+                                        "index": 43,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/Peripheral/src/ch32v00x_flash.c": {
+                                    "class": "Editor",
+                                    "tab-index": 4,
+                                    "data": {
+                                        "line": 837,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "CURRENT-INDEX": 4
+                            }
+                        }
+                    },
+                    "SIZES": [
+                        898
+                    ]
+                },
+                "1": {
+                    "BOX-V": {
+                        "0": {
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Filetree": {
+                                            "class": "FileExplorer"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "CURRENT-INDEX": -1
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                485,
+                                475
+                            ]
+                        },
+                        "1": {
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Project Dashboard": {
+                                            "class": "Dashboard"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "Diagnostics": {
+                                            "class": "Diagnostics"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                468,
+                                492
+                            ]
+                        }
+                    },
+                    "SIZES": [
+                        450,
+                        446
+                    ]
+                }
+            },
+            "SIZES": [
+                956,
+                962
+            ]
+        }
+    }
+}
