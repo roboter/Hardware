@@ -67,14 +67,17 @@ int main(void)
 	Delay_Init();
 	USART_Printf_Init(115200);
 	printf("SystemClk:%d\r\n",SystemCoreClock);
+	printf( "ChipID:%08x\r\n", DBGMCU_GetCHIPID() );
+	printf( "DevID:%08x\r\n", DBGMCU_GetDEVID() );
+	printf( "RevID:%08x\r\n", DBGMCU_GetREVID );
 	
 	// Setup internal peripherals
-  I2C_init();
+	I2C_init();
 
-  // Setup external peripherals
-  OLED_init();
-  OLED_clear();
-  update();
+	// Setup external peripherals
+	OLED_init();
+	OLED_clear();
+	update();
 
 	Delay_Ms(500);
 }

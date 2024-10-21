@@ -52,6 +52,7 @@ EMBEETLE_MAKEFILE_INTERFACE_VERSION = 7
 # INCLUDED CFILES:
 C_OFILES = \
 project/source/Debug/debug.c.o \
+project/source/Peripheral/src/ch32v00x_dbgmcu.c.o \
 project/source/Peripheral/src/ch32v00x_gpio.c.o \
 project/source/Peripheral/src/ch32v00x_i2c.c.o \
 project/source/Peripheral/src/ch32v00x_rcc.c.o \
