@@ -50,19 +50,35 @@
 EMBEETLE_MAKEFILE_INTERFACE_VERSION = 7
 
 # INCLUDED CFILES:
-C_OFILES =
+C_OFILES = \
+project/source/Debug/debug.c.o \
+project/source/Peripheral/src/ch32v00x_gpio.c.o \
+project/source/Peripheral/src/ch32v00x_i2c.c.o \
+project/source/Peripheral/src/ch32v00x_rcc.c.o \
+project/source/Peripheral/src/ch32v00x_usart.c.o \
+project/source/User/ch32v00x_it.c.o \
+project/source/User/main.c.o \
+project/source/User/system_ch32v00x.c.o \
+project/source/ssd1306/i2c_tx.c.o \
+project/source/ssd1306/oled_segment.c.o
 
 # INCLUDED CXXFILES:
 CXX_OFILES =
 
 # INCLUDED SFILES:
-S_OFILES =
+S_OFILES = \
+project/source/Startup/startup_ch32v00x.S.o
 
 # LIST ALL OFILES:
 OFILES = $(C_OFILES) $(CXX_OFILES) $(S_OFILES)
 
 # INCLUDED HDIRS:
-HDIR_FLAGS =
+HDIR_FLAGS = \
+-I$(SOURCE_DIR)source/Core \
+-I$(SOURCE_DIR)source/Debug \
+-I$(SOURCE_DIR)source/Peripheral/inc \
+-I$(SOURCE_DIR)source/User \
+-I$(SOURCE_DIR)source/ssd1306
 
 # INCLUDED ARCHIVES
 PROJECT_LDLIBS =

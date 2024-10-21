@@ -27,7 +27,7 @@
                                     "data": {
                                         "line": 80,
                                         "index": 9,
-                                        "first-visible-line": 36,
+                                        "first-visible-line": 0,
                                         "x-view-offset": 0
                                     }
                                 },
@@ -40,11 +40,11 @@
                                     "data": {
                                         "line": 796,
                                         "index": 0,
-                                        "first-visible-line": 111,
+                                        "first-visible-line": 24,
                                         "x-view-offset": 0
                                     }
                                 },
-                                "CURRENT-INDEX": 2
+                                "CURRENT-INDEX": 0
                             }
                         },
                         "1": {

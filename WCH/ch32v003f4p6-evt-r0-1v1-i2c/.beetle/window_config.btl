@@ -21,80 +21,77 @@
                     "BOX-V": {
                         "0": {
                             "TABS": {
-                                "rel://source/Peripheral/src/ch32v00x_tim.c": {
-                                    "class": "Editor",
-                                    "tab-index": 0,
-                                    "data": {
-                                        "line": 20,
-                                        "index": 22,
-                                        "first-visible-line": 45,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "rel://source/Peripheral/src/ch32v00x_usart.c": {
-                                    "class": "Editor",
-                                    "tab-index": 1,
-                                    "data": {
-                                        "line": 165,
-                                        "index": 21,
-                                        "first-visible-line": 243,
-                                        "x-view-offset": 0
-                                    }
-                                },
                                 "SymbolStack": {
                                     "class": "Symbols"
                                 },
-                                "CURRENT-INDEX": 2
-                            }
-                        },
-                        "1": {
-                            "TABS": {
                                 "Output": {
                                     "class": "Console"
                                 },
-                                "DebuggerWindow": {
-                                    "class": "Debugger"
-                                },
-                                "Project Dashboard": {
-                                    "class": "Dashboard"
-                                },
-                                "CURRENT-INDEX": 0
+                                "CURRENT-INDEX": 1
                             }
                         }
                     },
                     "SIZES": [
-                        740,
-                        156
+                        898
                     ]
                 },
                 "1": {
-                    "BOX-H": {
+                    "BOX-V": {
                         "0": {
-                            "TABS": {
-                                "Filetree": {
-                                    "class": "FileExplorer"
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Filetree": {
+                                            "class": "FileExplorer"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
                                 },
-                                "CURRENT-INDEX": 0
-                            }
+                                "1": {
+                                    "TABS": {
+                                        "CURRENT-INDEX": -1
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                485,
+                                475
+                            ]
                         },
                         "1": {
-                            "TABS": {
-                                "Diagnostics": {
-                                    "class": "Diagnostics"
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Project Dashboard": {
+                                            "class": "Dashboard"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
                                 },
-                                "CURRENT-INDEX": 0
-                            }
+                                "1": {
+                                    "TABS": {
+                                        "Diagnostics": {
+                                            "class": "Diagnostics"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                468,
+                                492
+                            ]
                         }
                     },
                     "SIZES": [
-                        460,
-                        371
+                        450,
+                        446
                     ]
                 }
             },
             "SIZES": [
-                1085,
-                833
+                956,
+                962
             ]
         }
     }

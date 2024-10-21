@@ -17,23 +17,23 @@
   "board_name": "ch32v003f4p6-evt-r0-1v1",
   "probe_name": "wch-linke-r0-1v3-riscv",
   "transport_protocol": "sdi",
-  "COM_port": null,
-  "BUILD_DIR": "<project>/build",
+  "COM_port": "None",
   "BIN_FILE": "<project>/build/application.bin",
+  "BOOTLOADER_FILE": "None",
+  "BOOTSWITCH_FILE": "None",
+  "BUILD_DIR": "<project>/build",
   "ELF_FILE": "<project>/build/application.elf",
-  "BOOTLOADER_FILE": null,
-  "BOOTSWITCH_FILE": null,
-  "PARTITIONS_CSV_FILE": null,
+  "GDB_FLASHFILE": "None",
   "LINKERSCRIPT": "<project>/config/linkerscript.ld",
   "MAKEFILE": "<project>/config/makefile",
-  "GDB_FLASHFILE": null,
   "OPENOCD_CHIPFILE": "<project>/config/openocd_chip.cfg",
   "OPENOCD_PROBEFILE": "<project>/config/openocd_probe.cfg",
-  "PACKPATH": null,
+  "PACKPATH": "None",
+  "PARTITIONS_CSV_FILE": "None",
   "COMPILER_TOOLCHAIN": "gnu_riscv_xpack_toolchain_10.2.0_1.2_64b",
   "BUILD_AUTOMATION": "gnu_make_4.2.1_64b",
   "FLASHTOOL": "openocd_wch_0.11.0_dev02415_32b",
-  "hash_value": "1a2b2c37eb65bc345a69c2c1141c6a81"
+  "hash_value": "021eacb9ee24a095f81dcae078b50d4c"
 }
 
 // MIT LICENSE
