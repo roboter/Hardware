@@ -72,16 +72,16 @@ static void SetSysClock(void);
  */
 void SystemInit (void)
 {
-//  RCC->CTLR |= (uint32_t)0x00000001;
-//  RCC->CFGR0 &= (uint32_t)0xF8FF0000;
-//  RCC->CTLR &= (uint32_t)0xFEF6FFFF;
-//  RCC->CTLR &= (uint32_t)0xFFFBFFFF;
-//  RCC->CFGR0 &= (uint32_t)0xFFFEFFFF;
-//  RCC->INTR = 0x009F0000;
-//
-//  RCC_AdjustHSICalibrationValue(0x10);
-//
-//  SetSysClock();
+  RCC->CTLR |= (uint32_t)0x00000001;
+  RCC->CFGR0 &= (uint32_t)0xF8FF0000;
+  RCC->CTLR &= (uint32_t)0xFEF6FFFF;
+  RCC->CTLR &= (uint32_t)0xFFFBFFFF;
+  RCC->CFGR0 &= (uint32_t)0xFFFEFFFF;
+  RCC->INTR = 0x009F0000;
+
+  RCC_AdjustHSICalibrationValue(0x10);
+
+  SetSysClock();
 }
 
 
