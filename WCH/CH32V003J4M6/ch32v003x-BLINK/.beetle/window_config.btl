@@ -1,0 +1,118 @@
+{
+    "SCREEN-DATA": {
+        "NUMBER-OF-SCREENS": 1,
+        "SCREEN-RESOLUTIONS": [
+            [
+                1920,
+                1080
+            ]
+        ]
+    },
+    "WINDOW-SIZE": "MAXIMIZED",
+    "SCREEN-INDEX": 0,
+    "X-Y-OFFSET": [
+        0,
+        -8
+    ],
+    "BOXES": {
+        "0": {
+            "BOX-H": {
+                "0": {
+                    "BOX-V": {
+                        "0": {
+                            "TABS": {
+                                "rel://source/Samples/GPIO/GPIO_Toggle/User/main.c": {
+                                    "class": "Editor",
+                                    "tab-index": 0,
+                                    "data": {
+                                        "line": 56,
+                                        "index": 42,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "Output": {
+                                    "class": "Console"
+                                },
+                                "": {
+                                    "class": "Editor",
+                                    "tab-index": 2,
+                                    "data": {
+                                        "line": 0,
+                                        "index": 0,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "CURRENT-INDEX": 2
+                            }
+                        }
+                    },
+                    "SIZES": [
+                        898
+                    ]
+                },
+                "1": {
+                    "BOX-V": {
+                        "0": {
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Filetree": {
+                                            "class": "FileExplorer"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "SymbolStack": {
+                                            "class": "Symbols"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                321,
+                                315
+                            ]
+                        },
+                        "1": {
+                            "BOX-H": {
+                                "0": {
+                                    "TABS": {
+                                        "Project Dashboard": {
+                                            "class": "Dashboard"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "Diagnostics": {
+                                            "class": "Diagnostics"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                }
+                            },
+                            "SIZES": [
+                                310,
+                                326
+                            ]
+                        }
+                    },
+                    "SIZES": [
+                        450,
+                        446
+                    ]
+                }
+            },
+            "SIZES": [
+                1280,
+                638
+            ]
+        }
+    }
+}
