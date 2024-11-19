@@ -1,0 +1,14 @@
+{
+  "convs": {
+    "6cb3c425-35ad-4aa9-a30f-cf1a381279e2": {
+      "name": "WCH",
+      "model_id": "37961098-388d-46a8-b130-51af59b3c3c5",
+      "model_name": "GPT-4o Chat Model"
+    },
+    "a9ed2bed-e736-4b9d-8ad3-6205c3ee6b39": {
+      "name": "WCH1",
+      "model_id": "37961098-388d-46a8-b130-51af59b3c3c5",
+      "model_name": "GPT-4o Chat Model"
+    }
+  }
+}
