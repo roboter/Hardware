@@ -24,7 +24,7 @@
  *Info : WCH-LinkE  mode:RV version 2.15
  */
 
-#include <debug.h>
+#include "debug.h"
 #include <ch32v00x_i2c.h>
 #include <ch32v00x_gpio.h>
 #include <ch32v00x_rcc.h>

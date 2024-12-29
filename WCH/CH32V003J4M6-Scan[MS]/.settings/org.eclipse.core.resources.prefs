@@ -5,5 +5,6 @@ encoding//Peripheral/src/ch32v00x_gpio.c=GBK
 encoding//Peripheral/src/ch32v00x_i2c.c=GBK
 encoding//Startup/startup_ch32v00x.S=GBK
 encoding//User/ch32v00x_conf.h=GBK
+encoding//User/ch32v00x_it.h=GBK
 encoding//User/main.c=GBK
 encoding//User/system_ch32v00x.c=GBK
