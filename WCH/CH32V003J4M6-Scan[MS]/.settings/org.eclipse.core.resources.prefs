@@ -7,4 +7,6 @@ encoding//Startup/startup_ch32v00x.S=GBK
 encoding//User/ch32v00x_conf.h=GBK
 encoding//User/ch32v00x_it.h=GBK
 encoding//User/main.c=GBK
+encoding//User/si5351.c=GBK
+encoding//User/si5351.h=GBK
 encoding//User/system_ch32v00x.c=GBK

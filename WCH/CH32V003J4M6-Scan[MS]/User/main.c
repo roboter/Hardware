@@ -143,7 +143,7 @@ void I2C_Scan() {
 
         // If the address was acknowledged, print it
         if (timeout_counter <= TIMEOUT) {
-            printf("0x%02X ", address);
+            printf("0x%02X ", address  /*<< 1*/);
         } else {
             printf(". ");
         }
