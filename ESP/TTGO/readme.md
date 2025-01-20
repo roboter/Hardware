@@ -7,7 +7,7 @@ https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vc
 # Video
 https://www.youtube.com/watch?v=s12XuR7BJkw
 
-# MPU9250 - a 3-axis gyroscope as well as a 3-axis 
+# MPU9250 - a 3-axis gyroscope as well as a 3-axis
 v1.0 don't have it
 
 
