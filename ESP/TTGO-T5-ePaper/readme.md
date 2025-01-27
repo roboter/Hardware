@@ -9,4 +9,5 @@ Resolution 264x176
 
 ESP32-d0wdq6
 
-Arduino TTGO Lora32-OLED
+# Arduino
+* TTGO Lora32-OLED
