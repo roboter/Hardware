@@ -324,6 +324,11 @@ void setup()
   // deleteFile(LittleFS, "/foo.txt");
   // testFileIO(LittleFS, "/test.txt");
   // deleteFile(LittleFS, "/test.txt");
+  Serial.print("TotalBytes:");
+  Serial.println(LittleFS.totalBytes());
+
+  Serial.print("UsedBytes:");
+  Serial.println(LittleFS.usedBytes());
 
   // Serial.println("Test complete");
   listDir(LittleFS, "/", 3);

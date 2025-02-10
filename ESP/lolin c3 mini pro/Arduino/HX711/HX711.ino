@@ -4,8 +4,8 @@
 #include "Adafruit_HX711.h"
 
 // Define the pins for the HX711 communication
-const uint8_t DATA_PIN = 14;   // Can use any pins!
-const uint8_t CLOCK_PIN = 13;  // Can use any pins!
+const uint8_t DATA_PIN = 2;   // Can use any pins!
+const uint8_t CLOCK_PIN = 3;  // Can use any pins!
 
 Adafruit_HX711 hx711(DATA_PIN, CLOCK_PIN);
 
