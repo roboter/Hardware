@@ -7,12 +7,12 @@
 platform = atmelavr
 board = ATmega168PB
 framework = arduino
-upload_protocol=usbasp-clone
+upload_protocol = usbasp-clone
 ```
 
 ## USB-ASP with metal case gives error
 ```
-*  Executing task in folder m168pb: C:\Users\x\.platformio\penv\Scripts\platformio.exe run --target upload --environment ATmega168PB 
+*  Executing task in folder m168pb: C:\Users\x\.platformio\penv\Scripts\platformio.exe run --target upload --environment ATmega168PB
 
 Processing ATmega168PB (platform: atmelavr; board: ATmega168PB; framework: arduino)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -71,11 +71,15 @@ avrdude warning: verification mismatch
 
 this command fixes it:
 ```
- C:\Users\robby\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17/bin/avrdude -CC:\Users\robby\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17/etc/avrdude.conf -F -v -patmega328p
- -cusbasp -Pusb -e -Ulock:w:0x3F:m -Uefuse:w:0xFD:m -Uhfuse:w:0xDE:m -Ulfuse:w:0xFF:m
+ C:\Users\robby\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17/bin/avrdude -CC:\Users\robby\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17/etc/avrdude.conf -F -v -patmega328p -cusbasp -Pusb -e -Ulock:w:0x3F:m -Uefuse:w:0xFD:m -Uhfuse:w:0xDE:m -Ulfuse:w:0xFF:m
  ```
 
 
   C:\Users\robby\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17/bin/avrdude -CC:\Users\robby\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17/etc/avrdude.conf -cusbasp -p m168pb -B 5 -V -e -U lock:w:0x3F:m -U hfuse:w:0xDF:m -U lfuse:w:0xFF:m -U efuse:w:0xF8:m
 C:\Users\robby\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17/bin/avrdude -CC:\Users\robby\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17/etc/avrdude.conf -cusbasp -p m168pb -B 1 -V -D -U flash:w:C:\Users\robby\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.6\bootloaders\atmega\ATmegaBOOT_168_pro_8MHz.hex:i
 C:\Users\robby\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17/bin/avrdude -CC:\Users\robby\AppData\Local\Arduino15\packages\arduino\tools\avrdude\6.3.0-arduino17/etc/avrdude.conf -c usbasp -p m168pb -B 5 -V -U lock:w:0xCF:m
+
+
+avrdude error: cannot set sck period; please check for usbasp firmware update
+avrdude error: program enable: target does not answer (0x01)
+avrdude error: initialization failed, rc=-1
