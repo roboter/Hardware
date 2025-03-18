@@ -1,0 +1,5 @@
+C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Src/fatfs_storage.c:89:10:Storage_Init	1
+C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Src/fatfs_storage.c:109:10:Storage_OpenReadFile	5
+C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Src/fatfs_storage.c:205:10:Storage_GetDirectoryBitmapFiles	5
+C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Src/fatfs_storage.c:250:9:Buffercmp	3
+C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Src/fatfs_storage.c:180:10:Storage_CheckBitmapFile	3
