@@ -88,13 +88,17 @@ int main(void)
 
   BSP_SD_Init();
 
+
+  BSP_LCD_DisplayStringAt(0, 0, (uint8_t*)" Hello World!", LEFT_MODE);
+
   while(BSP_SD_IsDetected() != SD_PRESENT)
   {
         BSP_LCD_SetTextColor(LCD_COLOR_RED);
-        BSP_LCD_DisplayStringAtLine(8, (uint8_t*)"  Please insert SD Card                  ");
+        BSP_LCD_DisplayStringAtLine(8, (uint8_t*)"Please insert");
+        BSP_LCD_DisplayStringAtLine(9, (uint8_t*)"WORKING SD Card");
   }
   
-  BSP_LCD_Clear(LCD_COLOR_BLACK);
+ // BSP_LCD_Clear(LCD_COLOR_BLACK);
   
   /*##-2- Link the SD Card disk I/O driver ###################################*/
   if(FATFS_LinkDriver(&SD_Driver, SD_Path) == 0)

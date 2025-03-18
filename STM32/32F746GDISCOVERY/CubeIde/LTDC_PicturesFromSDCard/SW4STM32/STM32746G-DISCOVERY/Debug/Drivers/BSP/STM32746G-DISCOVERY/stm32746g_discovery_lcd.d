@@ -1,8 +1,8 @@
 Drivers/BSP/STM32746G-DISCOVERY/stm32746g_discovery_lcd.o: \
- C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_lcd.c \
- C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_lcd.h \
- C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../Components/rk043fn48h/rk043fn48h.h \
- C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_sdram.h \
+ C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_lcd.c \
+ C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_lcd.h \
+ C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../Components/rk043fn48h/rk043fn48h.h \
+ C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_sdram.h \
  ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../../../Inc/stm32f7xx_hal_conf.h \
  ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
@@ -37,17 +37,17 @@ Drivers/BSP/STM32746G-DISCOVERY/stm32746g_discovery_lcd.o: \
  ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_sdmmc.h \
  ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h \
  ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h \
- C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.h \
- C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/fonts.h \
- C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font24.c \
- C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/fonts.h \
- C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font20.c \
- C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font16.c \
- C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font12.c \
- C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font8.c
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_lcd.h:
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../Components/rk043fn48h/rk043fn48h.h:
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_sdram.h:
+ C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.h \
+ C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/fonts.h \
+ C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font24.c \
+ C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/fonts.h \
+ C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font20.c \
+ C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font16.c \
+ C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font12.c \
+ C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font8.c
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_lcd.h:
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../Components/rk043fn48h/rk043fn48h.h:
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_sdram.h:
 ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 ../../../Inc/stm32f7xx_hal_conf.h:
 ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:
@@ -82,11 +82,11 @@ C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP
 ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_sdmmc.h:
 ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h:
 ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h:
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.h:
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/fonts.h:
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font24.c:
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/fonts.h:
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font20.c:
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font16.c:
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font12.c:
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font8.c:
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.h:
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/fonts.h:
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font24.c:
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/fonts.h:
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font20.c:
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font16.c:
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font12.c:
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/font8.c:

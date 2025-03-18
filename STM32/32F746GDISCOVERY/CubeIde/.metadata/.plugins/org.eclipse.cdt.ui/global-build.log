@@ -1,0 +1,7 @@
+17:26:25 **** Build of configuration Debug for project LTDC_PicturesFromSDCard ****
+make all 
+arm-none-eabi-size  LTDC_PicturesFromSDCard.elf 
+   text	   data	    bss	    dec	    hex	filename
+  41252	    172	   9644	  51068	   c77c	LTDC_PicturesFromSDCard.elf
+Finished building: default.size.stdout
+ 

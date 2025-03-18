@@ -1,5 +1,5 @@
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Src/sd_diskio.c:181:9:SD_ioctl	48	static
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Src/sd_diskio.c:127:9:SD_read	8	static
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Src/sd_diskio.c:114:9:SD_status	8	static
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Src/sd_diskio.c:154:9:SD_write	8	static
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Src/sd_diskio.c:93:9:SD_initialize	16	static
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Src/sd_diskio.c:181:9:SD_ioctl	48	static
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Src/sd_diskio.c:127:9:SD_read	8	static
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Src/sd_diskio.c:114:9:SD_status	8	static
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Src/sd_diskio.c:154:9:SD_write	8	static
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Src/sd_diskio.c:93:9:SD_initialize	16	static

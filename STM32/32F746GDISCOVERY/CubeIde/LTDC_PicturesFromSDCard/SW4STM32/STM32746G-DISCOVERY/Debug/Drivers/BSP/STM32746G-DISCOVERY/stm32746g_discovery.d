@@ -1,6 +1,6 @@
 Drivers/BSP/STM32746G-DISCOVERY/stm32746g_discovery.o: \
- C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.c \
- C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.h \
+ C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.c \
+ C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.h \
  ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../../../Inc/stm32f7xx_hal_conf.h \
  ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
@@ -35,7 +35,7 @@ Drivers/BSP/STM32746G-DISCOVERY/stm32746g_discovery.o: \
  ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_sdmmc.h \
  ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h \
  ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h
-C:/Users/robby/STM32CubeIDE/workspace_1.18.0/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.h:
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.h:
 ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 ../../../Inc/stm32f7xx_hal_conf.h:
 ../../../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h:
