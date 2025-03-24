@@ -1,10 +1,18 @@
-17:26:25 **** Build of configuration Debug for project LTDC_PicturesFromSDCard ****
+21:46:08 **** Incremental Build of configuration Debug for project LTDC_PicturesFromSDCard ****
 make all 
-arm-none-eabi-size  LTDC_PicturesFromSDCard.elf 
-   text	   data	    bss	    dec	    hex	filename
-  41252	    172	   9644	  51068	   c77c	LTDC_PicturesFromSDCard.elf
-Finished building: default.size.stdout
- 
+arm-none-eabi-gcc "C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DUSE_STM32746G_DISCO -c -I../../../Inc -I../../../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../../../Drivers/STM32F7xx_HAL_Driver/Inc -I../../../Drivers/BSP/STM32746G-Discovery -I../../../Utilities -I../../../Utilities/Fonts -I../../../Middlewares/Third_Party/FatFs/src -I../../../Drivers/BSP/Components -I../../../Drivers/CMSIS/Include -Os -ffunction-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/main.d" -MT"Application/User/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Application/User/main.o"
+arm-none-eabi-gcc "C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/SW4STM32/syscalls.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DUSE_STM32746G_DISCO -c -I../../../Inc -I../../../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../../../Drivers/STM32F7xx_HAL_Driver/Inc -I../../../Drivers/BSP/STM32746G-Discovery -I../../../Utilities -I../../../Utilities/Fonts -I../../../Middlewares/Third_Party/FatFs/src -I../../../Drivers/BSP/Components -I../../../Drivers/CMSIS/Include -Os -ffunction-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/SW4STM32/syscalls.d" -MT"Application/SW4STM32/syscalls.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Application/SW4STM32/syscalls.o"
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/SW4STM32/syscalls.c: In function '_write':
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/SW4STM32/syscalls.c:88:5: warning: implicit declaration of function 'ITM_SendChar' [-Wimplicit-function-declaration]
+   88 |     ITM_SendChar(*ptr++);
+      |     ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "LTDC_PicturesFromSDCard.elf" @"objects.list"   -mcpu=cortex-m7 -T"../STM32F746NGHx_FLASH.ld" --specs=nosys.specs -Wl,-Map="LTDC_PicturesFromSDCard.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: LTDC_PicturesFromSDCard.elf has a LOAD segment with RWX permissions
+C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Application/SW4STM32/syscalls.o: in function `_write':
+C:/PROJECTS/Hardware/STM32/32F746GDISCOVERY/CubeIde/LTDC_PicturesFromSDCard/SW4STM32/syscalls.c:88:(.text._write+0x16): undefined reference to `ITM_SendChar'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:72: LTDC_PicturesFromSDCard.elf] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
 
-17:26:26 Build Finished. 0 errors, 0 warnings. (took 1s.325ms)
+21:46:10 Build Failed. 2 errors, 2 warnings. (took 2s.288ms)
 

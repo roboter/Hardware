@@ -48,6 +48,8 @@ static void Error_Handler(void);
 static void CPU_CACHE_Enable(void);
 
 /* Private functions ---------------------------------------------------------*/
+/* Send a char through ITM */
+
 
 /**
   * @brief  Main program
@@ -88,6 +90,7 @@ int main(void)
 
   BSP_SD_Init();
 
+  printf("hello\n");
 
   BSP_LCD_DisplayStringAt(0, 0, (uint8_t*)" Hello World!", LEFT_MODE);
 

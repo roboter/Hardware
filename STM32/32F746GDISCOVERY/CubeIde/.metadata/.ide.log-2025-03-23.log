@@ -1,0 +1,11 @@
+2025-03-24 13:08:00,464 [INFO] WebApp:194 - Connection lost
+2025-03-24 13:09:54,686 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2025-03-24 13:09:54,772 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.UnknownHostException: stmicroelectronics.d3.sc.omtrdc.net
+2025-03-24 13:09:54,773 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.UnknownHostException: stmicroelectronics.d3.sc.omtrdc.net
+2025-03-24 13:09:54,774 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.UnknownHostException: stmicroelectronics.d3.sc.omtrdc.net
+2025-03-24 13:09:54,775 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.UnknownHostException: stmicroelectronics.d3.sc.omtrdc.net
+2025-03-24 13:09:54,775 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.UnknownHostException: stmicroelectronics.d3.sc.omtrdc.net
+2025-03-24 13:09:54,783 [INFO] ApiDb:448 - Save user favorites file C:\Users\robby/.stm32cubeide/favorites.mcus.txt: 2 item(s)
+2025-03-24 13:09:54,784 [INFO] ApiDb:452 - User favorites MCUs=[STM32F103C8T6, STM32F303K8T6]
+2025-03-24 13:09:54,786 [INFO] ApiDb:448 - Save user favorites file C:\Users\robby/.stm32cubeide/favorites.boards.txt: 5 item(s)
+2025-03-24 13:09:54,787 [INFO] ApiDb:452 - User favorites Boards=[NUCLEO-C031C6, NUCLEO-F303K8, NUCLEO-L152RE, STM32F429I-DISC1, STM32F746G-DISCO]

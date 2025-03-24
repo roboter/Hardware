@@ -1,0 +1,10 @@
+21:57:57 **** Incremental Build of configuration Debug for project L152Re-printf ****
+make -j8 all 
+arm-none-eabi-size  L152Re-printf.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10152	    104	   1976	  12232	   2fc8	L152Re-printf.elf
+Finished building: default.size.stdout
+ 
+
+21:57:58 Build Finished. 0 errors, 0 warnings. (took 419ms)
+
