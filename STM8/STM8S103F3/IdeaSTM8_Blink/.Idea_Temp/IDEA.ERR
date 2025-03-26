@@ -1,1 +1,1 @@
-#error cpstm8 blink_vector.c:0 can't open modsl0.h
+#error clnk blink.lkf:1 symbol _main not defined (C:\COSMIC\FSE_Compilers\CXSTM8\LIB\crts0.sm8 )

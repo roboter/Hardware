@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "platformio-debug",
+            "request": "launch",
+            "name": "Debug STM8",
+            "executable": "${workspaceFolder}/.pio/build/stm8sblue/firmware.elf",
+            "toolchainBinDir": "${platformio.toolchainBinDir}",
+            "loadMode": "modified",
+            "initBreak": "main",
+            "svdPath": "${platformio.svdPath}",
+            "debugToolArgs": {
+                "interface": "swim",
+                "speed": 800
+            }
+        }
+    ]
+}
