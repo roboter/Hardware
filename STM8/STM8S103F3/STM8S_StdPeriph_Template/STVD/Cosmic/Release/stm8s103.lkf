@@ -53,10 +53,8 @@ crtsi0.sm8
 Release\main.o
 Release\stm8s_it.o
 Release\stm8s_adc1.o
-Release\stm8s_adc2.o
 Release\stm8s_awu.o
 Release\stm8s_beep.o
-Release\stm8s_can.o
 Release\stm8s_clk.o
 Release\stm8s_exti.o
 Release\stm8s_flash.o
@@ -68,14 +66,8 @@ Release\stm8s_rst.o
 Release\stm8s_spi.o
 Release\stm8s_tim1.o
 Release\stm8s_tim2.o
-Release\stm8s_tim3.o
 Release\stm8s_tim4.o
-Release\stm8s_tim5.o
-Release\stm8s_tim6.o
 Release\stm8s_uart1.o
-Release\stm8s_uart2.o
-Release\stm8s_uart3.o
-Release\stm8s_uart4.o
 Release\stm8s_wwdg.o
 #<END OBJECT_FILES>
 

@@ -1,7 +1,7 @@
    1                     ; C Compiler for STM8 (COSMIC Software)
-   2                     ; Parser V4.12.6 - 16 Dec 2021
-   3                     ; Generator (Limited) V4.5.4 - 16 Dec 2021
-   4                     ; Optimizer V4.5.4 - 16 Dec 2021
+   2                     ; Parser V4.13.2 - 04 Jun 2024
+   3                     ; Generator (Limited) V4.6.4 - 15 Jan 2025
+   4                     ; Optimizer V4.6.4 - 15 Jan 2025
   67                     ; 39 void main(void)
   67                     ; 40 {
   69                     .text:	section	.text,new

@@ -1,7 +1,7 @@
    1                     ; C Compiler for STM8 (COSMIC Software)
-   2                     ; Parser V4.12.6 - 16 Dec 2021
-   3                     ; Generator (Limited) V4.5.4 - 16 Dec 2021
-   4                     ; Optimizer V4.5.4 - 16 Dec 2021
+   2                     ; Parser V4.13.2 - 04 Jun 2024
+   3                     ; Generator (Limited) V4.6.4 - 15 Jan 2025
+   4                     ; Optimizer V4.6.4 - 15 Jan 2025
   49                     ; 52 void ADC1_DeInit(void)
   49                     ; 53 {
   51                     .text:	section	.text,new
@@ -1439,10 +1439,9 @@
 3304                     	xref	_assert_failed
 3305                     .const:	section	.text
 3306  0000               L542:
-3307  0000 2e2e5c2e2e5c  	dc.b	"..\..\..\..\..\..\"
-3308  0012 2e2e5c2e2e5c  	dc.b	"..\..\..\..\stm8s_"
-3309  0024 737464706572  	dc.b	"stdperiph_lib\libr"
-3310  0036 61726965735c  	dc.b	"aries\stm8s_stdper"
-3311  0048 6970685f6472  	dc.b	"iph_driver\src\stm"
-3312  005a 38735f616463  	dc.b	"8s_adc1.c",0
-3332                     	end
+3307  0000 2e2e5c2e2e5c  	dc.b	"..\..\..\stm8s_std"
+3308  0012 706572697068  	dc.b	"periph_lib\librari"
+3309  0024 65735c73746d  	dc.b	"es\stm8s_stdperiph"
+3310  0036 5f6472697665  	dc.b	"_driver\src\stm8s_"
+3311  0048 616463312e63  	dc.b	"adc1.c",0
+3331                     	end

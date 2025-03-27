@@ -53,10 +53,8 @@ crtsi0.sm8
 Debug\main.o
 Debug\stm8s_it.o
 Debug\stm8s_adc1.o
-Debug\stm8s_adc2.o
 Debug\stm8s_awu.o
 Debug\stm8s_beep.o
-Debug\stm8s_can.o
 Debug\stm8s_clk.o
 Debug\stm8s_exti.o
 Debug\stm8s_flash.o
@@ -68,14 +66,8 @@ Debug\stm8s_rst.o
 Debug\stm8s_spi.o
 Debug\stm8s_tim1.o
 Debug\stm8s_tim2.o
-Debug\stm8s_tim3.o
 Debug\stm8s_tim4.o
-Debug\stm8s_tim5.o
-Debug\stm8s_tim6.o
 Debug\stm8s_uart1.o
-Debug\stm8s_uart2.o
-Debug\stm8s_uart3.o
-Debug\stm8s_uart4.o
 Debug\stm8s_wwdg.o
 #<END OBJECT_FILES>
 
