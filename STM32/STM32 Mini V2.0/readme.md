@@ -1,0 +1,1 @@
+https://stm32-base.org/boards/STM32F103RCT6-STM32-Mini-V2.0

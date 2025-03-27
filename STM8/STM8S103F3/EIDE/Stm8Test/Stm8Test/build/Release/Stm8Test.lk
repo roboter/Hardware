@@ -2,9 +2,9 @@
 -i .\build\Release\Stm8Test.ihx
 -b HOME = 0x8000
 -b DATA = 0x0001
--k C:\Users\roboter\.eide\tools\sdcc\bin\..\lib\stm8
+-k C:\Users\robby\.eide\tools\sdcc\bin\..\lib\stm8
 -l .\libraries\STM8S_StdPeriph_Driver\lib\stm8s103.lib
 -l stm8
-.\build\Release\src\main.rel
+.\build\Release\.obj\src\main.rel
 
 -e

@@ -2,14 +2,16 @@
     "name": "Stm8Test",
     "target": "Release",
     "toolchain": "SDCC",
-    "toolchainLocation": "C:\\Users\\roboter\\.eide\\tools\\sdcc",
-    "toolchainCfgFile": "..\\cfg\\sdcc.model.json",
-    "buildMode": "normal|multhread",
+    "toolchainLocation": "C:\\Users\\robby\\.eide\\tools\\sdcc",
+    "toolchainCfgFile": "c:\\Users\\robby\\.vscode-insiders\\extensions\\cl.eide-3.21.1\\res\\data\\models\\win32/sdcc.model.json",
+    "buildMode": "fast|multhread",
     "showRepathOnLog": true,
     "threadNum": 8,
-    "rootDir": "c:\\Users\\roboter\\Documents\\GitHub\\HardwareModules\\STM8\\STM8S103F3\\EIDE\\Stm8Test\\Stm8Test",
+    "rootDir": "c:\\PROJECTS\\Hardware\\STM8\\STM8S103F3\\EIDE\\Stm8Test\\Stm8Test",
     "dumpPath": "build\\Release",
     "outDir": "build\\Release",
+    "ram": 1024,
+    "rom": 8192,
     "incDirs": [
         "libraries/STM8S_StdPeriph_Driver/include",
         "libraries/STM8S_StdPeriph_Driver",
@@ -24,7 +26,6 @@
         "src/main.c"
     ],
     "sourceParams": {},
-    "sourceParamsMtime": 1653829813937.0173,
     "options": {
         "version": 3,
         "beforeBuildTasks": [],
@@ -44,13 +45,28 @@
             "output-format": "hex"
         }
     },
-    "sha": {
-        "c/cpp-defines": "9554b37a2bdd12213d9e46b657bc8417",
-        "beforeBuildTasks": "d751713988987e9331980363e24189ce",
-        "afterBuildTasks": "d751713988987e9331980363e24189ce",
-        "global": "b316cf890ce1d95131d1490eefde0be7",
-        "c/cpp-compiler": "da5f97a8ee5c67c063f7044c46878c2c",
-        "asm-compiler": "2667ab60835c2a54787872b2cf17ea5c",
-        "linker": "d9e14929ad9416d382e45b49ec9fbdcf"
-    }
+    "env": {
+        "workspaceFolder": "c:\\PROJECTS\\Hardware\\STM8\\STM8S103F3\\EIDE\\Stm8Test\\Stm8Test",
+        "workspaceFolderBasename": "Stm8Test",
+        "OutDir": "c:\\PROJECTS\\Hardware\\STM8\\STM8S103F3\\EIDE\\Stm8Test\\Stm8Test\\build\\Release",
+        "OutDirRoot": "build",
+        "OutDirBase": "build\\Release",
+        "ProjectName": "Stm8Test",
+        "ConfigName": "Release",
+        "ProjectRoot": "c:\\PROJECTS\\Hardware\\STM8\\STM8S103F3\\EIDE\\Stm8Test\\Stm8Test",
+        "ExecutableName": "c:\\PROJECTS\\Hardware\\STM8\\STM8S103F3\\EIDE\\Stm8Test\\Stm8Test\\build\\Release\\Stm8Test",
+        "ChipPackDir": "",
+        "ChipName": "",
+        "SYS_Platform": "win32",
+        "SYS_DirSep": "\\",
+        "SYS_DirSeparator": "\\",
+        "SYS_PathSep": ";",
+        "SYS_PathSeparator": ";",
+        "SYS_EOL": "\r\n",
+        "EIDE_BUILDER_DIR": "c:\\Users\\robby\\.vscode-insiders\\extensions\\cl.eide-3.21.1\\res\\tools\\win32\\unify_builder",
+        "EIDE_BINARIES_VER": "12.0.1",
+        "EIDE_MSYS": "C:\\Users\\robby\\.eide\\bin\\builder\\msys\\bin",
+        "ToolchainRoot": "C:\\Users\\robby\\.eide\\tools\\sdcc"
+    },
+    "sysPaths": []
 }

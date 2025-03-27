@@ -1,0 +1,4 @@
+main.pbi: \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\io_macros.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\iostm8s103f3.h \
+  C:\PROJECTS\Hardware\STM8\STM8S103F3\IAR\IAR-LED-Blink-Registers\src\main.c

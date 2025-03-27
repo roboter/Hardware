@@ -1,2 +1,3 @@
 tool: SDCC
-fileName: Stm8Test.mem
+fileName: Stm8Test.map
+elfName: Stm8Test.ihx

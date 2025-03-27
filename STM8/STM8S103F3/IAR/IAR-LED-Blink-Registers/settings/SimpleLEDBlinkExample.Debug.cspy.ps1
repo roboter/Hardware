@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\roboter\Documents\GitHub\HardwareModules\STM8\STM8S103F3\IAR-LED-Blink-Registers\settings\SimpleLEDBlinkExample.Debug.general.xcl" --backend -f "C:\Users\roboter\Documents\GitHub\HardwareModules\STM8\STM8S103F3\IAR-LED-Blink-Registers\settings\SimpleLEDBlinkExample.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\PROJECTS\Hardware\STM8\STM8S103F3\IAR\IAR-LED-Blink-Registers\settings\SimpleLEDBlinkExample.Debug.general.xcl" --backend -f "C:\PROJECTS\Hardware\STM8\STM8S103F3\IAR\IAR-LED-Blink-Registers\settings\SimpleLEDBlinkExample.Debug.driver.xcl" 
 }
 else
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\roboter\Documents\GitHub\HardwareModules\STM8\STM8S103F3\IAR-LED-Blink-Registers\settings\SimpleLEDBlinkExample.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\roboter\Documents\GitHub\HardwareModules\STM8\STM8S103F3\IAR-LED-Blink-Registers\settings\SimpleLEDBlinkExample.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\PROJECTS\Hardware\STM8\STM8S103F3\IAR\IAR-LED-Blink-Registers\settings\SimpleLEDBlinkExample.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\PROJECTS\Hardware\STM8\STM8S103F3\IAR\IAR-LED-Blink-Registers\settings\SimpleLEDBlinkExample.Debug.driver.xcl" 
 }

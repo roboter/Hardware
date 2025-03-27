@@ -58,3 +58,8 @@ https://github.com/lujji/stm8-bare-min
 ![JTAG](JTAG_Connector.jpg)
 ![JTAG](JTAG_Connector_pinout.jpg)
 ![JTAG](JTAG_Google.png)
+
+
+## When connecting original ST-Link 
+
+* power must come from USB connector

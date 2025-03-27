@@ -1,0 +1,1 @@
+"C:\Users\robby\.eide\tools\sdcc\bin\sdcc.exe" -c --std-c99 -Ilibraries/STM8S_StdPeriph_Driver/include -Ilibraries/STM8S_StdPeriph_Driver -Isrc -DSTM8S103 -mstm8 -MMD -o .\build\Release\.obj\src\main.rel .\src\main.c
