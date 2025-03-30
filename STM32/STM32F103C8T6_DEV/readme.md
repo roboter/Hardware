@@ -6,7 +6,7 @@ STM32F103C8T6 ARM Minisystem Development Board STM32 Development Core Board
     RAM: 20 KB
     Internal Flash: 64 KB (possibly 128 KB)
     External Flash: Winbond W25X16 (16 Mbit, SPI interface)
-    EEPROM: Atmel 24C04N (4 kbit, I2C interface
+    EEPROM: Atmel 24C04N (4 kbit, I2C interface)
     Real-Time Clock: High Speed External (HSE) crystal oscillator at 8 MHz, Low Speed External (LSE) crystal oscillator at 32.768 kHz
     Jumpers: Boot0 and Boot1
     Debugger Interface: ST-Link (SWD)
