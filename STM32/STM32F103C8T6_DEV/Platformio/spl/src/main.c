@@ -23,6 +23,8 @@
 #include "stm32f10x_gpio.h"
 #include "stm32f10x_rcc.h"
 #include "stm32f10x.h"
+#include "delay.h"
+#include "led.h"
 
 /** @addtogroup STM32F10x_StdPeriph_Examples
  * @{
@@ -46,27 +48,51 @@ GPIO_InitTypeDef GPIO_InitStructure;
  * @param  None
  * @retval None
  */
-#include "stm32f10x.h"
+
+#define SYSCLK_FREQ_72MHz 72000000
+#define DELAY DELAY_MS_MAX // Delay value for visible blink rate
+
+void SetSysClockTo72(void)
+{
+    /* Enable HSI oscillator (internal 8 MHz clock) */
+    RCC_HSICmd(ENABLE);
+
+    /* Wait until the HSI is ready */
+    while (RCC_GetFlagStatus(RCC_FLAG_HSIRDY) == RESET)
+        ;
+
+    /* Configure PLL to multiply HSI by 9 (8 MHz * 9 = 72 MHz) */
+    RCC_PLLConfig(RCC_PLLSource_HSI_Div2, RCC_PLLMul_9); // Use HSI and multiply by 9
+
+    /* Enable the PLL */
+    RCC_PLLCmd(ENABLE);
+
+    /* Wait until the PLL is locked */
+    while (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET)
+        ;
+
+    /* Select PLL as the system clock source */
+    RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);
+
+    /* Wait until the PLL is used as the system clock */
+    while (RCC_GetSYSCLKSource() != RCC_SYSCLKSource_PLLCLK)
+        ;
+}
 
 int main(void)
 {
-    /* Enable clock to GPIOA */
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+    /* Configure the system clock to 72 MHz */
+    // SetSysClockTo72();
+    delay_init();
 
-    /* Configure PA1 as push-pull output */
-    GPIO_InitTypeDef GPIO_InitStructure;
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-    GPIO_Init(GPIOA, &GPIO_InitStructure);
-
+    LED_Init();
     while (1)
     {
-        /* Toggle PA1 */
-        GPIOA->BSRR = GPIO_Pin_1;  // Set PA1
-        GPIOA->BRR = GPIO_Pin_1;   // Reset PA1
+        LED_Toggle();
+        delay_ms(DELAY);
     }
 }
+
 #ifdef USE_FULL_ASSERT
 
 /**
