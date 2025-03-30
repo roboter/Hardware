@@ -6,4 +6,4 @@ ClockGen SI5351
 https://github.com/afiskon/stm32-si5351
 
 
-Debug: NO SWO trace
+Debug: NO SWO trace (Cortex M0 Don't have this)

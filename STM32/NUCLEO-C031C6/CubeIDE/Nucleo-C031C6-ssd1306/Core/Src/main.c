@@ -114,6 +114,7 @@ int main(void) {
 	/* USER CODE BEGIN 2 */
 	ssd1306_Init();
 	char myText[] = "Hello World!";
+	printf(myText);
 	// ssd1306_Fill(White);
 	ssd1306_SetCursor(0, 0);
 	ssd1306_WriteString(myText, Font_6x8, White);
