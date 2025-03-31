@@ -37,51 +37,6 @@ void delay_us(uint32_t us)
         ;
 }
 
-int main(void)
-{
-    // Enable HSE (external high-speed oscillator)
-    RCC->CR |= (1 << 16); // HSEON
-    while (!(RCC->CR & (1 << 17)))
-        ; // Wait for HSE to stabilize
-
-    // Configure PLL
-    RCC->CFGR &= ~((1 << 16) | (0xF << 18)); // Clear PLL source and multiplier bits
-    RCC->CFGR |= (1 << 16) | (9 << 18);      // Set PLL source as HSE, PLL multiplier as 9
-
-    // Enable PLL
-    RCC->CR |= (1 << 24); // PLLON
-    while (!(RCC->CR & (1 << 25)))
-        ; // Wait for PLL to stabilize
-
-    // Configure flash latency
-    FLASH->ACR &= ~0x7; // Clear flash latency bits
-    FLASH->ACR |= 0x2;  // Set flash latency to 2 wait states for 72MHz
-
-    // Switch system clock to PLL
-    RCC->CFGR &= ~(0x3 << 0); // Clear system clock bits
-    RCC->CFGR |= (0x2 << 0);  // Set PLL as system clock
-    while ((RCC->CFGR & (0x3 << 2)) != (0x2 << 2))
-        ; // Wait for PLL to become the system clock
-
-    // Enable clock for GPIOB
-    RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
-
-    // Configure PB1 as output (push-pull, 10 MHz)
-    GPIOB->CRL &= ~(GPIO_CRL_CNF1 | GPIO_CRL_MODE1);
-    GPIOB->CRL |= GPIO_CRL_MODE1_0;
-
-    while (1)
-    {
-
-        // Delay for 1 second
-        // delay(1000);
-        delay_us(0xFFFFFF);
-
-        // Toggle PB1 (LED)
-        GPIOB->ODR ^= GPIO_ODR_ODR1;
-    }
-}
-
 // In this updated example, the clock system is configured using the High - Speed External(HSE)
 // oscillator and the PLL to provide the system clock.The delay function and GPIO configuration remain the same as in the previous example.
 
@@ -90,7 +45,7 @@ int main(void)
 //     modify the code according to your specific microcontroller series.Additionally,
 //     adjust the clock settings to match your desired frequency and oscillator configuration.
 
-int main2()
+int main()
 {
     // enable GPIOC port
     RCC->APB2ENR |= RCC_APB2Periph_GPIOC;  // enable PORT_C
@@ -171,13 +126,13 @@ int main2()
 
     pcd8544_init();
 
-    pcd8544_clear();
-    lcd_print("Hello, World", 0, 1);
-    lcd_print("++++++++++++", 0, 0);
-    lcd_print("!!!!!!!!!!!!", 0, 2);
-    lcd_print_invert("testtesttest", 0, 3);
-    lcd_print("------------", 0, 4);
-    lcd_print("Privet, MiR!", 0, 5);
+    pcd8544_fill(0xFF);
+    pcd8544_print_string("Hello, World", 0, 1);
+    pcd8544_print_string("++++++++++++", 0, 0);
+    pcd8544_print_string("!!!!!!!!!!!!", 0, 2);
+    pcd8544_print_string("testtesttest", 0, 3);
+    pcd8544_print_string("------------", 0, 4);
+    pcd8544_print_string("Privet, MiR!", 0, 5);
 
     pcd8544_display_fb();
 
