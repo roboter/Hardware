@@ -38,3 +38,13 @@ https://github.com/rogerclarkmelbourne/Arduino_STM32/wiki/Installation
     https://item.taobao.com/item.htm?spm=a312a.7700824.w4004-25037159111.13.2a9e7b32OinQKy&id=533835156907
 
     https://drive.google.com/drive/folders/1ILp-uZoT5DasWUy2G_Jp88a2F-UB3hnd
+
+
+# Display connection
+
+PB1 N.C.
+PB3 SCL
+PB5 SDA
+PB7 RES
+PB9 DC
+PB11 BLK

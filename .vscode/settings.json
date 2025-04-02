@@ -8,5 +8,6 @@
     "FSharp.suggestGitignore": false,
     "files.associations": {
         "stm32f4xx_rcc.h": "c"
-    }
+    },
+    "clangd.arguments": []
 }
