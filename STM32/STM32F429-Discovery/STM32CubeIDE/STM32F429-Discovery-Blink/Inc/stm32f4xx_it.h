@@ -55,8 +55,8 @@ void UsageFault_Handler(void);
 void DebugMon_Handler(void);
 void TIM1_TRG_COM_TIM11_IRQHandler(void);
 void TIM6_DAC_IRQHandler(void);
+void OTG_FS_IRQHandler(void);
 void OTG_HS_IRQHandler(void);
-void LTDC_IRQHandler(void);
 void DMA2D_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 

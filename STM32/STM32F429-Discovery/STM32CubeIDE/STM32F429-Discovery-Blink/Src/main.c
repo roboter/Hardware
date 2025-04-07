@@ -23,11 +23,10 @@
 #include "crc.h"
 #include "dma2d.h"
 #include "i2c.h"
-#include "ltdc.h"
 #include "spi.h"
 #include "tim.h"
-#include "usart.h"
-#include "usb_otg.h"
+#include "usb_device.h"
+#include "usb_otg_hs.h"
 #include "gpio.h"
 #include "fmc.h"
 
@@ -110,10 +109,8 @@ int main(void)
   MX_DMA2D_Init();
   MX_FMC_Init();
   MX_I2C3_Init();
-  MX_LTDC_Init();
   MX_SPI5_Init();
   MX_TIM1_Init();
-  MX_USART1_UART_Init();
   MX_USB_OTG_HS_HCD_Init();
   /* USER CODE BEGIN 2 */
 
