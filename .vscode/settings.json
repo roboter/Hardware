@@ -8,5 +8,8 @@
     "FSharp.suggestGitignore": false,
     "files.associations": {
         "stm32f4xx_rcc.h": "c"
-    }
+    },
+    "clangd.arguments": [
+        "--compile-commands-dir=/Users/aleksei/Projects/HARDWARE/Hardware/GigaDevice/GD32E232K/GD32E23x_Demo_Suites_V1.1.1/GD32E230C_START_Demo_Suites/Projects/02_GPIO_Key_Polling_mode/MDK-ARM/out/Project/GD32E230CSTART"
+    ]
 }
