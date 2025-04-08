@@ -99,7 +99,7 @@
           "relative-path": "source/lv_demos/src/lv_demo_stress/lv_demo_stress.h",
           "source-analysis-status-file": null,
           "source-analysis-status-file-manual": null,
-          "source-analysis-status-hdir": 1,
+          "source-analysis-status-hdir": 0,
           "source-analysis-type": "header",
           "source-analysis-mode": null
         },
@@ -137,7 +137,7 @@
       "source-analysis-status-file": 1,
       "source-analysis-status-file-locked": true,
       "source-analysis-status-hdir": 1,
-      "source-analysis-status-hdir-files": 1,
+      "source-analysis-status-hdir-files": 0,
       "source-analysis-status-hdir-manual": "force-included",
       "source-analysis-mode": null
     },

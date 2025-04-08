@@ -1,5 +1,19 @@
 {
+    "SCREEN-DATA": {
+        "NUMBER-OF-SCREENS": 1,
+        "SCREEN-RESOLUTIONS": [
+            [
+                1920,
+                1080
+            ]
+        ]
+    },
     "WINDOW-SIZE": "MAXIMIZED",
+    "SCREEN-INDEX": 0,
+    "X-Y-OFFSET": [
+        0,
+        -8
+    ],
     "BOXES": {
         "0": {
             "BOX-H": {
@@ -13,7 +27,7 @@
                                     "data": {
                                         "line": 17,
                                         "index": 27,
-                                        "first-visible-line": 12,
+                                        "first-visible-line": 0,
                                         "x-view-offset": 0
                                     }
                                 },
@@ -70,12 +84,22 @@
                                 "Output": {
                                     "class": "Console"
                                 },
-                                "CURRENT-INDEX": 6
+                                "rel://source/HAL_Driver/Src/stm32f4xx_hal_fmpi2c.c": {
+                                    "class": "Editor",
+                                    "tab-index": 7,
+                                    "data": {
+                                        "line": 4816,
+                                        "index": 0,
+                                        "first-visible-line": 483,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "CURRENT-INDEX": 7
                             }
                         }
                     },
                     "SIZES": [
-                        1183
+                        896
                     ]
                 },
                 "1": {
@@ -100,8 +124,8 @@
                                 }
                             },
                             "SIZES": [
-                                648,
-                                634
+                                262,
+                                257
                             ]
                         },
                         "1": {
@@ -124,20 +148,20 @@
                                 }
                             },
                             "SIZES": [
-                                301,
-                                981
+                                132,
+                                387
                             ]
                         }
                     },
                     "SIZES": [
-                        749,
-                        432
+                        567,
+                        327
                     ]
                 }
             },
             "SIZES": [
-                1274,
-                1284
+                1397,
+                521
             ]
         }
     }

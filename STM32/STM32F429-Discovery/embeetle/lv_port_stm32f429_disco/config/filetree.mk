@@ -69,7 +69,6 @@ project/source/hal_stm_lvgl/tft/ili9341.c.o \
 project/source/hal_stm_lvgl/tft/tft.c.o \
 project/source/hal_stm_lvgl/touchpad/stmpe811.c.o \
 project/source/hal_stm_lvgl/touchpad/touchpad.c.o \
-project/source/lv_demos/src/lv_demo_music/lv_demo_music_main.c.o \
 project/source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_12_compr_az.c.o \
 project/source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_16_compr_az.c.o \
 project/source/lv_demos/src/lv_demo_stress/assets/lv_font_montserrat_28_compr_az.c.o \

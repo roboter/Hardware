@@ -20,6 +20,9 @@ OLED header pins
 3 	- 	- 	PB15 DI
 4 	- 	- 	PB13 SC
 5 	- 	- 	PB12 CS
-6 	- 	- 	NRST RST
+6 	- 	- 	NRST RST <-- *here is a problem*
 7 	- 	- 	PB1 RS
 8 	- 	- 	N.C. BLK
+
+
+Display works, but only when RESET is preformed by stlink
