@@ -1,0 +1,132 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="Geehy_BLINK" target="8" version="2">
+  <configuration Name="Common" debug_target_connection="GDB Server" />
+  <configuration
+    Name="Debug"
+    c_preprocessor_definitions="DEBUG"
+    debug_target_connection="J-Link"
+    gcc_debugging_level="Level 3"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="None" />
+  <configuration
+    Name="Release"
+    c_preprocessor_definitions="NDEBUG"
+    gcc_debugging_level="Level 2"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="Level 2 balanced" />
+  <project Name="Geehy_BLINK">
+    <configuration
+      LIBRARY_IO_TYPE="RTT"
+      Name="Common"
+      Target="APM32F072VB"
+      arm_architecture="v6M"
+      arm_compiler_variant="SEGGER"
+      arm_core_type="Cortex-M0+"
+      arm_endian="Little"
+      arm_fp_abi="Soft"
+      arm_fpu_type="None"
+      arm_linker_heap_size="1024"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="2048"
+      arm_linker_variant="SEGGER"
+      arm_simulator_memory_simulation_parameter="ROM;0x08000000;0x20000;RAM;0x20000000;0x4000"
+      arm_target_device_name="APM32F072VB"
+      arm_target_interface_type="SWD"
+      c_preprocessor_definitions="APM32F072XB;ARM_MATH_CM0PLUS;__APM32F030_SUBFAMILY;__APM32F0XX_FAMILY;__NO_FPU_ENABLE"
+      c_user_include_directories="$(ProjectDir)/CMSIS_5/CMSIS/Core/Include;$(ProjectDir)/APM32F0xx/Device/Include"
+      debug_register_definition_file="$(PackagesDir)/APM32F0xx/XML/APM32F072_Registers.xml"
+      debug_stack_pointer_start="__stack_end__"
+      debug_start_from_entry_point_symbol="Yes"
+      debug_target_connection="J-Link"
+      gcc_entry_point="Reset_Handler"
+      link_linker_script_file="$(ProjectDir)/APM32F0xx_Flash.icf"
+      linker_memory_map_file="$(PackagesDir)/APM32F0xx/XML/APM32F072VB_MemoryMap.xml"
+      macros="DeviceHeaderFile=$(PackagesDir)/APM32F0xx/Device/Include/apm32f0xx.h;DeviceSystemFile=$(PackagesDir)/APM32F0xx/Device/Source/system_apm32f0xx.c;DeviceVectorsFile=$(PackagesDir)/APM32F0xx/Source/apm32f072_Vectors.s;DeviceFamily=APM32F0xx;DeviceSubFamily=APM32F072"
+      project_directory=""
+      project_type="Executable"
+      target_reset_script="Reset();" />
+    <configuration
+      CMSIS_CORE="Yes"
+      CMSIS_DSP="Cortex-M0+ Big Endian"
+      Name="Debug" />
+    <folder Name="CMSIS Files">
+      <folder Name="inc">
+        <file file_name="APM32F0xx/Device/Include/apm32f0xx.h" />
+        <file file_name="apm32f0xx_adc.h" />
+        <file file_name="apm32f0xx_can.h" />
+        <file file_name="apm32f0xx_cec.h" />
+        <file file_name="apm32f0xx_comp.h" />
+        <file file_name="apm32f0xx_crc.h" />
+        <file file_name="apm32f0xx_crs.h" />
+        <file file_name="apm32f0xx_dac.h" />
+        <file file_name="apm32f0xx_dbg.h" />
+        <file file_name="apm32f0xx_dma.h" />
+        <file file_name="apm32f0xx_eint.h" />
+        <file file_name="apm32f0xx_fmc.h" />
+        <file file_name="apm32f0xx_gpio.h" />
+        <file file_name="apm32f0xx_i2c.h" />
+        <file file_name="apm32f0xx_iwdt.h" />
+        <file file_name="apm32f0xx_misc.h" />
+        <file file_name="apm32f0xx_ob.h" />
+        <file file_name="apm32f0xx_pmu.h" />
+        <file file_name="apm32f0xx_rcm.h" />
+        <file file_name="apm32f0xx_rtc.h" />
+        <file file_name="apm32f0xx_spi.h" />
+        <file file_name="apm32f0xx_syscfg.h" />
+        <file file_name="apm32f0xx_tmr.h" />
+        <file file_name="apm32f0xx_usart.h" />
+        <file file_name="apm32f0xx_wwdt.h" />
+      </folder>
+      <folder Name="src">
+        <file file_name="apm32f0xx_adc.c" />
+        <file file_name="apm32f0xx_can.c" />
+        <file file_name="apm32f0xx_cec.c" />
+        <file file_name="apm32f0xx_comp.c" />
+        <file file_name="apm32f0xx_crc.c" />
+        <file file_name="apm32f0xx_crs.c" />
+        <file file_name="apm32f0xx_dac.c" />
+        <file file_name="apm32f0xx_dbg.c" />
+        <file file_name="apm32f0xx_dma.c" />
+        <file file_name="apm32f0xx_eint.c" />
+        <file file_name="apm32f0xx_fmc.c" />
+        <file file_name="apm32f0xx_gpio.c" />
+        <file file_name="apm32f0xx_i2c.c" />
+        <file file_name="apm32f0xx_iwdt.c" />
+        <file file_name="apm32f0xx_misc.c" />
+        <file file_name="apm32f0xx_ob.c" />
+        <file file_name="apm32f0xx_pmu.c" />
+        <file file_name="apm32f0xx_rcm.c" />
+        <file file_name="apm32f0xx_rtc.c" />
+        <file file_name="apm32f0xx_spi.c" />
+        <file file_name="apm32f0xx_syscfg.c" />
+        <file file_name="apm32f0xx_tmr.c" />
+        <file file_name="apm32f0xx_usart.c" />
+        <file file_name="apm32f0xx_wwdt.c" />
+      </folder>
+    </folder>
+    <folder Name="Script Files">
+      <file file_name="APM32F0xx/Scripts/APM32F0xx_Target.js">
+        <configuration Name="Common" file_type="Reset Script" />
+      </file>
+    </folder>
+    <folder Name="Source Files">
+      <configuration Name="Common" filter="c;cpp;cxx;cc;h;s;asm;inc" />
+      <file file_name="Board.c" />
+      <file file_name="Board.h" />
+      <file file_name="main.c" />
+      <file file_name="APM32F0xx/Device/Source/system_apm32f0xx.c">
+        <configuration
+          Name="Common"
+          default_code_section=".init"
+          default_const_section=".init_rodata" />
+      </file>
+    </folder>
+    <folder Name="System Files">
+      <file file_name="APM32F0xx/Source/apm32f030_Vectors.s">
+        <configuration Name="Common" file_type="Assembly" />
+      </file>
+      <file file_name="APM32F0xx/Source/APM32F0xx_Startup.s" />
+      <file file_name="SEGGER_THUMB_Startup.s" />
+    </folder>
+  </project>
+</solution>
