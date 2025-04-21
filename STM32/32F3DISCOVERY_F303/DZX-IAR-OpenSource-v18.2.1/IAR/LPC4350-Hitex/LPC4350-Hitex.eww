@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\Data-Link\Data-Link.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\Hello-World\Hello-World.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\PCA9673-Demo\PCA9673-Demo.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\SDK\SDK.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\UART-Echo\UART-Echo.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\USB-MSC-SD\USB-MSC-SD.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

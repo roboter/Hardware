@@ -26,6 +26,9 @@
 #include <stm32f4xx_hal_exti.h>
 /* USER CODE END Includes */
 #include <stdio.h>
+#include "usb_device.h"  // This contains the actual declaration
+#include "usbd_cdc.h"  // Ensure this header is included
+#include "usbd_cdc_if.h"
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
@@ -62,6 +65,8 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+// In your main.h or main.c (at file scope)
+extern USBD_HandleTypeDef hUsbDeviceHS;  // Declaration only, no initialization
 
 void GPIO_Init(void) {
 	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
@@ -117,6 +122,16 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 		// before this callback was invoked
 	}
 }
+
+void VCP_SendString(const char* str) {
+    if(!str || !*str || hUsbDeviceHS.dev_state != USBD_STATE_CONFIGURED) return;
+
+    USBD_CDC_HandleTypeDef *hcdc = (USBD_CDC_HandleTypeDef*)hUsbDeviceHS.pClassData;
+    if(hcdc->TxState == 0) {
+        USBD_CDC_SetTxBuffer(&hUsbDeviceHS, (uint8_t*)str, (uint16_t)strlen(str));
+        USBD_CDC_TransmitPacket(&hUsbDeviceHS);
+    }
+}
 /* USER CODE END 0 */
 
 /**
@@ -133,7 +148,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+give  HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -159,6 +174,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 	while (1) {
 		printf("while\n");
+		// Call this in your main code or interrupt
+		char message[] = "Hello from STM32!\r\n";
+		VCP_SendString((char*)message);
 		HAL_Delay(100);
     /* USER CODE END WHILE */
 

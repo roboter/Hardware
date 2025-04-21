@@ -1,0 +1,1 @@
+There is no crystals mounted on my board

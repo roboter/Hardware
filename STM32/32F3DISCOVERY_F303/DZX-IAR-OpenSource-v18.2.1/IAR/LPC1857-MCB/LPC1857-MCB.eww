@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\DataLink\DataLink.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\HelloWorld\HelloWorld.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\LM75\LM75.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\SDK\SDK.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\SPIFI\SPIFI.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\USB-Boot\USB-Boot.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\USB-MSC-SD\USB-MSC-SD.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\USB-Runtime\USB-Runtime.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\HelloWorld\HelloWorld.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\LED-Demo\LED-Demo.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\SDK\SDK.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\UART-Echo\UART-Echo.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

@@ -1,0 +1,5 @@
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DZX.DataFiles\bin\Release\DZX.DataFiles.dll
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DZX.DataFiles\bin\Release\DZX.DataFiles.pdb
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DZX.DataFiles\obj\Release\DZX.DataFiles.csprojResolveAssemblyReference.cache
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DZX.DataFiles\obj\Release\DZX.DataFiles.dll
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DZX.DataFiles\obj\Release\DZX.DataFiles.pdb

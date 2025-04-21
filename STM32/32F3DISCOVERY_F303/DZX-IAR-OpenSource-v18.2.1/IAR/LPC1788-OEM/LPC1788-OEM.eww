@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\DataLink\DataLink.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\HelloWorld\HelloWorld.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\SDK\SDK.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\USB-Boot\USB-Boot.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\USB-Runtime\USB-Runtime.ewp</path>
+  </project>
+  <batchBuild>
+    <batchDefinition>
+      <name>batch</name>
+      <member>
+        <project>SDK</project>
+        <configuration>Debug</configuration>
+      </member>
+      <member>
+        <project>BSP</project>
+        <configuration>Debug</configuration>
+      </member>
+      <member>
+        <project>USB-Boot</project>
+        <configuration>Debug</configuration>
+      </member>
+      <member>
+        <project>USB-Runtime</project>
+        <configuration>Debug</configuration>
+      </member>
+      <member>
+        <project>HelloWorld</project>
+        <configuration>Debug</configuration>
+      </member>
+    </batchDefinition>
+  </batchBuild>
+</workspace>
+
+

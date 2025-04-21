@@ -1,0 +1,6 @@
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DZX.DataFiles\bin\Debug\DZX.DataFiles.dll
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DZX.DataFiles\bin\Debug\DZX.DataFiles.pdb
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DZX.DataFiles\obj\Debug\DZX.DataFiles.csproj.AssemblyReference.cache
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DZX.DataFiles\obj\Debug\DZX.DataFiles.csproj.CoreCompileInputs.cache
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DZX.DataFiles\obj\Debug\DZX.DataFiles.dll
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DZX.DataFiles\obj\Debug\DZX.DataFiles.pdb

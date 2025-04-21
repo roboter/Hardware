@@ -1,0 +1,57 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\PROJECTS\\Hardware\\STM32\\32F3DISCOVERY_F303\\MICROSOFT\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{54788537-3F9C-4FC4-85CF-7D32EEC8429A}|DataLinkDemo\\DataLinkDemo.csproj|c:\\projects\\hardware\\stm32\\32f3discovery_f303\\microsoft\\datalinkdemo\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54788537-3F9C-4FC4-85CF-7D32EEC8429A}|DataLinkDemo\\DataLinkDemo.csproj|solutionrelative:datalinkdemo\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\PROJECTS\\Hardware\\STM32\\32F3DISCOVERY_F303\\MICROSOFT\\DataLinkDemo\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "DataLinkDemo\\Form1.Designer.cs",
+              "ToolTip": "C:\\PROJECTS\\Hardware\\STM32\\32F3DISCOVERY_F303\\MICROSOFT\\DataLinkDemo\\Form1.Designer.cs",
+              "RelativeToolTip": "DataLinkDemo\\Form1.Designer.cs",
+              "ViewState": "AgIAAP4BAAAAAAAAAAAQwBICAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T21:31:36.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

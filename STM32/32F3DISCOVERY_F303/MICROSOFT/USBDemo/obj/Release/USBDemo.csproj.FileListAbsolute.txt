@@ -1,0 +1,13 @@
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\USBDemo\bin\Release\USBDemo.exe.config
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\USBDemo\bin\Release\USBDemo.exe
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\USBDemo\bin\Release\USBDemo.pdb
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\USBDemo\bin\Release\DZX.DataFiles.dll
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\USBDemo\bin\Release\DZX.Devices.dll
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\USBDemo\bin\Release\DZX.DataFiles.pdb
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\USBDemo\bin\Release\DZX.Devices.pdb
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\USBDemo\obj\Release\USBDemo.csprojResolveAssemblyReference.cache
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\USBDemo\obj\Release\USBDemo.Form1.resources
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\USBDemo\obj\Release\USBDemo.Properties.Resources.resources
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\USBDemo\obj\Release\USBDemo.csproj.GenerateResource.Cache
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\USBDemo\obj\Release\USBDemo.exe
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\USBDemo\obj\Release\USBDemo.pdb

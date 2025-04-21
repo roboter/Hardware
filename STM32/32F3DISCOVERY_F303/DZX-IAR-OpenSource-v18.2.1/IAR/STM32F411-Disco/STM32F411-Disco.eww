@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\Gyro-LED\Gyro-LED.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\HelloWorld\HelloWorld.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\SDK\SDK.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

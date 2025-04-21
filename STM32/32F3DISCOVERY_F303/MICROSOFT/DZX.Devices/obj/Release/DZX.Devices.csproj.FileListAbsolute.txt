@@ -1,0 +1,5 @@
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DZX.Devices\bin\Release\DZX.Devices.dll
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DZX.Devices\bin\Release\DZX.Devices.pdb
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DZX.Devices\obj\Release\DZX.Devices.csprojResolveAssemblyReference.cache
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DZX.Devices\obj\Release\DZX.Devices.dll
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DZX.Devices\obj\Release\DZX.Devices.pdb

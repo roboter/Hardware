@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\DataLink\DataLink.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\HelloWorld\HelloWorld.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\SDK\SDK.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\UART\UART.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\USB-Boot\USB-Boot.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\USB-Runtime\USB-Runtime.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

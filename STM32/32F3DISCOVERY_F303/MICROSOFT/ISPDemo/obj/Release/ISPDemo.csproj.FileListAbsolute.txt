@@ -1,0 +1,13 @@
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\ISPDemo\bin\Release\ISPDemo.exe.config
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\ISPDemo\bin\Release\ISPDemo.exe
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\ISPDemo\bin\Release\ISPDemo.pdb
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\ISPDemo\bin\Release\DZX.DataFiles.dll
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\ISPDemo\bin\Release\DZX.Devices.dll
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\ISPDemo\bin\Release\DZX.DataFiles.pdb
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\ISPDemo\bin\Release\DZX.Devices.pdb
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\ISPDemo\obj\Release\ISPDemo.Form1.resources
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\ISPDemo\obj\Release\ISPDemo.FormPortSettings.resources
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\ISPDemo\obj\Release\ISPDemo.Properties.Resources.resources
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\ISPDemo\obj\Release\ISPDemo.csproj.GenerateResource.Cache
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\ISPDemo\obj\Release\ISPDemo.exe
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\ISPDemo\obj\Release\ISPDemo.pdb

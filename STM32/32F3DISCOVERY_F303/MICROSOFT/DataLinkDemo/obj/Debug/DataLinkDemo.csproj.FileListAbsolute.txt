@@ -1,0 +1,13 @@
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DataLinkDemo\bin\Debug\DataLinkDemo.exe.config
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DataLinkDemo\bin\Debug\DataLinkDemo.exe
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DataLinkDemo\bin\Debug\DataLinkDemo.pdb
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DataLinkDemo\bin\Debug\DZX.Devices.dll
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DataLinkDemo\bin\Debug\DZX.Devices.pdb
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DataLinkDemo\obj\Debug\DataLinkDemo.csproj.AssemblyReference.cache
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DataLinkDemo\obj\Debug\DataLinkDemo.Form1.resources
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DataLinkDemo\obj\Debug\DataLinkDemo.Properties.Resources.resources
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DataLinkDemo\obj\Debug\DataLinkDemo.csproj.GenerateResource.cache
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DataLinkDemo\obj\Debug\DataLinkDemo.csproj.CoreCompileInputs.cache
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DataLinkDemo\obj\Debug\DataLink.989716D7.Up2Date
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DataLinkDemo\obj\Debug\DataLinkDemo.exe
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\MICROSOFT\DataLinkDemo\obj\Debug\DataLinkDemo.pdb

@@ -1,0 +1,402 @@
+###############################################################################
+#
+# IAR ELF Linker V9.60.4.438/W64 for ARM                  09/Apr/2025  01:48:00
+# Copyright 2007-2025 IAR Systems AB.
+#
+#    Output file  =
+#        C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\DZX-IAR-OpenSource-v18.2.1\IAR\STM32F303-Disco\Hello-World\Debug\Exe\Hello-World.out
+#    Map file     =
+#        C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\DZX-IAR-OpenSource-v18.2.1\IAR\STM32F303-Disco\Hello-World\Debug\List\Hello-World.map
+#    Command line =
+#        -f
+#        C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\DZX-IAR-OpenSource-v18.2.1\IAR\STM32F303-Disco\Hello-World\Debug\Exe\Hello-World.out.rsp
+#        (C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\DZX-IAR-OpenSource-v18.2.1\IAR\STM32F303-Disco\Hello-World\Debug\Obj\board_led.o
+#        C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\DZX-IAR-OpenSource-v18.2.1\IAR\STM32F303-Disco\Hello-World\Debug\Obj\main.o
+#        --no_out_extension -o
+#        C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\DZX-IAR-OpenSource-v18.2.1\IAR\STM32F303-Disco\Hello-World\Debug\Exe\Hello-World.out
+#        --map
+#        C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\DZX-IAR-OpenSource-v18.2.1\IAR\STM32F303-Disco\Hello-World\Debug\List\Hello-World.map
+#        --config C:\iar\ewarm-9.60.4\arm/config/linker/ST/stm32f303x6.icf
+#        --semihosting
+#        C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\DZX-IAR-OpenSource-v18.2.1\IAR\STM32F303-Disco\Hello-World\..\SDK\Debug\Exe\SDK.a
+#        --entry __iar_program_start --vfe --text_out locale --cpu=Cortex-M4
+#        --fpu=VFPv4_sp) --dependencies=n
+#        C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\DZX-IAR-OpenSource-v18.2.1\IAR\STM32F303-Disco\Hello-World\Debug\Exe\Hello-World.out.iar_deps
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because --advanced_heap
+was not specified and the application did not appear to
+be primarily optimized for speed.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x800'0000 { ro section .intvec };
+"P1":  place in [from 0x800'0000 to 0x800'7fff] { ro };
+define block CSTACK with size = 2K, alignment = 8 { };
+define block HEAP with size = 4K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'2fff] {
+          rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+
+No sections matched the following patterns:
+
+  section .ccmram  in "P3"
+
+
+  Section            Kind         Address  Alignment    Size  Object
+  -------            ----         -------  ---------    ----  ------
+"A0":                                                  0x1ac
+  .intvec            ro code   0x800'0000          4   0x1ac  mcu_start.o [2]
+                             - 0x800'01ac              0x1ac
+
+"P1":                                                 0x1d72
+  .text              ro code   0x800'01ac          4   0x638  kernel_core.o [2]
+  .text              ro code   0x800'07e4          4   0x10e  mcu_kernel.o [2]
+  .text              ro code   0x800'08f2          2   0x122  kernel_list.o [2]
+  .text              ro code   0x800'0a14          4   0x164  kernel_signal.o [2]
+  .text              ro code   0x800'0b78          4   0x1cc  kernel_mutex.o [2]
+  .text              ro code   0x800'0d44          4   0x224  kernel_thread.o [2]
+  .text              ro code   0x800'0f68          4   0x3c4  kernel_timer.o [2]
+  .text              ro code   0x800'132c          4   0x220  kernel_stat.o [2]
+  .text              ro code   0x800'154c          4   0x204  kernel_port.o [2]
+  .text              ro code   0x800'1750          4    0x84  kernel_stopwatch.o [2]
+  .text              ro code   0x800'17d4          4    0x68  mcu_irq.o [2]
+  .text              ro code   0x800'183c          4   0x230  I64DivMod.o [5]
+  .text              ro code   0x800'1a6c          4    0x66  ABImemset.o [5]
+  .text              ro code   0x800'1ad2          2    0x2a  copy_init3.o [5]
+  .text              ro code   0x800'1afc          4     0x2  I64DivZer.o [5]
+  .text              ro code   0x800'1b00          4    0x90  main.o [1]
+  .text              ro code   0x800'1b90          4    0x30  board_led.o [1]
+  .text              ro code   0x800'1bc0          4    0x24  ABIassert.o [6]
+  .text              ro code   0x800'1be4          4    0x8c  mcu_pin.o [2]
+  .text              ro code   0x800'1c70          2     0x6  abort.o [3]
+  .text              ro code   0x800'1c78          4    0x14  exit.o [6]
+  .rodata            const     0x800'1c8c          4    0x78  main.o [1]
+  .text              ro code   0x800'1d04          4    0x68  kernel_portasm.o [2]
+  .text              ro code   0x800'1d6c          2    0x38  zero_init3.o [5]
+  .text              ro code   0x800'1da4          4    0x28  data_init.o [5]
+  .text              ro code   0x800'1dcc          4    0x22  fpinit_M.o [4]
+  .iar.init_table    const     0x800'1df0          4    0x24  - Linker created -
+  .text              ro code   0x800'1e14          4    0x1e  cmain.o [5]
+  .text              ro code   0x800'1e32          2     0x4  low_level_init.o [3]
+  .text              ro code   0x800'1e36          2     0x4  exit.o [3]
+  .text              ro code   0x800'1e3c          4     0xa  cexit.o [5]
+  .text              ro code   0x800'1e48          4    0x1c  cstartup_M.o [5]
+  .rodata            const     0x800'1e64          4    0x18  mcu_pin.o [2]
+  .rodata            const     0x800'1e7c          4    0x14  main.o [1]
+  .rodata            const     0x800'1e90          4    0x10  board_led.o [1]
+  .rodata            const     0x800'1ea0          4    0x10  kernel_core.o [2]
+  .rodata            const     0x800'1eb0          4    0x10  kernel_timer.o [2]
+  .text              ro code   0x800'1ec0          4    0x10  mcu_start.o [2]
+  .rodata            const     0x800'1ed0          4     0xc  kernel_core.o [2]
+  .rodata            const     0x800'1edc          4     0xc  kernel_core.o [2]
+  .rodata            const     0x800'1ee8          4     0xc  kernel_core.o [2]
+  .rodata            const     0x800'1ef4          4     0xc  kernel_core.o [2]
+  .rodata            const     0x800'1f00          4     0xc  kernel_timer.o [2]
+  .rodata            const     0x800'1f0c          4     0xc  kernel_stat.o [2]
+  Initializer bytes  const     0x800'1f18          4     0x4  <for P2-1>
+  .text              ro code   0x800'1f1c          4     0x2  mcu_start.o [2]
+  .rodata            const     0x800'1f1e                0x0  zero_init3.o [5]
+  .rodata            const     0x800'1f1e                0x0  copy_init3.o [5]
+                             - 0x800'1f1e             0x1d72
+
+"P2", part 1 of 3:                                       0x4
+  P2-1                        0x2000'0000          4     0x4  <Init block>
+    .data            inited   0x2000'0000          4     0x4  main.o [1]
+                            - 0x2000'0004                0x4
+
+"P2", part 2 of 3:                                    0x121c
+  .bss               zero     0x2000'0008          8   0x390  kernel_core.o [2]
+  .bss               zero     0x2000'0398          8   0x300  kernel_timer.o [2]
+  .bss               zero     0x2000'0698          8   0x200  kernel_core.o [2]
+  .bss               zero     0x2000'0898          8   0x200  kernel_port.o [2]
+  .bss               zero     0x2000'0a98          8   0x180  kernel_core.o [2]
+  .bss               zero     0x2000'0c18          8   0x168  kernel_timer.o [2]
+  .bss               zero     0x2000'0d80          4   0x148  mcu_irq.o [2]
+  .bss               zero     0x2000'0ec8          8   0x100  kernel_stat.o [2]
+  .bss               zero     0x2000'0fc8          8    0xd0  kernel_stat.o [2]
+  .bss               zero     0x2000'1098          8    0xc0  kernel_core.o [2]
+  .bss               zero     0x2000'1158          4    0x7c  main.o [1]
+  .bss               zero     0x2000'11d4          4    0x28  kernel_stat.o [2]
+  .bss               zero     0x2000'11fc          4    0x10  kernel_stat.o [2]
+  .bss               zero     0x2000'120c          4     0xc  kernel_mutex.o [2]
+  .bss               zero     0x2000'1218          4     0x8  kernel_port.o [2]
+                            - 0x2000'1220             0x121c
+
+"P2", part 3 of 3:                                     0x800
+  CSTACK                      0x2000'1220          8   0x800  <Block>
+    CSTACK           uninit   0x2000'1220              0x800  <Block tail>
+                            - 0x2000'1a20              0x800
+
+Unused ranges:
+
+         From           To    Size
+         ----           --    ----
+   0x800'1f1e   0x800'7fff  0x60e2
+  0x2000'1a20  0x2000'2fff  0x15e0
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x1218:
+          0x2000'0008  0x1218
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x4:
+           0x800'1f18     0x4
+    1 destination range, total size 0x4:
+          0x2000'0000     0x4
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module              ro code  ro data  rw data
+    ------              -------  -------  -------
+command line/config:
+    ---------------------------------------------
+    Total:
+
+C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\DZX-IAR-OpenSource-v18.2.1\IAR\STM32F303-Disco\Hello-World\Debug\Obj: [1]
+    board_led.o              48       16
+    main.o                  144      144      128
+    ---------------------------------------------
+    Total:                  192      160      128
+
+SDK.a: [2]
+    kernel_core.o         1'592       64    2'000
+    kernel_list.o           290
+    kernel_mutex.o          460                12
+    kernel_port.o           516               520
+    kernel_portasm.o        104
+    kernel_signal.o         356
+    kernel_stat.o           544       12      520
+    kernel_stopwatch.o      132
+    kernel_thread.o         548
+    kernel_timer.o          964       28    1'128
+    mcu_irq.o               104               328
+    mcu_kernel.o            270
+    mcu_pin.o               140       24
+    mcu_start.o             446
+    ---------------------------------------------
+    Total:                6'466      128    4'508
+
+dl7M_tln.a: [3]
+    abort.o                   6
+    exit.o                    4
+    low_level_init.o          4
+    ---------------------------------------------
+    Total:                   14
+
+m7M_tls.a: [4]
+    fpinit_M.o               34
+    ---------------------------------------------
+    Total:                   34
+
+rt7M_tl.a: [5]
+    ABImemset.o             102
+    I64DivMod.o             560
+    I64DivZer.o               2
+    cexit.o                  10
+    cmain.o                  30
+    copy_init3.o             42
+    cstartup_M.o             28
+    data_init.o              40
+    zero_init3.o             56
+    ---------------------------------------------
+    Total:                  870
+
+shb_l.a: [6]
+    ABIassert.o              36
+    exit.o                   20
+    ---------------------------------------------
+    Total:                   56
+
+    Gaps                      8        2        4
+    Linker created                    36    2'048
+-------------------------------------------------
+    Grand Total:          7'640      326    6'688
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base    0x800'1df0          --   Gb  - Linker created -
+.iar.init_table$$Limit   0x800'1e14          --   Gb  - Linker created -
+?main                    0x800'1e15         Code  Gb  cmain.o [5]
+APP_Main                 0x800'1b11   0x36  Code  Lc  main.o [1]
+APP_Main::timer1        0x2000'1158   0x7c  Data  Lc  main.o [1]
+APP_TimerCallback        0x800'1b49   0x32  Code  Lc  main.o [1]
+APP_TimerCallback::state
+                        0x2000'0000    0x4  Data  Lc  main.o [1]
+BusFault_Handler         0x800'1f1d         Code  Wk  mcu_start.o [2]
+CSTACK$$Base            0x2000'1220          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'1a20          --   Gb  - Linker created -
+DebugMon_Handler         0x800'1f1d         Code  Wk  mcu_start.o [2]
+HardFault_Handler        0x800'16d1   0x1e  Code  Gb  kernel_port.o [2]
+IRQ_Handler              0x800'17ed   0x3e  Code  Gb  mcu_irq.o [2]
+IRQ_Initialize           0x800'17d5   0x18  Code  Gb  mcu_irq.o [2]
+IRQ_Unhandled            0x800'182d    0x2  Code  Lc  mcu_irq.o [2]
+KERNEL_AcquireInterruptLock
+                         0x800'1685   0x20  Code  Gb  kernel_port.o [2]
+KERNEL_AcquireLock       0x800'0679    0xe  Code  Gb  kernel_core.o [2]
+KERNEL_Block             0x800'0691   0x84  Code  Gb  kernel_core.o [2]
+KERNEL_Boot              0x800'154d   0x4c  Code  Gb  kernel_port.o [2]
+KERNEL_ContextSwitch     0x800'05d7   0x96  Code  Gb  kernel_core.o [2]
+KERNEL_Execute           0x800'01ad  0x136  Code  Gb  kernel_core.o [2]
+KERNEL_Execute::IdleStack
+                        0x2000'1098   0xc0  Data  Lc  kernel_core.o [2]
+KERNEL_Execute::MainStack
+                        0x2000'0698  0x200  Data  Lc  kernel_core.o [2]
+KERNEL_Execute::TickStack
+                        0x2000'0a98  0x180  Data  Lc  kernel_core.o [2]
+KERNEL_ExecutePort       0x800'1599   0x5a  Code  Gb  kernel_port.o [2]
+KERNEL_ExecutePort::ISRStack
+                        0x2000'0898  0x200  Data  Lc  kernel_port.o [2]
+KERNEL_HardFault         0x800'16f1   0x12  Code  Gb  kernel_port.o [2]
+KERNEL_HardFault::HardFault
+                        0x2000'1218    0x8  Data  Lc  kernel_port.o [2]
+KERNEL_Idle              0x800'02e5    0x2  Code  Lc  kernel_core.o [2]
+KERNEL_InitializeStats   0x800'132d   0x6a  Code  Gb  kernel_stat.o [2]
+KERNEL_InitializeStats::kernel_stats_stk
+                        0x2000'0ec8  0x100  Data  Lc  kernel_stat.o [2]
+KERNEL_InsertBlockedThread
+                         0x800'02e7   0x94  Code  Lc  kernel_core.o [2]
+KERNEL_OnContextSwitch   0x800'0791   0x1e  Code  Gb  kernel_core.o [2]
+KERNEL_OnThreadExit      0x800'066d    0xc  Code  Gb  kernel_core.o [2]
+KERNEL_ReleaseAll        0x800'074f   0x42  Code  Gb  kernel_core.o [2]
+KERNEL_ReleaseInterruptLock
+                         0x800'16a5   0x2a  Code  Gb  kernel_port.o [2]
+KERNEL_ReleaseLock       0x800'0687    0xa  Code  Gb  kernel_core.o [2]
+KERNEL_ReleaseOne        0x800'0715   0x3a  Code  Gb  kernel_core.o [2]
+KERNEL_SetState          0x800'0509   0xce  Code  Gb  kernel_core.o [2]
+KERNEL_SignalTick        0x800'037b   0x10  Code  Gb  kernel_core.o [2]
+KERNEL_Tick              0x800'03a9  0x160  Code  Lc  kernel_core.o [2]
+KERNEL_TickProc          0x800'038d   0x1c  Code  Lc  kernel_core.o [2]
+LED_Init                 0x800'1b91   0x1a  Code  Gb  board_led.o [1]
+LED_Pins                 0x800'1e90   0x10  Data  Gb  board_led.o [1]
+LED_Set                  0x800'1bab   0x10  Code  Gb  board_led.o [1]
+LIST_AddBefore           0x800'097b   0x26  Code  Gb  kernel_list.o [2]
+LIST_AddFirst            0x800'0921   0x2c  Code  Gb  kernel_list.o [2]
+LIST_AddLast             0x800'094d   0x2e  Code  Gb  kernel_list.o [2]
+LIST_Clear               0x800'0913    0xe  Code  Gb  kernel_list.o [2]
+LIST_Init                0x800'08f3    0xe  Code  Gb  kernel_list.o [2]
+LIST_InitNode            0x800'0901   0x12  Code  Gb  kernel_list.o [2]
+LIST_Remove              0x800'09d7   0x3e  Code  Gb  kernel_list.o [2]
+LIST_RemoveFirst         0x800'09a1   0x36  Code  Gb  kernel_list.o [2]
+MCU_Boot                 0x800'07e5   0x3a  Code  Gb  mcu_kernel.o [2]
+MCU_ClockHz              0x800'081f    0x4  Code  Gb  mcu_kernel.o [2]
+MCU_InitClock            0x800'0823   0xae  Code  Lc  mcu_kernel.o [2]
+MCU_Initialize           0x800'08e9    0xa  Code  Gb  mcu_kernel.o [2]
+MUTEX_Acquire            0x800'0be3   0xb6  Code  Gb  kernel_mutex.o [2]
+MUTEX_Create             0x800'0b79   0x6a  Code  Gb  kernel_mutex.o [2]
+MUTEX_Release            0x800'0c99   0x9c  Code  Gb  kernel_mutex.o [2]
+MemManage_Handler        0x800'1f1d         Code  Wk  mcu_start.o [2]
+NMI_Handler              0x800'1f1d         Code  Wk  mcu_start.o [2]
+PIN_SetMode              0x800'1c25   0x48  Code  Gb  mcu_pin.o [2]
+PIN_Write                0x800'1be5   0x40  Code  Gb  mcu_pin.o [2]
+PendSV_Handler           0x800'1d05         Code  Gb  kernel_portasm.o [2]
+REG_GPIOS                0x800'1e64   0x18  Data  Gb  mcu_pin.o [2]
+Region$$Table$$Base      0x800'1df0          --   Gb  - Linker created -
+Region$$Table$$Limit     0x800'1e14          --   Gb  - Linker created -
+SIGNAL_Init              0x800'0a15   0x14  Code  Gb  kernel_signal.o [2]
+SIGNAL_Set               0x800'0a29   0xb2  Code  Gb  kernel_signal.o [2]
+SIGNAL_WaitOne           0x800'0adb   0x94  Code  Gb  kernel_signal.o [2]
+STAT_NextThread          0x800'147f   0x38  Code  Lc  kernel_stat.o [2]
+STAT_Process             0x800'1399   0xe6  Code  Lc  kernel_stat.o [2]
+STAT_ProcessCounters     0x800'14b7   0x70  Code  Lc  kernel_stat.o [2]
+STOPWATCH_Create         0x800'1751   0x1e  Code  Gb  kernel_stopwatch.o [2]
+STOPWATCH_Elapsed        0x800'17b7   0x1a  Code  Gb  kernel_stopwatch.o [2]
+STOPWATCH_Reset          0x800'179b    0xc  Code  Gb  kernel_stopwatch.o [2]
+STOPWATCH_Restart        0x800'17a7   0x10  Code  Gb  kernel_stopwatch.o [2]
+STOPWATCH_Start          0x800'176f   0x12  Code  Gb  kernel_stopwatch.o [2]
+STOPWATCH_Stop           0x800'1781   0x1a  Code  Gb  kernel_stopwatch.o [2]
+SVC_Handler              0x800'1f1d         Code  Wk  mcu_start.o [2]
+THREAD_AssignStack       0x800'15f3   0x50  Code  Gb  kernel_port.o [2]
+THREAD_Create            0x800'0d45   0xc4  Code  Gb  kernel_thread.o [2]
+THREAD_Execute           0x800'1703    0xe  Code  Gb  kernel_port.o [2]
+THREAD_InitContext       0x800'1643   0x40  Code  Gb  kernel_port.o [2]
+THREAD_Sleep             0x800'0f1b   0x42  Code  Gb  kernel_thread.o [2]
+THREAD_Start             0x800'0e09   0x90  Code  Gb  kernel_thread.o [2]
+THREAD_Terminate         0x800'0e99   0x82  Code  Gb  kernel_thread.o [2]
+TIMER_AcquireLock        0x800'10e1   0x10  Code  Lc  kernel_timer.o [2]
+TIMER_Create             0x800'1011   0xd0  Code  Gb  kernel_timer.o [2]
+TIMER_Initialize         0x800'0f69   0xa8  Code  Gb  kernel_timer.o [2]
+TIMER_Initialize::TimerStack
+                        0x2000'0398  0x300  Data  Lc  kernel_timer.o [2]
+TIMER_Insert             0x800'10fd   0x68  Code  Lc  kernel_timer.o [2]
+TIMER_Process            0x800'1165  0x132  Code  Gb  kernel_timer.o [2]
+TIMER_ReleaseLock        0x800'10f1    0xc  Code  Lc  kernel_timer.o [2]
+TIMER_Thread             0x800'1299   0x7a  Code  Lc  kernel_timer.o [2]
+UsageFault_Handler       0x800'1f1d         Code  Wk  mcu_start.o [2]
+__aeabi_assert           0x800'1bc1   0x24  Code  Gb  ABIassert.o [6]
+__aeabi_ldiv0            0x800'1afd         Code  Gb  I64DivZer.o [5]
+__aeabi_memset           0x800'1a6d         Code  Gb  ABImemset.o [5]
+__aeabi_uldivmod         0x800'183d         Code  Gb  I64DivMod.o [5]
+__cmain                  0x800'1e15         Code  Gb  cmain.o [5]
+__exit                   0x800'1c79   0x14  Code  Gb  exit.o [6]
+__iar_Memset             0x800'1a6d         Code  Gb  ABImemset.o [5]
+__iar_Memset_word        0x800'1a75         Code  Gb  ABImemset.o [5]
+__iar_copy_init3         0x800'1ad3   0x2a  Code  Gb  copy_init3.o [5]
+__iar_data_init3         0x800'1da5   0x28  Code  Gb  data_init.o [5]
+__iar_init_vfp           0x800'1dcd         Code  Gb  fpinit_M.o [4]
+__iar_program_start      0x800'1e49         Code  Gb  cstartup_M.o [5]
+__iar_zero_init3         0x800'1d6d   0x38  Code  Gb  zero_init3.o [5]
+__low_level_init         0x800'1e33    0x4  Code  Gb  low_level_init.o [3]
+__vector_table           0x800'0000         Data  Gb  mcu_start.o [2]
+_call_main               0x800'1e21         Code  Gb  cmain.o [5]
+_exit                    0x800'1e3d         Code  Gb  cexit.o [5]
+abort                    0x800'1c71    0x6  Code  Gb  abort.o [3]
+exit                     0x800'1e37    0x4  Code  Gb  exit.o [3]
+isr_stats               0x2000'11fc   0x10  Data  Gb  kernel_stat.o [2]
+kernel                  0x2000'0008  0x390  Data  Gb  kernel_core.o [2]
+kernel_info              0x800'1ea0   0x10  Data  Gb  kernel_core.o [2]
+kernel_mutexes          0x2000'120c    0xc  Data  Lc  kernel_mutex.o [2]
+kernel_stats            0x2000'0fc8   0xd0  Data  Gb  kernel_stat.o [2]
+kernel_timers           0x2000'0c18  0x168  Data  Lc  kernel_timer.o [2]
+lock_stats              0x2000'11d4   0x28  Data  Gb  kernel_stat.o [2]
+main                     0x800'1b01   0x10  Code  Gb  main.o [1]
+mcu_irqs                0x2000'0d80  0x148  Data  Lc  mcu_irq.o [2]
+
+
+[1] = C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\DZX-IAR-OpenSource-v18.2.1\IAR\STM32F303-Disco\Hello-World\Debug\Obj
+[2] = SDK.a
+[3] = dl7M_tln.a
+[4] = m7M_tls.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+  7'640 bytes of readonly  code memory
+    326 bytes of readonly  data memory
+  6'688 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

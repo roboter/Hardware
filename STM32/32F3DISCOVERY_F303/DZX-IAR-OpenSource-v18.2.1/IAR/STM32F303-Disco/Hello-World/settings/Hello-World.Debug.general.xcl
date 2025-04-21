@@ -1,0 +1,13 @@
+C:\iar\ewarm-9.60.4\arm\bin\armPROC.dll
+
+ C:\iar\ewarm-9.60.4\arm\bin\armSIM2.dll
+
+ C:\PROJECTS\Hardware\STM32\32F3DISCOVERY_F303\DZX-IAR-OpenSource-v18.2.1\IAR\STM32F303-Disco\Hello-World\Debug\Exe\Hello-World.out
+
+ --plugin=C:\iar\ewarm-9.60.4\arm\bin\armLibSupportUniversal.dll
+
+ --device_macro=C:\iar\ewarm-9.60.4\arm/config/debugger/ST/STM32F3xx.dmac
+
+ 
+
+

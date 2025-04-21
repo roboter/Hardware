@@ -1,0 +1,10 @@
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DataLinkDemo\bin\Release\DataLinkDemo.exe.config
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DataLinkDemo\bin\Release\DataLinkDemo.exe
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DataLinkDemo\bin\Release\DataLinkDemo.pdb
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DataLinkDemo\bin\Release\DZX.Devices.dll
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DataLinkDemo\bin\Release\DZX.Devices.pdb
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DataLinkDemo\obj\Release\DataLinkDemo.Form1.resources
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DataLinkDemo\obj\Release\DataLinkDemo.Properties.Resources.resources
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DataLinkDemo\obj\Release\DataLinkDemo.csproj.GenerateResource.Cache
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DataLinkDemo\obj\Release\DataLinkDemo.exe
+C:\DZX\SDK\Build\OpenSource\Microsoft.NET\bin\DataLinkDemo\obj\Release\DataLinkDemo.pdb

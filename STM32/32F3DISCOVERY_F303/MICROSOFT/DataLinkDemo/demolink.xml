@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataLinkDefinition xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/DZX.Devices.DataLinks">
+  <BooleanSize>4</BooleanSize>
+  <CodeGenerationOptions>
+    <DeviceDirectory></DeviceDirectory>
+    <HostDirectory></HostDirectory>
+    <UseDefaultDeviceDirectory>true</UseDefaultDeviceDirectory>
+    <UseDefaultHostDirectory>true</UseDefaultHostDirectory>
+  </CodeGenerationOptions>
+  <Device>EmbeddedC</Device>
+  <Enumerations />
+  <Host>NET_CS</Host>
+  <LastGenDate>0001-01-01T00:00:00</LastGenDate>
+  <LinkName>App</LinkName>
+  <LogItems />
+  <Messages>
+    <Message>
+      <ID>4</ID>
+      <Name>Device Status</Name>
+      <Recipient>Host</Recipient>
+      <RequestParameters>
+        <Parameter>
+          <ArrayLength>1</ArrayLength>
+          <Description></Description>
+          <DisplayType>Default</DisplayType>
+          <Enumeration></Enumeration>
+          <Factor>0</Factor>
+          <Name>Kernel Utilization</Name>
+          <Offset>0</Offset>
+          <Structure></Structure>
+          <Type>U32</Type>
+          <Unit i:nil="true" />
+        </Parameter>
+        <Parameter>
+          <ArrayLength>1</ArrayLength>
+          <Description></Description>
+          <DisplayType>Default</DisplayType>
+          <Enumeration></Enumeration>
+          <Factor>0</Factor>
+          <Name>Kernel Ticks</Name>
+          <Offset>0</Offset>
+          <Structure></Structure>
+          <Type>U32</Type>
+          <Unit i:nil="true" />
+        </Parameter>
+      </RequestParameters>
+      <ResponseParameters />
+      <Type>Unsolicited</Type>
+    </Message>
+    <Message>
+      <ID>1</ID>
+      <Name>Enable Status Stream</Name>
+      <Recipient>Device</Recipient>
+      <RequestParameters>
+        <Parameter>
+          <ArrayLength>1</ArrayLength>
+          <Description>The enable/disable state for the status stream.</Description>
+          <DisplayType>Default</DisplayType>
+          <Enumeration></Enumeration>
+          <Factor>0</Factor>
+          <Name>Enabled</Name>
+          <Offset>0</Offset>
+          <Structure></Structure>
+          <Type>Boolean</Type>
+          <Unit i:nil="true" />
+        </Parameter>
+      </RequestParameters>
+      <ResponseParameters />
+      <Type>Unsolicited</Type>
+    </Message>
+    <Message>
+      <ID>2</ID>
+      <Name>Read Memory</Name>
+      <Recipient>Device</Recipient>
+      <RequestParameters>
+        <Parameter>
+          <ArrayLength>1</ArrayLength>
+          <Description>The starting address to be read.</Description>
+          <DisplayType>Hexadecimal</DisplayType>
+          <Enumeration></Enumeration>
+          <Factor>0</Factor>
+          <Name>Address</Name>
+          <Offset>0</Offset>
+          <Structure></Structure>
+          <Type>U32</Type>
+          <Unit i:nil="true" />
+        </Parameter>
+        <Parameter>
+          <ArrayLength>1</ArrayLength>
+          <Description>The number of data bytes to be read and returned.</Description>
+          <DisplayType>Default</DisplayType>
+          <Enumeration></Enumeration>
+          <Factor>0</Factor>
+          <Name>Length</Name>
+          <Offset>0</Offset>
+          <Structure></Structure>
+          <Type>U32</Type>
+          <Unit i:nil="true" />
+        </Parameter>
+      </RequestParameters>
+      <ResponseParameters>
+        <Parameter>
+          <ArrayLength>256</ArrayLength>
+          <Description>The memory data values.</Description>
+          <DisplayType>Hexadecimal</DisplayType>
+          <Enumeration></Enumeration>
+          <Factor>0</Factor>
+          <Name>Data</Name>
+          <Offset>0</Offset>
+          <Structure></Structure>
+          <Type>U8</Type>
+          <Unit i:nil="true" />
+        </Parameter>
+        <Parameter>
+          <ArrayLength>1</ArrayLength>
+          <Description>A result code for the operation.</Description>
+          <DisplayType>Default</DisplayType>
+          <Enumeration></Enumeration>
+          <Factor>0</Factor>
+          <Name>Result</Name>
+          <Offset>0</Offset>
+          <Structure></Structure>
+          <Type>U32</Type>
+          <Unit i:nil="true" />
+        </Parameter>
+      </ResponseParameters>
+      <Type>RequestResponse</Type>
+    </Message>
+    <Message>
+      <ID>3</ID>
+      <Name>Write Memory</Name>
+      <Recipient>Device</Recipient>
+      <RequestParameters>
+        <Parameter>
+          <ArrayLength>1</ArrayLength>
+          <Description>The starting address to be written.</Description>
+          <DisplayType>Hexadecimal</DisplayType>
+          <Enumeration></Enumeration>
+          <Factor>0</Factor>
+          <Name>Address</Name>
+          <Offset>0</Offset>
+          <Structure></Structure>
+          <Type>U32</Type>
+          <Unit i:nil="true" />
+        </Parameter>
+        <Parameter>
+          <ArrayLength>256</ArrayLength>
+          <Description>The data values to be written to memory.</Description>
+          <DisplayType>Default</DisplayType>
+          <Enumeration></Enumeration>
+          <Factor>0</Factor>
+          <Name>Data</Name>
+          <Offset>0</Offset>
+          <Structure></Structure>
+          <Type>U8</Type>
+          <Unit i:nil="true" />
+        </Parameter>
+      </RequestParameters>
+      <ResponseParameters>
+        <Parameter>
+          <ArrayLength>1</ArrayLength>
+          <Description>A result response code.</Description>
+          <DisplayType>Default</DisplayType>
+          <Enumeration></Enumeration>
+          <Factor>0</Factor>
+          <Name>Result</Name>
+          <Offset>0</Offset>
+          <Structure></Structure>
+          <Type>U32</Type>
+          <Unit i:nil="true" />
+        </Parameter>
+      </ResponseParameters>
+      <Type>RequestResponse</Type>
+    </Message>
+  </Messages>
+  <Structures />
+  <UseCRC>false</UseCRC>
+  <Version>0</Version>
+</DataLinkDefinition>
