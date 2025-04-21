@@ -34,3 +34,8 @@
 ## Appearance
 
 ![Geehy-APM32F072VB-Mini-Board-1](Geehy-APM32F072VB-Mini-Board-1-361x550.webp)
+
+
+## Links
+* https://geehy.com/product/fifth/APM32F072
+* https://www.cnx-software.com/2022/07/04/geehy-apm32f103-clone-of-stm32f103-mcu-has-been-tested-to-work-without-pcb-or-code-modifications/
