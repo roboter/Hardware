@@ -39,3 +39,6 @@
 ## Links
 * https://geehy.com/product/fifth/APM32F072
 * https://www.cnx-software.com/2022/07/04/geehy-apm32f103-clone-of-stm32f103-mcu-has-been-tested-to-work-without-pcb-or-code-modifications/
+
+## Projects
+* Blink on MAC using SEGGER EMBEDDED Studio (Have to use J-Link, no Geehy-link in debugger options)
