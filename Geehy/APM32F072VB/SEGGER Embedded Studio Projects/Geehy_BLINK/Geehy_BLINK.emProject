@@ -4,7 +4,7 @@
   <configuration
     Name="Debug"
     c_preprocessor_definitions="DEBUG"
-    debug_target_connection="J-Link"
+    debug_target_connection="ST-Link"
     gcc_debugging_level="Level 3"
     gcc_omit_frame_pointer="Yes"
     gcc_optimization_level="None" />
