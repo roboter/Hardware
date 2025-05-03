@@ -1,0 +1,96 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "C:/PROJECTS/Hardware/Arduino/Digistump ATTINY85/AttinyNeopixelPlatformIO/include",
+                "C:/PROJECTS/Hardware/Arduino/Digistump ATTINY85/AttinyNeopixelPlatformIO/src",
+                "C:/PROJECTS/Hardware/Arduino/Digistump ATTINY85/AttinyNeopixelPlatformIO/.pio/libdeps/digispark-tiny/FastLED/src",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/cores/dtiny",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/variants/digispark",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/Adafruit_NeoPixel",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/ArduinoWiiClassicController",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkCDC",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkJoystick",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkKeyboard",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkLCD",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkMouse",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkOLED",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkRGB",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkRcSeq",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkSimpleServo",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkSoftRcPulseIn",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkSoftRcPulseOut",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkSoftSerial",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkTinyPinChange",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkTinySoftPwm",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkUSB",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/Digispark_Examples",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/EEPROM/src",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/NewExamples",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/Nunchuk",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/OneWire",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/TinyWireM",
+                "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/Wire/src",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "C:/PROJECTS/Hardware/Arduino/Digistump ATTINY85/AttinyNeopixelPlatformIO/include",
+                    "C:/PROJECTS/Hardware/Arduino/Digistump ATTINY85/AttinyNeopixelPlatformIO/src",
+                    "C:/PROJECTS/Hardware/Arduino/Digistump ATTINY85/AttinyNeopixelPlatformIO/.pio/libdeps/digispark-tiny/FastLED/src",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/cores/dtiny",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/variants/digispark",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/Adafruit_NeoPixel",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/ArduinoWiiClassicController",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkCDC",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkJoystick",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkKeyboard",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkLCD",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkMouse",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkOLED",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkRGB",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkRcSeq",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkSimpleServo",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkSoftRcPulseIn",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkSoftRcPulseOut",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkSoftSerial",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkTinyPinChange",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkTinySoftPwm",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkUSB",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/Digispark_Examples",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/EEPROM/src",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/NewExamples",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/Nunchuk",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/OneWire",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/TinyWireM",
+                    "C:/Users/robby/.platformio/packages/framework-arduino-avr-digistump/libraries/Wire/src",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60118",
+                "ARDUINO_AVR_DIGISPARK",
+                "F_CPU=16500000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "__AVR_ATtiny85__",
+                ""
+            ],
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++11",
+            "compilerPath": "C:/Users/robby/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe",
+            "compilerArgs": [
+                "-mmcu=attiny85",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
