@@ -1,7 +1,7 @@
 <!DOCTYPE CrossStudio_Session_File>
 <session>
  <Bookmarks/>
- <Breakpoints groups="" active_group="Breakpoints">
+ <Breakpoints groups="Breakpoints" active_group="Breakpoints">
   <Exceptions set="HardFault"/>
  </Breakpoints>
  <ExecutionProfileWindow/>
@@ -70,10 +70,10 @@
  </Watch4>
  <Files>
   <SessionOpenFile windowGroup="DockEditLeft" x="9" y="16" useTextEdit="1" path="main.c" left="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" path="apm32f0xx_ob.h" left="0" top="145" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" path="apm32f0xx_ob.h" left="0" top="136" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" path="apm32f0xx_pmu.h" left="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" path="apm32f0xx_syscfg.h" left="0" top="182" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="25" y="115" useTextEdit="1" path="apm32f0xx_crc.h" left="0" top="94" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" path="apm32f0xx_syscfg.h" left="0" top="175" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="25" y="115" useTextEdit="1" path="apm32f0xx_crc.h" left="0" selected="1" top="95" codecName="Default"/>
  </Files>
- <EMStudioWindow activeProject="Geehy_BLINK" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="/Users/aleksei/Documents/SEGGER Embedded Studio Projects/Geehy_BLINK" debugSearchPath="" autoConnectCapabilities="3199"/>
+ <EMStudioWindow activeProject="Geehy_BLINK" fileDialogDefaultFilter="*.c" autoConnectTarget="ST-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="/Users/aleksei/Documents/SEGGER Embedded Studio Projects/Geehy_BLINK" debugSearchPath="" autoConnectCapabilities="3455"/>
 </session>

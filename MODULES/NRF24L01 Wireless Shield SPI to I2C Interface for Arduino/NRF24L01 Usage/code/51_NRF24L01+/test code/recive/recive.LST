@@ -1,0 +1,403 @@
+C51 COMPILER V7.06   RECIVE                                                                07/12/2012 10:58:32 PAGE 1   
+
+
+C51 COMPILER V7.06, COMPILATION OF MODULE RECIVE
+OBJECT MODULE PLACED IN recive.OBJ
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE recive.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          /**************************************************
+   2          ¹¦ÄÜ£º±¾³ÌÐòÊÊÓÃnRF24L01+µÄ½ÓÊÕ,²¢ÏÔÊ¾½ÓÊÕ×Ö·û´®£»
+   3          Ê±¼ä£º2012Äê7ÔÂ12ÈÕ
+   4          /**************************************************/
+   5          
+   6          #include <reg51.h>
+   7          #include<intrins.h>
+   8          #define uint unsigned int
+   9          #define uchar unsigned char
+  10          sbit RS=P2^0;
+  11          sbit RW=P2^1;
+  12          sbit E=P2^2;
+  13          
+  14          // Define interface to nRF24L01
+  15          
+  16          // Define SPI pins
+  17          sbit CE   = P1^0;  // Chip Enable pin signal (output)
+  18          sbit CSN  = P1^1;  // Slave Select pin, (output to CSN, nRF24L01)
+  19          sbit SCK  = P1^2;  // Master Out, Slave In pin (output)
+  20          sbit MOSI = P1^3;  // Serial Clock pin, (output)
+  21          sbit MISO = P1^4;  // Master In, Slave Out pin (input)
+  22          sbit IRQ  = P1^5;  // Interrupt signal, from nRF24L01 (input)
+  23          
+  24          // SPI(nRF24L01) commands
+  25          #define READ_REG    0x00  // Define read command to register
+  26          #define WRITE_REG   0x20  // Define write command to register
+  27          #define RD_RX_PLOAD 0x61  // Define RX payload register address
+  28          #define WR_TX_PLOAD 0xA0  // Define TX payload register address
+  29          #define FLUSH_TX    0xE1  // Define flush TX register command
+  30          #define FLUSH_RX    0xE2  // Define flush RX register command
+  31          #define REUSE_TX_PL 0xE3  // Define reuse TX payload register command
+  32          #define NOP         0xFF  // Define No Operation, might be used to read status register
+  33          
+  34          // SPI(nRF24L01) registers(addresses)
+  35          #define CONFIG      0x00  // 'Config' register address
+  36          #define EN_AA       0x01  // 'Enable Auto Acknowledgment' register address
+  37          #define EN_RXADDR   0x02  // 'Enabled RX addresses' register address
+  38          #define SETUP_AW    0x03  // 'Setup address width' register address
+  39          #define SETUP_RETR  0x04  // 'Setup Auto. Retrans' register address
+  40          #define RF_CH       0x05  // 'RF channel' register address
+  41          #define RF_SETUP    0x06  // 'RF setup' register address
+  42          #define STATUS      0x07  // 'Status' register address
+  43          #define OBSERVE_TX  0x08  // 'Observe TX' register address
+  44          #define CD          0x09  // 'Carrier Detect' register address
+  45          #define RX_ADDR_P0  0x0A  // 'RX address pipe0' register address
+  46          #define RX_ADDR_P1  0x0B  // 'RX address pipe1' register address
+  47          #define RX_ADDR_P2  0x0C  // 'RX address pipe2' register address
+  48          #define RX_ADDR_P3  0x0D  // 'RX address pipe3' register address
+  49          #define RX_ADDR_P4  0x0E  // 'RX address pipe4' register address
+  50          #define RX_ADDR_P5  0x0F  // 'RX address pipe5' register address
+  51          #define TX_ADDR     0x10  // 'TX address' register address
+  52          #define RX_PW_P0    0x11  // 'RX payload width, pipe0' register address
+  53          #define RX_PW_P1    0x12  // 'RX payload width, pipe1' register address
+  54          #define RX_PW_P2    0x13  // 'RX payload width, pipe2' register address
+  55          #define RX_PW_P3    0x14  // 'RX payload width, pipe3' register address
+C51 COMPILER V7.06   RECIVE                                                                07/12/2012 10:58:32 PAGE 2   
+
+  56          #define RX_PW_P4    0x15  // 'RX payload width, pipe4' register address
+  57          #define RX_PW_P5    0x16  // 'RX payload width, pipe5' register address
+  58          #define FIFO_STATUS 0x17  // 'FIFO Status Register' register address
+  59          
+  60          
+  61          /***************************************************/
+  62          #define TX_ADR_WIDTH   5  // 5×Ö½Ú¿í¶ÈµÄ·¢ËÍ/½ÓÊÕµØÖ·
+  63          #define TX_PLOAD_WIDTH 16  // Êý¾ÝÍ¨µÀÓÐÐ§Êý¾Ý¿í¶È
+  64          uchar code TX_ADDRESS[TX_ADR_WIDTH] = {0x34,0x43,0x10,0x10,0x01};  // ¶¨ÒåÒ»¸ö¾²Ì¬·¢ËÍµØÖ·
+  65          uchar string[]="Trans_Direction:";
+  66          uchar RX_BUF[TX_PLOAD_WIDTH];
+  67          uchar TX_BUF[TX_PLOAD_WIDTH];
+  68          uchar flag;
+  69          uchar k;
+  70          uchar bdata sta;
+  71          sbit  RX_DR      = sta^6;
+  72          sbit  TX_DS      = sta^5;
+  73          sbit  MAX_RT = sta^4;
+  74          /**************************************************/
+  75          /**************************************************/
+  76          
+  77          //LCD1602
+  78          
+  79          /**************************************************
+  80          º¯Êý: delay()
+  81          
+  82          ÃèÊö:
+  83              ÑÓÊ±100us
+  84          /**************************************************/
+  85          void delay(uint x)
+  86          {
+  87   1              uint i,j;
+  88   1              for(i=0;i<x;i++)
+  89   1                      for(j=0;j<110;j++);
+  90   1      }
+  91          /**************************************************
+  92          º¯Êý: Write_Command()
+  93          
+  94          ÃèÊö:
+  95              LCD1602Ð´Ö¸Áî
+  96          /**************************************************/
+  97          
+  98          void Write_Command(uchar command)//Ð´Ö¸Áî
+  99          {
+ 100   1              E=0;
+ 101   1              RS=0;
+ 102   1              RW=0;   
+ 103   1              P0=command;
+ 104   1              _nop_();        
+ 105   1              E=1;    
+ 106   1              delay(2);
+ 107   1              E=0;
+ 108   1      }
+ 109          /**************************************************
+ 110          º¯Êý: Write_Data()
+ 111          
+ 112          ÃèÊö:
+ 113              LCD1602Ð´Êý¾Ý
+ 114          /**************************************************/
+ 115          void Write_Data(uchar dat)//Ð´Êý¾Ý
+ 116          {
+ 117   1              E=0;
+C51 COMPILER V7.06   RECIVE                                                                07/12/2012 10:58:32 PAGE 3   
+
+ 118   1              RS=1;
+ 119   1              RW=0;
+ 120   1              P0=dat;
+ 121   1              _nop_();
+ 122   1              E=1;
+ 123   1              delay(2);
+ 124   1              E=0;
+ 125   1      }
+ 126          /**************************************************
+ 127          º¯Êý: init()
+ 128          
+ 129          ÃèÊö:
+ 130              ³õÊ¼»¯LCD1602
+ 131          /**************************************************/
+ 132          void init(void)//LCD1602³õÊ¼»¯
+ 133          {
+ 134   1              delay(150);
+ 135   1              Write_Command(0x38);
+ 136   1              delay(50);
+ 137   1              Write_Command(0x38);
+ 138   1              delay(50);
+ 139   1              Write_Command(0x38);
+ 140   1              Write_Command(0x38);
+ 141   1              Write_Command(0x08);
+ 142   1              Write_Command(0x01);
+ 143   1              Write_Command(0x06);
+ 144   1              Write_Command(0x0c);            
+ 145   1      }
+ 146          /**************************************************
+ 147          º¯Êý: init_io()
+ 148          
+ 149          ÃèÊö:
+ 150              ³õÊ¼»¯IO
+ 151          /**************************************************/
+ 152          void init_io(void)
+ 153          {
+ 154   1              CE  = 0;        // ´ý»ú
+ 155   1              CSN = 1;        // SPI½ûÖ¹
+ 156   1              SCK = 0;        // SPIÊ±ÖÓÖÃµÍ
+ 157   1              IRQ = 1;        // ÖÐ¶Ï¸´Î»
+ 158   1              //P0 = 0xff;            // ¹Ø±ÕÖ¸Ê¾µÆ
+ 159   1      }
+ 160          /**************************************************/
+ 161          
+ 162          /**************************************************
+ 163          º¯Êý£ºdelay_ms()
+ 164          
+ 165          ÃèÊö£º
+ 166              ÑÓ³ÙxºÁÃë
+ 167          /**************************************************/
+ 168          void delay_ms(uchar x)
+ 169          {
+ 170   1          uchar i, j;
+ 171   1          i = 0;
+ 172   1          for(i=0; i<x; i++)
+ 173   1          {
+ 174   2             j = 250;
+ 175   2             while(--j);
+ 176   2                 j = 250;
+ 177   2             while(--j);
+ 178   2          }
+ 179   1      }
+C51 COMPILER V7.06   RECIVE                                                                07/12/2012 10:58:32 PAGE 4   
+
+ 180          /**************************************************/
+ 181          
+ 182          /**************************************************
+ 183          º¯Êý£ºSPI_RW()
+ 184          
+ 185          ÃèÊö£º
+ 186              ¸ù¾ÝSPIÐ­Òé£¬Ð´Ò»×Ö½ÚÊý¾Ýµ½nRF24L01£¬Í¬Ê±´ÓnRF24L01
+ 187                  ¶Á³öÒ»×Ö½Ú
+ 188          /**************************************************/
+ 189          uchar SPI_RW(uchar byte)
+ 190          {
+ 191   1              uchar i;
+ 192   1              for(i=0; i<8; i++)          // Ñ­»·8´Î
+ 193   1              {
+ 194   2                      MOSI = (byte & 0x80);   // byte×î¸ßÎ»Êä³öµ½MOSI
+ 195   2                      byte <<= 1;             // µÍÒ»Î»ÒÆÎ»µ½×î¸ßÎ»
+ 196   2                      SCK = 1;                // À­¸ßSCK£¬nRF24L01´ÓMOSI¶ÁÈë1Î»Êý¾Ý£¬Í¬Ê±´ÓMISOÊä³ö1Î»Êý¾Ý
+ 197   2                      byte |= MISO;           // ¶ÁMISOµ½byte×îµÍÎ»
+ 198   2                      SCK = 0;                // SCKÖÃµÍ
+ 199   2              }
+ 200   1          return(byte);               // ·µ»Ø¶Á³öµÄÒ»×Ö½Ú
+ 201   1      }
+ 202          /**************************************************/
+ 203          
+ 204          /**************************************************
+ 205          º¯Êý£ºSPI_RW_Reg()
+ 206          
+ 207          ÃèÊö£º
+ 208              Ð´Êý¾Ývalueµ½reg¼Ä´æÆ÷
+ 209          /**************************************************/
+ 210          uchar SPI_RW_Reg(uchar reg, uchar value)
+ 211          {
+ 212   1              uchar status;
+ 213   1              CSN = 0;                   // CSNÖÃµÍ£¬¿ªÊ¼´«ÊäÊý¾Ý
+ 214   1              status = SPI_RW(reg);      // Ñ¡Ôñ¼Ä´æÆ÷£¬Í¬Ê±·µ»Ø×´Ì¬×Ö
+ 215   1              SPI_RW(value);             // È»ºóÐ´Êý¾Ýµ½¸Ã¼Ä´æÆ÷
+ 216   1              CSN = 1;                   // CSNÀ­¸ß£¬½áÊøÊý¾Ý´«Êä
+ 217   1              return(status);            // ·µ»Ø×´Ì¬¼Ä´æÆ÷
+ 218   1      }
+ 219          /**************************************************/
+ 220          
+ 221          /**************************************************
+ 222          º¯Êý£ºSPI_Read()
+ 223          
+ 224          ÃèÊö£º
+ 225              ´Óreg¼Ä´æÆ÷¶ÁÒ»×Ö½Ú
+ 226          /**************************************************/
+ 227          uchar SPI_Read(uchar reg)
+ 228          {
+ 229   1              uchar reg_val;
+ 230   1              CSN = 0;                    // CSNÖÃµÍ£¬¿ªÊ¼´«ÊäÊý¾Ý
+ 231   1              SPI_RW(reg);                // Ñ¡Ôñ¼Ä´æÆ÷
+ 232   1              reg_val = SPI_RW(0);        // È»ºó´Ó¸Ã¼Ä´æÆ÷¶ÁÊý¾Ý
+ 233   1              CSN = 1;                    // CSNÀ­¸ß£¬½áÊøÊý¾Ý´«Êä
+ 234   1              return(reg_val);            // ·µ»Ø¼Ä´æÆ÷Êý¾Ý
+ 235   1      }
+ 236          /**************************************************/
+ 237          
+ 238          /**************************************************
+ 239          º¯Êý£ºSPI_Read_Buf()
+ 240          
+ 241          ÃèÊö£º
+C51 COMPILER V7.06   RECIVE                                                                07/12/2012 10:58:32 PAGE 5   
+
+ 242              ´Óreg¼Ä´æÆ÷¶Á³öbytes¸ö×Ö½Ú£¬Í¨³£ÓÃÀ´¶ÁÈ¡½ÓÊÕÍ¨µÀ
+ 243                  Êý¾Ý»ò½ÓÊÕ/·¢ËÍµØÖ·
+ 244          /**************************************************/
+ 245          uchar SPI_Read_Buf(uchar reg, uchar * pBuf, uchar bytes)
+ 246          {
+ 247   1              uchar status, i;
+ 248   1              CSN = 0;                    // CSNÖÃµÍ£¬¿ªÊ¼´«ÊäÊý¾Ý
+ 249   1              status = SPI_RW(reg);       // Ñ¡Ôñ¼Ä´æÆ÷£¬Í¬Ê±·µ»Ø×´Ì¬×Ö
+ 250   1              for(i=0; i<bytes; i++)
+ 251   1              pBuf[i] = SPI_RW(0);    // Öð¸ö×Ö½Ú´ÓnRF24L01¶Á³ö
+ 252   1              CSN = 1;                    // CSNÀ­¸ß£¬½áÊøÊý¾Ý´«Êä
+ 253   1              return(status);             // ·µ»Ø×´Ì¬¼Ä´æÆ÷
+ 254   1      }
+ 255          /**************************************************/
+ 256          
+ 257          /**************************************************
+ 258          º¯Êý£ºSPI_Write_Buf()
+ 259          
+ 260          ÃèÊö£º
+ 261              °ÑpBuf»º´æÖÐµÄÊý¾ÝÐ´Èëµ½nRF24L01£¬Í¨³£ÓÃÀ´Ð´Èë·¢
+ 262                  ÉäÍ¨µÀÊý¾Ý»ò½ÓÊÕ/·¢ËÍµØÖ·
+ 263          /**************************************************/
+ 264          uchar SPI_Write_Buf(uchar reg, uchar * pBuf, uchar bytes)
+ 265          {
+ 266   1              uchar status, i;
+ 267   1              CSN = 0;                    // CSNÖÃµÍ£¬¿ªÊ¼´«ÊäÊý¾Ý
+ 268   1              status = SPI_RW(reg);       // Ñ¡Ôñ¼Ä´æÆ÷£¬Í¬Ê±·µ»Ø×´Ì¬×Ö
+ 269   1              for(i=0; i<bytes; i++)
+ 270   1              SPI_RW(pBuf[i]);        // Öð¸ö×Ö½ÚÐ´ÈënRF24L01
+ 271   1              CSN = 1;                    // CSNÀ­¸ß£¬½áÊøÊý¾Ý´«Êä
+ 272   1              return(status);             // ·µ»Ø×´Ì¬¼Ä´æÆ÷
+ 273   1      }
+ 274          /**************************************************/
+ 275          
+ 276          /**************************************************
+ 277          º¯Êý£ºRX_Mode()
+ 278          
+ 279          ÃèÊö£º
+ 280              Õâ¸öº¯ÊýÉèÖÃnRF24L01Îª½ÓÊÕÄ£Ê½£¬µÈ´ý½ÓÊÕ·¢ËÍÉè±¸µÄÊý¾Ý°ü
+ 281          /**************************************************/
+ 282          void RX_Mode(void)
+ 283          {
+ 284   1              CE = 0;
+ 285   1              SPI_Write_Buf(WRITE_REG + RX_ADDR_P0, TX_ADDRESS, TX_ADR_WIDTH);  // ½ÓÊÕÉè±¸½ÓÊÕÍ¨µÀ0Ê¹ÓÃºÍ·¢ËÍÉè±¸ÏàÍ
+             -¬µÄ·¢ËÍµØÖ·
+ 286   1              SPI_RW_Reg(WRITE_REG + EN_AA, 0x01);               // Ê¹ÄÜ½ÓÊÕÍ¨µÀ0×Ô¶¯Ó¦´ð
+ 287   1              SPI_RW_Reg(WRITE_REG + EN_RXADDR, 0x01);           // Ê¹ÄÜ½ÓÊÕÍ¨µÀ0
+ 288   1              SPI_RW_Reg(WRITE_REG + RF_CH, 40);                 // Ñ¡ÔñÉäÆµÍ¨µÀ0x40
+ 289   1              SPI_RW_Reg(WRITE_REG + RX_PW_P0, TX_PLOAD_WIDTH);  // ½ÓÊÕÍ¨µÀ0Ñ¡ÔñºÍ·¢ËÍÍ¨µÀÏàÍ¬ÓÐÐ§Êý¾Ý¿í¶È
+ 290   1              SPI_RW_Reg(WRITE_REG + RF_SETUP, 0x07);            // Êý¾Ý´«ÊäÂÊ1Mbps£¬·¢Éä¹¦ÂÊ0dBm£¬µÍÔëÉù·Å´óÆ÷ÔöÒæ
+ 291   1              SPI_RW_Reg(WRITE_REG + CONFIG, 0x0f);              // CRCÊ¹ÄÜ£¬16Î»CRCÐ£Ñé£¬ÉÏµç£¬½ÓÊÕÄ£Ê½
+ 292   1              CE = 1;                                            // À­¸ßCEÆô¶¯½ÓÊÕÉè±¸
+ 293   1      }
+ 294          /**************************************************/
+ 295          
+ 296          /**************************************************
+ 297          º¯Êý£ºTX_Mode()
+ 298          
+ 299          ÃèÊö£º
+ 300              Õâ¸öº¯ÊýÉèÖÃnRF24L01Îª·¢ËÍÄ£Ê½£¬£¨CE=1³ÖÐøÖÁÉÙ10us£©£¬
+ 301                  130usºóÆô¶¯·¢Éä£¬Êý¾Ý·¢ËÍ½áÊøºó£¬·¢ËÍÄ£¿é×Ô¶¯×ªÈë½ÓÊÕ
+ 302                  Ä£Ê½µÈ´ýÓ¦´ðÐÅºÅ¡£
+C51 COMPILER V7.06   RECIVE                                                                07/12/2012 10:58:32 PAGE 6   
+
+ 303          /**************************************************
+ 304          void TX_Mode(uchar * BUF)
+ 305          {
+ 306                  CE = 0;
+ 307                  SPI_Write_Buf(WRITE_REG + TX_ADDR, TX_ADDRESS, TX_ADR_WIDTH);     // Ð´Èë·¢ËÍµØÖ·
+ 308                  SPI_Write_Buf(WRITE_REG + RX_ADDR_P0, TX_ADDRESS, TX_ADR_WIDTH);  // ÎªÁËÓ¦´ð½ÓÊÕÉè±¸£¬½ÓÊÕÍ¨µÀ0µØÖ·ºÍ·
+             -¢ËÍµØÖ·ÏàÍ¬
+ 309                  SPI_Write_Buf(WR_TX_PLOAD, BUF, TX_PLOAD_WIDTH);                  // Ð´Êý¾Ý°üµ½TX FIFO
+ 310                  SPI_RW_Reg(WRITE_REG + EN_AA, 0x01);       // Ê¹ÄÜ½ÓÊÕÍ¨µÀ0×Ô¶¯Ó¦´ð
+ 311                  SPI_RW_Reg(WRITE_REG + EN_RXADDR, 0x01);   // Ê¹ÄÜ½ÓÊÕÍ¨µÀ0
+ 312                  SPI_RW_Reg(WRITE_REG + SETUP_RETR, 0x0a);  // ×Ô¶¯ÖØ·¢ÑÓÊ±µÈ´ý250us+86us£¬×Ô¶¯ÖØ·¢10´Î
+ 313                  SPI_RW_Reg(WRITE_REG + RF_CH, 40);         // Ñ¡ÔñÉäÆµÍ¨µÀ0x40
+ 314                  SPI_RW_Reg(WRITE_REG + RF_SETUP, 0x07);    // Êý¾Ý´«ÊäÂÊ1Mbps£¬·¢Éä¹¦ÂÊ0dBm£¬µÍÔëÉù·Å´óÆ÷ÔöÒæ
+ 315                  SPI_RW_Reg(WRITE_REG + CONFIG, 0x0e);      // CRCÊ¹ÄÜ£¬16Î»CRCÐ£Ñé£¬ÉÏµç
+ 316                  CE = 1;
+ 317          }
+ 318          
+ 319          /**************************************************
+ 320          º¯Êý£ºmain()
+ 321          
+ 322          ÃèÊö£º
+ 323              Ö÷º¯Êý
+ 324          /**************************************************/
+ 325          void main(void)
+ 326          {
+ 327   1              init_io();                            //³õÊ¼»¯NRF24L01+
+ 328   1              init();                                           //³õÊ¼»¯LCD1602
+ 329   1      
+ 330   1              while(1)
+ 331   1              {       
+ 332   2                      RX_Mode();                            //ÉèÖÃÎª½ÓÊÕÄ£Ê½
+ 333   2                      sta = SPI_Read(STATUS);   // ¶Á×´Ì¬¼Ä´æÆ÷
+ 334   2                  if(RX_DR)                             // ÅÐ¶ÏÊÇ·ñ½ÓÊÜµ½Êý¾Ý
+ 335   2                      {
+ 336   3                              SPI_Read_Buf(RD_RX_PLOAD, RX_BUF, TX_PLOAD_WIDTH);  // ´ÓRX FIFO¶Á³öÊý¾Ý
+ 337   3                              flag = 1;
+ 338   3                      }
+ 339   2                      SPI_RW_Reg(WRITE_REG + STATUS, sta);  // Çå³ýRX_DSÖÐ¶Ï±êÖ¾
+ 340   2                      if(flag)                           // ½ÓÊÜÍê³É
+ 341   2                      {
+ 342   3                              uchar i;
+ 343   3                              flag = 0;                      // Çå±êÖ¾
+ 344   3                              Write_Command(0x80+0x00);
+ 345   3                              for(i=0;i<16;i++)
+ 346   3                              {
+ 347   4                                      Write_Data(string[i]);
+ 348   4                                      //delay(1);
+ 349   4                              }
+ 350   3                              
+ 351   3                              Write_Command(0x80+0x40);
+ 352   3                              for(i=0;i<16;i++)
+ 353   3                              {
+ 354   4                                      Write_Data(RX_BUF[i]);
+ 355   4                                      //delay(1);
+ 356   4                              }
+ 357   3                              delay_ms(1);
+ 358   3                              /*delay_ms(250);
+ 359   3                              delay_ms(250);
+ 360   3                              delay_ms(250);
+ 361   3                              delay_ms(250);
+ 362   3                              delay_ms(250);*/                                                        
+ 363   3                      }
+C51 COMPILER V7.06   RECIVE                                                                07/12/2012 10:58:32 PAGE 7   
+
+ 364   2              }
+ 365   1      }
+ 366          /**************************************************/
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    462    ----
+   CONSTANT SIZE    =      5    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     52      11
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
