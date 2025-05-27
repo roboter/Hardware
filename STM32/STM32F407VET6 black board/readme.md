@@ -19,7 +19,7 @@
     SPI (3)
     USB 2.0 full-speed
     USB 2.0 OTG
-    CAN (2) 
+    CAN (2)
 
 ## Board features
 
@@ -42,5 +42,7 @@
 
 
 
-## LINKS 
+## LINKS
 * https://os.mbed.com/users/hudakz/code/STM32F407VET6_Hello/shortlog/
+* [Tetris](https://www.youtube.com/watch?v=x0j1oXtrNho)
+* [Black STM32F407VE](https://github.com/wegi1/STM32F407VET6-BLACK-ILI9341-BENCHMARK)
