@@ -43,6 +43,6 @@
 
 
 ## LINKS
-* https://os.mbed.com/users/hudakz/code/STM32F407VET6_Hello/shortlog/
 * [Tetris](https://www.youtube.com/watch?v=x0j1oXtrNho)
 * [Black STM32F407VE](https://github.com/wegi1/STM32F407VET6-BLACK-ILI9341-BENCHMARK)
+* https://stm32-base.org/boards/STM32F407VET6-STM32-F4VE-V2.0.html
