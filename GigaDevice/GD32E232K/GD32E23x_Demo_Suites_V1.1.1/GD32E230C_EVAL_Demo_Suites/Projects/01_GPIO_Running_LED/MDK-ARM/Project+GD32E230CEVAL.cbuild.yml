@@ -1,0 +1,196 @@
+build:
+  generated-by: csolution version 2.9.0
+  solution: Project.csolution.yaml
+  project: Project.cproject.yaml
+  context: Project+GD32E230CEVAL
+  compiler: AC6
+  device: GigaDevice::GD32E230C8
+  device-pack: GigaDevice::GD32E23x_DFP@1.0.2
+  processor:
+    endian: little
+    fpu: off
+    trustzone: non-secure
+    core: Cortex-M23
+  packs:
+    - pack: ARM::CMSIS@6.1.0
+      path: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.1.0
+    - pack: GigaDevice::GD32E23x_DFP@1.0.2
+      path: ${CMSIS_PACK_ROOT}/GigaDevice/GD32E23x_DFP/1.0.2
+  optimize: none
+  debug: on
+  misc:
+    C:
+      - -std=c99
+      - -fno-rtti
+      - -funsigned-char
+      - -fshort-enums
+      - -fshort-wchar
+      - -ffunction-sections
+      - -Wno-packed
+      - -Wno-missing-variable-declarations
+      - -Wno-missing-prototypes
+      - -Wno-missing-noreturn
+      - -Wno-sign-conversion
+      - -Wno-nonportable-include-path
+      - -Wno-reserved-id-macro
+      - -Wno-unused-macros
+      - -Wno-documentation-unknown-command
+      - -Wno-documentation
+      - -Wno-license-management
+      - -Wno-parentheses-equality
+    CPP:
+      - -xc++
+      - -std=c++11
+      - -fno-rtti
+      - -funsigned-char
+      - -fshort-enums
+      - -fshort-wchar
+      - -ffunction-sections
+      - -Wno-packed
+      - -Wno-missing-variable-declarations
+      - -Wno-missing-prototypes
+      - -Wno-missing-noreturn
+      - -Wno-sign-conversion
+      - -Wno-nonportable-include-path
+      - -Wno-reserved-id-macro
+      - -Wno-unused-macros
+      - -Wno-documentation-unknown-command
+      - -Wno-documentation
+      - -Wno-license-management
+      - -Wno-parentheses-equality
+    Link:
+      - --library_type=microlib
+      - --map
+      - --load_addr_map_info
+      - --xref
+      - --callgraph
+      - --symbols
+      - --info sizes
+      - --info totals
+      - --info unused
+      - --info veneers
+      - --list
+      - --strict
+      - --summary_stderr
+      - --info summarysizes
+  define:
+    - GD32E230
+    - __MICROLIB
+    - GD32E23x
+    - _RTE_
+  define-asm:
+    - GD32E23x
+    - _RTE_
+  add-path:
+    - ../../../../GD32E23x_Firmware_Library/CMSIS/GD/GD32E23x/Include
+    - ../../../Utilities
+    - ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Include
+    - ..
+    - RTE/_GD32E230CEVAL
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+    - ${CMSIS_PACK_ROOT}/GigaDevice/GD32E23x_DFP/1.0.2/Device/Include
+  add-path-asm:
+    - RTE/_GD32E230CEVAL
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+    - ${CMSIS_PACK_ROOT}/GigaDevice/GD32E23x_DFP/1.0.2/Device/Include
+  output-dirs:
+    intdir: tmp
+    outdir: out/Project/GD32E230CEVAL
+    rtedir: RTE
+  output:
+    - type: elf
+      file: Project.axf
+  components:
+    - component: ARM::CMSIS:CORE@6.1.0
+      condition: ARMv6_7_8-M Device
+      from-pack: ARM::CMSIS@6.1.0
+      selected-by: ARM::CMSIS:CORE
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+          category: include
+          version: 6.1.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.1.0/CMSIS/Documentation/html/Core/index.html
+          category: doc
+          version: 6.1.0
+  linker:
+    script: Project_GD32E230CEVAL.sct
+  groups:
+    - group: Application
+      files:
+        - file: ../main.c
+          category: sourceC
+        - file: ../systick.c
+          category: sourceC
+        - file: ../gd32e23x_it.c
+          category: sourceC
+    - group: CMSIS
+      files:
+        - file: ../../../../GD32E23x_Firmware_Library/CMSIS/GD/GD32E23x/Source/system_gd32e23x.c
+          category: sourceC
+    - group: GD32E23x_Peripherals
+      files:
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_adc.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_cmp.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_crc.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_dbg.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_dma.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_exti.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_fmc.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_fwdgt.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_gpio.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_i2c.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_misc.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_pmu.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_rcu.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_rtc.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_spi.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_syscfg.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_timer.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_usart.c
+          category: sourceC
+        - file: ../../../../GD32E23x_Firmware_Library/GD32E23x_standard_peripheral/Source/gd32e23x_wwdgt.c
+          category: sourceC
+    - group: GD32E230_EVAL
+      files:
+        - file: ../../../Utilities/gd32e230c_eval.c
+          category: sourceC
+    - group: Startup
+      files:
+        - file: ../../../../GD32E23x_Firmware_Library/CMSIS/GD/GD32E23x/Source/ARM/startup_gd32e23x.s
+          category: sourceAsm
+          misc:
+            ASM:
+              - -masm=auto
+    - group: Doc
+      files:
+        - file: ../readme.txt
+          category: doc
+  constructed-files:
+    - file: RTE/_GD32E230CEVAL/RTE_Components.h
+      category: header
+  licenses:
+    - license: <unknown>
+      packs:
+        - pack: GigaDevice::GD32E23x_DFP@1.0.2
+    - license: Apache-2.0
+      packs:
+        - pack: ARM::CMSIS@6.1.0
+      components:
+        - component: ARM::CMSIS:CORE@6.1.0

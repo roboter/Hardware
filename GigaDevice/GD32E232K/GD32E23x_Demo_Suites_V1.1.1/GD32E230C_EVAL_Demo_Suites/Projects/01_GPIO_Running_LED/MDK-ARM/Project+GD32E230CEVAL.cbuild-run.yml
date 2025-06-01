@@ -1,0 +1,39 @@
+cbuild-run:
+  generated-by: csolution version 2.9.0
+  solution: Project.csolution.yaml
+  target-type: GD32E230CEVAL
+  compiler: AC6
+  device: GigaDevice::GD32E230C8
+  device-pack: GigaDevice::GD32E23x_DFP@1.0.2
+  output:
+    - file: out/Project/GD32E230CEVAL/Project.axf
+      info: generate by Project+GD32E230CEVAL
+      type: elf
+      load: image+symbols
+  system-resources:
+    memory:
+      - name: IROM1
+        access: rx
+        start: 0x08000000
+        size: 0x00010000
+        from-pack: GigaDevice::GD32E23x_DFP@1.0.2
+      - name: IRAM1
+        access: rwx
+        start: 0x20000000
+        size: 0x00002000
+        from-pack: GigaDevice::GD32E23x_DFP@1.0.2
+  system-descriptions:
+    - file: ${CMSIS_PACK_ROOT}/GigaDevice/GD32E23x_DFP/1.0.2/SVD/GD32E230.svd
+      type: svd
+  debugger:
+    name: CMSIS-DAP@pyOCD
+    protocol: swd
+    clock: 10000000
+    gdbserver:
+      - port: 3333
+  programming:
+    - algorithm: ${CMSIS_PACK_ROOT}/GigaDevice/GD32E23x_DFP/1.0.2/Flash/GD32E23x.FLM
+      start: 0x08000000
+      size: 0x00010000
+      ram-start: 0x20000000
+      ram-size: 0x00002000

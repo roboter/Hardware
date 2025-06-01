@@ -1,0 +1,55 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "CMSIS_DAP@pyOCD (launch)",
+            "type": "gdbtarget",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/GigaDevice\\GD32E232K\\GD32E23x_Demo_Suites_V1.1.1\\GD32E230C_EVAL_Demo_Suites\\Projects\\01_GPIO_Running_LED\\MDK-ARM",
+            "program": "out/Project/GD32E230CEVAL/Project.axf",
+            "gdb": "arm-none-eabi-gdb",
+            "preLaunchTask": "CMSIS Load",
+            "initCommands": [
+                "monitor reset halt",
+                "tbreak main"
+            ],
+            "customResetCommands": [
+                "monitor reset halt"
+            ],
+            "target": {
+                "server": "pyocd",
+                "serverParameters": [
+                    "--probe",
+                    "cmsisdap:",
+                    "--connect",
+                    "attach"
+                ],
+                "port": "3333"
+            },
+            "cmsis": {
+                "cbuildRunFile": "${command:cmsis-csolution.getCbuildRunFile}",
+                "updateConfiguration": "auto"
+            }
+        },
+        {
+            "name": "CMSIS_DAP@pyOCD (attach)",
+            "type": "gdbtarget",
+            "request": "attach",
+            "cwd": "${workspaceFolder}/GigaDevice\\GD32E232K\\GD32E23x_Demo_Suites_V1.1.1\\GD32E230C_EVAL_Demo_Suites\\Projects\\01_GPIO_Running_LED\\MDK-ARM",
+            "program": "out/Project/GD32E230CEVAL/Project.axf",
+            "gdb": "arm-none-eabi-gdb",
+            "initCommands": [
+                ""
+            ],
+            "customResetCommands": [
+                "monitor reset halt"
+            ],
+            "target": {
+                "port": "3333"
+            },
+            "cmsis": {
+                "updateConfiguration": "auto"
+            }
+        }
+    ]
+}

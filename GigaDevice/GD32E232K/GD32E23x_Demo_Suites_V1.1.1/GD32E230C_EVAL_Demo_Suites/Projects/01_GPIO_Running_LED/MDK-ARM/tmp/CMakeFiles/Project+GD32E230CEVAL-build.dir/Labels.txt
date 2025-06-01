@@ -1,0 +1,11 @@
+# Target labels
+ Project+GD32E230CEVAL
+# Source files and their labels
+C:/PROJECTS/Hardware/GigaDevice/GD32E232K/GD32E23x_Demo_Suites_V1.1.1/GD32E230C_EVAL_Demo_Suites/Projects/01_GPIO_Running_LED/MDK-ARM/tmp/CMakeFiles/Project+GD32E230CEVAL-build
+C:/PROJECTS/Hardware/GigaDevice/GD32E232K/GD32E23x_Demo_Suites_V1.1.1/GD32E230C_EVAL_Demo_Suites/Projects/01_GPIO_Running_LED/MDK-ARM/tmp/CMakeFiles/Project+GD32E230CEVAL-build.rule
+C:/PROJECTS/Hardware/GigaDevice/GD32E232K/GD32E23x_Demo_Suites_V1.1.1/GD32E230C_EVAL_Demo_Suites/Projects/01_GPIO_Running_LED/MDK-ARM/tmp/Project+GD32E230CEVAL/src/Project+GD32E230CEVAL-stamp/Project+GD32E230CEVAL-build.rule
+C:/PROJECTS/Hardware/GigaDevice/GD32E232K/GD32E23x_Demo_Suites_V1.1.1/GD32E230C_EVAL_Demo_Suites/Projects/01_GPIO_Running_LED/MDK-ARM/tmp/Project+GD32E230CEVAL/src/Project+GD32E230CEVAL-stamp/Project+GD32E230CEVAL-configure.rule
+C:/PROJECTS/Hardware/GigaDevice/GD32E232K/GD32E23x_Demo_Suites_V1.1.1/GD32E230C_EVAL_Demo_Suites/Projects/01_GPIO_Running_LED/MDK-ARM/tmp/Project+GD32E230CEVAL/src/Project+GD32E230CEVAL-stamp/Project+GD32E230CEVAL-patch.rule
+C:/PROJECTS/Hardware/GigaDevice/GD32E232K/GD32E23x_Demo_Suites_V1.1.1/GD32E230C_EVAL_Demo_Suites/Projects/01_GPIO_Running_LED/MDK-ARM/tmp/Project+GD32E230CEVAL/src/Project+GD32E230CEVAL-stamp/Project+GD32E230CEVAL-update.rule
+C:/PROJECTS/Hardware/GigaDevice/GD32E232K/GD32E23x_Demo_Suites_V1.1.1/GD32E230C_EVAL_Demo_Suites/Projects/01_GPIO_Running_LED/MDK-ARM/tmp/Project+GD32E230CEVAL/src/Project+GD32E230CEVAL-stamp/Project+GD32E230CEVAL-download.rule
+C:/PROJECTS/Hardware/GigaDevice/GD32E232K/GD32E23x_Demo_Suites_V1.1.1/GD32E230C_EVAL_Demo_Suites/Projects/01_GPIO_Running_LED/MDK-ARM/tmp/Project+GD32E230CEVAL/src/Project+GD32E230CEVAL-stamp/Project+GD32E230CEVAL-mkdir.rule
