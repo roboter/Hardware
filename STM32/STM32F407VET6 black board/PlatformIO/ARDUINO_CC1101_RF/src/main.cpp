@@ -118,18 +118,28 @@ uint8_t readStatusReg(uint8_t addr) {
     digitalWrite(CC1101_CS, HIGH);
     return val;
 }
-void testCC1101() {
-  cc1101Reset();
 
-volatile uint8_t version = readStatusReg(CC1101_VERSION);
-Serial.print("VERSION = 0x");
-Serial.println(version, HEX);
+void CC1101_DumpRegisters(char *buf, size_t bufsize) {
+  uint8_t regVal;
+  size_t idx = 0;
 
-volatile uint8_t partnum = readStatusReg(CC1101_PARTNUM);
-Serial.print("PARTNUM = 0x");
-Serial.println(partnum, HEX);
+  for (uint8_t addr = 0x00; addr <= 0x2F; addr++) {
+    regVal = radio.readRegister(addr);  // Replace with your CC1101 read function
+    idx += snprintf(buf + idx, bufsize - idx, "[0x%02X]=0x%02X,", addr, regVal);
+    if (idx >= bufsize - 1) break; // Prevent buffer overflow
+  }
 
+  // Append PARTNUM
+  regVal = readStatusReg(CC1101_PARTNUM);
+  idx += snprintf(buf + idx, bufsize - idx, "\nPARTNUM = 0x%02X\n", regVal);
+  if (idx >= bufsize - 1) return;
+
+  // Append VERSION
+  regVal = readStatusReg(CC1101_VERSION);
+  idx += snprintf(buf + idx, bufsize - idx, "VERSION = 0x%02X\n", regVal);
 }
+
+
 void setup() {
  volatile int sysClockFreq = HAL_RCC_GetSysClockFreq();
   volatile int HCLKFreq = HAL_RCC_GetHCLKFreq();
@@ -153,17 +163,28 @@ volatile  uint32_t spi_clk = PCLK2Freq / spi_div[prescaler];
 
   delay(100);
 
-  testCC1101();
-
    // 433.2 MHz . The function is getting uint32_t (433200000) , not float
     bool ok = radio.begin(433.2e6);
 
+    uint8_t mdmcfg2 = radio.readRegister(CC1101_MDMCFG2);
+uint8_t modulation = mdmcfg2 & 0x03; // Extract bits 1:0
 
+Serial.println("Current Modulation: ");
+switch(modulation) {
+    case 0x00: Serial.println("2-FSK\n"); break;
+    case 0x01: Serial.println("GFSK\n"); break;
+    case 0x02: Serial.println("ASK/OOK\n"); break;
+    case 0x03: Serial.println("4-FSK\n"); break;
+}
+
+char buf[900] = {};
+CC1101_DumpRegisters(buf, 900);
+Serial.println(buf);
     // Configure CC1101 parameters
-    radio.setTxPower(10);       // 10 dBm output power
-    radio.setDataRate(38.4);    // 38.4 kbps data rate
-    radio.setChannel(0);        // Channel 0
-    radio.setSyncWord(0xD3, 0x91); // Default sync word
+    // radio.setTxPower(10);       // 10 dBm output power
+    // radio.setDataRate(38.4);    // 38.4 kbps data rate
+    // radio.setChannel(0);        // Channel 0
+    // radio.setSyncWord(0xD3, 0x91); // Default sync word
     if (!ok) {
         Serial.println("CC1101 is not found, check the connections");
         while(1);
