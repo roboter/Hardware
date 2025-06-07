@@ -1,4 +1,5 @@
-# SWO works, don't forget to put /n at the end of printf
+# SWO works (only when SPI is disabled), don't forget to put /n at the end of printf
+
 
 
 This library use interrupts 

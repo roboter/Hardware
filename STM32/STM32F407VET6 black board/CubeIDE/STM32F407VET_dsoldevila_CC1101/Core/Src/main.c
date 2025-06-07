@@ -80,51 +80,27 @@ void CC1101_DumpRegisters(char *buf, size_t bufsize) {
 	idx += snprintf(buf + idx, bufsize - idx, "VERSION = 0x%02X\r\n", regVal);
 }
 
-void CC1101_Init4FSK() {
-	// 1. Reset and put in IDLE state
-	rf_write_strobe(SRES);  // Hardware reset
-	rf_sidle();             // Ensure IDLE state
-	while (rf_read_register(MARCSTATE) != 0x01)
-		; // Wait for IDLE
+void transmit_demo(uint32_t i) {
+	uint16_t size = 20;
+	uint8_t data[size];
+	const char *str = "{x=10;y=20}";
+	//uint16_t len = strlen(str);  // len = 13
+	//memcpy(data, str, len);  // Copy without null terminator
+	sprintf(data,"--%s%ld\n",str,i);
 
-	// 2. Core 4-FSK Configuration
-	rf_write_register(MDMCFG2, 0x3B);  // 4-FSK | DC filter | 32/32 sync bits
-	rf_write_register(MDMCFG1, 0x22);  // FEC enabled | 4 preamble bytes
-	rf_write_register(MDMCFG0, 0xF8);  // Channel spacing
+	static int counter = 0;
+	data[0] = size & 0xFF;
+	data[1] = (size >> 8) & 0xFF;
 
-	// 3. Data Rate and Bandwidth (optimized for 48.8kbps)
-	rf_write_register(MDMCFG4, 0x7A);  // Rx BW = 203kHz
-	rf_write_register(MDMCFG3, 0x83);  // Data rate mantissa
-	rf_write_register(DEVIATN, 0x47);  // 38.4kHz deviation (optimal for 4-FSK)
+//	size = strlen(data);
+//	for (i = 2; i < size; i++) {
+//		data[i] = (i) % 256;
+//	}
 
-	// 4. Frequency Settings (434MHz)
-	rf_write_register(FREQ2, 0x10);
-	rf_write_register(FREQ1, 0xA7);
-	rf_write_register(FREQ0, 0x62);
+	if (send_frame(data, size) != FRAME_OK)
+		printf("ERROR\n\r");
+	data[size - 1] = counter++;
 
-	// 5. Power Amplifier Configuration
-	rf_write_register(FREND0, 0x11);   // Optimized PA for 4-FSK
-	rf_write_register(PATABLE_SINGLE_BYTE, 0xC5); // +10dBm output
-
-	// 6. Sync Word (default 0xD391)
-	rf_write_register(SYNC1, 0xD3);
-	rf_write_register(SYNC0, 0x91);
-
-	// 7. FIFO and Packet Settings
-	rf_write_register(FIFOTHR, 0x47);  // Optimal TX/RX thresholds
-	rf_write_register(PKTCTRL0, 0x05); // Variable length, CRC enabled
-
-	// 8. Calibration Sequence
-	rf_write_strobe(SCAL);  // Frequency synthesizer calibration
-	uint8_t timeout = 100;
-	while ((rf_read_register(MARCSTATE) != 0x01) && timeout--) {
-		HAL_Delay(1);
-	}
-
-	// 9. Enter RX Mode
-	rf_write_strobe(SRX);
-	while (rf_read_register(MARCSTATE) != 0x0D)
-		; // Wait for RX state
 }
 /* USER CODE END 0 */
 
@@ -141,6 +117,7 @@ int main(void) {
 	/* MCU Configuration--------------------------------------------------------*/
 
 	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+
 	HAL_Init();
 
 	/* USER CODE BEGIN Init */
@@ -159,7 +136,7 @@ int main(void) {
 	MX_SPI3_Init();
 	MX_USART1_UART_Init();
 	/* USER CODE BEGIN 2 */
-
+	  init_serial(&huart1);
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -167,20 +144,20 @@ int main(void) {
 
 	//Init rf driver
 	rf_begin(&hspi3, GFSK_1_2_kb, MHz434, CS_GPIO_Port, CS_Pin, GDO0_Pin);
-	//rf_set_carrier_offset(0x4b);
-	//check if idle
-//	rf_sidle();
-//	uint8_t result = rf_read_register(MARCSTATE);
-//	printf("result %#02x (Should be 0x01)\n\r", result);
-//
-//	rf_set_carrier_frequency(433.98);
-//	rf_set_carrier_offset(50);
 
-	uint8_t crc;
-	uint16_t len = (1 << 16) - 1;
-	uint8_t buffer[len];
-	uint8_t lqi;
-	uint8_t rssi;
+	//check if idle
+	rf_sidle();
+	uint8_t result = rf_read_register(MARCSTATE);
+	printf("result %#02x (Should be 0x01)\n\r", result);
+
+	rf_set_carrier_frequency(433.98);
+	rf_set_carrier_offset(50);
+
+//	uint8_t crc;
+//	uint16_t len = (1 << 16) - 1;
+//	uint8_t buffer[len];
+//	uint8_t lqi;
+//	uint8_t rssi;
 
 	rf_receive();
 
@@ -189,25 +166,27 @@ int main(void) {
 	//CC1101_Init4FSK();
 	CC1101_DumpRegisters(buff, 650);
 	printf(buff);
+	uint32_t i = 0;
 
-	/* USER CODE BEGIN WHILE */
 	while (1) {
-		if (rf_incoming_packet()) {
-			HAL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
-			printf("PACKET FOUND\n\r");
-			len = (1 << 16) - 1;
-			crc = receive_frame(buffer, &len, 0, 16, &lqi, &rssi);
-			if (crc) {
-				printf("%d CRC OK\n\r", len);
-			} else {
-				printf("%d BAD CRC OK\n\r", len);
-			}
-			rf_write_strobe(SFRX);
-			//printf("CRC: %d, LQI: %d, RSSI: %d, LEN: %d\n\r", crc, lqi, rssi, len);
-			rf_receive();
-		}
+//		if (rf_incoming_packet()) {
+		HAL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
+//			printf("PACKET FOUND\n\r");
+//			len = (1 << 16) - 1;
+//			crc = receive_frame(buffer, &len, 0, 16, &lqi, &rssi);
+//			if (crc) {
+//				printf("%d CRC OK\n\r", len);
+//			} else {
+//				printf("%d BAD CRC OK\n\r", len);
+//			}
+//			rf_write_strobe(SFRX);
+//			//printf("CRC: %d, LQI: %d, RSSI: %d, LEN: %d\n\r", crc, lqi, rssi, len);
+//			rf_receive();
+//		}
 		printf("While loop!\n");
-		HAL_Delay(10);
+	//	HAL_Delay(10);
+
+		transmit_demo(i++);
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
