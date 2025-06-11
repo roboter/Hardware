@@ -573,9 +573,11 @@ float rf_set_carrier_frequency(float target_freq){
 	float freqf = target_freq*65536.0/(float)CRYSTAL_FREQUENCY_M;
 	uint32_t freq = (uint32_t)freqf;
 	freq = freq&0x00FFFFFF;
-	rf_write_register(FREQ0, freq);
-	rf_write_register(FREQ1, (freq>>8));
-	rf_write_register(FREQ2, (freq>>16));
+	// Write to CC1101 frequency registers (FREQ2, FREQ1, FREQ0)
+	rf_write_register(FREQ2, (freq >> 16) & 0xFF);
+	rf_write_register(FREQ1, (freq >> 8) & 0xFF);
+	rf_write_register(FREQ0, freq & 0xFF);
+
 	float t = ((float)freq*(float)CRYSTAL_FREQUENCY_M)/65536.0;
 
 	return t;

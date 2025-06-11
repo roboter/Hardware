@@ -108,8 +108,8 @@ int main(void) {
 	uint8_t result = rf_read_register(MARCSTATE);
 	printf("rresult %#02x (Should be 0x01)\n\r", result);
 
-	rf_set_carrier_frequency(433.98);
-	rf_set_carrier_offset(50);
+//	rf_set_carrier_frequency(433.98);
+//	rf_set_carrier_offset(50);
 	/* USER CODE END 2 */
 
 	/* Infinite loop */

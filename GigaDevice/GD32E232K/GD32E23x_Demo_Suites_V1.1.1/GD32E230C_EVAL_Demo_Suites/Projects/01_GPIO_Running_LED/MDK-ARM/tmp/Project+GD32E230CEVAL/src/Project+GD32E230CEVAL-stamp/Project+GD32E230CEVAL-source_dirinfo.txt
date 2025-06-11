@@ -1,9 +1,0 @@
-# This is a generated file and its contents are an internal implementation detail.
-# The download step will be re-executed if anything in this file changes.
-# No other meaning or use of this file is supported.
-
-method=source_dir
-command=
-source_dir=C:/PROJECTS/Hardware/GigaDevice/GD32E232K/GD32E23x_Demo_Suites_V1.1.1/GD32E230C_EVAL_Demo_Suites/Projects/01_GPIO_Running_LED/MDK-ARM/tmp/Project+GD32E230CEVAL
-work_dir=
-

@@ -5,8 +5,8 @@
             "name": "CMSIS_DAP@pyOCD (launch)",
             "type": "gdbtarget",
             "request": "launch",
-            "cwd": "${workspaceFolder}/GigaDevice\\GD32E232K\\GD32E23x_Demo_Suites_V1.1.1\\GD32E230C_EVAL_Demo_Suites\\Projects\\01_GPIO_Running_LED\\MDK-ARM",
-            "program": "out/Project/GD32E230CEVAL/Project.axf",
+            "cwd": "${workspaceFolder}/GigaDevice/GD32E232K/GD32E23x_Demo_Suites_V1.1.1/GD32E230C_START_Demo_Suites/Projects/02_GPIO_Key_Polling_mode/MDK-ARM",
+            "program": "out/Project/GD32E230CSTART/Project.axf",
             "gdb": "arm-none-eabi-gdb",
             "preLaunchTask": "CMSIS Load",
             "initCommands": [
@@ -35,8 +35,8 @@
             "name": "CMSIS_DAP@pyOCD (attach)",
             "type": "gdbtarget",
             "request": "attach",
-            "cwd": "${workspaceFolder}/GigaDevice\\GD32E232K\\GD32E23x_Demo_Suites_V1.1.1\\GD32E230C_EVAL_Demo_Suites\\Projects\\01_GPIO_Running_LED\\MDK-ARM",
-            "program": "out/Project/GD32E230CEVAL/Project.axf",
+            "cwd": "${workspaceFolder}/GigaDevice/GD32E232K/GD32E23x_Demo_Suites_V1.1.1/GD32E230C_START_Demo_Suites/Projects/02_GPIO_Key_Polling_mode/MDK-ARM",
+            "program": "out/Project/GD32E230CSTART/Project.axf",
             "gdb": "arm-none-eabi-gdb",
             "initCommands": [
                 ""
