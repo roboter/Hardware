@@ -80,9 +80,9 @@ uint8_t i;
 int main(void)
 {
 	// Screen connection
-	// SCK  -> PB3
-	// A0   -> PB4
-	// SDA  -> PB5
+	// SCK  -> PB13
+	// A0   -> PB1
+	// SDA  -> PB15
 	// RST  -> PB6
 	// CS   -> PB7
 
