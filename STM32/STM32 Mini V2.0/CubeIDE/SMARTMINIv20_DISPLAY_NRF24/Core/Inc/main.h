@@ -63,8 +63,10 @@ void Delay_us(uint16_t us);
 #define FLASH_CS_GPIO_Port GPIOA
 #define NRF_CE_Pin GPIO_PIN_4
 #define NRF_CE_GPIO_Port GPIOA
-#define CSN_Pin GPIO_PIN_4
-#define CSN_GPIO_Port GPIOC
+#define NRF_CS_Pin GPIO_PIN_4
+#define NRF_CS_GPIO_Port GPIOC
+#define NRF_IRQ_Pin GPIO_PIN_5
+#define NRF_IRQ_GPIO_Port GPIOC
 #define DISPLAY_A0_Pin GPIO_PIN_1
 #define DISPLAY_A0_GPIO_Port GPIOB
 #define DISPLAY_DC_Pin GPIO_PIN_6

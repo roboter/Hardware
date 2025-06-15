@@ -133,8 +133,8 @@ int main(void) {
 	hNRF.spi = &hspi1;
 	hNRF.CE_Port = NRF_CE_GPIO_Port;
 	hNRF.CEn_Pin = NRF_CE_Pin;
-	hNRF.CSn_Port = CSN_GPIO_Port;
-	hNRF.CSn_Pin = CSN_Pin;
+	hNRF.CSn_Port = NRF_CS_GPIO_Port;
+	hNRF.CSn_Pin = NRF_CS_Pin;
 	hNRF.payloadsize = PAYLOAD_SIZE;
 
 	char RX_Buffer[PAYLOAD_SIZE] = { 0 };
@@ -159,7 +159,7 @@ int main(void) {
 	ST7735_Init();
 	// Check border
 	ST7735_FillScreen(ST7735_BLACK);
-
+#if defined TEST_DISPLAY
 	for (int x = 0; x < ST7735_WIDTH; x++) {
 		ST7735_DrawPixel(x, 0, ST7735_RED);
 		ST7735_DrawPixel(x, ST7735_HEIGHT - 1, ST7735_RED);
@@ -215,8 +215,10 @@ int main(void) {
 	ST7735_FillScreen(ST7735_WHITE);
 	ST7735_WriteString(0, 0, "WHITE", Font_11x18, ST7735_BLACK, ST7735_WHITE);
 	HAL_Delay(500);
+#endif
 	HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
+
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -227,14 +229,17 @@ int main(void) {
 		printf("While loop\n");
 		HAL_Delay(100);
 
-
 		NRF_RX_Mode();
 		if (NRF_Data_Available()) {
 			NRF_ReadData(RX_Buffer);
 			printf("\r\nRX :%s \r\n", RX_Buffer);
+			ST7735_WriteString(0, 0, RX_Buffer, Font_11x18, ST7735_BLACK,
+					ST7735_YELLOW);
 			memset(RX_Buffer, 0x00, 32);
 		}
-		if (TX_DataRdy) {
+		//if (TX_DataRdy)
+		{
+			sprintf(RxData, "Hello World!");
 			NRF_Transmit((char*) RxData);
 			NRF_TX_Mode();
 			printf("TX :%s \r\n", RxData);
@@ -405,7 +410,7 @@ static void MX_SPI2_Init(void) {
 	hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
 	hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
 	hspi2.Init.NSS = SPI_NSS_SOFT;
-	hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
+	hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
 	hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
 	hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
 	hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -514,7 +519,7 @@ static void MX_GPIO_Init(void) {
 			GPIO_PIN_RESET);
 
 	/*Configure GPIO pin Output Level */
-	HAL_GPIO_WritePin(GPIOC, CSN_Pin | DISPLAY_DC_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOC, NRF_CS_Pin | DISPLAY_DC_Pin, GPIO_PIN_RESET);
 
 	/*Configure GPIO pin Output Level */
 	HAL_GPIO_WritePin(DISPLAY_A0_GPIO_Port, DISPLAY_A0_Pin, GPIO_PIN_RESET);
@@ -528,25 +533,38 @@ static void MX_GPIO_Init(void) {
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	HAL_GPIO_Init(BUTTON1_GPIO_Port, &GPIO_InitStruct);
 
-	/*Configure GPIO pins : FLASH_CS_Pin NRF_CE_Pin LED0_Pin */
-	GPIO_InitStruct.Pin = FLASH_CS_Pin | NRF_CE_Pin | LED0_Pin;
+	/*Configure GPIO pins : FLASH_CS_Pin LED0_Pin */
+	GPIO_InitStruct.Pin = FLASH_CS_Pin | LED0_Pin;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-	/*Configure GPIO pins : CSN_Pin DISPLAY_DC_Pin */
-	GPIO_InitStruct.Pin = CSN_Pin | DISPLAY_DC_Pin;
+	/*Configure GPIO pin : NRF_CE_Pin */
+	GPIO_InitStruct.Pin = NRF_CE_Pin;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+	HAL_GPIO_Init(NRF_CE_GPIO_Port, &GPIO_InitStruct);
+
+	/*Configure GPIO pins : NRF_CS_Pin DISPLAY_DC_Pin */
+	GPIO_InitStruct.Pin = NRF_CS_Pin | DISPLAY_DC_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
 	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+	/*Configure GPIO pin : NRF_IRQ_Pin */
+	GPIO_InitStruct.Pin = NRF_IRQ_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(NRF_IRQ_GPIO_Port, &GPIO_InitStruct);
 
 	/*Configure GPIO pin : DISPLAY_A0_Pin */
 	GPIO_InitStruct.Pin = DISPLAY_A0_Pin;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
 	HAL_GPIO_Init(DISPLAY_A0_GPIO_Port, &GPIO_InitStruct);
 
 	/*Configure GPIO pin : LED1_Pin */
