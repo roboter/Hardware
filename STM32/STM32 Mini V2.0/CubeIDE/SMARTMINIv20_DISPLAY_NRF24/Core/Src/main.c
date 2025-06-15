@@ -36,14 +36,18 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-//#define PAYLOAD_SIZE 32
-#define PLD_S 32
+#define PAYLOAD_SIZE 32
+#define MY_CHANNEL 0x6E
+//uint8_t tx_addr[5] = { 0x45, 0x55, 0x67, 0x10, 0x21 };
 
-uint8_t tx_addr[5] = { 0x45, 0x55, 0x67, 0x10, 0x21 };
-
+const uint64_t deviceID = 0xE8E8F0F0E1LL;  // Define the ID for this slave
+const uint64_t transmitterId = 0x544d52687CLL;
+// Pipe and address matching
+uint8_t tx_addr[5] = { 0x7C, 0x68, 0x52, 0x4D, 0x54 }; // transmitterId in little-endian
+uint8_t rx_addr[5] = { 0xE1, 0xF0, 0xF0, 0xE8, 0xE8 }; // deviceID in little-endian
 uint16_t data = 0;
 
-uint8_t dataR[PLD_S];
+uint8_t dataR[PAYLOAD_SIZE];
 
 /* USER CODE END PD */
 
@@ -146,6 +150,50 @@ int main(void) {
 
 	ce_low();
 
+	nrf24_init(); // Init SPI, internal state
+
+	nrf24_listen(); // Puts in RX mode
+
+	// Enable auto-acknowledge (needed for ack payloads!)
+	nrf24_auto_ack_all(enable); // <<<<<<<<<<<<<< IMPORTANT!
+
+	nrf24_en_ack_pld(enable);   // Enables ack payloads
+	nrf24_dpl(disable);         // Dynamic payloads disabled (unless you want to enable)
+
+	// Use 8-bit CRC
+	nrf24_set_crc(enable, _1byte);
+
+	// Power: 0dBm
+	nrf24_tx_pwr(_0dbm);
+
+	// Match Arduino: 250Kbps (but Arduino uses RF24_250KBPS = 250kbps!)
+	nrf24_data_rate(_250kbps); // <<<<<<<<<<<<<< IMPORTANT!
+
+	// Match channel 0x6E = 110
+	nrf24_set_channel(MY_CHANNEL);
+
+	// 5-byte addressing
+	nrf24_set_addr_width(5);
+
+	// No dynamic payloads on pipes
+	for (int i = 0; i < 6; i++) {
+	    nrf24_set_rx_dpl(i, disable);
+	}
+
+	// Set payload size for RX pipe 0 (only used pipe)
+	nrf24_pipe_pld_size(1, PAYLOAD_SIZE);  // Arduino uses pipe 1 for reading
+
+	// Auto retransmit
+	nrf24_auto_retr_delay(4);  // ~1500us
+	nrf24_auto_retr_limit(10); // Retry 10 times
+
+
+
+	nrf24_open_tx_pipe(tx_addr);
+	nrf24_open_rx_pipe(1, rx_addr); // Pipe 1 used in Arduino
+
+
+#if defined LIBRARY_EXAMPLE
 	nrf24_init();
 
 	nrf24_listen();
@@ -168,7 +216,7 @@ int main(void) {
 	nrf24_set_rx_dpl(4, disable);
 	nrf24_set_rx_dpl(5, disable);
 
-	nrf24_pipe_pld_size(0, PLD_S);
+	nrf24_pipe_pld_size(0, PAYLOAD_SIZE);
 
 	nrf24_auto_retr_delay(4);
 	nrf24_auto_retr_limit(10);
@@ -176,7 +224,7 @@ int main(void) {
 	nrf24_open_tx_pipe(tx_addr);
 	nrf24_open_rx_pipe(0, tx_addr);
 	ce_high();
-
+#endif
 #if defined TESTNRF
 	uint8_t test_value = 0x2A;
 	WriteReg(RF_CH, &test_value, 1);
@@ -259,18 +307,66 @@ int main(void) {
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
+	char dataR[32];  // global or local depending on your use
+
 	while (1) {
 		HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
-		HAL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
-		printf("While loop\n");
+
+	//	printf("While loop\n");
 		HAL_Delay(100);
+
 		nrf24_listen();
 
-		if (nrf24_data_available()) {
-			nrf24_receive(dataR, sizeof(dataR));
-			ST7735_WriteString(0, 0, dataR, Font_11x18, ST7735_BLACK, ST7735_YELLOW);
-			memset(dataR, 0x00, 32);
+		while  (nrf24_data_available()) {
+			HAL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
+			nrf24_receive(dataR, 1);  // receive 1 byte
+		   // nrf24_receive(dataR, 32);  // always read full payload length
+		    nrf24_flush_rx();        // flush remaining FIFO to avoid stuck buffer
+
+			// Clear both lines
+			ST7735_FillRectangle(0, 0, 160, 18, ST7735_BLACK);   // line 1
+			ST7735_FillRectangle(0, 18, 160, 18, ST7735_BLACK);  // line 2
+
+			// Display the command character (first line)
+			//char direction[2] = { dataR[0], '\0' };  // direction letter
+
+			char command = dataR[0];
+
+			int leftSpeed = (command & 0x70) >> 4;
+			int leftDir   = (command & 0x80) >> 7;
+			int rightSpeed = (command & 0x07);
+			int rightDir   = (command & 0x08) >> 3;
+
+			const char* direction = "S";  // default Stop
+
+			if (leftSpeed == 0 && rightSpeed == 0) {
+				direction = "S";  // Stop
+			} else if (leftDir == 0 && rightDir == 0) {
+				direction = "F";  // Forward
+			} else if (leftDir == 1 && rightDir == 1) {
+				direction = "B";  // Backward
+			} else if (leftDir == 1 && rightDir == 0) {
+				direction = "L";  // Turn Left
+			} else if (leftDir == 0 && rightDir == 1) {
+				direction = "R";  // Turn Right
+			}
+			ST7735_WriteString(0, 0, direction, Font_11x18, ST7735_BLACK, ST7735_YELLOW);
+
+			// Display raw hex value (second line)
+			char debugHex[8];
+			snprintf(debugHex, sizeof(debugHex), "0x%02X", (uint8_t)dataR[0]);
+			ST7735_WriteString(0, 18, debugHex, Font_11x18, ST7735_BLACK, ST7735_YELLOW);
+
+			printf(debugHex);printf("\n");
+			memset(dataR, 0x00, 32);  // optional cleanup
 		}
+//		nrf24_listen();
+//
+//		if (nrf24_data_available()) {
+//			nrf24_receive(dataR, sizeof(dataR));
+//			ST7735_WriteString(0, 0, dataR, Font_11x18, ST7735_BLACK, ST7735_YELLOW);
+//			memset(dataR, 0x00, 32);
+//		}
 
 		if (TX_DataRdy) {
 			sprintf(RxData, "Hello World!");
