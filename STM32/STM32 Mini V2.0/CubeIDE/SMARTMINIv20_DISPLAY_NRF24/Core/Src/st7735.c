@@ -226,6 +226,11 @@ void ST7735_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, u
                 continue;
             }
         }
+        if(*str == 0x00) {
+                     // skip empty in the beginning of the new line
+                     str++;
+                     continue;
+                 }
 
         ST7735_WriteChar(x, y, *str, font, color, bgcolor);
         x += font.width;
