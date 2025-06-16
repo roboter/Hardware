@@ -21,6 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
 #include <string.h>
 #include "NRF24.h"
 #include "NRF24_reg_addresses.h"
@@ -61,13 +62,49 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-#define PLD_S 32
+//#define TANK
+#if defined TANK
+#define PAYLOAD_SIZE 1
+#define MY_CHANNEL 2
+#define PIPE 1
+#endif
+#define LIBRARY_EXAMPLE
+#if defined LIBRARY_EXAMPLE
+#define PAYLOAD_SIZE 32
+#define MY_CHANNEL 90
+#define PIPE 1
+uint8_t dataT[PAYLOAD_SIZE];
+//uint8_t dataR[PAYLOAD_SIZE];
+#endif
 
-uint8_t tx_addr[5] = { 0x45, 0x55, 0x67, 0x10, 0x21 };
-
+const uint64_t deviceID = 0xE8E8F0F0E1LL;  // Define the ID for this slave
+const uint64_t transmitterId = 0x544d52687CLL;
+// Pipe and address matching
+uint8_t tx_addr[5] = { 0x7C, 0x68, 0x52, 0x4D, 0x54 }; // transmitterId in little-endian
+uint8_t rx_addr[5] = { 0xE1, 0xF0, 0xF0, 0xE8, 0xE8 }; // deviceID in little-endian
 uint16_t data = 0;
 
-uint8_t dataT[PLD_S];
+
+
+
+typedef struct {
+    uint8_t leftSpeed;
+    uint8_t leftDir;
+    uint8_t rightSpeed;
+    uint8_t rightDir;
+} DriveCommand;
+
+// Array of commands: Forward, Backward, Spin Left, Spin Right
+DriveCommand commands[] = {
+    { 7, 0, 7, 0 },  // Forward
+    { 7, 1, 7, 1 },  // Backward
+    { 7, 1, 7, 0 },  // Spin Left
+    { 7, 0, 7, 1 },  // Spin Right
+    { 0, 0, 0, 0 }   // Stop
+};
+
+#define NUM_COMMANDS (sizeof(commands) / sizeof(commands[0]))
+
 /* USER CODE END 0 */
 
 /**
@@ -102,17 +139,57 @@ int main(void) {
 	MX_SPI1_Init();
 	MX_USART1_UART_Init();
 	/* USER CODE BEGIN 2 */
+	nrf24_init(); // Init SPI, internal state
 
-	csn_high();
-	ce_high();
-
-	HAL_Delay(5);
-
-	ce_low();
-
-	nrf24_init();
-
+	//nrf24_listen(); // Puts in RX mode
 	nrf24_stop_listen();
+#if defined TANK
+	// Enable auto-acknowledge (needed for ack payloads!)
+//	nrf24_auto_ack_all(enable); // <<<<<<<<<<<<<< IMPORTANT!
+//
+//	nrf24_en_ack_pld(enable);   // Enables ack payloads
+	//3. Disable Features Until First Receive Works
+	nrf24_auto_ack_all(disable);
+	nrf24_en_ack_pld(disable);
+	nrf24_dpl(disable);         // Dynamic payloads disabled (unless you want to enable)
+
+	// Use 8-bit CRC
+	nrf24_set_crc(enable, _1byte);
+
+	// Power: 0dBm
+	nrf24_tx_pwr(_0dbm);
+
+	// Match Arduino: 250Kbps (but Arduino uses RF24_250KBPS = 250kbps!)
+	nrf24_data_rate(_250kbps); // <<<<<<<<<<<<<< IMPORTANT!
+
+	// Match channel 0x6E = 110
+	nrf24_set_channel(MY_CHANNEL);
+
+	// 5-byte addressing
+	nrf24_set_addr_width(5);
+
+	// No dynamic payloads on pipes
+	for (int i = 0; i < 6; i++) {
+	    nrf24_set_rx_dpl(i, disable);
+	}
+
+	// Set payload size for RX pipe 0 (only used pipe)
+	nrf24_pipe_pld_size(PIPE, PAYLOAD_SIZE);  // Arduino uses pipe 1 for reading
+
+	// Auto retransmit
+	nrf24_auto_retr_delay(4);  // ~1500us
+	nrf24_auto_retr_limit(10); // Retry 10 times
+
+	nrf24_open_tx_pipe(tx_addr);
+	nrf24_open_rx_pipe(PIPE, tx_addr);
+
+
+//	nrf24_dpl(disable);
+#endif
+
+
+#if defined LIBRARY_EXAMPLE
+
 
 	nrf24_auto_ack_all(auto_ack);
 	nrf24_en_ack_pld(disable);
@@ -122,7 +199,7 @@ int main(void) {
 
 	nrf24_tx_pwr(_0dbm);
 	nrf24_data_rate(_1mbps);
-	nrf24_set_channel(90);
+	nrf24_set_channel(MY_CHANNEL);
 	nrf24_set_addr_width(5);
 
 	nrf24_set_rx_dpl(0, disable);
@@ -132,24 +209,56 @@ int main(void) {
 	nrf24_set_rx_dpl(4, disable);
 	nrf24_set_rx_dpl(5, disable);
 
-	nrf24_pipe_pld_size(0, PLD_S);
+	nrf24_pipe_pld_size(PIPE, PAYLOAD_SIZE);
 
 	nrf24_auto_retr_delay(4);
 	nrf24_auto_retr_limit(10);
 
 	nrf24_open_tx_pipe(tx_addr);
-	nrf24_open_rx_pipe(0, tx_addr);
-	ce_high();
+	nrf24_open_rx_pipe(PIPE, tx_addr);
 	uint32_t count = 0;
+#endif
+
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
+	static int index = 0;
 	while (1) {
+#if defined LIBRARY_EXAMPLE
 		sprintf(dataT, "%d Hello!", count++);
 		uint8_t val = nrf24_transmit(dataT, sizeof(dataT));
-		printf(val);
-		HAL_Delay(500);
+//		printf(val);
+#endif
+
+//		uint8_t cmd = 0;
+//
+//		DriveCommand c = commands[index];
+//		cmd = (c.leftDir << 7) |
+//			  ((c.leftSpeed & 0x07) << 4) |
+//			  (c.rightDir << 3) |
+//			  (c.rightSpeed & 0x07);
+//
+//		nrf24_transmit(&cmd, 1);
+//		printf("Sent[%d]: 0x%02X\n", index, cmd);
+//
+//		index = (index + 1) % NUM_COMMANDS;
+#if defined TANK
+		uint8_t cmd = 0;
+
+		DriveCommand c = commands[index];
+		cmd = (c.leftDir << 7) |
+			  ((c.leftSpeed & 0x07) << 4) |
+			  (c.rightDir << 3) |
+			  (c.rightSpeed & 0x07);
+
+		nrf24_transmit(&cmd, 1);
+		printf("Sent[%d]: 0x%02X\n", index, cmd);
+
+		index = (index + 1) % NUM_COMMANDS;
+#endif
+		HAL_Delay(1000);
+
 		HAL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
 		/* USER CODE END WHILE */
 
