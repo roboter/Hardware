@@ -62,14 +62,13 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-//#define TANK
-#define LIBRARY_EXAMPLE
+#define TANK
+//#define LIBRARY_EXAMPLE
 #define MY_CHANNEL 0x6E // radio.setChannel(2);
 #define PIPE 1
 #if defined TANK
 #define PAYLOAD_SIZE 4 //  radio.setPayloadSize(4);
-#endif
-#if defined LIBRARY_EXAMPLE
+#else
 #define PAYLOAD_SIZE 32
 //uint8_t dataR[PAYLOAD_SIZE];
 #endif
@@ -175,37 +174,23 @@ int main(void) {
 	/* USER CODE BEGIN WHILE */
 	static int index = 0;
 	while (1) {
-#if defined LIBRARY_EXAMPLE
-		sprintf(dataT, "%d WTF!", count++);
-		uint8_t result = nrf24_transmit(dataT, sizeof(dataT));
-		printf("Sent: %s, result = %d\r\n", dataT, result);
-#endif
 
-//		uint8_t cmd = 0;
-//
-//		DriveCommand c = commands[index];
-//		cmd = (c.leftDir << 7) |
-//			  ((c.leftSpeed & 0x07) << 4) |
-//			  (c.rightDir << 3) |
-//			  (c.rightSpeed & 0x07);
-//
-//		nrf24_transmit(&cmd, 1);
-//		printf("Sent[%d]: 0x%02X\n", index, cmd);
-//
-//		index = (index + 1) % NUM_COMMANDS;
 #if defined TANK
 		uint8_t cmd = 0;
 
 		DriveCommand c = commands[index];
-		cmd = (c.leftDir << 7) |
-			  ((c.leftSpeed & 0x07) << 4) |
-			  (c.rightDir << 3) |
-			  (c.rightSpeed & 0x07);
+		cmd = (c.leftDir << 7) | ((c.leftSpeed & 0x07) << 4) | (c.rightDir << 3)
+				| (c.rightSpeed & 0x07);
 
 		nrf24_transmit(&cmd, 1);
 		printf("Sent[%d]: 0x%02X\n", index, cmd);
 
 		index = (index + 1) % NUM_COMMANDS;
+#else
+		sprintf(dataT, "%d WTF!", count++);
+		uint8_t result = nrf24_transmit(dataT, sizeof(dataT));
+		printf("Sent: %s, result = %d\r\n", dataT, result);
+
 #endif
 		HAL_Delay(1000);
 
