@@ -64,18 +64,17 @@ static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN 0 */
 //#define TANK
 #define LIBRARY_EXAMPLE
+#define MY_CHANNEL 0x6E // radio.setChannel(2);
 #define PIPE 1
 #if defined TANK
 #define PAYLOAD_SIZE 4 //  radio.setPayloadSize(4);
-#define MY_CHANNEL 2 // radio.setChannel(2);
-
 #endif
 #if defined LIBRARY_EXAMPLE
 #define PAYLOAD_SIZE 32
-#define MY_CHANNEL 2
-uint8_t dataT[PAYLOAD_SIZE];
 //uint8_t dataR[PAYLOAD_SIZE];
 #endif
+uint8_t dataT[PAYLOAD_SIZE];
+
 // arduino const uint64_t pipe = 0xE8E8F0F0E1LL; // Определяем адрес рабочей трубы;
 //const uint64_t deviceID = 0xE8E8F0F0E1LL;  // Define the ID for this slave
 //const uint64_t transmitterId = 0x544d52687CLL;
@@ -85,19 +84,18 @@ uint8_t rx_addr[5] = { 0xE1, 0xF0, 0xF0, 0xE8, 0xE8 }; // deviceID in little-end
 uint16_t data = 0;
 
 typedef struct {
-    uint8_t leftSpeed;
-    uint8_t leftDir;
-    uint8_t rightSpeed;
-    uint8_t rightDir;
+	uint8_t leftSpeed;
+	uint8_t leftDir;
+	uint8_t rightSpeed;
+	uint8_t rightDir;
 } DriveCommand;
 
 // Array of commands: Forward, Backward, Spin Left, Spin Right
-DriveCommand commands[] = {
-    { 7, 0, 7, 0 },  // Forward
-    { 7, 1, 7, 1 },  // Backward
-    { 7, 1, 7, 0 },  // Spin Left
-    { 7, 0, 7, 1 },  // Spin Right
-    { 0, 0, 0, 0 }   // Stop
+DriveCommand commands[] = { { 7, 0, 7, 0 },  // Forward
+		{ 7, 1, 7, 1 },  // Backward
+		{ 7, 1, 7, 0 },  // Spin Left
+		{ 7, 0, 7, 1 },  // Spin Right
+		{ 0, 0, 0, 0 }   // Stop
 };
 
 #define NUM_COMMANDS (sizeof(commands) / sizeof(commands[0]))
@@ -140,46 +138,28 @@ int main(void) {
 
 	//nrf24_listen(); // Puts in RX mode
 	nrf24_stop_listen();
-#if defined TANK
 	nrf24_auto_ack_all(disable);
-	nrf24_en_ack_pld(disable);
-	nrf24_dpl(disable);         // Dynamic payloads disabled (unless you want to enable)
-
-	// Use 8-bit CRC
-	nrf24_set_crc(enable, _1byte);
-
-	// Power: 0dBm
-	nrf24_tx_pwr(_0dbm);
-
-	// Match Arduino: 250Kbps (but Arduino uses RF24_250KBPS = 250kbps!)
-	nrf24_data_rate(_250kbps); // <<<<<<<<<<<<<< IMPORTANT!
-
-	// Match channel 0x6E = 110
-	nrf24_set_channel(MY_CHANNEL);
-
-	// 5-byte addressing
-	nrf24_set_addr_width(5);
-#endif
-
-
-#if defined LIBRARY_EXAMPLE
-	nrf24_auto_ack_all(auto_ack);
 	nrf24_en_ack_pld(disable);
 	nrf24_dpl(disable);
 
 	nrf24_set_crc(no_crc, _1byte);
 
 	nrf24_tx_pwr(_0dbm);
+
+#if defined TANK
+	// Match Arduino: 250Kbps (but Arduino uses RF24_250KBPS = 250kbps!)
+	nrf24_data_rate(_250kbps); // <<<<<<<<<<<<<< IMPORTANT!
+#else
 	nrf24_data_rate(_1mbps);
-	nrf24_set_channel(MY_CHANNEL);
-	nrf24_set_addr_width(5);
 
 	uint32_t count = 0;
 #endif
+	nrf24_set_channel(MY_CHANNEL);
+	nrf24_set_addr_width(5);
 
 	// No dynamic payloads on pipes
 	for (int i = 0; i < 6; i++) {
-	    nrf24_set_rx_dpl(i, disable);
+		nrf24_set_rx_dpl(i, disable);
 	}
 
 	nrf24_pipe_pld_size(PIPE, PAYLOAD_SIZE);
@@ -196,9 +176,9 @@ int main(void) {
 	static int index = 0;
 	while (1) {
 #if defined LIBRARY_EXAMPLE
-		sprintf(dataT, "%d Hello!", count++);
-		uint8_t val = nrf24_transmit(dataT, sizeof(dataT));
-//		printf(val);
+		sprintf(dataT, "%d WTF!", count++);
+		uint8_t result = nrf24_transmit(dataT, sizeof(dataT));
+		printf("Sent: %s, result = %d\r\n", dataT, result);
 #endif
 
 //		uint8_t cmd = 0;

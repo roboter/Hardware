@@ -448,28 +448,34 @@ size_t nrf24_uint8_t_to_type(uint8_t* in, uint16_t size){
 }
 
 
-uint8_t nrf24_transmit(uint8_t *data, uint8_t size){
+uint8_t nrf24_transmit(uint8_t *data, uint8_t size) {
+    ce_low();
 
-	ce_low();
+    uint8_t cmd = W_TX_PAYLOAD;
 
-	uint8_t cmd = W_TX_PAYLOAD;
+    csn_low();
+    HAL_SPI_Transmit(&hspiX, &cmd, 1, spi_w_timeout);
+    HAL_SPI_Transmit(&hspiX, data, size, spi_w_timeout);
+    csn_high();
 
-	csn_low();
-	HAL_SPI_Transmit(&hspiX, &cmd, 1, spi_w_timeout);
-	HAL_SPI_Transmit(&hspiX, data, size, spi_w_timeout);
-	csn_high();
+    ce_high();
+    HAL_Delay(1);  // allow time for TX to happen
+    ce_low();
 
-	ce_high();
-	HAL_Delay(1);
-	ce_low();
+    uint8_t status = nrf24_r_status();
 
-	if(nrf24_r_status() & (1 << MAX_RT)){
-		nrf24_clear_max_rt();
-		nrf24_flush_tx();
-		return 1;
-	}
+    if (status & (1 << MAX_RT)) {
+        nrf24_clear_max_rt();
+        nrf24_flush_tx();
+        return 0;  // ❌ transmission failed
+    }
 
-	return 0;
+    if (status & (1 << TX_DS)) {
+        nrf24_clear_tx_ds();
+        return 1;  // ✅ transmission successful
+    }
+
+    return 0;  // fallback: transmission failed
 }
 
 void nrf24_transmit_no_ack(uint8_t *data, uint8_t size){
