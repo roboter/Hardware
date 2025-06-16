@@ -42,7 +42,7 @@
 #define MY_CHANNEL 0x6E
 
 #if defined TANK
-#define PAYLOAD_SIZE 1 // it is 4 in arduino code
+#define PAYLOAD_SIZE 1 // it is 4 in arduino code and on sender
 #else
 #define PAYLOAD_SIZE 32
 #endif
@@ -52,9 +52,6 @@
 //+--------------------------------------------------------------------+
 //| leftDir |<------ leftSpeed ---->| rightDir | <--- rightSpeed --->  |
 //+--------------------------------------------------------------------+
-//#define MY_CHANNEL 0x02 // TANK
-
-//uint8_t tx_addr[5] = { 0x45, 0x55, 0x67, 0x10, 0x21 };
 
 const uint64_t deviceID = 0xE8E8F0F0E1LL;  // Define the ID for this slave
 const uint64_t transmitterId = 0x544d52687CLL;
@@ -197,18 +194,34 @@ int main(void) {
 	nrf24_init();
 
 	nrf24_listen();
+
+	nrf24_tx_pwr(_0dbm); //	  radio.setPALevel(RF24_PA_MAX);
+
+	nrf24_data_rate(_1mbps);
+#if defined TANK
+
+//	  radio.openWritingPipe(transmitterId);
+//	  radio.openReadingPipe(1, deviceID);
+
+	//	  radio.enableAckPayload();
+//	nrf24_auto_ack_all(enable);
+//
+//	nrf24_en_ack_pld(enable);
+//	nrf24_transmit_rx_ack_pld(1, ackData, ackLen);
+//	nrf24_en_ack_pld(disable);
+//	nrf24_dpl(disable);
+
+//	  radio.writeAckPayload(1, ackData, ackLen);
+	nrf24_data_rate(_250kbps); //	  radio.setDataRate(RF24_250KBPS);
+
+	nrf24_set_crc(en_crc, _1byte); //	  radio.setCRCLength(RF24_CRC_8);  // Use 8-bit CRC for performance
+#else
 	nrf24_auto_ack_all(disable);
 	nrf24_en_ack_pld(disable);
 	nrf24_dpl(disable);
 
+	nrf24_data_rate(_1mbps);
 	nrf24_set_crc(no_crc, _1byte);
-
-	nrf24_tx_pwr(_0dbm);
-	nrf24_data_rate(_1mbps);
-#if defined TANK
-	nrf24_data_rate(_250kbps);
-#else
-	nrf24_data_rate(_1mbps);
 #endif
 
 	nrf24_set_channel(MY_CHANNEL);
