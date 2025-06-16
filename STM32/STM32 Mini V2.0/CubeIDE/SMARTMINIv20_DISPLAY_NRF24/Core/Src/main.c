@@ -36,7 +36,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-//#define TANK
+#define TANK
 
 #define PIPE 1
 #define MY_CHANNEL 0x6E
@@ -47,7 +47,11 @@
 #define PAYLOAD_SIZE 32
 #endif
 
-
+//+---------+-------+-------+-------+----------+-------+-------+-------+
+//|  Bit 7  | Bit 6 | Bit 5 | Bit 4 |  Bit 3   | Bit 2 | Bit 1 | Bit 0 |
+//+--------------------------------------------------------------------+
+//| leftDir |<------ leftSpeed ---->| rightDir | <--- rightSpeed --->  |
+//+--------------------------------------------------------------------+
 //#define MY_CHANNEL 0x02 // TANK
 
 //uint8_t tx_addr[5] = { 0x45, 0x55, 0x67, 0x10, 0x21 };
@@ -201,6 +205,12 @@ int main(void) {
 
 	nrf24_tx_pwr(_0dbm);
 	nrf24_data_rate(_1mbps);
+#if defined TANK
+	nrf24_data_rate(_250kbps);
+#else
+	nrf24_data_rate(_1mbps);
+#endif
+
 	nrf24_set_channel(MY_CHANNEL);
 	nrf24_set_addr_width(5);
 
@@ -314,7 +324,7 @@ int main(void) {
 		while (nrf24_data_available()) {
 			HAL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
 
-			nrf24_receive(dataR, 32);  // receive 1 byte
+			nrf24_receive(dataR, PAYLOAD_SIZE);  // receive 1 byte
 			// nrf24_receive(dataR, 32);  // always read full payload length
 			nrf24_flush_rx();      // flush remaining FIFO to avoid stuck buffer
 
