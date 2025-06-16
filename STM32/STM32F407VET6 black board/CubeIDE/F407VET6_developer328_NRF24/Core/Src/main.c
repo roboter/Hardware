@@ -63,29 +63,26 @@ static void MX_USART1_UART_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 //#define TANK
-#if defined TANK
-#define PAYLOAD_SIZE 1
-#define MY_CHANNEL 2
-#define PIPE 1
-#endif
 #define LIBRARY_EXAMPLE
+#define PIPE 1
+#if defined TANK
+#define PAYLOAD_SIZE 4 //  radio.setPayloadSize(4);
+#define MY_CHANNEL 2 // radio.setChannel(2);
+
+#endif
 #if defined LIBRARY_EXAMPLE
 #define PAYLOAD_SIZE 32
-#define MY_CHANNEL 90
-#define PIPE 1
+#define MY_CHANNEL 2
 uint8_t dataT[PAYLOAD_SIZE];
 //uint8_t dataR[PAYLOAD_SIZE];
 #endif
-
-const uint64_t deviceID = 0xE8E8F0F0E1LL;  // Define the ID for this slave
-const uint64_t transmitterId = 0x544d52687CLL;
+// arduino const uint64_t pipe = 0xE8E8F0F0E1LL; // Определяем адрес рабочей трубы;
+//const uint64_t deviceID = 0xE8E8F0F0E1LL;  // Define the ID for this slave
+//const uint64_t transmitterId = 0x544d52687CLL;
 // Pipe and address matching
 uint8_t tx_addr[5] = { 0x7C, 0x68, 0x52, 0x4D, 0x54 }; // transmitterId in little-endian
 uint8_t rx_addr[5] = { 0xE1, 0xF0, 0xF0, 0xE8, 0xE8 }; // deviceID in little-endian
 uint16_t data = 0;
-
-
-
 
 typedef struct {
     uint8_t leftSpeed;
@@ -144,11 +141,6 @@ int main(void) {
 	//nrf24_listen(); // Puts in RX mode
 	nrf24_stop_listen();
 #if defined TANK
-	// Enable auto-acknowledge (needed for ack payloads!)
-//	nrf24_auto_ack_all(enable); // <<<<<<<<<<<<<< IMPORTANT!
-//
-//	nrf24_en_ack_pld(enable);   // Enables ack payloads
-	//3. Disable Features Until First Receive Works
 	nrf24_auto_ack_all(disable);
 	nrf24_en_ack_pld(disable);
 	nrf24_dpl(disable);         // Dynamic payloads disabled (unless you want to enable)
@@ -167,30 +159,10 @@ int main(void) {
 
 	// 5-byte addressing
 	nrf24_set_addr_width(5);
-
-	// No dynamic payloads on pipes
-	for (int i = 0; i < 6; i++) {
-	    nrf24_set_rx_dpl(i, disable);
-	}
-
-	// Set payload size for RX pipe 0 (only used pipe)
-	nrf24_pipe_pld_size(PIPE, PAYLOAD_SIZE);  // Arduino uses pipe 1 for reading
-
-	// Auto retransmit
-	nrf24_auto_retr_delay(4);  // ~1500us
-	nrf24_auto_retr_limit(10); // Retry 10 times
-
-	nrf24_open_tx_pipe(tx_addr);
-	nrf24_open_rx_pipe(PIPE, tx_addr);
-
-
-//	nrf24_dpl(disable);
 #endif
 
 
 #if defined LIBRARY_EXAMPLE
-
-
 	nrf24_auto_ack_all(auto_ack);
 	nrf24_en_ack_pld(disable);
 	nrf24_dpl(disable);
@@ -202,12 +174,13 @@ int main(void) {
 	nrf24_set_channel(MY_CHANNEL);
 	nrf24_set_addr_width(5);
 
-	nrf24_set_rx_dpl(0, disable);
-	nrf24_set_rx_dpl(1, disable);
-	nrf24_set_rx_dpl(2, disable);
-	nrf24_set_rx_dpl(3, disable);
-	nrf24_set_rx_dpl(4, disable);
-	nrf24_set_rx_dpl(5, disable);
+	uint32_t count = 0;
+#endif
+
+	// No dynamic payloads on pipes
+	for (int i = 0; i < 6; i++) {
+	    nrf24_set_rx_dpl(i, disable);
+	}
 
 	nrf24_pipe_pld_size(PIPE, PAYLOAD_SIZE);
 
@@ -216,9 +189,6 @@ int main(void) {
 
 	nrf24_open_tx_pipe(tx_addr);
 	nrf24_open_rx_pipe(PIPE, tx_addr);
-	uint32_t count = 0;
-#endif
-
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
