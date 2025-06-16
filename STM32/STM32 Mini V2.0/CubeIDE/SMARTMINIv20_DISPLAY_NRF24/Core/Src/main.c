@@ -37,16 +37,16 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 //#define TANK
-#define LIBRARY_EXAMPLE
+
 #define PIPE 1
-#if defined LIBRARY_EXAMPLE
-#define PAYLOAD_SIZE 32
-#define MY_CHANNEL 2
-#endif
+#define MY_CHANNEL 0x6E
+
 #if defined TANK
 #define PAYLOAD_SIZE 1 // it is 4 in arduino code
-#define MY_CHANNEL 2
+#else
+#define PAYLOAD_SIZE 32
 #endif
+
 
 //#define MY_CHANNEL 0x02 // TANK
 
@@ -193,34 +193,7 @@ int main(void) {
 	nrf24_init();
 
 	nrf24_listen();
-#if defined TANK
-
-
-	// Enable auto-acknowledge (needed for ack payloads!)
-//	nrf24_auto_ack_all(enable); // <<<<<<<<<<<<<< IMPORTANT!
-//
-//	nrf24_en_ack_pld(enable);   // Enables ack payloads
-	nrf24_auto_ack_all(auto_ack); // <<<<<<<<<<<<<< IMPORTANT!
-
-	nrf24_en_ack_pld(disable);   // Enables ack payloads
-	nrf24_dpl(disable); // Dynamic payloads disabled (unless you want to enable)
-
-	// Use 8-bit CRC
-	///nrf24_set_crc(enable, _1byte);
-	nrf24_set_crc(no_crc, _1byte);
-
-	nrf24_tx_pwr(_0dbm);
-	nrf24_data_rate(_1mbps);
-	nrf24_set_channel(MY_CHANNEL);
-	nrf24_set_addr_width(5);
-
-	// Match channel 0x6E = 110
-//	nrf24_set_channel(MY_CHANNEL);
-
-
-#endif
-#if defined LIBRARY_EXAMPLE
-	nrf24_auto_ack_all(auto_ack);
+	nrf24_auto_ack_all(disable);
 	nrf24_en_ack_pld(disable);
 	nrf24_dpl(disable);
 
@@ -231,7 +204,6 @@ int main(void) {
 	nrf24_set_channel(MY_CHANNEL);
 	nrf24_set_addr_width(5);
 
-#endif
 	// No dynamic payloads on pipes
 	for (int i = 0; i < 6; i++) {
 		nrf24_set_rx_dpl(i, disable);
@@ -342,7 +314,7 @@ int main(void) {
 		while (nrf24_data_available()) {
 			HAL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
 
-			nrf24_receive(dataR, 1);  // receive 1 byte
+			nrf24_receive(dataR, 32);  // receive 1 byte
 			// nrf24_receive(dataR, 32);  // always read full payload length
 			nrf24_flush_rx();      // flush remaining FIFO to avoid stuck buffer
 
