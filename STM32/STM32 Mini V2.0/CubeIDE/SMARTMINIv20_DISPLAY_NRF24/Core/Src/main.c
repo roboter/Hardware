@@ -38,16 +38,14 @@
 /* USER CODE BEGIN PD */
 //#define TANK
 #define LIBRARY_EXAMPLE
-
+#define PIPE 1
 #if defined LIBRARY_EXAMPLE
 #define PAYLOAD_SIZE 32
-#define MY_CHANNEL 90
-#define PIPE 1
+#define MY_CHANNEL 2
 #endif
 #if defined TANK
 #define PAYLOAD_SIZE 1 // it is 4 in arduino code
 #define MY_CHANNEL 2
-#define PIPE 1
 #endif
 
 //#define MY_CHANNEL 0x02 // TANK
@@ -118,6 +116,42 @@ void Delay_us(uint16_t us) {
 		;
 }
 
+uint8_t noise_level[126] = { 0 };
+
+bool nrf24_test_rpd() {
+	uint8_t rpd = nrf24_r_reg(RPD, 1);
+	return (rpd & 0x01) != 0;
+}
+
+void nrf24_scan_noise(void) {
+	const int samples_per_channel = 100;
+
+	printf("Scanning noise on channels 0–125 (%d samples each)...\r\n",
+			samples_per_channel);
+
+	for (uint8_t ch = 0; ch <= 125; ch++) {
+		noise_level[ch] = 0;
+		nrf24_set_channel(ch);
+
+		for (int i = 0; i < samples_per_channel; i++) {
+			nrf24_pwr_up();
+			HAL_Delay(1); // 1 ms per sample
+			if (nrf24_test_rpd()) {
+				noise_level[ch]++;
+			}
+			nrf24_pwr_dwn();
+		}
+
+		// Show mini-bar chart
+		printf("CH %3d [%3d]: ", ch, noise_level[ch]);
+		int bars = noise_level[ch] / 5;  // max 20 bars for 100 samples
+		for (int j = 0; j < bars; j++)
+			printf("|");
+		printf("\r\n");
+	}
+
+	printf("Done scanning.\r\n");
+}
 /* USER CODE END 0 */
 
 /**
@@ -183,14 +217,6 @@ int main(void) {
 	// Match channel 0x6E = 110
 //	nrf24_set_channel(MY_CHANNEL);
 
-	// No dynamic payloads on pipes
-	for (int i = 0; i < 6; i++) {
-		nrf24_set_rx_dpl(i, disable);
-	}
-
-	// Set payload size for RX pipe 0 (only used pipe)
-	nrf24_pipe_pld_size(PIPE, PAYLOAD_SIZE);  // Arduino uses pipe 1 for reading
-
 
 #endif
 #if defined LIBRARY_EXAMPLE
@@ -205,16 +231,15 @@ int main(void) {
 	nrf24_set_channel(MY_CHANNEL);
 	nrf24_set_addr_width(5);
 
-	nrf24_set_rx_dpl(0, disable);
-	nrf24_set_rx_dpl(1, disable);
-	nrf24_set_rx_dpl(2, disable);
-	nrf24_set_rx_dpl(3, disable);
-	nrf24_set_rx_dpl(4, disable);
-	nrf24_set_rx_dpl(5, disable);
-
-	nrf24_pipe_pld_size(PIPE, PAYLOAD_SIZE);
-
 #endif
+	// No dynamic payloads on pipes
+	for (int i = 0; i < 6; i++) {
+		nrf24_set_rx_dpl(i, disable);
+	}
+
+	// Set payload size for RX pipe 0 (only used pipe)
+	nrf24_pipe_pld_size(PIPE, PAYLOAD_SIZE);  // Arduino uses pipe 1 for reading
+
 	// Auto retransmit
 	nrf24_auto_retr_delay(4);  // ~1500us
 	nrf24_auto_retr_limit(10); // Retry 10 times
@@ -300,7 +325,7 @@ int main(void) {
 #endif
 	HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
-
+//	nrf24_scan_noise();
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
