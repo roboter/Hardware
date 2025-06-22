@@ -64,8 +64,8 @@ all: main-build
 main-build: STM32MINI_dsoldevila_CC1101.elf secondary-outputs
 
 # Tool invocations
-STM32MINI_dsoldevila_CC1101.elf STM32MINI_dsoldevila_CC1101.map: $(OBJS) $(USER_OBJS) /Users/aleksei/STM32CubeIDE/workspace_1.16.0/STM32MINI_dsoldevila_CC1101/STM32F103RCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "STM32MINI_dsoldevila_CC1101.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/Users/aleksei/STM32CubeIDE/workspace_1.16.0/STM32MINI_dsoldevila_CC1101/STM32F103RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32MINI_dsoldevila_CC1101.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+STM32MINI_dsoldevila_CC1101.elf STM32MINI_dsoldevila_CC1101.map: $(OBJS) $(USER_OBJS) /Users/aleksei/Projects/HARDWARE/Hardware/STM32/STM32\ Mini\ V2.0/CubeIDE/STM32MINI_dsoldevila_CC1101/STM32F103RCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "STM32MINI_dsoldevila_CC1101.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/Users/aleksei/Projects/HARDWARE/Hardware/STM32/STM32 Mini V2.0/CubeIDE/STM32MINI_dsoldevila_CC1101/STM32F103RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32MINI_dsoldevila_CC1101.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

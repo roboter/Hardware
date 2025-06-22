@@ -29,7 +29,10 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+// Recommended timeout values (in milliseconds)
+#define spi_w_timeout 100  // Write timeout
+#define spi_r_timeout 100  // Read timeout
+#define spi_rw_timeout 100 // TransmitReceive timeout
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -67,7 +70,7 @@ static void MX_USART1_UART_Init(void);
 #define MY_CHANNEL 0x6E // radio.setChannel(2);
 #define PIPE 1
 #if defined TANK
-#define PAYLOAD_SIZE 4 //  radio.setPayloadSize(4);
+#define PAYLOAD_SIZE 1 //  radio.setPayloadSize(4);
 #else
 #define PAYLOAD_SIZE 32
 //uint8_t dataR[PAYLOAD_SIZE];
@@ -99,6 +102,74 @@ DriveCommand commands[] = { { 7, 0, 7, 0 },  // Forward
 
 #define NUM_COMMANDS (sizeof(commands) / sizeof(commands[0]))
 
+uint8_t send_command_and_receive_ack(uint8_t cmd) {
+    uint8_t tx_data[1] = {cmd};
+    uint8_t ack_data[2] = {0};
+    uint8_t status = 0;
+
+    // 1. Ensure clean state
+    nrf24_flush_tx();
+    nrf24_flush_rx();
+    nrf24_clear_max_rt();
+    nrf24_clear_tx_ds();
+
+    // 2. Send the command
+    nrf24_stop_listen();
+    csn_low();
+    uint8_t cmd_w = W_TX_PAYLOAD;
+    HAL_SPI_Transmit(&hspi1, &cmd_w, 1, spi_w_timeout);
+    HAL_SPI_Transmit(&hspi1, tx_data, 1, spi_w_timeout);
+    csn_high();
+
+    // 3. Pulse CE for transmission
+    ce_high();
+    HAL_Delay(1);  // Critical - minimum 10μs pulse
+    ce_low();
+
+    // 4. Wait for transmission completion
+    uint32_t timeout = HAL_GetTick();
+    do {
+        status = nrf24_r_status();
+        if(HAL_GetTick() - timeout > 100) { // 100ms timeout
+            printf("Timeout!\r\n");
+            return 0;
+        }
+    } while(!(status & ((1<<TX_DS) | (1<<MAX_RT))));
+
+    // 5. Check result
+    if(status & (1<<MAX_RT)) {
+        printf("Max retries reached\r\n");
+        nrf24_clear_max_rt();
+        return 0;
+    }
+
+    // 6. Switch to RX mode for ACK payload
+    nrf24_listen();
+    timeout = HAL_GetTick();
+    while(!nrf24_data_available()) {
+        if(HAL_GetTick() - timeout > 10) { // Shorter 10ms timeout for ACK
+            printf("No ACK payload\r\n");
+            nrf24_stop_listen();
+            return 0;
+        }
+    }
+
+    // 7. Read ACK payload
+    csn_low();
+    uint8_t cmd_r = R_RX_PAYLOAD;
+    HAL_SPI_Transmit(&hspi1, &cmd_r, 1, spi_w_timeout);
+    HAL_SPI_Receive(&hspi1, ack_data, 2, spi_r_timeout);
+    csn_high();
+
+    nrf24_clear_rx_dr();
+    nrf24_stop_listen();
+
+    // 8. Verify ACK
+    if(ack_data[0] == 0x00 && ack_data[1] == 0x12) {
+        return 1;
+    }
+    return 0;
+}
 /* USER CODE END 0 */
 
 /**
@@ -132,24 +203,28 @@ int main(void) {
 	MX_GPIO_Init();
 	MX_SPI1_Init();
 	MX_USART1_UART_Init();
-	/* USER CODE BEGIN 2 */
 	nrf24_init(); // Init SPI, internal state
+	nrf24_stop_listen(); // Start in TX mode
 
-	//nrf24_listen(); // Puts in RX mode
-	nrf24_stop_listen();
-	nrf24_auto_ack_all(disable);
-	nrf24_en_ack_pld(disable);
-	nrf24_dpl(disable);
-
-	nrf24_set_crc(no_crc, _1byte);
-
-	nrf24_tx_pwr(_0dbm);
+	nrf24_dpl(disable); // Disable dynamic payload length
+	nrf24_tx_pwr(_0dbm); // Set TX power to max
 
 #if defined TANK
-	// Match Arduino: 250Kbps (but Arduino uses RF24_250KBPS = 250kbps!)
-	nrf24_data_rate(_250kbps); // <<<<<<<<<<<<<< IMPORTANT!
+	// Communication parameters
+	nrf24_data_rate(_250kbps); // Match Arduino side
+	nrf24_set_crc(en_crc, _1byte); // Enable CRC
+
+	// ACK configuration
+	nrf24_auto_ack_all(enable); // Enable auto-ack on all pipes
+	nrf24_en_ack_pld(enable); // Enable ACK payloads
+
+	// Pipe configuration
+	nrf24_pipe_pld_size(PIPE, 2); // For receiving 2-byte ACK payloads
 #else
+	nrf24_auto_ack_all(disable);
+	nrf24_en_ack_pld(disable);
 	nrf24_data_rate(_1mbps);
+	nrf24_set_crc(no_crc, _1byte);
 
 	uint32_t count = 0;
 #endif
@@ -176,16 +251,21 @@ int main(void) {
 	while (1) {
 
 #if defined TANK
-		uint8_t cmd = 0;
-
 		DriveCommand c = commands[index];
-		cmd = (c.leftDir << 7) | ((c.leftSpeed & 0x07) << 4) | (c.rightDir << 3)
-				| (c.rightSpeed & 0x07);
+		uint8_t cmd = (c.leftDir << 7) | ((c.leftSpeed & 0x07) << 4)
+				| (c.rightDir << 3) | (c.rightSpeed & 0x07);
 
-		nrf24_transmit(&cmd, 1);
+		// Send command and handle ACK
+		if (!send_command_and_receive_ack(cmd)) {
+			// Handle transmission failure (retry, etc.)
+			HAL_Delay(10); // Small delay before retry
+			continue;
+		}
+
 		printf("Sent[%d]: 0x%02X\n", index, cmd);
 
-		index = (index + 1) % NUM_COMMANDS;
+		// Move to next command with wrap-around
+		index = (index + 1) % (sizeof(commands) / sizeof(commands[0]));
 #else
 		sprintf(dataT, "%d WTF!", count++);
 		uint8_t result = nrf24_transmit(dataT, sizeof(dataT));
