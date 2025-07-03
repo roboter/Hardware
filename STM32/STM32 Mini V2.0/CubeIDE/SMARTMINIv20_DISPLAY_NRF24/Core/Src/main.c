@@ -31,6 +31,9 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+#define spi_w_timeout 50  // 50ms for write operations
+#define spi_r_timeout 50  // 50ms for read operations
+#define spi_rw_timeout 100 // 100ms for full duplex
 
 /* USER CODE END PTD */
 
@@ -83,6 +86,11 @@ UART_HandleTypeDef huart1;
 bool TX_DataRdy = false;
 uint8_t RxData[32] = { 0x00 };
 uint8_t rxcount = 0, rxBuf = { 0x00 };
+
+uint8_t ack_payload[2] = { 12, 0 };
+
+uint8_t *ack_bytes = (uint8_t*) ack_payload;
+uint8_t ack_len = sizeof(ack_payload);
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -197,32 +205,23 @@ int main(void) {
 
 	nrf24_tx_pwr(_0dbm); //	  radio.setPALevel(RF24_PA_MAX);
 
-	nrf24_data_rate(_1mbps);
 #if defined TANK
+	// Communication parameters
+	nrf24_data_rate(_250kbps);  // Must match transmitter
+	nrf24_set_crc(en_crc, _1byte);
 
-//	  radio.openWritingPipe(transmitterId);
-//	  radio.openReadingPipe(1, deviceID);
-
-	//	  radio.enableAckPayload();
-//	nrf24_auto_ack_all(enable);
-//
-//	nrf24_en_ack_pld(enable);
-//	nrf24_transmit_rx_ack_pld(1, ackData, ackLen);
-//	nrf24_en_ack_pld(disable);
-//	nrf24_dpl(disable);
-
-//	  radio.writeAckPayload(1, ackData, ackLen);
-	nrf24_data_rate(_250kbps); //	  radio.setDataRate(RF24_250KBPS);
-
-	nrf24_set_crc(en_crc, _1byte); //	  radio.setCRCLength(RF24_CRC_8);  // Use 8-bit CRC for performance
+	// ACK configuration
+	nrf24_auto_ack(PIPE, enable);  // Enable auto-ack for pipe 1
+	nrf24_en_ack_pld(enable);      // Enable ACK payloads
 #else
 	nrf24_auto_ack_all(disable);
-	nrf24_en_ack_pld(disable);
-	nrf24_dpl(disable);
 
+
+	nrf24_en_ack_pld(disable);
 	nrf24_data_rate(_1mbps);
 	nrf24_set_crc(no_crc, _1byte);
 #endif
+	nrf24_dpl(disable);
 
 	nrf24_set_channel(MY_CHANNEL);
 	nrf24_set_addr_width(5);
@@ -261,63 +260,7 @@ int main(void) {
 	ST7735_FillScreen(ST7735_BLACK);
 	ST7735_WriteString(0, 0, "OK", Font_7x10,
 	ST7735_RED, ST7735_BLACK);
-#if defined TEST_DISPLAY
-	for (int x = 0; x < ST7735_WIDTH; x++) {
-		ST7735_DrawPixel(x, 0, ST7735_RED);
-		ST7735_DrawPixel(x, ST7735_HEIGHT - 1, ST7735_RED);
-	}
 
-	for (int y = 0; y < ST7735_HEIGHT; y++) {
-		ST7735_DrawPixel(0, y, ST7735_RED);
-		ST7735_DrawPixel(ST7735_WIDTH - 1, y, ST7735_RED);
-	}
-
-	HAL_Delay(3000);
-
-	// Check fonts
-	ST7735_FillScreen(ST7735_BLACK);
-	ST7735_WriteString(0, 0,
-			"Font_7x10, red on black, lorem ipsum dolor sit amet", Font_7x10,
-			ST7735_RED, ST7735_BLACK);
-	ST7735_WriteString(0, 3 * 10, "Font_11x18, green, lorem ipsum", Font_11x18,
-	ST7735_GREEN, ST7735_BLACK);
-	ST7735_WriteString(0, 3 * 10 + 3 * 18, "Font_16x26", Font_16x26,
-	ST7735_BLUE, ST7735_BLACK);
-	HAL_Delay(2000);
-	// Check colors
-	ST7735_FillScreen(ST7735_BLACK);
-	ST7735_WriteString(0, 0, "BLACK", Font_11x18, ST7735_WHITE, ST7735_BLACK);
-	HAL_Delay(500);
-
-	ST7735_FillScreen(ST7735_BLUE);
-	ST7735_WriteString(0, 0, "BLUE", Font_11x18, ST7735_BLACK, ST7735_BLUE);
-	HAL_Delay(500);
-
-	ST7735_FillScreen(ST7735_RED);
-	ST7735_WriteString(0, 0, "RED", Font_11x18, ST7735_BLACK, ST7735_RED);
-	HAL_Delay(500);
-
-	ST7735_FillScreen(ST7735_GREEN);
-	ST7735_WriteString(0, 0, "GREEN", Font_11x18, ST7735_BLACK, ST7735_GREEN);
-	HAL_Delay(500);
-
-	ST7735_FillScreen(ST7735_CYAN);
-	ST7735_WriteString(0, 0, "CYAN", Font_11x18, ST7735_BLACK, ST7735_CYAN);
-	HAL_Delay(500);
-
-	ST7735_FillScreen(ST7735_MAGENTA);
-	ST7735_WriteString(0, 0, "MAGENTA", Font_11x18, ST7735_BLACK,
-	ST7735_MAGENTA);
-	HAL_Delay(500);
-
-	ST7735_FillScreen(ST7735_YELLOW);
-	ST7735_WriteString(0, 0, "YELLOW", Font_11x18, ST7735_BLACK, ST7735_YELLOW);
-	HAL_Delay(500);
-
-	ST7735_FillScreen(ST7735_WHITE);
-	ST7735_WriteString(0, 0, "WHITE", Font_11x18, ST7735_BLACK, ST7735_WHITE);
-	HAL_Delay(500);
-#endif
 	HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
 //	nrf24_scan_noise();
@@ -338,8 +281,18 @@ int main(void) {
 			HAL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
 
 			nrf24_receive(dataR, PAYLOAD_SIZE);  // receive 1 byte
+			csn_low();
+			uint8_t cmd = (W_ACK_PAYLOAD | PIPE);
+			HAL_SPI_Transmit(&hspi1, &cmd, 1, spi_w_timeout);
+			HAL_SPI_Transmit(&hspi1, ack_payload, 2, spi_w_timeout);
+			csn_high();
+			// Send ACK payload
+			//uint8_t ack_payload[2] = { 0x00, 0x12 };
+			//nrf24_transmit_rx_ack_pld(PIPE, ack_payload, sizeof(ack_payload));
 			// nrf24_receive(dataR, 32);  // always read full payload length
 			nrf24_flush_rx();      // flush remaining FIFO to avoid stuck buffer
+
+			//nrf24_write_ack_payload(1, ack_bytes, ack_len);
 
 			// Clear both lines
 			ST7735_FillRectangle(0, 0, 160, 18, ST7735_BLACK);   // line 1
@@ -383,6 +336,7 @@ int main(void) {
 			printf(debugHex);
 			printf("\n");
 			memset(dataR, 0x00, 32);  // optional cleanup
+
 		}
 //		nrf24_listen();
 //
