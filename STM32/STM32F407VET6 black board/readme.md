@@ -40,8 +40,6 @@
     2x16 FMSC LCD Interface
     NRF24L01 socket
 
-
-
 ## LINKS
 * [Tetris](https://www.youtube.com/watch?v=x0j1oXtrNho)
 * [Black STM32F407VE](https://github.com/wegi1/STM32F407VET6-BLACK-ILI9341-BENCHMARK)

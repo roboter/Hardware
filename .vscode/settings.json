@@ -13,5 +13,5 @@
         "--compile-commands-dir=/Users/aleksei/Projects/HARDWARE/Hardware/GigaDevice/GD32E232K/GD32E23x_Demo_Suites_V1.1.1/GD32E230C_START_Demo_Suites/Projects/02_GPIO_Key_Polling_mode/MDK-ARM/out/Project/GD32E230CSTART"
     ],
     "debug.hideSlowPreLaunchWarning": true,
-    "cmake.sourceDirectory": "/Users/aleksei/Projects/HARDWARE/Hardware/NORDIC/worksspace/asset_tracker_v2"
+    "cmake.sourceDirectory": "C:/PROJECTS/Hardware/NORDIC/embeetle/NRF52833/source/external/mbedtls/library"
 }
