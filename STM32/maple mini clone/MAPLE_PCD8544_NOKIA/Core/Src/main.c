@@ -21,9 +21,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-//#include "pcd8544.h"
-#include "font.h"
-typedef uint8_t byte;
+#include "pcd8544_lib.h"
+#include <stdio.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,9 +42,8 @@ typedef uint8_t byte;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-
 /* USER CODE BEGIN PV */
-
+PCD8544_HandleTypeDef hlcd;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -57,52 +56,6 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-void shiftOut(uint8_t val) {
-	uint8_t i;
-
-	for (i = 0; i < 8; i++) {
-
-//		HAL_GPIO_WritePin(dataPort, dataPin, val & 1);
-//		val >>= 1;
-
-		HAL_GPIO_WritePin(DIN_GPIO_Port, DIN_Pin, (val & 128) != 0);
-		val <<= 1;
-
-		HAL_GPIO_WritePin(CLK_GPIO_Port, CLK_Pin, GPIO_PIN_SET);
-		//HAL_Delay(1);
-		HAL_GPIO_WritePin(CLK_GPIO_Port, CLK_Pin, GPIO_PIN_RESET);
-	}
-}
-
-void LcdWriteData(uint8_t dat) {
-	HAL_GPIO_WritePin(DC_GPIO_Port, DC_Pin, GPIO_PIN_SET); // GPIO_Pin, PinState), GPIO_Pin, HIGH);//(DC, HIGH); //DC pin is low for commands
-	HAL_GPIO_WritePin(CE_GPIO_Port, CE_Pin, GPIO_PIN_RESET);
-	shiftOut(dat); //transmit serial data
-	HAL_GPIO_WritePin(CE_GPIO_Port, CE_Pin, GPIO_PIN_SET);
-}
-
-void LcdWriteCmd(byte cmd) {
-	HAL_GPIO_WritePin(DC_GPIO_Port, DC_Pin, GPIO_PIN_RESET); //DC pin is low for commands
-	HAL_GPIO_WritePin(CE_GPIO_Port, CE_Pin, GPIO_PIN_RESET);
-	shiftOut(cmd); //transmit serial data
-	HAL_GPIO_WritePin(CE_GPIO_Port, CE_Pin, GPIO_PIN_SET);
-}
-
-void LcdXY(int x, int y) {
-	LcdWriteCmd(0x80 | x);  // Column.
-	LcdWriteCmd(0x40 | y);  // Row.
-}
-
-void LcdWriteCharacter(char character) {
-	for (int i = 0; i < 5; i++)
-		LcdWriteData(ASCII[character - 0x20][i]);
-	LcdWriteData(0x00);
-}
-
-void LcdWriteString(char *characters) {
-	while (*characters)
-		LcdWriteCharacter(*characters++);
-}
 /* USER CODE END 0 */
 
 /**
@@ -134,68 +87,72 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
+  // Initialize PCD8544 display
+  if (PCD8544_Init(&hlcd) != HAL_OK) {
+    Error_Handler();
+  }
+  
+  // Set contrast to a reasonable value
+  PCD8544_SetContrast(&hlcd, 127);
+  
+  // Turn on backlight
+  HAL_GPIO_WritePin(LIGHT_GPIO_Port, LIGHT_Pin, GPIO_PIN_RESET);
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	uint8_t spi_address_cmd = 0xFF;
-	HAL_StatusTypeDef hal_res;
-	HAL_GPIO_TogglePin(CLK_GPIO_Port, CLK_Pin);
-	HAL_Delay(100);
-	HAL_GPIO_TogglePin(CLK_GPIO_Port, CLK_Pin);
-	while (1) {
-		HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
-		//HAL_GPIO_TogglePin(BP_LED_GPIO_Port, BP_LED_Pin);
-		HAL_GPIO_WritePin(CE_GPIO_Port, CE_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(RST_GPIO_Port, RST_Pin, GPIO_PIN_RESET);
-		HAL_Delay(500);
-		HAL_GPIO_WritePin(RST_GPIO_Port, RST_Pin, GPIO_PIN_SET);
-
-		LcdWriteCmd(0x21);  // LCD extended commands
-		LcdWriteCmd(0xBF);  // set LCD Vop (contrast)
-		LcdWriteCmd(0x04);  // set temp coefficent
-		LcdWriteCmd(0x14);  // LCD bias mode 1:40
-		LcdWriteCmd(0x20);  // LCD basic commands
-//		LcdWriteCmd(0x09);  // LCD all segments on
-		LcdWriteCmd(0x0C);  // LCD normal video
-//
-		for (int i = 0; i < 504; i++)
-			LcdWriteData(0x00); // clear LCD
-
-		LcdXY(20, 2);
-		LcdWriteString("THE END");
-		//  HAL_GPIO_TogglePin(LIGHT_GPIO_Port, LIGHT_Pin); // HIGH - OFF
-		// HAL_GPIO_TogglePin(CLK_GPIO_Port, CLK_Pin);
-//		HAL_GPIO_TogglePin(BP_LED_GPIO_Port, BP_LED_Pin);
-//		// delay_ms(100);
-//		hal_res = HAL_SPI_Transmit(&hspi1, &spi_address_cmd, 1, 500);
-//		// Create the handle for the driver (Includes 504 byte of memory for the back buffer).
-//		pcd8544_handle_t pcd8544_handle = { .spi_handle = &hspi1, .nsce_port =
-//		NOKIA5110_NSCE_GPIO_Port, .nsce_pin = NOKIA5110_NSCE_Pin, .dnc_port =
-//				NOKIA5110_DNC_GPIO_Port, .dnc_pin =
-//		NOKIA5110_DNC_Pin, .nrst_port = NOKIA5110_NRST_GPIO_Port, .nrst_pin =
-//		NOKIA5110_NRST_Pin, };
-//
-//		// Initialise driver (performs basic setup and clears back buffer).
-//		pcd8544_init(&pcd8544_handle);
-//
-//		// Set every second row to black (changes are only applied to back buffer).
-//		for (uint8_t x = 0; x < PCD8544_LCD_WIDTH; x++) {
-//			for (uint8_t y = 0; y < PCD8544_LCD_HEIGHT; y++) {
-//				pcd8544_set_pixel(&pcd8544_handle, x, y,
-//						(pcd8544_color_t) (y % 2 == 0));
-//			}
-//		}
-
-		// Send back buffer to display.
-		//pcd8544_update(&pcd8544_handle);
-
-		HAL_Delay(1000);
+  while (1) {
+    // Toggle LED to show system is running
+    HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+    
+    // Clear display and show demo
+    PCD8544_Clear(&hlcd);
+    
+    // Set text properties
+    PCD8544_SetTextSize(&hlcd, 1);
+    PCD8544_SetTextColor(&hlcd, BLACK);
+    
+    // Draw some text
+    PCD8544_SetCursor(&hlcd, 0, 0);
+    PCD8544_WriteString(&hlcd, "Nokia 5110");
+    
+    PCD8544_SetCursor(&hlcd, 0, 10);
+    PCD8544_WriteString(&hlcd, "STM32 Demo");
+    
+    // Draw some graphics
+    PCD8544_DrawRect(&hlcd, 0, 20, 84, 8, BLACK);
+    PCD8544_FillRect(&hlcd, 2, 22, 20, 4, BLACK);
+    
+    // Draw a circle
+    PCD8544_DrawCircle(&hlcd, 60, 24, 6, BLACK);
+    
+    // Update display
+    PCD8544_Display(&hlcd);
+    
+    HAL_Delay(2000);
+    
+    // Clear and show inverse mode
+    PCD8544_Clear(&hlcd);
+    PCD8544_SetDisplayMode(&hlcd, PCD8544_SETDISPLAYINVERSE);
+    
+    PCD8544_SetCursor(&hlcd, 0, 0);
+    PCD8544_WriteString(&hlcd, "Inverse Mode");
+    
+    PCD8544_SetCursor(&hlcd, 0, 10);
+    PCD8544_WriteString(&hlcd, "Dark Text!");
+    
+    PCD8544_Display(&hlcd);
+    
+    HAL_Delay(2000);
+    
+    // Back to normal mode
+    PCD8544_SetDisplayMode(&hlcd, PCD8544_SETDISPLAYNORMAL);
+    
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	}
+  }
   /* USER CODE END 3 */
 }
 
@@ -284,7 +241,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : BUTTON_Pin */
   GPIO_InitStruct.Pin = BUTTON_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(BUTTON_GPIO_Port, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
