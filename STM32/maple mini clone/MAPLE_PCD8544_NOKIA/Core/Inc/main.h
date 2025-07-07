@@ -59,10 +59,6 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define CE_Pin GPIO_PIN_4
 #define CE_GPIO_Port GPIOA
-#define CLK_Pin GPIO_PIN_5
-#define CLK_GPIO_Port GPIOA
-#define DIN_Pin GPIO_PIN_7
-#define DIN_GPIO_Port GPIOA
 #define LED_Pin GPIO_PIN_1
 #define LED_GPIO_Port GPIOB
 #define RST_Pin GPIO_PIN_4
@@ -73,7 +69,6 @@ void Error_Handler(void);
 #define DC_GPIO_Port GPIOB
 #define BUTTON_Pin GPIO_PIN_8
 #define BUTTON_GPIO_Port GPIOB
-
 
 /* USER CODE BEGIN Private defines */
 
