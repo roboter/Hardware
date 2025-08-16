@@ -1,4 +1,4 @@
-ntroduction
+## Introduction
 MINI32 designs and manufactures core boards based on STM32F103C8T6, with a focus on small volume and TYPE-C ports
 Data transmission (either serial port or USB), MINI32 can download programs through the onboard serial port. Small volume is the same as
 Lead out all IO ports on both sides of the needle row, and separately lead out the SWD download port (both sides of the needle row IO ports are simultaneously led out)
