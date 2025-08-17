@@ -36,7 +36,8 @@
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
-
+void SystemClock_Config(void);
+void MPU_Config(void);	
 /* USER CODE BEGIN 0 */
 
 /*****************************************************************************************/
