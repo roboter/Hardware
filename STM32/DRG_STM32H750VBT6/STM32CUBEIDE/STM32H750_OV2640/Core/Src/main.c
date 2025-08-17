@@ -5,93 +5,90 @@
   * @brief          : Main program body
   ******************************************************************************
   * @attention
-	* @note:     在使用此头文件时，需确保相关的依赖项已正确配置，
-	*
-	* @contact:  微信公众号 - [GenBotter]，分享技术内容
-  *            QQ群号 - [366182133]，在线技术支持
-  *            淘宝店铺 - [https://genbotter.taobao.com]，提供配套硬件产品
-	*
-	*
->>>>> 功能说明：
-	*
-	*	OV2640采集图像并显示到屏幕
-	*
-	************************************************************************************************
-***/
+  *
+  * Copyright (c) 2023 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "dcmi.h"
-#include "quadspi.h"
-#include "rtc.h"
-#include "sdmmc.h"
-#include "spi.h"
-#include "usart.h"
-#include "usb_device.h"
-#include "gpio.h"
-#include <string.h>
-#include "ff.h"
-#include "ff_gen_drv.h"
-#include "sd_diskio.h"
-#include "usbd_cdc_if.h"
-#include "lcd_model.h"
 
+/* USER CODE BEGIN Includes */
+
+/* USER CODE END Includes */
+
+/* USER CODE BEGIN 0 */
 
 /*****************************************************************************************/
-
-#define Camera_Buffer	0x24000000    // 摄像头图像缓冲区
+/* Camera buffer definition */
+#define Camera_Buffer	0x24000000    // Camera image buffer
 
 /******************************************************************************/
 
-void SystemClock_Config(void);
-void MPU_Config(void);					// MPU配置
+/* USER CODE END 0 */
 
-
-/***************************************************************************************************
-*	函 数 名: main
-*	入口参数: 无
-*	返 回 值: 无
-*	说    明: 无
-****************************************************************************************************/
 /**
   * @brief  The application entry point.
   * @retval int
   */
 int main(void)
 {
-		MPU_Config();				// MPU配置
+  /* USER CODE BEGIN 1 */
+	MPU_Config();				// Configure MPU
   SCB_EnableICache();
   SCB_EnableDCache();
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
+
+  /* USER CODE BEGIN Init */
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
   SystemClock_Config();
 
+  /* USER CODE BEGIN 2 */
   MX_GPIO_Init();
 	MX_USART1_UART_Init();
 	
-	SPI_LCD_Init();      // 液晶屏以及SPI初始化
+	SPI_LCD_Init();      // Initialize LCD and SPI
 	
-	DCMI_OV2640_Init();     // DCMI以及OV2640初始化	
+	DCMI_OV2640_Init();     // Initialize DCMI and OV2640	
 	
-	OV2640_DMA_Transmit_Continuous(Camera_Buffer, OV2640_BufferSize);  // 启动DMA连续传输
+	OV2640_DMA_Transmit_Continuous(Camera_Buffer, OV2640_BufferSize);  // Start DMA transmission
 	
-//	OV2640_DMA_Transmit_Snapshot(Camera_Buffer, OV2640_BufferSize);	 // 启动DMA单次传输
-	
-	
+//	OV2640_DMA_Transmit_Snapshot(Camera_Buffer, OV2640_BufferSize);	 // Start DMA snapshot mode
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
   while (1)
   {	
-			if (DCMI_FrameState == 1)	// 采集到了一帧图像
+			if (DCMI_FrameState == 1)	// New frame captured
 		{		
-  			DCMI_FrameState = 0;		// 清零标志位
+  			DCMI_FrameState = 0;		// Clear flag
 
-         LCD_CopyBuffer(0,0,Display_Width,Display_Height, (uint16_t *)Camera_Buffer);	// 将图像数据复制到屏幕
+         LCD_CopyBuffer(0,0,Display_Width,Display_Height, (uint16_t *)Camera_Buffer);	// Copy image data to screen
 			
 			LCD_DisplayString( 84 ,240,"FPS:");
-			LCD_DisplayNumber( 132,240, OV2640_FPS,2) ;	// 显示帧率	
+			LCD_DisplayNumber( 132,240, OV2640_FPS,2) ;	// Display frame rate	
 			
 		}	
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
   }
+  /* USER CODE END 3 */
 }
-/****************************************************************************************************/
 
 /**
   * @brief System Clock Configuration
@@ -176,34 +173,34 @@ void SystemClock_Config(void)
   }
 }
 
-
-//	配置MPU
-//
+/* USER CODE BEGIN 4 */
+/**
+  * @brief  Configure MPU for camera functionality
+  * @retval None
+  */
 void MPU_Config(void)
 {
-	MPU_Region_InitTypeDef MPU_InitStruct;
-
-	HAL_MPU_Disable();		// 先禁止MPU
-
-	MPU_InitStruct.Enable 				= MPU_REGION_ENABLE;
-	MPU_InitStruct.BaseAddress 		= 0x24000000;
-	MPU_InitStruct.Size 					= MPU_REGION_SIZE_512KB;
-	MPU_InitStruct.AccessPermission 	= MPU_REGION_FULL_ACCESS;
-	MPU_InitStruct.IsBufferable 		= MPU_ACCESS_BUFFERABLE;
-	MPU_InitStruct.IsCacheable 		= MPU_ACCESS_CACHEABLE;
-	MPU_InitStruct.IsShareable 		= MPU_ACCESS_SHAREABLE;
-	MPU_InitStruct.Number 				= MPU_REGION_NUMBER0;
-	MPU_InitStruct.TypeExtField 		= MPU_TEX_LEVEL0;
-	MPU_InitStruct.SubRegionDisable 	= 0x00;
-	MPU_InitStruct.DisableExec 		= MPU_INSTRUCTION_ACCESS_ENABLE;
-
-	HAL_MPU_ConfigRegion(&MPU_InitStruct);	
-
-	HAL_MPU_Enable(MPU_PRIVILEGED_DEFAULT);	// 使能MPU
+	MPU_Region_InitTypeDef MPU_InitStruct = {0};
+	
+	/* Disable the MPU */
+	HAL_MPU_Disable();
+	
+	/* Configure the MPU attributes as WT for SRAM */
+	MPU_InitStruct.Number = MPU_REGION_NUMBER0;
+	MPU_InitStruct.BaseAddress = 0x24000000;
+	MPU_InitStruct.Size = MPU_REGION_SIZE_512KB;
+	MPU_InitStruct.SubRegionDisable = 0x00;
+	MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+	MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
+	MPU_InitStruct.IsShareable = MPU_ACCESS_NOT_SHAREABLE;
+	MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
+	MPU_InitStruct.IsBufferable = MPU_ACCESS_NOT_BUFFERABLE;
+	
+	HAL_MPU_ConfigRegion(&MPU_InitStruct);
+	
+	/* Enable the MPU */
+	HAL_MPU_Enable(MPU_PRIVILEGED_DEFAULT);
 }
-
-/* USER CODE BEGIN 4 */
-
 /* USER CODE END 4 */
 
 /**

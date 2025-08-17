@@ -26,7 +26,6 @@
 #include "usart.h"
 #include "usb_device.h"
 #include "gpio.h"
-#include "key.h"
 #include <string.h>
 #include "ff.h"
 #include "ff_gen_drv.h"
@@ -35,114 +34,76 @@
 #include "lcd_model.h"
 #include "key.h"
 
+/* USER CODE BEGIN Includes */
+
+/* USER CODE END Includes */
+
+/* USER CODE BEGIN 0 */
 
 /*****************************************************************************************/
-
-#define Camera_Buffer	0x24000000    // 摄像头图像缓冲区
-
-
-/******************************************************************************/
-
-void SystemClock_Config(void);
-void MPU_Config(void);					// MPU配置
+/* Camera buffer definition */
+#define Camera_Buffer	0x24000000    // Camera image buffer
 
 /******************************************************************************/
 
-#define	NumOf_Blocks	64
+/* USER CODE END 0 */
 
-/******************************************************************************/
-
-int32_t SD_Status ; 		 //SD卡检测标志位
-
-/***************************************************************************************************
-*	函 数 名: main
-*	入口参数: 无
-*	返 回 值: 无
-*	说    明: 无
-****************************************************************************************************/
 /**
   * @brief  The application entry point.
   * @retval int
   */
 int main(void)
 {
-	MPU_Config();				// MPU配置
+  /* USER CODE BEGIN 1 */
+	MPU_Config();				// Configure MPU
   SCB_EnableICache();
   SCB_EnableDCache();
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
+
+  /* USER CODE BEGIN Init */
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
   SystemClock_Config();
 
+  /* USER CODE BEGIN 2 */
   MX_GPIO_Init();
 	MX_USART1_UART_Init();
 	
-	KEY_Init();
+	SPI_LCD_Init();      // Initialize LCD and SPI
 	
-	SPI_LCD_Init();      // 液晶屏以及SPI初始化
+	DCMI_OV2640_Init();     // Initialize DCMI and OV2640	
 	
-	DCMI_OV2640_Init();     // DCMI以及OV2640初始化	
+	OV2640_DMA_Transmit_Continuous(Camera_Buffer, OV2640_BufferSize);  // Start DMA transmission
 	
-	OV2640_DMA_Transmit_Continuous(Camera_Buffer, OV2640_BufferSize);  // 启动DMA连续传输
-	SD_Status = BSP_SD_Init(SD_Instance);	//SD卡初始化				
-	
+//	OV2640_DMA_Transmit_Snapshot(Camera_Buffer, OV2640_BufferSize);	 // Start DMA snapshot mode
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
   while (1)
   {	
-		uint8_t keyPressCount = KEY_Scan1();
+			if (DCMI_FrameState == 1)	// New frame captured
+		{		
+  			DCMI_FrameState = 0;		// Clear flag
 
-        // 根据按键按下的次数改变LED的状态
-        if (keyPressCount % 5 == 1) 
-				{
-						LED1_Toggle;
-					  HAL_Delay(200);
-        }
-				if (keyPressCount % 5 == 2) 
-				{										
-					if( SD_Status == BSP_ERROR_NONE )	//检测是否初始化成功
-					{		
-						LCD_SetBackColor(LCD_BLACK); 			//	设置背景色
-					  LCD_Clear(); 											// 清屏
-					  LCD_SetColor(LIGHT_GREEN);				// 设置画笔颜色 	
-						LCD_SetAsciiFont(&ASCII_Font32);		
-						LCD_DisplayString(20,25,"SD Success");
-						HAL_Delay(200);
-					}
-					else
-					{
-						LCD_SetBackColor(LCD_BLACK); 			//	设置背景色
-					  LCD_Clear(); 											// 清屏
-					  LCD_SetColor(LIGHT_GREEN);				// 设置画笔颜色
-						LCD_SetAsciiFont(&ASCII_Font32);		
-						LCD_DisplayString(20,25,"SD Error");
-						HAL_Delay(200);
-					}
-        }
-				if (keyPressCount % 5 == 3) 
-				{
-					if (DCMI_FrameState == 1)	// 采集到了一帧图像
-						{		
-							DCMI_FrameState = 0;		// 清零标志位
-							LCD_CopyBuffer(0,0,Display_Width,Display_Height, (uint16_t *)Camera_Buffer);	// 将图像数据复制到屏幕		
-							LCD_DisplayString( 84 ,240,"FPS:");
-							LCD_DisplayNumber( 132,240, OV2640_FPS,2) ;	// 显示帧率						
-						}	
-        }
-				if (keyPressCount % 5 == 4) 
-				{						
-						LCD_Test();//文本显示
-						LCD_Picture();//图片							
-						LCD_Line();//画线		
-						LCD_Rectangle();//矩形
-						LCD_RouRectangle();//圆角矩形
-						LCD_Ellipse();//椭圆	
-						LCD_Circle();//圆
-						LCD_Triangle();//三角形
-						LCD_Arc();//圆弧
-						LCD_Polygon();//多边形
-						LCD_Clock();//时钟
-					  break;
-				}
+         LCD_CopyBuffer(0,0,Display_Width,Display_Height, (uint16_t *)Camera_Buffer);	// Copy image data to screen
+			
+			LCD_DisplayString( 84 ,240,"FPS:");
+			LCD_DisplayNumber( 132,240, OV2640_FPS,2) ;	// Display frame rate	
+			
+		}	
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
   }
+  /* USER CODE END 3 */
 }
-/****************************************************************************************************/
 
 /**
   * @brief System Clock Configuration
@@ -228,13 +189,13 @@ void SystemClock_Config(void)
 }
 
 
-//	配置MPU
+//	锟斤拷锟斤拷MPU
 //
 void MPU_Config(void)
 {
 	MPU_Region_InitTypeDef MPU_InitStruct;
 
-	HAL_MPU_Disable();		// 先禁止MPU
+	HAL_MPU_Disable();		// Disable MPU
 
 	MPU_InitStruct.Enable 				= MPU_REGION_ENABLE;
 	MPU_InitStruct.BaseAddress 		= 0x24000000;
@@ -250,7 +211,7 @@ void MPU_Config(void)
 
 	HAL_MPU_ConfigRegion(&MPU_InitStruct);	
 
-	HAL_MPU_Enable(MPU_PRIVILEGED_DEFAULT);	// 使能MPU
+	HAL_MPU_Enable(MPU_PRIVILEGED_DEFAULT);	// Enable MPU
 }
 
 /* USER CODE BEGIN 4 */

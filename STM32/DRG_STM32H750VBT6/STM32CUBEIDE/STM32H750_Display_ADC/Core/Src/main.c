@@ -1,180 +1,102 @@
 /* USER CODE BEGIN Header */
 /**
- ******************************************************************************
- * @file           : main.c
- * @brief          : Main program body
- ******************************************************************************
- * @attention
- *
- * Copyright (c) 2024 STMicroelectronics.
- * All rights reserved.
- *
- * This software is licensed under terms that can be found in the LICENSE file
- * in the root directory of this software component.
- * If no LICENSE file comes with this software, it is provided AS-IS.
- *
- ******************************************************************************
- */
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2023 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "adc.h"
 #include "dcmi.h"
+#include "gpio.h"
 #include "quadspi.h"
 #include "rtc.h"
 #include "sdmmc.h"
 #include "spi.h"
-#include "tim.h"
 #include "usart.h"
 #include "usb_device.h"
-#include "gpio.h"
 #include <string.h>
+#include "ff.h"
+#include "ff_gen_drv.h"
+#include "sd_diskio.h"
+#include "usbd_cdc_if.h"
 #include "lcd_model.h"
 
-/* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
 
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
-
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
-
-/* Private function prototypes -----------------------------------------------*/
-void SystemClock_Config(void);
-uint16_t uhADCxConvertedValue[4];
-uint32_t uhADCxInputVoltage[4];
-uint32_t adc3_inp0, vbat, tempsensor, vrefint;
-#define V30  (620)  // mV, V30: 0.62V,datasheet P278
-#define Avg_Slope (2) // mV/��C
-/* USER CODE BEGIN PFP */
-
-/* USER CODE END PFP */
-
-/* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+/*****************************************************************************************/
+/* ADC buffer definition */
+#define ADC_Buffer_Size	1000    // ADC buffer size
+
+/******************************************************************************/
 
 /* USER CODE END 0 */
 
+/* Private variables ---------------------------------------------------------*/
+uint16_t ADC_Buffer[ADC_Buffer_Size];  // ADC buffer array
+
 /**
- * @brief  The application entry point.
- * @retval int
- */
-int main(void) {
-	/* USER CODE BEGIN 1 */
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+  /* USER CODE BEGIN 1 */
+  /* USER CODE END 1 */
 
-	/* USER CODE END 1 */
-	/* Enable the CPU Cache */
+  /* MCU Configuration--------------------------------------------------------*/
 
-	/* Enable I-Cache---------------------------------------------------------*/
-	SCB_EnableICache();
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
 
-	/* Enable D-Cache---------------------------------------------------------*/
-	// SCB_EnableDCache();
-	/* MCU Configuration--------------------------------------------------------*/
+  /* USER CODE BEGIN Init */
+  /* USER CODE END Init */
 
-	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-	HAL_Init();
+  /* Configure the system clock */
+  SystemClock_Config();
 
-	/* USER CODE BEGIN Init */
+  /* USER CODE BEGIN 2 */
+  MX_GPIO_Init();
+  MX_ADC3_Init();
+  MX_USART1_UART_Init();
+  
+  SPI_LCD_Init();      // Initialize LCD and SPI
+  
+  // Start ADC continuous conversion
+  HAL_ADC_Start_DMA(&hadc3, (uint32_t*)&ADC_Buffer, ADC_Buffer_Size);
+  /* USER CODE END 2 */
 
-	/* USER CODE END Init */
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+    /* USER CODE END WHILE */
 
-	/* Configure the system clock */
-	SystemClock_Config();
-
-	/* USER CODE BEGIN SysInit */
-
-	/* USER CODE END SysInit */
-
-	/* Initialize all configured peripherals */
-	MX_GPIO_Init();
-	MX_ADC3_Init();
-	MX_RTC_Init();
-	MX_USART1_UART_Init();
-	SPI_LCD_Init();      // Һ�����Լ�SPI��ʼ��
-	/* USER CODE BEGIN 2 */
-	if (HAL_ADCEx_Calibration_Start(&hadc3, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED)
-			!= HAL_OK) {
-		/* Calibration Error */
-		Error_Handler();
-	}
-	/* USER CODE END 2 */
-
-	/* Infinite loop */
-	/* USER CODE BEGIN WHILE */
-	while (1) {
-		/* USER CODE END WHILE */
-		for (uint32_t i = 0;
-				i < (sizeof(uhADCxConvertedValue) / sizeof(uint16_t)); i++) {
-			/*##-1- Start the conversion process #######################################*/
-			if (HAL_ADC_Start(&hadc3) != HAL_OK) {
-				/* Start Conversation Error */
-				Error_Handler();
-			}
-			/*##-2- Wait for the end of conversion #####################################*/
-			/*  For simplicity reasons, this example is just waiting till the end of the
-			 conversion, but application may perform other tasks while conversion
-			 operation is ongoing. */
-			if (HAL_ADC_PollForConversion(&hadc3, 100) != HAL_OK) {
-				/* End Of Conversion flag not set on time */
-				Error_Handler();
-			} else {
-				/* ADC conversion completed */
-				/*##-3- Get the converted value of regular channel  ########################*/
-				uhADCxConvertedValue[i] = HAL_ADC_GetValue(&hadc3);
-
-				/* Convert the result from 16 bit value to the voltage dimension (mV unit) */
-				/* Vref = 3.3 V */
-				uhADCxInputVoltage[i] = ((uhADCxConvertedValue[i] * 3300)
-						/ 0xFFFF);
-			}
-		}
-		HAL_ADC_Stop(&hadc3);
-
-		adc3_inp0 = uhADCxInputVoltage[0]; // mv
-		vrefint = uhADCxInputVoltage[1]; // type. 1200mV
-		tempsensor = ((int32_t) uhADCxInputVoltage[2] - V30) / Avg_Slope + 30; // ��C
-		vbat = uhADCxInputVoltage[3] * 4;
-		uint8_t text[20];
-		LCD_SetTextFont(&CH_Font24);		// ����2424��������,ASCII�����ӦΪ2412
-		LCD_SetAsciiFont(&ASCII_Font24);
-		LCD_SetColor(LIGHT_GREEN);				// ���û�����ɫ
-		LCD_DisplayText(30, 20, "Controller: ST7789");
-		LCD_DisplayString(30, 65, "Makerbase");
-		HAL_Delay(500);
-		sprintf((char*) &text, "PC2: %4dmV", adc3_inp0);
-		LCD_DisplayString(30, 90, text);
-		printf("%s\r\n", text);
-		sprintf((char*) &text, "Vref: %4dmV", vrefint);
-		LCD_DisplayString(30, 115, text);
-		printf("%s\r\n", text);
-		sprintf((char*) &text, "temp: %3d 'C", tempsensor);
-		LCD_DisplayString(30, 140, text);
-		printf("%s\r\n", text);
-		sprintf((char*) &text, "vbat: %4dmV", vbat);
-		LCD_DisplayString(30, 165, text);
-		printf("%s\r\n", text);
-		/* USER CODE BEGIN 3 */
-	}
-	/* USER CODE END 3 */
+    /* USER CODE BEGIN 3 */
+    // Display ADC values on LCD
+    LCD_DisplayString(10, 10, "ADC Values:");
+    for(int i = 0; i < 10; i++) {
+      LCD_DisplayNumber(10, 30 + i*20, ADC_Buffer[i], 4);
+    }
+    HAL_Delay(100);
+  }
+  /* USER CODE END 3 */
 }
 
 /**

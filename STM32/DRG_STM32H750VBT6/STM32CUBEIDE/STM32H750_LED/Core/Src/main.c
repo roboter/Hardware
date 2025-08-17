@@ -6,7 +6,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2025 STMicroelectronics.
+  * Copyright (c) 2023 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -18,49 +18,22 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "dcmi.h"
-#include "quadspi.h"
-#include "rtc.h"
-#include "sdmmc.h"
+#include "gpio.h"
 #include "spi.h"
 #include "usart.h"
-#include "usb_device.h"
-#include "gpio.h"
 
-/* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
 
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
-
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
-
-/* Private function prototypes -----------------------------------------------*/
-void SystemClock_Config(void);
-/* USER CODE BEGIN PFP */
-
-/* USER CODE END PFP */
-
-/* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+/*****************************************************************************************/
+/* LED definitions */
+#define LED_PIN GPIO_PIN_13
+#define LED_PORT GPIOC
+
+/******************************************************************************/
 
 /* USER CODE END 0 */
 
@@ -70,18 +43,8 @@ void SystemClock_Config(void);
   */
 int main(void)
 {
-
   /* USER CODE BEGIN 1 */
-
   /* USER CODE END 1 */
-
-  /* Enable the CPU Cache */
-
-  /* Enable I-Cache---------------------------------------------------------*/
-  SCB_EnableICache();
-
-  /* Enable D-Cache---------------------------------------------------------*/
-//  SCB_EnableDCache();
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -89,40 +52,55 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
   /* USER CODE END Init */
 
   /* Configure the system clock */
   SystemClock_Config();
 
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
-
-  /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_DCMI_Init();
-  MX_QUADSPI_Init();
-  MX_RTC_Init();
-//  MX_SDMMC1_SD_Init();
-  MX_SPI4_Init();
-  MX_USART1_UART_Init();
-  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
-
+  MX_GPIO_Init();
+  MX_USART1_UART_Init();
+  MX_SPI4_Init();
+  
+  // Initialize LCD
+  SPI_LCD_Init();
+  
+  // Initialize LED GPIO
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  GPIO_InitStruct.Pin = LED_PIN;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(LED_PORT, &GPIO_InitStruct);
+  
+  // Clear LCD and display welcome message
+  LCD_Clear();
+  LCD_SetColor(LCD_GREEN);
+  LCD_SetBackColor(LCD_BLACK);
+  LCD_DisplayString(80, 140, "LED Project");
+  LCD_DisplayString(60, 160, "STM32H750VBT6");
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
-		HAL_Delay(100);
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
-		HAL_Delay(100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    // Toggle LED
+    HAL_GPIO_TogglePin(LED_PORT, LED_PIN);
+    
+    // Display LED status on LCD
+    if (HAL_GPIO_ReadPin(LED_PORT, LED_PIN) == GPIO_PIN_SET) {
+      LCD_SetColor(LCD_GREEN);
+      LCD_DisplayString(80, 200, "LED: ON ");
+    } else {
+      LCD_SetColor(LCD_RED);
+      LCD_DisplayString(80, 200, "LED: OFF");
+    }
+    
+    HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }
@@ -211,6 +189,7 @@ void Error_Handler(void)
   }
   /* USER CODE END Error_Handler_Debug */
 }
+
 #ifdef USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number

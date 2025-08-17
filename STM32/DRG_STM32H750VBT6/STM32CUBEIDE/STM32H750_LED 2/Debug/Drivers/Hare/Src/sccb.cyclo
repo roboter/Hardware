@@ -1,0 +1,16 @@
+../Drivers/Hare/Src/sccb.c:34:6:SCCB_GPIO_Config	1
+../Drivers/Hare/Src/sccb.c:67:6:SCCB_Delay	3
+../Drivers/Hare/Src/sccb.c:84:6:SCCB_Start	1
+../Drivers/Hare/Src/sccb.c:104:6:SCCB_Stop	1
+../Drivers/Hare/Src/sccb.c:125:6:SCCB_ACK	1
+../Drivers/Hare/Src/sccb.c:149:6:SCCB_NoACK	1
+../Drivers/Hare/Src/sccb.c:170:9:SCCB_WaitACK	2
+../Drivers/Hare/Src/sccb.c:200:9:SCCB_WriteByte	4
+../Drivers/Hare/Src/sccb.c:232:9:SCCB_ReadByte	3
+../Drivers/Hare/Src/sccb.c:267:9:SCCB_WriteHandle	3
+../Drivers/Hare/Src/sccb.c:293:9:SCCB_WriteReg	3
+../Drivers/Hare/Src/sccb.c:321:9:SCCB_ReadReg	3
+../Drivers/Hare/Src/sccb.c:353:9:SCCB_WriteHandle_16Bit	4
+../Drivers/Hare/Src/sccb.c:382:9:SCCB_WriteReg_16Bit	3
+../Drivers/Hare/Src/sccb.c:411:9:SCCB_ReadReg_16Bit	3
+../Drivers/Hare/Src/sccb.c:443:9:SCCB_WriteBuffer_16Bit	3
