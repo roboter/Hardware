@@ -56,11 +56,11 @@ project/source/Peripheral/src/ch32v00x_gpio.c.o \
 project/source/Peripheral/src/ch32v00x_i2c.c.o \
 project/source/Peripheral/src/ch32v00x_rcc.c.o \
 project/source/Peripheral/src/ch32v00x_usart.c.o \
+project/source/SSD1306WCH/embeetle_logo_128x64.c.o \
+project/source/SSD1306WCH/ssd1306.c.o \
 project/source/User/ch32v00x_it.c.o \
 project/source/User/main.c.o \
-project/source/User/system_ch32v00x.c.o \
-project/source/ssd1306/i2c_tx.c.o \
-project/source/ssd1306/oled_segment.c.o
+project/source/User/system_ch32v00x.c.o
 
 # INCLUDED CXXFILES:
 CXX_OFILES =
@@ -77,8 +77,8 @@ HDIR_FLAGS = \
 -I$(SOURCE_DIR)source/Core \
 -I$(SOURCE_DIR)source/Debug \
 -I$(SOURCE_DIR)source/Peripheral/inc \
--I$(SOURCE_DIR)source/User \
--I$(SOURCE_DIR)source/ssd1306
+-I$(SOURCE_DIR)source/SSD1306WCH \
+-I$(SOURCE_DIR)source/User
 
 # INCLUDED ARCHIVES
 PROJECT_LDLIBS =

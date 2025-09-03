@@ -10,10 +10,18 @@
 			      PC1 -- SDA
             PC2 -- SCL
 */
-
+#include "ch32v00x_i2c.h"
+#include "ch32v00x_gpio.h"
+#include "ch32v00x_rcc.h"
 #include "debug.h"
-#include <oled_segment.h>     // OLED functions
-#include "embeetle_logo_128x64.c"
+
+#include <ssd1306.h>
+//#define I2C_CLKRATE   400000    // I2C bus clock rate (Hz)
+// Set system clock frequency
+//#ifndef F_CPU
+//  #define F_CPU           24000000  // 24Mhz if not otherwise defined
+//#endif
+//#include "embeetle_logo_128x64.c"
 
 /*********************************************************************
  * @fn      IIC_Init
@@ -22,62 +30,35 @@
  *
  * @return  none
  */
-void IIC_Init(u32 bound, u16 address)
-{
-    GPIO_InitTypeDef GPIO_InitStructure={0};
-    I2C_InitTypeDef I2C_InitTSturcture={0};
 
-    RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOC | RCC_APB2Periph_AFIO, ENABLE );
-    RCC_APB1PeriphClockCmd( RCC_APB1Periph_I2C1, ENABLE );
-
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init( GPIOC, &GPIO_InitStructure );
-
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init( GPIOC, &GPIO_InitStructure );
-
-    I2C_InitTSturcture.I2C_ClockSpeed = bound;
-    I2C_InitTSturcture.I2C_Mode = I2C_Mode_I2C;
-    I2C_InitTSturcture.I2C_DutyCycle = I2C_DutyCycle_16_9;
-    I2C_InitTSturcture.I2C_OwnAddress1 = address;
-    I2C_InitTSturcture.I2C_Ack = I2C_Ack_Enable;
-    I2C_InitTSturcture.I2C_AcknowledgedAddress = I2C_AcknowledgedAddress_7bit;
-    I2C_Init( I2C1, &I2C_InitTSturcture );
-
-    I2C_Cmd( I2C1, ENABLE );
-
-    I2C_AcknowledgeConfig( I2C1, ENABLE );
-}
-
+//
 // ===================================================================================
 // Update Function
 // ===================================================================================
 void update(void) {
 	char str[] = "Hello World!5\n";
-	//OLED_printS(str);
+	OLED_printS(str);
 	OLED_DrawPixel(0,0,White);
-	OLED_EmbeetleLogo();
+	//OLED_EmbeetleLogo();
 	
 }
 
 int main(void)
 {
 	Delay_Init();
-	//USART_Printf_Init(115200);
-	//printf("SystemClk:%d\r\n",SystemCoreClock);
+	USART_Printf_Init(115200);
+	printf("SystemClk:%d\r\n", SystemCoreClock);
 
-	// Setup internal peripherals
-	I2C_init();
-
-	// Setup external peripherals
 	OLED_init();
-	//OLED_clear2();
-	update();
 
+//	update();
+
+  OLED_clear();
+    OLED_println("I2C Scanner Demo");
+    Delay_Ms(1000);
+    
+    // Run the scanner
+    OLED_test_all_addresses();
 while(1);
 	Delay_Ms(1500);
 }

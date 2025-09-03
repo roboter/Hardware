@@ -17,7 +17,7 @@
   "board_name": "ch32v003f4p6-evt-r0-1v1",
   "probe_name": "wch-linke-r0-1v3-riscv",
   "transport_protocol": "sdi",
-  "COM_port": "None",
+  "COM_port": "COM21",
   "BIN_FILE": "<project>/build/application.bin",
   "BOOTLOADER_FILE": "None",
   "BOOTSWITCH_FILE": "None",
@@ -33,7 +33,7 @@
   "COMPILER_TOOLCHAIN": "gnu_riscv_xpack_toolchain_10.2.0_1.2_64b",
   "BUILD_AUTOMATION": "gnu_make_4.2.1_64b",
   "FLASHTOOL": "openocd_wch_0.11.0_dev02415_32b",
-  "hash_value": "021eacb9ee24a095f81dcae078b50d4c"
+  "hash_value": "8ab3e2f86fe7b45010006fc676be26c2"
 }
 
 // MIT LICENSE

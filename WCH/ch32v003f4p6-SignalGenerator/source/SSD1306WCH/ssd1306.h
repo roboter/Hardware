@@ -32,12 +32,14 @@
 
 #pragma once
 
+#include "ch32v00x.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include "i2c_tx.h"
-
+#define I2C_CLKRATE   400000    // I2C bus clock rate (Hz)
+#define I2C_MAP       0         // I2C pin mapping (see above)
 
 // SSD1306 OLED height in pixels
 #ifndef SSD1306_HEIGHT
@@ -106,6 +108,14 @@ void OLED_draw_bmp_by_size(uint8_t x0, uint8_t y0, uint8_t w, uint8_t h, const u
 void OLED_DrawPixel(uint8_t x, uint8_t y, SSD1306_COLOR color);
 void OLED_EmbeetleLogo(void);
 
+// I2C Functions
+void I2C_init(void);            // I2C init function
+void I2C_start(uint8_t addr);   // I2C start transmission, addr must contain R/W bit
+void I2C_write(uint8_t data);   // I2C transmit one data byte via I2C
+void I2C_stop(void);            // I2C stop transmission
+
+
+void OLED_test_all_addresses(void);
 #ifdef __cplusplus
 };
 #endif

@@ -16,8 +16,9 @@
 //
 // 2022 by Stefan Wagner: https://github.com/wagiminator
 
-#include "oled_segment.h"
-#include "embeetle_logo_128x64.c"
+#include "ssd1306.h"
+#include "ch32v00x_i2c.h"
+#include "embeetle_logo_128x64.h"
 
 // Standard ASCII 5x8 font (adapted from Neven Boyanov and Stephen Denne)
 const uint8_t OLED_FONT[] = {
@@ -353,4 +354,383 @@ void OLED_EmbeetleLogo(void) {
 		I2C_write(OLED_DAT_MODE);               // set data mode
 		for(uint16_t i=0; i!=128*8; i++) I2C_write(image_bmp[i]); // send pattern
 		I2C_stop();                             // stop transmission
+}
+
+
+// Set system clock frequency
+#ifndef F_CPU
+  #define F_CPU           24000000  // 24Mhz if not otherwise defined
+#endif
+
+// I2C event flag definitions
+#define I2C_START_GENERATED     0x00010003    // BUSY, MSL, SB
+#define I2C_ADDR_TRANSMITTED    0x00820003    // BUSY, MSL, ADDR, TXE
+#define I2C_BYTE_TRANSMITTED    0x00840003    // BUSY, MSL, BTF, TXE
+#define I2C_checkEvent(n)       (((((uint32_t)I2C1->STAR1<<16) | I2C1->STAR2) & n) == n)
+
+// Init I2C using standard WCH library
+void I2C_init(void) {
+    GPIO_InitTypeDef GPIO_InitStructure = {0};
+    I2C_InitTypeDef I2C_InitStructure = {0};
+
+    #if I2C_MAP == 0
+    // Enable GPIO port C and I2C module
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC | RCC_APB2Periph_AFIO, ENABLE);
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2C1, ENABLE);
+
+    // Configure PC1 (SDA) and PC2 (SCL) as open-drain alternate function
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1 | GPIO_Pin_2;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOC, &GPIO_InitStructure);
+
+    #elif I2C_MAP == 1
+    // Remap I2C pins to PD0 (SDA) and PD1 (SCL)
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD | RCC_APB2Periph_AFIO, ENABLE);
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2C1, ENABLE);
+    AFIO->PCFR1 |= AFIO_PCFR1_I2C1_REMAP; // Remap I2C1 to PD0/PD1
+
+    // Configure PD0 (SDA) and PD1 (SCL) as open-drain alternate function
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+
+    #elif I2C_MAP == 2
+    // Remap I2C pins to PC6 (SDA) and PC5 (SCL)
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC | RCC_APB2Periph_AFIO, ENABLE);
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2C1, ENABLE);
+    AFIO->PCFR1 |= AFIO_PCFR1_I2C1_REMAP2; // Remap I2C1 to PC5/PC6
+
+    // Configure PC6 (SDA) and PC5 (SCL) as open-drain alternate function
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_5;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_OD;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOC, &GPIO_InitStructure);
+
+    #else
+    #warning "Wrong I2C_MAP configuration"
+    #endif
+
+    // Calculate I2C clock frequency
+    uint32_t i2c_speed = I2C_CLKRATE;
+    #ifndef F_CPU
+    #define F_CPU 24000000 // Default 24MHz if not defined
+    #endif
+
+    // Configure I2C peripheral
+    I2C_InitStructure.I2C_ClockSpeed = i2c_speed;
+    I2C_InitStructure.I2C_Mode = I2C_Mode_I2C;
+    I2C_InitStructure.I2C_DutyCycle = I2C_DutyCycle_2;
+    I2C_InitStructure.I2C_OwnAddress1 = 0x00; // Not used in master mode
+    I2C_InitStructure.I2C_Ack = I2C_Ack_Disable; // Disable acknowledge for write-only
+    I2C_InitStructure.I2C_AcknowledgedAddress = I2C_AcknowledgedAddress_7bit;
+
+    I2C_Init(I2C1, &I2C_InitStructure);
+    I2C_Cmd(I2C1, ENABLE);
+}
+
+
+// Start I2C transmission (addr must contain R/W bit)
+void I2C_start(uint8_t addr) {
+    // Wait until bus ready
+    while(I2C_GetFlagStatus(I2C1, I2C_FLAG_BUSY));
+    
+    // Generate START condition
+    I2C_GenerateSTART(I2C1, ENABLE);
+    
+    // Wait for START condition generated
+    while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_MODE_SELECT));
+    
+    // Send slave address + R/W bit
+    I2C_SendData(I2C1, addr);
+    
+    // Wait for address transmitted
+    while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED));
+}
+
+// Send data byte via I2C bus
+void I2C_write(uint8_t data) {
+    // Wait for data register empty
+    while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_BYTE_TRANSMITTING));
+    
+    // Send data byte
+    I2C_SendData(I2C1, data);
+}
+
+// Stop I2C transmission
+void I2C_stop(void) {
+    // Wait for byte transfer finished
+    while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
+    
+    // Generate STOP condition
+    I2C_GenerateSTOP(I2C1, ENABLE);
+    
+    // Wait for STOP condition completed
+    while(I2C_GetFlagStatus(I2C1, I2C_FLAG_STOPF));
+}
+
+// Quick I2C scanner
+void OLED_i2c_scan_quick(void) {
+    uint8_t found = 0;
+    
+    OLED_clear();
+    OLED_println("Quick I2C Scan");
+    OLED_println("--------------");
+    
+    for(uint8_t addr = 0x08; addr < 0x78; addr++) {
+        I2C_GenerateSTART(I2C1, ENABLE);
+        while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_MODE_SELECT));
+        
+        I2C_Send7bitAddress(I2C1, addr, I2C_Direction_Transmitter);
+        Delay_Ms(1);
+        
+        if(!I2C_GetFlagStatus(I2C1, I2C_FLAG_AF)) {
+            OLED_setpos(0, 2 + found);
+            OLED_print("0x");
+            OLED_printB(addr << 1);
+            found++;
+        } else {
+            I2C_ClearFlag(I2C1, I2C_FLAG_AF);
+        }
+        
+        I2C_GenerateSTOP(I2C1, ENABLE);
+        while(I2C_GetFlagStatus(I2C1, I2C_FLAG_STOPF));
+    }
+    
+    OLED_setpos(0, 6);
+    OLED_print("Found: ");
+    OLED_printD(found);
+}
+
+// Diagnostic I2C scanner with detailed error reporting
+void OLED_i2c_diagnose(void) {
+    uint8_t found_devices = 0;
+    uint16_t status1, status2;
+    
+    OLED_clear();
+    OLED_println("I2C Diagnostic Scan");
+    OLED_println("-------------------");
+    
+    for(uint8_t addr_7bit = 0x08; addr_7bit < 0x78; addr_7bit++) {
+        // Generate START condition
+        I2C_GenerateSTART(I2C1, ENABLE);
+        
+        // Wait for START with timeout
+        uint32_t timeout = 100000;
+        while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_MODE_SELECT)) {
+            if(timeout-- == 0) {
+                OLED_setpos(0, 2);
+                OLED_print("START timeout");
+                I2C_GenerateSTOP(I2C1, ENABLE);
+                return;
+            }
+        }
+        
+        // Send address
+        I2C_Send7bitAddress(I2C1, addr_7bit, I2C_Direction_Transmitter);
+        
+        // Short delay
+        Delay_Ms(2);
+        
+        // Check status registers for detailed diagnostics
+        status1 = I2C1->STAR1;
+        status2 = I2C1->STAR2;
+        
+        if(!I2C_GetFlagStatus(I2C1, I2C_FLAG_AF)) {
+            // Device found!
+            found_devices++;
+            OLED_setpos(0, 2 + (found_devices - 1) % 4);
+            OLED_print("0x");
+            OLED_printB(addr_7bit << 1);
+        }
+        else {
+            // Check for specific errors
+            if(status1 & I2C_STAR1_AF) {
+                // Normal - no device at this address
+                I2C_ClearFlag(I2C1, I2C_FLAG_AF);
+            }
+            
+            if(status1 & I2C_STAR1_BERR) {
+                OLED_setpos(0, 2);
+                OLED_print("Bus Error!");
+                I2C_ClearFlag(I2C1, I2C_FLAG_BERR);
+            }
+            
+            if(status1 & I2C_STAR1_ARLO) {
+                OLED_setpos(0, 3);
+                OLED_print("Arbitration Lost!");
+                I2C_ClearFlag(I2C1, I2C_FLAG_ARLO);
+            }
+        }
+        
+        // Generate STOP condition
+        I2C_GenerateSTOP(I2C1, ENABLE);
+        timeout = 100000;
+        while(I2C_GetFlagStatus(I2C1, I2C_FLAG_STOPF)) {
+            if(timeout-- == 0) break;
+        }
+        
+        Delay_Ms(1);
+    }
+    
+    // Display results
+    OLED_setpos(0, 6);
+    OLED_print("Found: ");
+    OLED_printD(found_devices);
+    OLED_print(" devices");
+    
+    if(found_devices == 0) {
+        OLED_setpos(0, 7);
+        OLED_print("Check wiring/pullups");
+    }
+    
+    Delay_Ms(3000);
+}
+
+// Test connection to specific address
+uint8_t OLED_test_oled_connection(void) {
+  
+    printf("Testing OLED connection");
+    printf("-----------------------");
+    
+    // Try common OLED addresses
+
+    uint8_t found_addr = 0;
+    
+    for(int i = 0; i < 128; i++) {
+        
+        printf("Trying ");
+        printf("0x%02X",i );
+        
+        I2C_GenerateSTART(I2C1, ENABLE);
+        uint32_t timeout = 1000;
+        while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_MODE_SELECT)) {
+            if(timeout-- == 0) {
+                printf(" START FAIL");
+                I2C_GenerateSTOP(I2C1, ENABLE);
+                continue;
+            }
+        }
+        
+        I2C_Send7bitAddress(I2C1, i, I2C_Direction_Transmitter);
+        Delay_Ms(2);
+        
+        if(!I2C_GetFlagStatus(I2C1, I2C_FLAG_AF)) {
+            printf(" FOUND!\n");
+            found_addr = i;
+        } else {
+            printf(" No response\n");
+            I2C_ClearFlag(I2C1, I2C_FLAG_AF);
+        }
+        
+        I2C_GenerateSTOP(I2C1, ENABLE);
+        timeout = 1000;
+        while(I2C_GetFlagStatus(I2C1, I2C_FLAG_STOPF)) {
+            if(timeout-- == 0) break;
+        }
+        
+       // Delay_Ms(500);
+    }
+    
+    return found_addr;
+}
+
+// Test connection to all addresses and display results in a table
+void OLED_test_all_addresses(void) {
+    uint8_t found_addresses[128] = {0};
+    uint8_t found_count = 0;
+    
+    OLED_clear();
+    OLED_println("I2C Address Scan");
+    OLED_println("----------------");
+    
+    // Scan all 128 possible addresses
+    for(uint8_t i = 0; i < 128; i++) {
+        I2C_GenerateSTART(I2C1, ENABLE);
+        uint32_t timeout = 1000;
+        
+        // Wait for START condition
+        while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_MODE_SELECT)) {
+            if(timeout-- == 0) {
+                I2C_GenerateSTOP(I2C1, ENABLE);
+                break;
+            }
+        }
+        
+        if(timeout > 0) { // START was successful
+            I2C_Send7bitAddress(I2C1, i, I2C_Direction_Transmitter);
+            Delay_Ms(1);
+            
+            if(!I2C_GetFlagStatus(I2C1, I2C_FLAG_AF)) {
+                found_addresses[found_count++] = i;
+            } else {
+                I2C_ClearFlag(I2C1, I2C_FLAG_AF);
+            }
+        }
+        
+        I2C_GenerateSTOP(I2C1, ENABLE);
+        timeout = 1000;
+        while(I2C_GetFlagStatus(I2C1, I2C_FLAG_STOPF)) {
+            if(timeout-- == 0) break;
+        }
+    }
+    
+    // Display results in a table format
+    OLED_clear();
+    OLED_println("I2C Devices Found:");
+    OLED_println("7-bit  8-bit(W)");
+    OLED_println("-----  ---------");
+    
+    uint8_t line = 3; // Start from line 3
+    for(uint8_t i = 0; i < found_count; i++) {
+        if(line >= 8) break; // Don't exceed display height
+        
+        OLED_setpos(0, line);
+        
+        // Display 7-bit address
+        OLED_print("0x");
+        if(found_addresses[i] < 0x10) OLED_print("0");
+        OLED_printB(found_addresses[i]);
+        
+        // Display 8-bit write address
+        OLED_setpos(7, line);
+        OLED_print("0x");
+        OLED_printB(found_addresses[i] << 1);
+        
+        line++;
+    }
+    
+    // Display summary at the bottom
+    OLED_setpos(0, 7);
+    OLED_print("Total: ");
+    OLED_printD(found_count);
+    OLED_print(" devices");
+    
+    Delay_Ms(5000); // Display for 5 seconds
+    
+    // Return to top and show detailed info
+    if(found_count > 0) {
+        OLED_clear();
+        OLED_println("Device Details:");
+        OLED_println("---------------");
+        
+        for(uint8_t i = 0; i < found_count && i < 3; i++) {
+            OLED_setpos(0, 2 + i);
+            OLED_print("0x");
+            OLED_printB(found_addresses[i] << 1);
+            OLED_print(" (7-bit: 0x");
+            OLED_printB(found_addresses[i]);
+            OLED_print(")");
+        }
+        
+        if(found_count > 3) {
+            OLED_setpos(0, 6);
+            OLED_print("+");
+            OLED_printD(found_count - 3);
+            OLED_print(" more...");
+        }
+        
+        Delay_Ms(3000);
+    }
 }

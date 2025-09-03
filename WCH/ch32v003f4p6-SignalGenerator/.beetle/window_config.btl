@@ -3,8 +3,8 @@
         "NUMBER-OF-SCREENS": 1,
         "SCREEN-RESOLUTIONS": [
             [
-                1920,
-                1080
+                1536,
+                864
             ]
         ]
     },
@@ -12,7 +12,7 @@
     "SCREEN-INDEX": 0,
     "X-Y-OFFSET": [
         0,
-        -8
+        -7
     ],
     "BOXES": {
         "0": {
@@ -25,26 +25,43 @@
                                     "class": "Editor",
                                     "tab-index": 0,
                                     "data": {
-                                        "line": 72,
-                                        "index": 30,
+                                        "line": 60,
+                                        "index": 27,
+                                        "first-visible-line": 53,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/SSD1306WCH/ssd1306.c": {
+                                    "class": "Editor",
+                                    "tab-index": 1,
+                                    "data": {
+                                        "line": 639,
+                                        "index": 28,
+                                        "first-visible-line": 632,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/SSD1306WCH/ssd1306.h": {
+                                    "class": "Editor",
+                                    "tab-index": 2,
+                                    "data": {
+                                        "line": 117,
+                                        "index": 4,
+                                        "first-visible-line": 108,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://readme.txt": {
+                                    "class": "Editor",
+                                    "tab-index": 3,
+                                    "data": {
+                                        "line": 5,
+                                        "index": 0,
                                         "first-visible-line": 0,
                                         "x-view-offset": 0
                                     }
                                 },
-                                "SymbolStack": {
-                                    "class": "Symbols"
-                                },
-                                "rel://source/Peripheral/src/ch32v00x_usart.c": {
-                                    "class": "Editor",
-                                    "tab-index": 2,
-                                    "data": {
-                                        "line": 796,
-                                        "index": 0,
-                                        "first-visible-line": 24,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "CURRENT-INDEX": 0
+                                "CURRENT-INDEX": 3
                             }
                         },
                         "1": {
@@ -55,13 +72,19 @@
                                 "Project Dashboard": {
                                     "class": "Dashboard"
                                 },
+                                "SEARCH RESULTS": {
+                                    "class": "SearchResultsWindow"
+                                },
+                                "Serial Monitor": {
+                                    "class": "SerialConsole"
+                                },
                                 "CURRENT-INDEX": 0
                             }
                         }
                     },
                     "SIZES": [
-                        558,
-                        338
+                        377,
+                        298
                     ]
                 },
                 "1": {
@@ -89,35 +112,32 @@
                                 }
                             },
                             "SIZES": [
-                                449,
-                                447
+                                427,
+                                248
                             ]
                         },
                         "1": {
                             "BOX-V": {
                                 "0": {
                                     "TABS": {
-                                        "Diagnostics": {
-                                            "class": "Diagnostics"
-                                        },
-                                        "CURRENT-INDEX": 0
+                                        "CURRENT-INDEX": -1
                                     }
                                 }
                             },
                             "SIZES": [
-                                898
+                                677
                             ]
                         }
                     },
                     "SIZES": [
-                        321,
-                        441
+                        423,
+                        125
                     ]
                 }
             },
             "SIZES": [
-                1154,
-                764
+                984,
+                550
             ]
         }
     }
