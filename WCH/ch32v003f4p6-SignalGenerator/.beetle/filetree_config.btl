@@ -2,56 +2,16 @@
   "version-generated": 1,
   "version-minimum": 1,
   "items": {
-    "source/SSD1306WCH/ssd1306.c": {
-      "type": "file",
-      "name": "ssd1306.c",
-      "relative-path": "source/SSD1306WCH/ssd1306.c",
-      "source-analysis-status-file": 1,
-      "source-analysis-status-file-manual": "force-included",
-      "source-analysis-status-hdir": null,
-      "source-analysis-type": "source",
-      "source-analysis-mode": null
-    },
     "source/ssd1306": {
       "type": "directory",
       "name": "ssd1306",
       "relative-path": "source/ssd1306",
       "directories": {},
       "files": {
-        "embeetle_logo_128x64.c": {
-          "type": "file",
-          "name": "embeetle_logo_128x64.c",
-          "relative-path": "source/ssd1306/embeetle_logo_128x64.c",
-          "source-analysis-status-file": 0,
-          "source-analysis-status-file-manual": "force-excluded",
-          "source-analysis-status-hdir": null,
-          "source-analysis-type": "source",
-          "source-analysis-mode": null
-        },
         "font5x8.h": {
           "type": "file",
           "name": "font5x8.h",
           "relative-path": "source/ssd1306/font5x8.h",
-          "source-analysis-status-file": null,
-          "source-analysis-status-file-manual": null,
-          "source-analysis-status-hdir": 0,
-          "source-analysis-type": "header",
-          "source-analysis-mode": null
-        },
-        "i2c_tx.c": {
-          "type": "file",
-          "name": "i2c_tx.c",
-          "relative-path": "source/ssd1306/i2c_tx.c",
-          "source-analysis-status-file": 0,
-          "source-analysis-status-file-manual": "force-excluded",
-          "source-analysis-status-hdir": null,
-          "source-analysis-type": "source",
-          "source-analysis-mode": null
-        },
-        "i2c_tx.h": {
-          "type": "file",
-          "name": "i2c_tx.h",
-          "relative-path": "source/ssd1306/i2c_tx.h",
           "source-analysis-status-file": null,
           "source-analysis-status-file-manual": null,
           "source-analysis-status-hdir": 0,
@@ -77,31 +37,11 @@
           "source-analysis-status-hdir": 0,
           "source-analysis-type": "header",
           "source-analysis-mode": null
-        },
-        "oled_segment.c": {
-          "type": "file",
-          "name": "oled_segment.c",
-          "relative-path": "source/ssd1306/oled_segment.c",
-          "source-analysis-status-file": 0,
-          "source-analysis-status-file-manual": "force-excluded",
-          "source-analysis-status-hdir": null,
-          "source-analysis-type": "source",
-          "source-analysis-mode": null
-        },
-        "oled_segment.h": {
-          "type": "file",
-          "name": "oled_segment.h",
-          "relative-path": "source/ssd1306/oled_segment.h",
-          "source-analysis-status-file": null,
-          "source-analysis-status-file-manual": null,
-          "source-analysis-status-hdir": 0,
-          "source-analysis-type": "header",
-          "source-analysis-mode": null
         }
       },
       "source-analysis-status-file": null,
       "source-analysis-status-file-locked": false,
-      "source-analysis-status-hdir": 0,
+      "source-analysis-status-hdir": null,
       "source-analysis-status-hdir-files": 0,
       "source-analysis-status-hdir-manual": "force-excluded",
       "source-analysis-mode": null
@@ -111,12 +51,43 @@
       "name": "SSD1306WCH",
       "relative-path": "source/SSD1306WCH",
       "directories": {},
-      "files": {},
+      "files": {
+        "ssd1306.c": {
+          "type": "file",
+          "name": "ssd1306.c",
+          "relative-path": "source/SSD1306WCH/ssd1306.c",
+          "source-analysis-status-file": 1,
+          "source-analysis-status-file-manual": "force-included",
+          "source-analysis-status-hdir": null,
+          "source-analysis-type": "source",
+          "source-analysis-mode": null
+        },
+        "ssd1306.h": {
+          "type": "file",
+          "name": "ssd1306.h",
+          "relative-path": "source/SSD1306WCH/ssd1306.h",
+          "source-analysis-status-file": null,
+          "source-analysis-status-file-manual": null,
+          "source-analysis-status-hdir": 1,
+          "source-analysis-type": "header",
+          "source-analysis-mode": null
+        }
+      },
       "source-analysis-status-file": 1,
       "source-analysis-status-file-locked": true,
       "source-analysis-status-hdir": 1,
       "source-analysis-status-hdir-files": 1,
       "source-analysis-status-hdir-manual": "force-included",
+      "source-analysis-mode": null
+    },
+    "source/SSD1306WCH/ssd1306.c": {
+      "type": "file",
+      "name": "ssd1306.c",
+      "relative-path": "source/SSD1306WCH/ssd1306.c",
+      "source-analysis-status-file": 1,
+      "source-analysis-status-file-manual": "force-included",
+      "source-analysis-status-hdir": null,
+      "source-analysis-type": "source",
       "source-analysis-mode": null
     }
   }

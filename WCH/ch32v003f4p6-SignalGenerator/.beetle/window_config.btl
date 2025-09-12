@@ -21,47 +21,10 @@
                     "BOX-V": {
                         "0": {
                             "TABS": {
-                                "rel://source/User/main.c": {
-                                    "class": "Editor",
-                                    "tab-index": 0,
-                                    "data": {
-                                        "line": 60,
-                                        "index": 27,
-                                        "first-visible-line": 53,
-                                        "x-view-offset": 0
-                                    }
+                                "Serial Monitor": {
+                                    "class": "SerialConsole"
                                 },
-                                "rel://source/SSD1306WCH/ssd1306.c": {
-                                    "class": "Editor",
-                                    "tab-index": 1,
-                                    "data": {
-                                        "line": 639,
-                                        "index": 28,
-                                        "first-visible-line": 632,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "rel://source/SSD1306WCH/ssd1306.h": {
-                                    "class": "Editor",
-                                    "tab-index": 2,
-                                    "data": {
-                                        "line": 117,
-                                        "index": 4,
-                                        "first-visible-line": 108,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "rel://readme.txt": {
-                                    "class": "Editor",
-                                    "tab-index": 3,
-                                    "data": {
-                                        "line": 5,
-                                        "index": 0,
-                                        "first-visible-line": 0,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "CURRENT-INDEX": 3
+                                "CURRENT-INDEX": 0
                             }
                         },
                         "1": {
@@ -69,28 +32,19 @@
                                 "Output": {
                                     "class": "Console"
                                 },
-                                "Project Dashboard": {
-                                    "class": "Dashboard"
-                                },
-                                "SEARCH RESULTS": {
-                                    "class": "SearchResultsWindow"
-                                },
-                                "Serial Monitor": {
-                                    "class": "SerialConsole"
-                                },
                                 "CURRENT-INDEX": 0
                             }
                         }
                     },
                     "SIZES": [
-                        377,
-                        298
+                        498,
+                        177
                     ]
                 },
                 "1": {
-                    "BOX-H": {
+                    "BOX-V": {
                         "0": {
-                            "BOX-V": {
+                            "BOX-H": {
                                 "0": {
                                     "TABS": {
                                         "Filetree": {
@@ -101,43 +55,64 @@
                                 },
                                 "1": {
                                     "TABS": {
-                                        "DebuggerWindow": {
-                                            "class": "Debugger",
-                                            "data": {
-                                                "gdb-url": "localhost:3333"
-                                            }
+                                        "SymbolStack": {
+                                            "class": "Symbols"
                                         },
                                         "CURRENT-INDEX": 0
                                     }
                                 }
                             },
                             "SIZES": [
-                                427,
-                                248
+                                344,
+                                336
                             ]
                         },
                         "1": {
-                            "BOX-V": {
+                            "BOX-H": {
                                 "0": {
                                     "TABS": {
-                                        "CURRENT-INDEX": -1
+                                        "Project Dashboard": {
+                                            "class": "Dashboard"
+                                        },
+                                        "DebuggerWindow": {
+                                            "class": "Debugger",
+                                            "data": {
+                                                "gdb-url": "localhost:3333"
+                                            }
+                                        },
+                                        "SEARCH RESULTS": {
+                                            "class": "SearchResultsWindow"
+                                        },
+                                        "CURRENT-INDEX": 0
+                                    }
+                                },
+                                "1": {
+                                    "TABS": {
+                                        "Diagnostics": {
+                                            "class": "Diagnostics"
+                                        },
+                                        "VariableWatch": {
+                                            "class": "MemoryViewVariableWatch"
+                                        },
+                                        "CURRENT-INDEX": 0
                                     }
                                 }
                             },
                             "SIZES": [
-                                677
+                                191,
+                                489
                             ]
                         }
                     },
                     "SIZES": [
-                        423,
-                        125
+                        359,
+                        316
                     ]
                 }
             },
             "SIZES": [
-                984,
-                550
+                852,
+                682
             ]
         }
     }
