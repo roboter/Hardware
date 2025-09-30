@@ -19,30 +19,52 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "dcmi.h"
-#include "gpio.h"
 #include "quadspi.h"
 #include "rtc.h"
 #include "sdmmc.h"
 #include "spi.h"
 #include "usart.h"
 #include "usb_device.h"
-#include <string.h>
-#include "ff.h"
-#include "ff_gen_drv.h"
-#include "sd_diskio.h"
-#include "usbd_cdc_if.h"
-#include "lcd_model.h"
+#include "gpio.h"
 
+/* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
 
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+
+/* USER CODE BEGIN PV */
+
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
 /*****************************************************************************************/
-/* LED definitions */
-#define LED_PIN GPIO_PIN_13
-#define LED_PORT GPIOC
+/* Camera buffer definition */
+#define Camera_Buffer	0x24000000    // Camera image buffer
 
 /******************************************************************************/
 
@@ -54,8 +76,20 @@
   */
 int main(void)
 {
+
   /* USER CODE BEGIN 1 */
+	MPU_Config();				// Configure MPU
+  SCB_EnableICache();
+  SCB_EnableDCache();
   /* USER CODE END 1 */
+
+  /* Enable the CPU Cache */
+
+  /* Enable I-Cache---------------------------------------------------------*/
+  SCB_EnableICache();
+
+  /* Enable D-Cache---------------------------------------------------------*/
+  SCB_EnableDCache();
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -68,29 +102,49 @@ int main(void)
   /* Configure the system clock */
   SystemClock_Config();
 
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_DCMI_Init();
+  MX_QUADSPI_Init();
+  MX_RTC_Init();
+  MX_SDMMC1_SD_Init();
+  MX_SPI4_Init();
+  MX_USART1_UART_Init();
+  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
   MX_GPIO_Init();
-  MX_USART1_UART_Init();
-  
-  // Initialize LED GPIO
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-  GPIO_InitStruct.Pin = LED_PIN;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED_PORT, &GPIO_InitStruct);
+	MX_USART1_UART_Init();
+	
+//	SPI_LCD_Init();      // Initialize LCD and SPI
+//
+//	DCMI_OV2640_Init();     // Initialize DCMI and OV2640
+//
+//	OV2640_DMA_Transmit_Continuous(Camera_Buffer, OV2640_BufferSize);  // Start DMA transmission
+	
+//	OV2640_DMA_Transmit_Snapshot(Camera_Buffer, OV2640_BufferSize);	 // Start DMA snapshot mode
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
-  {
+  {	
+//			if (DCMI_FrameState == 1)	// New frame captured
+//		{
+//  			DCMI_FrameState = 0;		// Clear flag
+//
+//         LCD_CopyBuffer(0,0,Display_Width,Display_Height, (uint16_t *)Camera_Buffer);	// Copy image data to screen
+//
+//			LCD_DisplayString( 84 ,240,"FPS:");
+//			LCD_DisplayNumber( 132,240, OV2640_FPS,2) ;	// Display frame rate
+//
+//		}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    // Toggle LED
-    HAL_GPIO_TogglePin(LED_PORT, LED_PIN);
-    HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }
@@ -162,7 +216,33 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+/**
+  * @brief  Configure MPU for camera functionality
+  * @retval None
+  */
+void MPU_Config(void)
+{
+	MPU_Region_InitTypeDef MPU_InitStruct = {0};
+	
+	/* Disable the MPU */
+	HAL_MPU_Disable();
+	
+	/* Configure the MPU attributes as WT for SRAM */
+	MPU_InitStruct.Number = MPU_REGION_NUMBER0;
+	MPU_InitStruct.BaseAddress = 0x24000000;
+	MPU_InitStruct.Size = MPU_REGION_SIZE_512KB;
+	MPU_InitStruct.SubRegionDisable = 0x00;
+	MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+	MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
+	MPU_InitStruct.IsShareable = MPU_ACCESS_NOT_SHAREABLE;
+	MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
+	MPU_InitStruct.IsBufferable = MPU_ACCESS_NOT_BUFFERABLE;
+	
+	HAL_MPU_ConfigRegion(&MPU_InitStruct);
+	
+	/* Enable the MPU */
+	HAL_MPU_Enable(MPU_PRIVILEGED_DEFAULT);
+}
 /* USER CODE END 4 */
 
 /**
