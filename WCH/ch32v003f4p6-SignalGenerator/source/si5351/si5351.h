@@ -7,9 +7,11 @@ extern "C" {
 #include "ch32v00x_i2c.h"
 #include <stdint.h>
 #include <stdbool.h>
+  #include "main.h"
 
 // SI5351 I2C address
-#define SI5351_ADDR 0x60  // 8-bit write address (0x62 << 1)
+#define SI5351_ADDR 0x60  // 7-bit I2C address
+//#define I2C_TIMEOUT 50000
 
 // Register definitions
 #define SI5351_DEVICE_STATUS      0
@@ -109,17 +111,16 @@ typedef enum {
 } si5351_drive_t;
 
 // Function prototypes
-void SI5351_init(void);
 bool SI5351_begin(void);
 void SI5351_set_freq(uint32_t freq, si5351_clock_t clock, si5351_pll_t pll_source);
 void SI5351_set_clock_enable(si5351_clock_t clock, bool enable);
 void SI5351_set_clock_invert(si5351_clock_t clock, bool invert);
 void SI5351_set_clock_drive(si5351_clock_t clock, si5351_drive_t drive);
-void SI5351_output_enable(si5351_clock_t clock, bool enable);
-void SI5351_set_crystal_load(uint8_t load);
+i2c_err_t SI5351_output_enable(si5351_clock_t clock, bool enable);
+i2c_err_t SI5351_set_crystal_load(uint8_t load);
 void SI5351_set_pll_source(si5351_pll_t pll, uint8_t source);
-void SI5351_write(uint8_t reg, uint8_t data);
-uint8_t SI5351_read(uint8_t reg);
+i2c_err_t SI5351_write(uint8_t reg, uint8_t data);
+i2c_err_t SI5351_read(uint8_t reg, uint8_t *data);
 void SI5351_bulk_write(uint8_t reg, uint8_t *data, uint8_t length);
 
 void SI5351_setup_pll(si5351_pll_t pll, uint32_t freq) ;

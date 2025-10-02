@@ -41,6 +41,7 @@ typedef enum {
 	I2C_ERR_ARLO,	 // Arbitration Lost
 	I2C_ERR_OVR,	 // Overun/underrun condition
 	I2C_ERR_BUSY,	 // Bus was busy and timed out
+  I2C_ERR_OTHER,
 } i2c_err_t;
 
 

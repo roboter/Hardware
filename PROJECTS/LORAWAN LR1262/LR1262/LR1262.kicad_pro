@@ -392,7 +392,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "signalgenerator.kicad_pro",
+    "filename": "LR1262.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -426,7 +426,7 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "../../../../../../Program Files/KiCad/7.0/",
+      "netlist": "",
       "specctra_dsn": "",
       "step": "",
       "vrml": ""
@@ -469,7 +469,7 @@
   },
   "sheets": [
     [
-      "6b68635b-e435-4b33-991b-9e0a42aefff1",
+      "fb9427fe-6738-4dd8-85cd-3cf8bd8f4fef",
       ""
     ]
   ],

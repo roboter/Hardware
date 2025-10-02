@@ -211,7 +211,12 @@ int main(void)
 					OLED_clear();
 					OLED_println("RIGHT\n");
 					printf("RIGHT\n");
-          
+             i2c_err_t err;
+         err =  SI5351_begin();
+           if(err != I2C_OK) {
+        printf("Error reading SI5351 register: %d\n", err);
+        return err;
+    } 
 					previous = RIGHT;
         } else if (left && previous != LEFT) {
 					OLED_clear();
@@ -223,7 +228,7 @@ int main(void)
 					OLED_println("DOWN\n");
 					printf("DOWN\n");
 					previous = DOWN;
-          //scan_all_i2c_addresses();
+          scan_all_i2c_addresses();
         } else if (enter && previous != ENTER) {
 					OLED_clear();
 					OLED_println("ENTER button pressed\n");

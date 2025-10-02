@@ -59,7 +59,8 @@ project/source/Peripheral/src/ch32v00x_usart.c.o \
 project/source/SSD1306WCH/ssd1306.c.o \
 project/source/User/ch32v00x_it.c.o \
 project/source/User/main.c.o \
-project/source/User/system_ch32v00x.c.o
+project/source/User/system_ch32v00x.c.o \
+project/source/si5351/si5351.c.o
 
 # INCLUDED CXXFILES:
 CXX_OFILES =

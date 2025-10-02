@@ -21,10 +21,57 @@
                     "BOX-V": {
                         "0": {
                             "TABS": {
-                                "Serial Monitor": {
-                                    "class": "SerialConsole"
+                                "rel://source/si5351/si5351.h": {
+                                    "class": "Editor",
+                                    "tab-index": 0,
+                                    "data": {
+                                        "line": 119,
+                                        "index": 9,
+                                        "first-visible-line": 111,
+                                        "x-view-offset": 0
+                                    }
                                 },
-                                "CURRENT-INDEX": 0
+                                "rel://source/si5351/si5351.c": {
+                                    "class": "Editor",
+                                    "tab-index": 1,
+                                    "data": {
+                                        "line": 9,
+                                        "index": 35,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/User/main.c": {
+                                    "class": "Editor",
+                                    "tab-index": 2,
+                                    "data": {
+                                        "line": 278,
+                                        "index": 0,
+                                        "first-visible-line": 262,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/Debug/debug.c": {
+                                    "class": "Editor",
+                                    "tab-index": 3,
+                                    "data": {
+                                        "line": 74,
+                                        "index": 0,
+                                        "first-visible-line": 67,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "D:/Embeetle/beetle_tools/windows/gnu_riscv_xpack_toolchain_10.2.0_1.2_64b/lib/gcc/riscv-none-embed/10.2.0/include/stdbool.h": {
+                                    "class": "Editor",
+                                    "tab-index": 4,
+                                    "data": {
+                                        "line": 32,
+                                        "index": 8,
+                                        "first-visible-line": 16,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "CURRENT-INDEX": 2
                             }
                         },
                         "1": {
@@ -32,13 +79,36 @@
                                 "Output": {
                                     "class": "Console"
                                 },
-                                "CURRENT-INDEX": 0
+                                "Serial Monitor": {
+                                    "class": "SerialConsole"
+                                },
+                                "rel://source/User/main.h": {
+                                    "class": "Editor",
+                                    "tab-index": 2,
+                                    "data": {
+                                        "line": 64,
+                                        "index": 6,
+                                        "first-visible-line": 0,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/SSD1306WCH/ssd1306.c": {
+                                    "class": "Editor",
+                                    "tab-index": 3,
+                                    "data": {
+                                        "line": 384,
+                                        "index": 0,
+                                        "first-visible-line": 377,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "CURRENT-INDEX": 2
                             }
                         }
                     },
                     "SIZES": [
-                        498,
-                        177
+                        430,
+                        245
                     ]
                 },
                 "1": {
@@ -63,8 +133,8 @@
                                 }
                             },
                             "SIZES": [
-                                344,
-                                336
+                                282,
+                                276
                             ]
                         },
                         "1": {
@@ -80,10 +150,7 @@
                                                 "gdb-url": "localhost:3333"
                                             }
                                         },
-                                        "SEARCH RESULTS": {
-                                            "class": "SearchResultsWindow"
-                                        },
-                                        "CURRENT-INDEX": 0
+                                        "CURRENT-INDEX": 1
                                     }
                                 },
                                 "1": {
@@ -99,20 +166,20 @@
                                 }
                             },
                             "SIZES": [
-                                191,
-                                489
+                                367,
+                                191
                             ]
                         }
                     },
                     "SIZES": [
-                        359,
-                        316
+                        305,
+                        370
                     ]
                 }
             },
             "SIZES": [
-                852,
-                682
+                974,
+                560
             ]
         }
     }
