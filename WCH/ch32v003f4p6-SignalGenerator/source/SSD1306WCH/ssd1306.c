@@ -1,495 +1,740 @@
-// ===================================================================================
-// SSD1306 128x64 Pixels OLED Terminal Functions                              * v1.0 *
-// ===================================================================================
-//
-// Collection of the most necessary functions for controlling an SSD1306 128x64 pixels
-// I2C OLED for the display of text in the context of emulating a terminal output.
-//
-// References:
-// -----------
-// - Neven Boyanov: https://github.com/tinusaur/ssd1306xled
-// - Stephen Denne: https://github.com/datacute/Tiny4kOLED
-// - David Johnson-Davies: http://www.technoblogy.com/show?TV4
-// - TinyOLEDdemo: https://github.com/wagiminator/attiny13-tinyoleddemo
-// - TinyTerminal: https://github.com/wagiminator/ATtiny85-TinyTerminal
-// - USB2OLED: https://github.com/wagiminator/CH552-USB-OLED
-//
-// 2022 by Stefan Wagner: https://github.com/wagiminator
-
 #include "ssd1306.h"
-#include "ch32v00x_i2c.h"
+#include "ssd1306_font.h"
+#include <string.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <ch32v00x_i2c.h>
 
-// Standard ASCII 5x8 font (adapted from Neven Boyanov and Stephen Denne)
-const uint8_t OLED_FONT[] __attribute__((section(".rodata"))) = {
-  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x2F, 0x00, 0x00, 0x00, 0x07, 0x00, 0x07, 0x00,
-  0x14, 0x7F, 0x14, 0x7F, 0x14, 0x24, 0x2A, 0x7F, 0x2A, 0x12, 0x23, 0x13, 0x08, 0x64, 0x62,
-  0x36, 0x49, 0x55, 0x22, 0x50, 0x00, 0x05, 0x03, 0x00, 0x00, 0x00, 0x1C, 0x22, 0x41, 0x00,
-  0x00, 0x41, 0x22, 0x1C, 0x00, 0x14, 0x08, 0x3E, 0x08, 0x14, 0x08, 0x08, 0x3E, 0x08, 0x08,
-  0x00, 0x00, 0xA0, 0x60, 0x00, 0x08, 0x08, 0x08, 0x08, 0x08, 0x00, 0x60, 0x60, 0x00, 0x00,
-  0x20, 0x10, 0x08, 0x04, 0x02, 0x3E, 0x51, 0x49, 0x45, 0x3E, 0x00, 0x42, 0x7F, 0x40, 0x00,
-  0x42, 0x61, 0x51, 0x49, 0x46, 0x21, 0x41, 0x45, 0x4B, 0x31, 0x18, 0x14, 0x12, 0x7F, 0x10,
-  0x27, 0x45, 0x45, 0x45, 0x39, 0x3C, 0x4A, 0x49, 0x49, 0x30, 0x01, 0x71, 0x09, 0x05, 0x03,
-  0x36, 0x49, 0x49, 0x49, 0x36, 0x06, 0x49, 0x49, 0x29, 0x1E, 0x00, 0x36, 0x36, 0x00, 0x00,
-  0x00, 0x56, 0x36, 0x00, 0x00, 0x08, 0x14, 0x22, 0x41, 0x00, 0x14, 0x14, 0x14, 0x14, 0x14,
-  0x00, 0x41, 0x22, 0x14, 0x08, 0x02, 0x01, 0x51, 0x09, 0x06, 0x32, 0x49, 0x59, 0x51, 0x3E,
-  0x7C, 0x12, 0x11, 0x12, 0x7C, 0x7F, 0x49, 0x49, 0x49, 0x36, 0x3E, 0x41, 0x41, 0x41, 0x22,
-  0x7F, 0x41, 0x41, 0x22, 0x1C, 0x7F, 0x49, 0x49, 0x49, 0x41, 0x7F, 0x09, 0x09, 0x09, 0x01,
-  0x3E, 0x41, 0x49, 0x49, 0x7A, 0x7F, 0x08, 0x08, 0x08, 0x7F, 0x00, 0x41, 0x7F, 0x41, 0x00,
-  0x20, 0x40, 0x41, 0x3F, 0x01, 0x7F, 0x08, 0x14, 0x22, 0x41, 0x7F, 0x40, 0x40, 0x40, 0x40,
-  0x7F, 0x02, 0x0C, 0x02, 0x7F, 0x7F, 0x04, 0x08, 0x10, 0x7F, 0x3E, 0x41, 0x41, 0x41, 0x3E,
-  0x7F, 0x09, 0x09, 0x09, 0x06, 0x3E, 0x41, 0x51, 0x21, 0x5E, 0x7F, 0x09, 0x19, 0x29, 0x46,
-  0x46, 0x49, 0x49, 0x49, 0x31, 0x01, 0x01, 0x7F, 0x01, 0x01, 0x3F, 0x40, 0x40, 0x40, 0x3F,
-  0x1F, 0x20, 0x40, 0x20, 0x1F, 0x3F, 0x40, 0x38, 0x40, 0x3F, 0x63, 0x14, 0x08, 0x14, 0x63,
-  0x07, 0x08, 0x70, 0x08, 0x07, 0x61, 0x51, 0x49, 0x45, 0x43, 0x00, 0x7F, 0x41, 0x41, 0x00,
-  0x02, 0x04, 0x08, 0x10, 0x20, 0x00, 0x41, 0x41, 0x7F, 0x00, 0x04, 0x02, 0x01, 0x02, 0x04,
-  0x40, 0x40, 0x40, 0x40, 0x40, 0x00, 0x01, 0x02, 0x04, 0x00, 0x20, 0x54, 0x54, 0x54, 0x78,
-  0x7F, 0x48, 0x44, 0x44, 0x38, 0x38, 0x44, 0x44, 0x44, 0x20, 0x38, 0x44, 0x44, 0x48, 0x7F,
-  0x38, 0x54, 0x54, 0x54, 0x18, 0x08, 0x7E, 0x09, 0x01, 0x02, 0x18, 0xA4, 0xA4, 0xA4, 0x7C,
-  0x7F, 0x08, 0x04, 0x04, 0x78, 0x00, 0x44, 0x7D, 0x40, 0x00, 0x40, 0x80, 0x84, 0x7D, 0x00,
-  0x7F, 0x10, 0x28, 0x44, 0x00, 0x00, 0x41, 0x7F, 0x40, 0x00, 0x7C, 0x04, 0x18, 0x04, 0x78,
-  0x7C, 0x08, 0x04, 0x04, 0x78, 0x38, 0x44, 0x44, 0x44, 0x38, 0xFC, 0x24, 0x24, 0x24, 0x18,
-  0x18, 0x24, 0x24, 0x18, 0xFC, 0x7C, 0x08, 0x04, 0x04, 0x08, 0x48, 0x54, 0x54, 0x54, 0x20,
-  0x04, 0x3F, 0x44, 0x40, 0x20, 0x3C, 0x40, 0x40, 0x20, 0x7C, 0x1C, 0x20, 0x40, 0x20, 0x1C,
-  0x3C, 0x40, 0x30, 0x40, 0x3C, 0x44, 0x28, 0x10, 0x28, 0x44, 0x1C, 0xA0, 0xA0, 0xA0, 0x7C,
-  0x44, 0x64, 0x54, 0x4C, 0x44, 0x08, 0x36, 0x41, 0x41, 0x00, 0x00, 0x00, 0x7F, 0x00, 0x00,
-  0x00, 0x41, 0x41, 0x36, 0x08, 0x08, 0x04, 0x08, 0x10, 0x08, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-};
+// SSD1306 Commands
+#define SSD1306_MEMORYMODE          0x20
+#define SSD1306_COLUMNADDR          0x21
+#define SSD1306_PAGEADDR            0x22
+#define SSD1306_SETCONTRAST         0x81
+#define SSD1306_CHARGEPUMP          0x8D
+#define SSD1306_SEGREMAP            0xA0
+#define SSD1306_DISPLAYALLON_RESUME 0xA4
+#define SSD1306_DISPLAYALLON        0xA5
+#define SSD1306_NORMALDISPLAY       0xA6
+#define SSD1306_INVERTDISPLAY       0xA7
+#define SSD1306_SETMULTIPLEX        0xA8
+#define SSD1306_DISPLAYOFF          0xAE
+#define SSD1306_DISPLAYON           0xAF
+#define SSD1306_COMSCANINC          0xC0
+#define SSD1306_COMSCANDEC          0xC8
+#define SSD1306_SETDISPLAYOFFSET    0xD3
+#define SSD1306_SETDISPLAYCLOCKDIV  0xD5
+#define SSD1306_SETPRECHARGE        0xD9
+#define SSD1306_SETCOMPINS          0xDA
+#define SSD1306_SETVCOMDETECT       0xDB
+#define SSD1306_SETSTARTLINE        0x40
+#define SSD1306_DEACTIVATE_SCROLL   0x2E
+#define SSD1306_ACTIVATE_SCROLL     0x2F
+#define SSD1306_RIGHT_HORIZ_SCROLL  0x26
+#define SSD1306_LEFT_HORIZ_SCROLL   0x27
+#define SSD1306_VERT_AND_RIGHT_HORIZ_SCROLL 0x29
+#define SSD1306_VERT_AND_LEFT_HORIZ_SCROLL  0x2A
+#define SSD1306_SET_VERTICAL_SCROLL_AREA    0xA3
 
-// Screenbuffer
-static uint8_t SSD1306_Buffer[SSD1306_BUFFER_SIZE];
+// Display buffer
+static uint8_t ssd1306_buffer[SSD1306_BUFFER_SIZE];
 
-// OLED initialisation sequence
-const uint8_t OLED_INIT_CMD[] = {
-  OLED_MULTIPLEX,   0x3F,                 // set multiplex ratio  
-  OLED_CHARGEPUMP,  0x14,                 // set DC-DC enable  
-  OLED_MEMORYMODE,  0x02,                 // set page addressing mode
-  OLED_COMPINS,     0x12,                 // set com pins
-  OLED_XFLIP, OLED_YFLIP,                 // flip screen
-  OLED_DISPLAY_ON                         // display on
-};
+// Text cursor
+static uint8_t cursor_x = 0;
+static uint8_t cursor_y = 0;
+static uint8_t text_size = 1;
+static SSD1306_COLOR text_color = White;
+static uint8_t text_wrap = 1;
 
-const uint8_t ssd1306_init_sequence [] = {	// Initialization Sequence
-	0xAE,			// Set Display ON/OFF - AE=OFF, AF=ON
-	0xD5, 0xF0,		// Set display clock divide ratio/oscillator frequency, set divide ratio
-	0xA8, 0x3F,		// Set multiplex ratio (1 to 64) ... (height - 1)
-	0xD3, 0x00,		// Set display offset. 00 = no offset
-	0x40 | 0x00,	// Set start line address, at 0.
-	0x8D, 0x14,		// Charge Pump Setting, 14h = Enable Charge Pump
-	0x20, 0x00,		// Set Memory Addressing Mode - 00=Horizontal, 01=Vertical, 10=Page, 11=Invalid
-	0xA0 | 0x01,	// Set Segment Re-map
-	0xC8,			// Set COM Output Scan Direction
-	0xDA, 0x12,		// Set COM Pins Hardware Configuration - 128x32:0x02, 128x64:0x12
-	0x81, 0x3F,		// Set contrast control register
-	0xD9, 0x22,		// Set pre-charge period (0x22 or 0xF1)
-	0xDB, 0x20,		// Set Vcomh Deselect Level - 0x00: 0.65 x VCC, 0x20: 0.77 x VCC (RESET), 0x30: 0.83 x VCC
-	0xA4,			// Entire Display ON (resume) - output RAM to display
-	0xA6,			// Set Normal/Inverse Display mode. A6=Normal; A7=Inverse
-	0x2E,			// Deactivate Scroll command
-	0xAF,			// Set Display ON/OFF - AE=OFF, AF=ON
-	0x22, 0x00, 0x3f,	// Set Page Address (start,end)
-	0x21, 0x00,	0x7f,	// Set Column Address (start,end)
-};
-
-// OLED global variables
-uint8_t line, column, scroll;
-
-// OLED set cursor to line start
-void OLED_setline(uint8_t line) {
-  I2C_start(OLED_ADDR);                   // start transmission to OLED
-  I2C_write(OLED_CMD_MODE);               // set command mode
-  I2C_write(OLED_PAGE + line);            // set line
-  I2C_write(0x00); I2C_write(0x10);       // set column to "0"
-  I2C_stop();                             // stop transmission
+// I2C communication helpers
+static void i2c_write_byte(uint8_t data) {
+    I2C_SendData(I2C1, data);
+    while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
 }
 
-// OLED clear line
-void OLED_clearline(uint8_t line) {
-  uint8_t i;
-  OLED_setline(line);                     // set cursor to line start
-  I2C_start(OLED_ADDR);                   // start transmission to OLED
-  I2C_write(OLED_DAT_MODE);               // set data mode
-  for(i=128; i; i--) I2C_write(0x00);     // clear the line
-  I2C_stop();                             // stop transmission
-}
-
-// OLED clear screen
-void OLED_clear2(void) {
-  uint16_t i;
-		OLED_setpos(0, 0);
-//  OLED_setCursor(0);                              // set cursor to first digit
-  I2C_start(OLED_ADDR);                           // start transmission to OLED
-  I2C_write(OLED_DAT_MODE);                       // set data mode
-  for(i=128*8; i; i--) I2C_write(0xFF);           // clear screen
-  I2C_stop();                                     // stop transmission
-}
-
-// OLED clear screen
-void OLED_clear(void) {
-  uint8_t i;
-  for(i=0; i<8; i++) OLED_clearline(i);
-  line = scroll;
-  column = 0;
-  OLED_setline((line + scroll) & 0x07);
-}
-
-// OLED clear the top line, then scroll the display up by one line
-void OLED_scrollDisplay(void) {
-  OLED_clearline(scroll);                 // clear line
-  scroll = (scroll + 1) & 0x07;           // set next line
-  I2C_start(OLED_ADDR);                   // start transmission to OLED
-  I2C_write(OLED_CMD_MODE);               // set command mode
-  I2C_write(OLED_OFFSET);                 // set display offset:
-  I2C_write(scroll << 3);                 // scroll up
-  I2C_stop();                             // stop transmission
-}
-
-// OLED init function
-void OLED_init(void) {
-  uint8_t i;
-  I2C_start(OLED_ADDR);                   // start transmission to OLED
-  I2C_write(OLED_CMD_MODE);               // set command mode
-  for(i = 0; i < sizeof(ssd1306_init_sequence); i++)
-    I2C_write(ssd1306_init_sequence[i]);          // send the command bytes
-  I2C_stop();                             // stop transmission
-  scroll = 0;                             // start with zero scroll
-  OLED_clear();                           // clear screen
-}
-
-// OLED plot a single character
-void OLED_plotChar(char c) {
-  uint8_t i;
-  uint16_t ptr = c - 32;                  // character pointer
-  ptr += ptr << 2;                        // -> ptr = (ch - 32) * 5;
-  I2C_start(OLED_ADDR);                   // start transmission to OLED
-  I2C_write(OLED_DAT_MODE);               // set data mode
-  for(i=5 ; i; i--) I2C_write(OLED_FONT[ptr++]);
-  I2C_write(0x00);                        // write space between characters
-  I2C_stop();                             // stop transmission
-}
-
-// OLED write a character or handle control characters
-void OLED_write(char c) {
-  c = c & 0x7F;                           // ignore top bit
-  // normal character
-  if(c >= 32) {
-    OLED_plotChar(c);
-    if(++column > 20) {
-      column = 0;
-      if(line == 7) OLED_scrollDisplay();
-      else line++;
-      OLED_setline((line + scroll) & 0x07);
-    }
-  }
-  // new line
-  else if(c == '\n') {
-    column = 0;
-    if(line == 7) OLED_scrollDisplay();
-    else line++;
-    OLED_setline((line + scroll) & 0x07);
-  }
-  // carriage return
-  else if(c == '\r') {
-    column = 0;
-    OLED_setline((line + scroll) & 0x07);
-  }
-}
-
-// OLED print string
-void OLED_print(char* str) {
-  while(*str) OLED_write(*str++);
-}
-
-// OLED print string with newline
-void OLED_println(char* str) {
-  OLED_print(str);
-  OLED_write('\n');
-}
-
-// For BCD conversion
-const uint32_t DIVIDER[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
-
-// Print decimal value (BCD conversion by substraction method)
-void OLED_printD(uint32_t value) {
-  uint8_t digits   = 10;                          // print 10 digits
-  uint8_t leadflag = 0;                           // flag for leading spaces
-  while(digits--) {                               // for all digits
-    uint8_t digitval = 0;                         // start with digit value 0
-    uint32_t divider = DIVIDER[digits];           // read current divider
-    while(value >= divider) {                     // if current divider fits into the value
-      leadflag = 1;                               // end of leading spaces
-      digitval++;                                 // increase digit value
-      value -= divider;                           // decrease value by divider
-    }
-    if(!digits)  leadflag++;                      // least digit has to be printed
-    if(leadflag) OLED_write(digitval + '0');      // print the digit
-  }
-}
-
-// Convert byte nibble into hex character and print it
-void OLED_printN(uint8_t nibble) {
-  OLED_write((nibble <= 9) ? ('0' + nibble) : ('A' - 10 + nibble));
-}
-
-// Convert byte into hex characters and print it
-void OLED_printB(uint8_t value) {
-  OLED_printN(value >> 4);
-  OLED_printN(value & 0x0f);
-}
-
-// Convert word into hex characters and print it
-void OLED_printW(uint16_t value) {
-  OLED_printB(value >> 8);
-  OLED_printB(value);
-}
-
-// Convert long into hex characters and print it
-void OLED_printL(uint32_t value) {
-  OLED_printW(value >> 16);
-  OLED_printW(value);
-}
-
-// OLED set cursor position
-void OLED_setpos(uint8_t x, uint8_t y) {
-  I2C_start(OLED_ADDR);                   // start transmission to OLED
-  I2C_write(OLED_CMD_MODE);               // set command mode
-  I2C_write(OLED_PAGE | y);	              // set page start address
-  I2C_write(x & 0x0F);			              // set lower nibble of start column
-  I2C_write(OLED_COLUMN_HIGH | (x >> 4)); // set higher nibble of start column
-  I2C_stop();                             // stop transmission
-}
-
-void ssd1306_start_data(void) {
-I2C_start(OLED_ADDR);   
-	//I2C_write(OLED_ADDR);	// Slave address, R/W(SA0)=0 - write
-	I2C_write(0x40);			// Control byte: D/C=1 - write data
-}
-
-// OLED fill screen
-void OLED_fill(uint8_t p) {
-  OLED_setpos(0, 0);                      // set cursor to display start
-  I2C_start(OLED_ADDR);                   // start transmission to OLED
-  I2C_write(OLED_DAT_MODE);               // set data mode
-  for(uint16_t i=128*8; i; i--) I2C_write(p); // send pattern
-  I2C_stop();                             // stop transmission
-}
-
-void OLED_fill2(uint8_t p) {	
-	OLED_setpos(0, 0);
-//	I2C_start(OLED_ADDR);  // Initiate transmission of data
-//	I2C_write(OLED_DAT_MODE);
-	ssd1306_start_data();
-	for (uint16_t i = 128 * 8 *32; i > 0; i--) {
-		I2C_write(p);
-	}
-		I2C_stop(); // Finish transmission of data	
-}
-
-// OLED draw bitmap
-void OLED_draw_bmp(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, const uint8_t* bmp) {
-	
-	int z=0;
-  for(uint8_t y = y0; y < y1; y++) {
-    OLED_setpos(x0, y);
-    I2C_start(OLED_ADDR);
-    I2C_write(OLED_DAT_MODE);
-    for(uint8_t x = x0; x < x1; x++)
-		{
-			printf("%d\r\n",bmp[z]);
-      I2C_write(bmp[z]);
-			z++;
-		}
-    I2C_stop();
-  }
-}
-
-/*
- * Draw a bitmap from x0 & y0 with the w & h sizes
- * x0 => X origin coordinate
- * y0 => Y origin coordinate
- * w  => Width in pixels of the bitmap
- * h  => Heiht in pixels of the bitmap
- * bmp  => Bitmap array
- */
-void OLED_draw_bmp_by_size(uint8_t x0, uint8_t y0, uint8_t w, uint8_t h, const uint8_t* bmp) {
-	int z=0;
-  for(uint8_t y = y0; y < y0+(h/8); y++) {
-    OLED_setpos(x0, y);
-    I2C_start(OLED_ADDR);
-    I2C_write(OLED_DAT_MODE);
-    for(uint8_t x = x0; x < x0+w; x++)
-		{
-			I2C_write(bmp[z]);
-			z++;
-		}
-    I2C_stop();
-  }
-}
-
-/*
- * Draw one pixel in the screenbuffer
- * X => X Coordinate
- * Y => Y Coordinate
- * color => Pixel color
- */
-void OLED_DrawPixel(uint8_t x, uint8_t y, SSD1306_COLOR color) {
-    if(x >= SSD1306_WIDTH || y >= SSD1306_HEIGHT) {
-        // Don't write outside the buffer
-        return;
-    }
-   
-    // Draw in the right color
-    if(color == White) {
-        SSD1306_Buffer[x + (y / 8) * SSD1306_WIDTH] |= 1 << (y % 8);
-    } else { 
-        SSD1306_Buffer[x + (y / 8) * SSD1306_WIDTH] &= ~(1 << (y % 8));
-    }
-}
-
-
-
-
-// Set system clock frequency
-#ifndef F_CPU
-  #define F_CPU           24000000  // 24Mhz if not otherwise defined
-#endif
-
-// I2C event flag definitions
-#define I2C_START_GENERATED     0x00010003    // BUSY, MSL, SB
-#define I2C_ADDR_TRANSMITTED    0x00820003    // BUSY, MSL, ADDR, TXE
-#define I2C_BYTE_TRANSMITTED    0x00840003    // BUSY, MSL, BTF, TXE
-#define I2C_checkEvent(n)       (((((uint32_t)I2C1->STAR1<<16) | I2C1->STAR2) & n) == n)
-
-
-
-// Start I2C transmission (addr must contain R/W bit)
-void I2C_start(uint8_t addr) {
-    // Wait until bus ready
-    while(I2C_GetFlagStatus(I2C1, I2C_FLAG_BUSY));
-    
-    // Generate START condition
+static void i2c_start_transmission(uint8_t addr) {
     I2C_GenerateSTART(I2C1, ENABLE);
-    
-    // Wait for START condition generated
     while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_MODE_SELECT));
-    
-    // Send slave address + R/W bit
-    I2C_SendData(I2C1, addr);
-    
-    // Wait for address transmitted
+    I2C_Send7bitAddress(I2C1, addr << 1, I2C_Direction_Transmitter);
     while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED));
 }
 
-// Send data byte via I2C bus
-void I2C_write(uint8_t data) {
-    // Wait for data register empty
-    while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_BYTE_TRANSMITTING));
-    
-    // Send data byte
-    I2C_SendData(I2C1, data);
-}
-
-// Stop I2C transmission
-void I2C_stop(void) {
-    // Wait for byte transfer finished
-    while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
-    
-    // Generate STOP condition
+static void i2c_stop_transmission(void) {
     I2C_GenerateSTOP(I2C1, ENABLE);
-    
-    // Wait for STOP condition completed
-    while(I2C_GetFlagStatus(I2C1, I2C_FLAG_STOPF));
 }
 
-// Test connection to all addresses and display results in a table
-void OLED_test_all_addresses(void) {
-    uint8_t found_addresses[128] = {0};
-    uint8_t found_count = 0;
+// Send command to SSD1306
+void OLED_sendCommand(uint8_t cmd) {
+    i2c_start_transmission(SSD1306_I2C_ADDR);
+    i2c_write_byte(0x00); // Command mode
+    i2c_write_byte(cmd);
+    i2c_stop_transmission();
+}
+
+// Send data to SSD1306
+void OLED_sendData(uint8_t data) {
+    i2c_start_transmission(SSD1306_I2C_ADDR);
+    i2c_write_byte(0x40); // Data mode
+    i2c_write_byte(data);
+    i2c_stop_transmission();
+}
+
+// Initialize display
+void OLED_init(void) {
+    // Initialization sequence
+    OLED_sendCommand(SSD1306_DISPLAYOFF);
+    OLED_sendCommand(SSD1306_SETDISPLAYCLOCKDIV);
+    OLED_sendCommand(0x80);
+    OLED_sendCommand(SSD1306_SETMULTIPLEX);
+    OLED_sendCommand(SSD1306_HEIGHT - 1);
+    OLED_sendCommand(SSD1306_SETDISPLAYOFFSET);
+    OLED_sendCommand(0x00);
+    OLED_sendCommand(SSD1306_SETSTARTLINE | 0x00);
+    OLED_sendCommand(SSD1306_CHARGEPUMP);
+    OLED_sendCommand(0x14);
+    OLED_sendCommand(SSD1306_MEMORYMODE);
+    OLED_sendCommand(0x00);
+    OLED_sendCommand(SSD1306_SEGREMAP | 0x01);
+    OLED_sendCommand(SSD1306_COMSCANDEC);
+    OLED_sendCommand(SSD1306_SETCOMPINS);
+    OLED_sendCommand(0x12);
+    OLED_sendCommand(SSD1306_SETCONTRAST);
+    OLED_sendCommand(0xCF);
+    OLED_sendCommand(SSD1306_SETPRECHARGE);
+    OLED_sendCommand(0xF1);
+    OLED_sendCommand(SSD1306_SETVCOMDETECT);
+    OLED_sendCommand(0x40);
+    OLED_sendCommand(SSD1306_DISPLAYALLON_RESUME);
+    OLED_sendCommand(SSD1306_NORMALDISPLAY);
+    OLED_sendCommand(SSD1306_DEACTIVATE_SCROLL);
+    OLED_sendCommand(SSD1306_DISPLAYON);
     
     OLED_clear();
-    OLED_println("I2C Address Scan");
-    OLED_println("----------------");
+    OLED_update();
+}
+
+// Clear buffer
+void OLED_clear(void) {
+    memset(ssd1306_buffer, 0, SSD1306_BUFFER_SIZE);
+    cursor_x = 0;
+    cursor_y = 0;
+}
+
+void OLED_clearBuffer(void) {
+    memset(ssd1306_buffer, 0, SSD1306_BUFFER_SIZE);
+}
+
+// Update display from buffer
+void OLED_update(void) {
+    OLED_sendCommand(SSD1306_COLUMNADDR);
+    OLED_sendCommand(0);
+    OLED_sendCommand(SSD1306_WIDTH - 1);
+    OLED_sendCommand(SSD1306_PAGEADDR);
+    OLED_sendCommand(0);
+    OLED_sendCommand(7);
     
-    // Scan all 128 possible addresses
-    for(uint8_t i = 0; i < 128; i++) {
-        I2C_GenerateSTART(I2C1, ENABLE);
-        uint32_t timeout = 1000;
+    i2c_start_transmission(SSD1306_I2C_ADDR);
+    i2c_write_byte(0x40); // Data mode
+    
+    for(uint16_t i = 0; i < SSD1306_BUFFER_SIZE; i++) {
+        i2c_write_byte(ssd1306_buffer[i]);
+    }
+    
+    i2c_stop_transmission();
+}
+
+void OLED_display(void) {
+    OLED_update();
+}
+
+// Set contrast
+void OLED_setContrast(uint8_t contrast) {
+    OLED_sendCommand(SSD1306_SETCONTRAST);
+    OLED_sendCommand(contrast);
+}
+
+// Invert display
+void OLED_invertDisplay(uint8_t invert) {
+    OLED_sendCommand(invert ? SSD1306_INVERTDISPLAY : SSD1306_NORMALDISPLAY);
+}
+
+// Dim display
+void OLED_dim(uint8_t dim) {
+    OLED_setContrast(dim ? 0x00 : 0xCF);
+}
+
+// Draw pixel
+void OLED_drawPixel(uint8_t x, uint8_t y, SSD1306_COLOR color) {
+    if(x >= SSD1306_WIDTH || y >= SSD1306_HEIGHT) return;
+    
+    switch(color) {
+        case White:
+            ssd1306_buffer[x + (y / 8) * SSD1306_WIDTH] |= (1 << (y & 7));
+            break;
+        case Black:
+            ssd1306_buffer[x + (y / 8) * SSD1306_WIDTH] &= ~(1 << (y & 7));
+            break;
+        case Inverse:
+            ssd1306_buffer[x + (y / 8) * SSD1306_WIDTH] ^= (1 << (y & 7));
+            break;
+    }
+}
+
+// Helper for abs
+static inline int16_t abs16(int16_t x) {
+    return x < 0 ? -x : x;
+}
+
+// Swap two values
+static inline void swap(uint8_t *a, uint8_t *b) {
+    uint8_t t = *a;
+    *a = *b;
+    *b = t;
+}
+
+// Draw line (Bresenham's algorithm)
+void OLED_drawLine(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, SSD1306_COLOR color) {
+    int16_t steep = abs16(y1 - y0) > abs16(x1 - x0);
+    
+    if(steep) {
+        swap(&x0, &y0);
+        swap(&x1, &y1);
+    }
+    
+    if(x0 > x1) {
+        swap(&x0, &x1);
+        swap(&y0, &y1);
+    }
+    
+    int16_t dx = x1 - x0;
+    int16_t dy = abs16(y1 - y0);
+    int16_t err = dx / 2;
+    int16_t ystep = (y0 < y1) ? 1 : -1;
+    
+    for(; x0 <= x1; x0++) {
+        if(steep) {
+            OLED_drawPixel(y0, x0, color);
+        } else {
+            OLED_drawPixel(x0, y0, color);
+        }
+        err -= dy;
+        if(err < 0) {
+            y0 += ystep;
+            err += dx;
+        }
+    }
+}
+
+void OLED_draw_line(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, SSD1306_COLOR color) {
+    OLED_drawLine(x0, y0, x1, y1, color);
+}
+
+// Fast horizontal line
+void OLED_drawFastHLine(uint8_t x, uint8_t y, uint8_t w, SSD1306_COLOR color) {
+    for(uint8_t i = x; i < x + w && i < SSD1306_WIDTH; i++) {
+        OLED_drawPixel(i, y, color);
+    }
+}
+
+// Fast vertical line
+void OLED_drawFastVLine(uint8_t x, uint8_t y, uint8_t h, SSD1306_COLOR color) {
+    for(uint8_t i = y; i < y + h && i < SSD1306_HEIGHT; i++) {
+        OLED_drawPixel(x, i, color);
+    }
+}
+
+// Draw rectangle
+void OLED_drawRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, SSD1306_COLOR color) {
+    OLED_drawFastHLine(x, y, w, color);
+    OLED_drawFastHLine(x, y + h - 1, w, color);
+    OLED_drawFastVLine(x, y, h, color);
+    OLED_drawFastVLine(x + w - 1, y, h, color);
+}
+
+// Fill rectangle
+void OLED_fillRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, SSD1306_COLOR color) {
+    for(uint8_t i = x; i < x + w && i < SSD1306_WIDTH; i++) {
+        OLED_drawFastVLine(i, y, h, color);
+    }
+}
+
+// Draw rounded rectangle
+void OLED_drawRoundRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r, SSD1306_COLOR color) {
+    // Draw main rectangle
+    OLED_drawFastHLine(x + r, y, w - 2 * r, color);
+    OLED_drawFastHLine(x + r, y + h - 1, w - 2 * r, color);
+    OLED_drawFastVLine(x, y + r, h - 2 * r, color);
+    OLED_drawFastVLine(x + w - 1, y + r, h - 2 * r, color);
+    
+    // Draw corners
+    int16_t f = 1 - r;
+    int16_t ddF_x = 1;
+    int16_t ddF_y = -2 * r;
+    int16_t px = 0;
+    int16_t py = r;
+    
+    while(px < py) {
+        if(f >= 0) {
+            py--;
+            ddF_y += 2;
+            f += ddF_y;
+        }
+        px++;
+        ddF_x += 2;
+        f += ddF_x;
         
-        // Wait for START condition
-        while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_MODE_SELECT)) {
-            if(timeout-- == 0) {
-                I2C_GenerateSTOP(I2C1, ENABLE);
-                break;
+        // Draw corner pixels
+        OLED_drawPixel(x + r + px, y + r - py, color);
+        OLED_drawPixel(x + r + py, y + r - px, color);
+        OLED_drawPixel(x + w - r - px - 1, y + r - py, color);
+        OLED_drawPixel(x + w - r - py - 1, y + r - px, color);
+        OLED_drawPixel(x + r + px, y + h - r + py - 1, color);
+        OLED_drawPixel(x + r + py, y + h - r + px - 1, color);
+        OLED_drawPixel(x + w - r - px - 1, y + h - r + py - 1, color);
+        OLED_drawPixel(x + w - r - py - 1, y + h - r + px - 1, color);
+    }
+}
+
+// Fill rounded rectangle
+void OLED_fillRoundRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r, SSD1306_COLOR color) {
+    // Fill center rectangle
+    OLED_fillRect(x + r, y, w - 2 * r, h, color);
+    
+    // Fill side rectangles
+    OLED_fillRect(x, y + r, r, h - 2 * r, color);
+    OLED_fillRect(x + w - r, y + r, r, h - 2 * r, color);
+    
+    // Fill corners
+    int16_t f = 1 - r;
+    int16_t ddF_x = 1;
+    int16_t ddF_y = -2 * r;
+    int16_t px = 0;
+    int16_t py = r;
+    
+    while(px < py) {
+        if(f >= 0) {
+            py--;
+            ddF_y += 2;
+            f += ddF_y;
+        }
+        px++;
+        ddF_x += 2;
+        f += ddF_x;
+        
+        OLED_drawFastVLine(x + r + px, y + r - py, 2 * py + 1 + h - 2 * r - 1, color);
+        OLED_drawFastVLine(x + w - r - px - 1, y + r - py, 2 * py + 1 + h - 2 * r - 1, color);
+        OLED_drawFastVLine(x + r + py, y + r - px, 2 * px + 1 + h - 2 * r - 1, color);
+        OLED_drawFastVLine(x + w - r - py - 1, y + r - px, 2 * px + 1 + h - 2 * r - 1, color);
+    }
+}
+
+// Draw circle (Midpoint algorithm)
+void OLED_drawCircle(uint8_t x0, uint8_t y0, uint8_t r, SSD1306_COLOR color) {
+    int16_t f = 1 - r;
+    int16_t ddF_x = 1;
+    int16_t ddF_y = -2 * r;
+    int16_t x = 0;
+    int16_t y = r;
+    
+    OLED_drawPixel(x0, y0 + r, color);
+    OLED_drawPixel(x0, y0 - r, color);
+    OLED_drawPixel(x0 + r, y0, color);
+    OLED_drawPixel(x0 - r, y0, color);
+    
+    while(x < y) {
+        if(f >= 0) {
+            y--;
+            ddF_y += 2;
+            f += ddF_y;
+        }
+        x++;
+        ddF_x += 2;
+        f += ddF_x;
+        
+        OLED_drawPixel(x0 + x, y0 + y, color);
+        OLED_drawPixel(x0 - x, y0 + y, color);
+        OLED_drawPixel(x0 + x, y0 - y, color);
+        OLED_drawPixel(x0 - x, y0 - y, color);
+        OLED_drawPixel(x0 + y, y0 + x, color);
+        OLED_drawPixel(x0 - y, y0 + x, color);
+        OLED_drawPixel(x0 + y, y0 - x, color);
+        OLED_drawPixel(x0 - y, y0 - x, color);
+    }
+}
+
+// Fill circle
+void OLED_fillCircle(uint8_t x0, uint8_t y0, uint8_t r, SSD1306_COLOR color) {
+    OLED_drawFastVLine(x0, y0 - r, 2 * r + 1, color);
+    
+    int16_t f = 1 - r;
+    int16_t ddF_x = 1;
+    int16_t ddF_y = -2 * r;
+    int16_t x = 0;
+    int16_t y = r;
+    
+    while(x < y) {
+        if(f >= 0) {
+            y--;
+            ddF_y += 2;
+            f += ddF_y;
+        }
+        x++;
+        ddF_x += 2;
+        f += ddF_x;
+        
+        OLED_drawFastVLine(x0 + x, y0 - y, 2 * y + 1, color);
+        OLED_drawFastVLine(x0 + y, y0 - x, 2 * x + 1, color);
+        OLED_drawFastVLine(x0 - x, y0 - y, 2 * y + 1, color);
+        OLED_drawFastVLine(x0 - y, y0 - x, 2 * x + 1, color);
+    }
+}
+
+// Draw triangle
+void OLED_drawTriangle(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, 
+                       uint8_t x2, uint8_t y2, SSD1306_COLOR color) {
+    OLED_drawLine(x0, y0, x1, y1, color);
+    OLED_drawLine(x1, y1, x2, y2, color);
+    OLED_drawLine(x2, y2, x0, y0, color);
+}
+
+// Fill triangle
+void OLED_fillTriangle(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1,
+                       uint8_t x2, uint8_t y2, SSD1306_COLOR color) {
+    int16_t a, b, y, last;
+    
+    // Sort coordinates by Y order (y2 >= y1 >= y0)
+    if(y0 > y1) {
+        swap(&y0, &y1);
+        swap(&x0, &x1);
+    }
+    if(y1 > y2) {
+        swap(&y2, &y1);
+        swap(&x2, &x1);
+    }
+    if(y0 > y1) {
+        swap(&y0, &y1);
+        swap(&x0, &x1);
+    }
+    
+    if(y0 == y2) { // All on same line
+        a = b = x0;
+        if(x1 < a) a = x1;
+        else if(x1 > b) b = x1;
+        if(x2 < a) a = x2;
+        else if(x2 > b) b = x2;
+        OLED_drawFastHLine(a, y0, b - a + 1, color);
+        return;
+    }
+    
+    int16_t dx01 = x1 - x0;
+    int16_t dy01 = y1 - y0;
+    int16_t dx02 = x2 - x0;
+    int16_t dy02 = y2 - y0;
+    int16_t dx12 = x2 - x1;
+    int16_t dy12 = y2 - y1;
+    int32_t sa = 0;
+    int32_t sb = 0;
+    
+    if(y1 == y2) last = y1;
+    else last = y1 - 1;
+    
+    for(y = y0; y <= last; y++) {
+        a = x0 + sa / dy01;
+        b = x0 + sb / dy02;
+        sa += dx01;
+        sb += dx02;
+        
+        if(a > b) swap((uint8_t*)&a, (uint8_t*)&b);
+        OLED_drawFastHLine(a, y, b - a + 1, color);
+    }
+    
+    sa = dx12 * (y - y1);
+    sb = dx02 * (y - y0);
+    for(; y <= y2; y++) {
+        a = x1 + sa / dy12;
+        b = x0 + sb / dy02;
+        sa += dx12;
+        sb += dx02;
+        
+        if(a > b) swap((uint8_t*)&a, (uint8_t*)&b);
+        OLED_drawFastHLine(a, y, b - a + 1, color);
+    }
+}
+
+// Text functions
+void OLED_setCursor(uint8_t x, uint8_t y) {
+    cursor_x = x;
+    cursor_y = y;
+}
+
+void OLED_setTextSize(uint8_t size) {
+    text_size = (size > 0) ? size : 1;
+}
+
+void OLED_setTextColor(SSD1306_COLOR color) {
+    text_color = color;
+}
+
+void OLED_setTextWrap(uint8_t wrap) {
+    text_wrap = wrap;
+}
+
+void OLED_setpos(uint8_t x, uint8_t page) {
+    cursor_x = x;
+    cursor_y = page * 8;
+}
+
+void OLED_drawSymbol(uint8_t x, uint8_t y, uint8_t s, SSD1306_COLOR color) {
+    for(uint8_t i=0;i<5;i++) {
+        uint8_t line = font_symbols[s][i];
+        for(uint8_t j=0;j<8;j++,line>>=1){
+            if(line & 1) {
+                if(text_size==1) OLED_drawPixel(x+i, y+j, color);
+                else OLED_fillRect(x+i*text_size, y+j*text_size, text_size, text_size, color);
             }
         }
+    }
+}
+
+// Draw character
+void OLED_drawChar(uint8_t x, uint8_t y, char c, SSD1306_COLOR color, uint8_t size) {
+    if((x >= SSD1306_WIDTH) || (y >= SSD1306_HEIGHT)) return;
+   // if(c < ' ' || c > '~') c = ' ';
+    
+    for(uint8_t i = 0; i < 5; i++) {
+        uint8_t line = font[c - ' '][i];
+        for(uint8_t j = 0; j < 8; j++, line >>= 1) {
+            if(line & 1) {
+                if(size == 1) {
+                    OLED_drawPixel(x + i, y + j, color);
+                } else {
+                    OLED_fillRect(x + i * size, y + j * size, size, size, color);
+                }
+            } else if(color == Black) {
+                if(size == 1) {
+                    OLED_drawPixel(x + i, y + j, Black);
+                } else {
+                    OLED_fillRect(x + i * size, y + j * size, size, size, Black);
+                }
+            }
+        }
+    }
+}
+
+void OLED_write(uint8_t c) {
+    if(c == '\n') {
+        cursor_y += text_size * 8;
+        cursor_x = 0;
+    } else if(c == '\r') {
+        // Skip
+    } else {
+        OLED_drawChar(cursor_x, cursor_y, c, text_color, text_size);
+        cursor_x += text_size * 6;
+        if(text_wrap && (cursor_x > (SSD1306_WIDTH - text_size * 6))) {
+            cursor_y += text_size * 8;
+            cursor_x = 0;
+        }
+    }
+}
+
+void OLED_print(const char *str) {
+    while(*str) {
+        OLED_write(*str++);
+    }
+}
+
+void OLED_printS(const char *str) {
+    OLED_print(str);
+}
+
+void OLED_println(const char *str) {
+    OLED_print(str);
+    OLED_write('\n');
+}
+
+void OLED_printB(uint8_t value) {
+    char buf[3];
+    sprintf(buf, "%02X", value);
+    OLED_print(buf);
+}
+
+void OLED_printD(int32_t value) {
+    char buf[12];
+    sprintf(buf, "%ld", value);
+    OLED_print(buf);
+}
+
+void OLED_printU(uint32_t value) {
+    char buf[12];
+    sprintf(buf, "%lu", value);
+    OLED_print(buf);
+}
+
+void OLED_printf(const char *fmt, ...) {
+    char buf[64];
+    va_list args;
+    va_start(args, fmt);
+    vsnprintf(buf, sizeof(buf), fmt, args);
+    va_end(args);
+    OLED_print(buf);
+}
+
+// Get text bounds
+void OLED_getTextBounds(const char *str, uint8_t x, uint8_t y, 
+                        uint8_t *x1, uint8_t *y1, uint8_t *w, uint8_t *h) {
+    uint8_t len = strlen(str);
+    *x1 = x;
+    *y1 = y;
+    *w = len * 6 * text_size;
+    *h = 8 * text_size;
+}
+
+// Print with alignment
+void OLED_printAlign(const char *str, TEXT_ALIGN align) {
+    uint8_t len = strlen(str);
+    uint8_t width = len * 6 * text_size;
+    
+    switch(align) {
+        case ALIGN_LEFT:
+            cursor_x = 0;
+            break;
+        case ALIGN_CENTER:
+            cursor_x = (SSD1306_WIDTH - width) / 2;
+            break;
+        case ALIGN_RIGHT:
+            cursor_x = SSD1306_WIDTH - width;
+            break;
+    }
+    
+    OLED_print(str);
+}
+
+// Progress bar
+void OLED_drawProgressBar(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t percent) {
+    if(percent > 100) percent = 100;
+    OLED_drawRect(x, y, w, h, White);
+    uint8_t fill_width = (w - 2) * percent / 100;
+    if(fill_width > 0) {
+        OLED_fillRect(x + 1, y + 1, fill_width, h - 2, White);
+    }
+}
+
+// Bar graph
+void OLED_drawBargraph(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t bars, uint8_t filled) {
+    if(filled > bars) filled = bars;
+    if(bars == 0) return;
+    
+    uint8_t bar_width = w / bars;
+    if(bar_width < 3) bar_width = 3;
+    
+    for(uint8_t i = 0; i < bars; i++) {
+        uint8_t bx = x + i * bar_width;
+        if(bx + bar_width > x + w) break;
         
-        if(timeout > 0) { // START was successful
-            I2C_Send7bitAddress(I2C1, i, I2C_Direction_Transmitter);
-            Delay_Ms(1);
-            
-            if(!I2C_GetFlagStatus(I2C1, I2C_FLAG_AF)) {
-                found_addresses[found_count++] = i;
+        if(i < filled) {
+            OLED_fillRect(bx, y, bar_width - 2, h, White);
+        } else {
+            OLED_drawRect(bx, y, bar_width - 2, h, White);
+        }
+    }
+}
+
+// Get buffer pointer
+uint8_t* OLED_getBuffer(void) {
+    return ssd1306_buffer;
+}
+
+// Scrolling functions
+void OLED_startScrollRight(uint8_t start, uint8_t stop) {
+    OLED_sendCommand(SSD1306_RIGHT_HORIZ_SCROLL);
+    OLED_sendCommand(0x00);
+    OLED_sendCommand(start);
+    OLED_sendCommand(0x00);
+    OLED_sendCommand(stop);
+    OLED_sendCommand(0x00);
+    OLED_sendCommand(0xFF);
+    OLED_sendCommand(SSD1306_ACTIVATE_SCROLL);
+}
+
+void OLED_startScrollLeft(uint8_t start, uint8_t stop) {
+    OLED_sendCommand(SSD1306_LEFT_HORIZ_SCROLL);
+    OLED_sendCommand(0x00);
+    OLED_sendCommand(start);
+    OLED_sendCommand(0x00);
+    OLED_sendCommand(stop);
+    OLED_sendCommand(0x00);
+    OLED_sendCommand(0xFF);
+    OLED_sendCommand(SSD1306_ACTIVATE_SCROLL);
+}
+
+void OLED_startScrollDiagRight(uint8_t start, uint8_t stop) {
+    OLED_sendCommand(SSD1306_SET_VERTICAL_SCROLL_AREA);
+    OLED_sendCommand(0x00);
+    OLED_sendCommand(SSD1306_HEIGHT);
+    OLED_sendCommand(SSD1306_VERT_AND_RIGHT_HORIZ_SCROLL);
+    OLED_sendCommand(0x00);
+    OLED_sendCommand(start);
+    OLED_sendCommand(0x00);
+    OLED_sendCommand(stop);
+    OLED_sendCommand(0x01);
+    OLED_sendCommand(SSD1306_ACTIVATE_SCROLL);
+}
+
+void OLED_startScrollDiagLeft(uint8_t start, uint8_t stop) {
+    OLED_sendCommand(SSD1306_SET_VERTICAL_SCROLL_AREA);
+    OLED_sendCommand(0x00);
+    OLED_sendCommand(SSD1306_HEIGHT);
+    OLED_sendCommand(SSD1306_VERT_AND_LEFT_HORIZ_SCROLL);
+    OLED_sendCommand(0x00);
+    OLED_sendCommand(start);
+    OLED_sendCommand(0x00);
+    OLED_sendCommand(stop);
+    OLED_sendCommand(0x01);
+    OLED_sendCommand(SSD1306_ACTIVATE_SCROLL);
+}
+
+void OLED_stopScroll(void) {
+    OLED_sendCommand(SSD1306_DEACTIVATE_SCROLL);
+}
+
+// Draw bitmap (vertical byte orientation)
+void OLED_drawBitmap(uint8_t x, uint8_t y, const uint8_t *bitmap, 
+                     uint8_t w, uint8_t h, SSD1306_COLOR color) {
+    uint16_t byte_width = (w + 7) / 8;
+    uint8_t byte = 0;
+    
+    for(uint8_t j = 0; j < h; j++) {
+        for(uint8_t i = 0; i < w; i++) {
+            if(i & 7) {
+                byte <<= 1;
             } else {
-                I2C_ClearFlag(I2C1, I2C_FLAG_AF);
+                byte = bitmap[j * byte_width + i / 8];
+            }
+            
+            if(byte & 0x80) {
+                OLED_drawPixel(x + i, y + j, color);
             }
         }
-        
-        I2C_GenerateSTOP(I2C1, ENABLE);
-        timeout = 1000;
-        while(I2C_GetFlagStatus(I2C1, I2C_FLAG_STOPF)) {
-            if(timeout-- == 0) break;
+    }
+}
+
+// Draw XBitmap (LSB first format)
+void OLED_drawXBitmap(uint8_t x, uint8_t y, const uint8_t *bitmap,
+                      uint8_t w, uint8_t h, SSD1306_COLOR color) {
+    uint16_t byte_width = (w + 7) / 8;
+    uint8_t byte = 0;
+    
+    for(uint8_t j = 0; j < h; j++) {
+        for(uint8_t i = 0; i < w; i++) {
+            if(i & 7) {
+                byte >>= 1;
+            } else {
+                byte = bitmap[j * byte_width + i / 8];
+            }
+            
+            if(byte & 0x01) {
+                OLED_drawPixel(x + i, y + j, color);
+            }
         }
     }
-    
-    // Display results in a table format
-    OLED_clear();
-    OLED_println("I2C Devices Found:");
-    OLED_println("7-bit  8-bit(W)");
-    OLED_println("-----  ---------");
-    
-    uint8_t line = 3; // Start from line 3
-    for(uint8_t i = 0; i < found_count; i++) {
-       
-        
-        OLED_setpos(0, line);
-        
-        // Display 7-bit address
-        OLED_print("0x");
-        if(found_addresses[i] < 0x10) OLED_print("0");
-        OLED_printB(found_addresses[i]);
-        
-        // Display 8-bit write address
-        OLED_setpos(7 * 6, line);
-        OLED_print("0x");
-        OLED_printB(found_addresses[i] << 1);
-        
-        line++;
-    }
-    
-    // Display summary at the bottom
-//    OLED_setpos(0, 7);
-//    OLED_print("Total: ");
-//    OLED_printD(found_count);
-//    OLED_print(" devices");
-    
-//    Delay_Ms(5000); // Display for 5 seconds
-//    
-//    // Return to top and show detailed info
-//    if(found_count > 0) {
-//        OLED_clear();
-//        OLED_println("Device Details:");
-//        OLED_println("---------------");
-//        
-//        for(uint8_t i = 0; i < found_count ; i++) {
-//            OLED_setpos(0, 2 + i);
-//            OLED_print("0x");
-//            OLED_printB(found_addresses[i] << 1);
-//            OLED_print(" (7-bit: 0x");
-//            OLED_printB(found_addresses[i]);
-//            OLED_print(")");
-//        }
-//        
-//      
-//        
-//        Delay_Ms(3000);
-//    }
 }

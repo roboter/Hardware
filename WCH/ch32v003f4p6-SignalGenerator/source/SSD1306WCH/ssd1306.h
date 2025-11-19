@@ -1,120 +1,119 @@
-// ===================================================================================
-// SSD1306 128x64 Pixels OLED Terminal Functions                              * v1.0 *
-// ===================================================================================
-//
-// Collection of the most necessary functions for controlling an SSD1306 128x64 pixels
-// I2C OLED for the display of text in the context of emulating a terminal output.
-//
-// Functions available:
-// --------------------
-// OLED_init()              Init OLED display
-// OLED_clear()             Clear screen of OLED display
-// OLED_write(c)            Write a character or handle control characters
-// OLED_print(s)            Print string on OLED display
-// OLED_println(s)          Print string with newline
-// OLED_printS(s)           Print string on OLED display
-// OLED_printD(n)           Print decimal value
-// OLED_printL(n)           Print hex long value
-// OLED_printW(n)           Print hex word value
-// OLED_printB(n)           Print hex byte value
-// OLED_newline()           Print newline
-//
-// References:
-// -----------
-// - Neven Boyanov: https://github.com/tinusaur/ssd1306xled
-// - Stephen Denne: https://github.com/datacute/Tiny4kOLED
-// - David Johnson-Davies: http://www.technoblogy.com/show?TV4
-// - TinyOLEDdemo: https://github.com/wagiminator/attiny13-tinyoleddemo
-// - TinyTerminal: https://github.com/wagiminator/ATtiny85-TinyTerminal
-// - USB2OLED: https://github.com/wagiminator/CH552-USB-OLED
-//
-// 2022 by Stefan Wagner: https://github.com/wagiminator
+#ifndef __SSD1306_H
+#define __SSD1306_H
 
-#pragma once
+#include <stdint.h>
+#include <stdbool.h>
 
-#include "ch32v00x.h"
+// SSD1306 I2C Address
+#define SSD1306_I2C_ADDR    0x3C
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+// Screen dimensions
+#define SSD1306_WIDTH       128
+#define SSD1306_HEIGHT      64
+#define SSD1306_BUFFER_SIZE (SSD1306_WIDTH * SSD1306_HEIGHT / 8)
 
-#define I2C_CLKRATE   400000    // I2C bus clock rate (Hz)
-#define I2C_MAP       0         // I2C pin mapping (see above)
+#define CHAR_UP    0
+#define CHAR_DOWN  1
+#define CHAR_HEART 2
+#define CHAR_CURSOR 3
+#define CHAR_UP_S 4
+#define CHAR_DOWN_S 5
 
-// SSD1306 OLED height in pixels
-#ifndef SSD1306_HEIGHT
-#define SSD1306_HEIGHT          64
-#endif
-
-// SSD1306 width in pixels
-#ifndef SSD1306_WIDTH
-#define SSD1306_WIDTH           128
-#endif
-
-#ifndef SSD1306_BUFFER_SIZE
-#define SSD1306_BUFFER_SIZE   SSD1306_WIDTH * SSD1306_HEIGHT / 8
-#endif
-
-// Enumeration for screen colors
+// Colors
 typedef enum {
-    Black = 0x00, // Black color, no pixel
-    White = 0x01  // Pixel is set. Color depends on OLED
+    Black = 0,
+    White = 1,
+    Inverse = 2
 } SSD1306_COLOR;
 
-// OLED definitions
-#define OLED_ADDR         0x78    // OLED write address (0x3C << 1)
-#define OLED_CMD_MODE     0x00    // set command mode
-#define OLED_DAT_MODE     0x40    // set data mode
+// Text alignment
+typedef enum {
+    ALIGN_LEFT = 0,
+    ALIGN_CENTER = 1,
+    ALIGN_RIGHT = 2
+} TEXT_ALIGN;
 
-// OLED commands
-#define OLED_COLUMN_LOW   0x00    // set lower 4 bits of start column (0x00 - 0x0F)
-#define OLED_COLUMN_HIGH  0x10    // set higher 4 bits of start column (0x10 - 0x1F)
-#define OLED_MEMORYMODE   0x20    // set memory addressing mode (following byte)
-#define OLED_COLUMNS      0x21    // set start and end column (following 2 bytes)
-#define OLED_PAGES        0x22    // set start and end page (following 2 bytes)
-#define OLED_STARTLINE    0x40    // set display start line (0x40-0x7F = 0-63)
-#define OLED_CONTRAST     0x81    // set display contrast (following byte)
-#define OLED_CHARGEPUMP   0x8D    // (following byte - 0x14:enable, 0x10: disable)
-#define OLED_XFLIP_OFF    0xA0    // don't flip display horizontally
-#define OLED_XFLIP        0xA1    // flip display horizontally
-#define OLED_INVERT_OFF   0xA6    // set non-inverted display
-#define OLED_INVERT       0xA7    // set inverse display
-#define OLED_MULTIPLEX    0xA8    // set multiplex ratio (following byte)
-#define OLED_DISPLAY_OFF  0xAE    // set display off (sleep mode)
-#define OLED_DISPLAY_ON   0xAF    // set display on
-#define OLED_PAGE         0xB0    // set start page (following byte)
-#define OLED_YFLIP_OFF    0xC0    // don't flip display vertically
-#define OLED_YFLIP        0xC8    // flip display vertically
-#define OLED_OFFSET       0xD3    // set display offset (y-scroll: following byte)
-#define OLED_COMPINS      0xDA    // set COM pin config (following byte)
+// Basic functions
+void OLED_init(void);
+void OLED_clear(void);
+void OLED_update(void);
+void OLED_display(void);
+void OLED_setContrast(uint8_t contrast);
+void OLED_invertDisplay(uint8_t invert);
+void OLED_dim(uint8_t dim);
 
-// OLED functions
-void OLED_init(void);             // OLED init function
-void OLED_clear(void);            // OLED clear screen
-void OLED_clear2(void);
-void OLED_write(char c);          // OLED write a character or handle control characters
-void OLED_print(char* str);       // OLED print string
-void OLED_println(char* str);     // OLED print string with newline
-void OLED_printD(uint32_t value); // print decimal value
-void OLED_printL(uint32_t value); // print hex long value
-void OLED_printW(uint16_t value); // print hex word value
-void OLED_printB(uint8_t value);  // print hex byte value
-#define OLED_newline() OLED_write('\n')   // print newline
-#define OLED_printS OLED_print            // alias
-void OLED_setpos(uint8_t x, uint8_t y);
-void OLED_fill(uint8_t p);
-void OLED_draw_bmp(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, const uint8_t *bmp);
-void OLED_draw_bmp_by_size(uint8_t x0, uint8_t y0, uint8_t w, uint8_t h, const uint8_t* bmp);
-void OLED_DrawPixel(uint8_t x, uint8_t y, SSD1306_COLOR color);
+// Cursor and text functions
+void OLED_setCursor(uint8_t x, uint8_t y);
+void OLED_setTextSize(uint8_t size);
+void OLED_setTextColor(SSD1306_COLOR color);
+void OLED_setTextWrap(uint8_t wrap);
 
-// I2C Functions
-void I2C_init(void);            // I2C init function
-void I2C_start(uint8_t addr);   // I2C start transmission, addr must contain R/W bit
-void I2C_write(uint8_t data);   // I2C transmit one data byte via I2C
-void I2C_stop(void);            // I2C stop transmission
+// Print functions
+void OLED_print(const char *str);
+void OLED_printS(const char *str);
+void OLED_println(const char *str);
+void OLED_printB(uint8_t value);      // Print byte in hex
+void OLED_printD(int32_t value);      // Print decimal
+void OLED_printU(uint32_t value);     // Print unsigned
+void OLED_printf(const char *fmt, ...); // Printf-style formatting
+void OLED_printAlign(const char *str, TEXT_ALIGN align);
 
+// Character drawing
+void OLED_drawChar(uint8_t x, uint8_t y, char c, SSD1306_COLOR color, uint8_t size);
+void OLED_drawSymbol(uint8_t x, uint8_t y, uint8_t s, SSD1306_COLOR color);
+void OLED_write(uint8_t c);
 
-void OLED_test_all_addresses(void);
-#ifdef __cplusplus
-};
-#endif
+// Position functions
+void OLED_setpos(uint8_t x, uint8_t page);
+void OLED_getTextBounds(const char *str, uint8_t x, uint8_t y, 
+                        uint8_t *x1, uint8_t *y1, uint8_t *w, uint8_t *h);
+
+// Graphics primitives
+void OLED_drawPixel(uint8_t x, uint8_t y, SSD1306_COLOR color);
+void OLED_drawLine(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, SSD1306_COLOR color);
+void OLED_draw_line(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, SSD1306_COLOR color); // Alias
+void OLED_drawFastHLine(uint8_t x, uint8_t y, uint8_t w, SSD1306_COLOR color);
+void OLED_drawFastVLine(uint8_t x, uint8_t y, uint8_t h, SSD1306_COLOR color);
+
+// Rectangles
+void OLED_drawRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, SSD1306_COLOR color);
+void OLED_fillRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, SSD1306_COLOR color);
+void OLED_drawRoundRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r, SSD1306_COLOR color);
+void OLED_fillRoundRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t r, SSD1306_COLOR color);
+
+// Circles
+void OLED_drawCircle(uint8_t x0, uint8_t y0, uint8_t r, SSD1306_COLOR color);
+void OLED_fillCircle(uint8_t x0, uint8_t y0, uint8_t r, SSD1306_COLOR color);
+
+// Triangles
+void OLED_drawTriangle(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, 
+                       uint8_t x2, uint8_t y2, SSD1306_COLOR color);
+void OLED_fillTriangle(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1,
+                       uint8_t x2, uint8_t y2, SSD1306_COLOR color);
+
+// Bitmap drawing
+void OLED_drawBitmap(uint8_t x, uint8_t y, const uint8_t *bitmap, 
+                     uint8_t w, uint8_t h, SSD1306_COLOR color);
+void OLED_drawXBitmap(uint8_t x, uint8_t y, const uint8_t *bitmap,
+                      uint8_t w, uint8_t h, SSD1306_COLOR color);
+
+// Scrolling
+void OLED_startScrollRight(uint8_t start, uint8_t stop);
+void OLED_startScrollLeft(uint8_t start, uint8_t stop);
+void OLED_startScrollDiagRight(uint8_t start, uint8_t stop);
+void OLED_startScrollDiagLeft(uint8_t start, uint8_t stop);
+void OLED_stopScroll(void);
+
+// Progress bars and gauges
+void OLED_drawProgressBar(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t percent);
+void OLED_drawBargraph(uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t bars, uint8_t filled);
+
+// Buffer access
+uint8_t* OLED_getBuffer(void);
+void OLED_clearBuffer(void);
+
+// Direct command sending (for advanced users)
+void OLED_sendCommand(uint8_t cmd);
+void OLED_sendData(uint8_t data);
+
+#endif // __SSD1306_H

@@ -9,6 +9,16 @@ extern "C" {
 #include <stdbool.h>
   #include "main.h"
 
+
+// Crystal frequency (25MHz for most SI5351 modules)
+#define SI5351_XTAL_FREQ 25000000UL
+
+// PLL frequencies
+#define SI5351_PLL_A_FREQ 900000000UL  // 900MHz
+#define SI5351_PLL_B_FREQ 900000000UL  // 900MHz
+
+static uint32_t pll_a_freq = SI5351_PLL_A_FREQ;
+static uint32_t pll_b_freq = SI5351_PLL_B_FREQ;
 // SI5351 I2C address
 #define SI5351_ADDR 0x60  // 7-bit I2C address
 //#define I2C_TIMEOUT 50000
@@ -83,7 +93,7 @@ extern "C" {
 #define SI5351_CLK2_PHOFF_3       101
 #define SI5351_CRYSTAL_LOAD       183
 #define SI5351_FANOUT_ENABLE      187
-
+#define SI5351_MAX_FREQ      900000000UL
 // Clock outputs
 typedef enum {
     SI5351_CLK0 = 0,
@@ -111,8 +121,8 @@ typedef enum {
 } si5351_drive_t;
 
 // Function prototypes
-bool SI5351_begin(void);
-void SI5351_set_freq(uint32_t freq, si5351_clock_t clock, si5351_pll_t pll_source);
+i2c_err_t SI5351_begin(void);
+i2c_err_t SI5351_set_freq(uint32_t freq, si5351_clock_t clock, si5351_pll_t pll_source);
 void SI5351_set_clock_enable(si5351_clock_t clock, bool enable);
 void SI5351_set_clock_invert(si5351_clock_t clock, bool invert);
 void SI5351_set_clock_drive(si5351_clock_t clock, si5351_drive_t drive);
@@ -121,9 +131,9 @@ i2c_err_t SI5351_set_crystal_load(uint8_t load);
 void SI5351_set_pll_source(si5351_pll_t pll, uint8_t source);
 i2c_err_t SI5351_write(uint8_t reg, uint8_t data);
 i2c_err_t SI5351_read(uint8_t reg, uint8_t *data);
-void SI5351_bulk_write(uint8_t reg, uint8_t *data, uint8_t length);
-
-void SI5351_setup_pll(si5351_pll_t pll, uint32_t freq) ;
+//void SI5351_bulk_write(uint8_t reg, uint8_t *data, uint8_t length);
+i2c_err_t SI5351_bulk_write(uint8_t reg, uint8_t *data, uint8_t length);
+i2c_err_t SI5351_setup_pll(si5351_pll_t pll, uint32_t freq) ;
 uint8_t SI5351_test_connection(void);
 
 #ifdef __cplusplus
