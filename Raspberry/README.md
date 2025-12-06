@@ -6,11 +6,11 @@ This directory contains Raspberry Pi RP2040-based development boards and project
 
 ### RP2040-Matrix
 RP2040 Matrix development board - a board designed for matrix/LED applications. Contains:
+<br/><img src="RP2040-Matrix/03db4a7a-5b61-44a7-8f45-f762ab8f07ed.__CR0,0,970,600_PT0_SX970_V1___.jpg" alt="RP2040 Matrix" width="256">
 - Getting started documentation
 - C SDK documentation
 - Board schematic
 - Example projects for RP2040-Zero
-<br/><img src="RP2040-Matrix/03db4a7a-5b61-44a7-8f45-f762ab8f07ed.__CR0,0,970,600_PT0_SX970_V1___.jpg" alt="RP2040 Matrix" width="256">
 
 ### RP2040-Tiny
 RP2040 Tiny development board - a compact RP2040-based board. Contains:

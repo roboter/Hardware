@@ -1,0 +1,7 @@
+<svg width="256" height="256" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" fill="#4a90e2" rx="10"/>
+  <text x="128" y="120" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">CH582F</text>
+  <text x="128" y="160" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle">BLE</text>
+  <text x="128" y="190" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle">Microcontroller</text>
+</svg>
+

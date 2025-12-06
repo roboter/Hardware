@@ -9,9 +9,11 @@ Various Arduino boards and development kits including Nano, Pro Mini, Leonardo, 
 
 ### [AVR](/AVR)
 AVR microcontroller development boards and tools including Butterfly and STK500 programmer.
+<br/><img src="AVR/avr-logo.svg" alt="AVR" width="128">
 
 ### [CH582F](/CH582F)
 CH582F microcontroller development resources.
+<br/><img src="CH582F/ch582f-logo.svg" alt="CH582F" width="128">
 
 ### [COMPONENTS](/COMPONENTS)
 Hardware components including displays (SSD1306), sensors (WS2812, WS2812B, YF923), and linear sensors.
@@ -58,6 +60,7 @@ GigaDevice GD32 microcontroller boards including GD32VF103 (RISC-V) and GD32E232
 
 ### [IC](/IC)
 Integrated circuit datasheets and documentation.
+<br/><img src="IC/ic-logo.svg" alt="IC" width="128">
 
 ### [Modules](/Modules)
 Various electronic modules including:
@@ -74,6 +77,7 @@ Various electronic modules including:
 
 ### [NORDIC](/NORDIC)
 Nordic Semiconductor development boards including nRF52810, nRF52833, and Embeetle boards.
+<br/><img src="NORDIC/nordic-logo.png" alt="Nordic" width="128">
 
 ### [NXP](/NXP)
 NXP microcontroller development boards including FRDM-K22F and FRDM-KL27Z.
@@ -81,6 +85,7 @@ NXP microcontroller development boards including FRDM-K22F and FRDM-KL27Z.
 
 ### [PROJECTS](/PROJECTS)
 Complete hardware projects including LoRaWAN LR1262 designs with KiCad schematics and PCB files.
+<br/><img src="PROJECTS/projects-logo.svg" alt="Projects" width="128">
 
 ### [Raspberry](/Raspberry)
 Raspberry Pi RP2040-based boards including RP2040-Matrix and RP2040-Tiny.

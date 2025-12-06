@@ -1,0 +1,14 @@
+<svg width="256" height="256" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" fill="#27ae60" rx="10"/>
+  <rect x="40" y="60" width="60" height="60" fill="none" stroke="white" stroke-width="3" rx="5"/>
+  <rect x="120" y="60" width="60" height="60" fill="none" stroke="white" stroke-width="3" rx="5"/>
+  <rect x="200" y="60" width="56" height="60" fill="none" stroke="white" stroke-width="3" rx="5"/>
+  <circle cx="70" cy="90" r="4" fill="white"/>
+  <circle cx="150" cy="90" r="4" fill="white"/>
+  <circle cx="228" cy="90" r="4" fill="white"/>
+  <line x1="70" y1="120" x2="70" y2="130" stroke="white" stroke-width="2"/>
+  <line x1="150" y1="120" x2="150" y2="130" stroke="white" stroke-width="2"/>
+  <line x1="228" y1="120" x2="228" y2="130" stroke="white" stroke-width="2"/>
+  <text x="128" y="180" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle">PROJECTS</text>
+</svg>
+

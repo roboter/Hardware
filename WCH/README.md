@@ -6,11 +6,11 @@ This directory contains WCH (Nanjing Qinheng Microelectronics) microcontroller d
 
 ### CH32V003-DEV-KIT
 CH32V003 development kit based on RISC-V architecture. Contains:
+<br/><img src="CH32V003F4P6.webp" alt="CH32V003" width="256">
 - Development board schematics
 - Datasheets and reference manuals
 - Example projects with SSD1306 OLED display
 - I2C communication examples
-<br/><img src="CH32V003F4P6.webp" alt="CH32V003" width="256">
 
 ### CH32V003EVT
 CH32V003 evaluation board examples including:
