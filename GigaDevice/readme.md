@@ -44,3 +44,9 @@ I2S 1
 12bit ADC Units (CHs) 1(16)
 
 12bit DAC Units 4
+
+## GD32VF103
+
+GD32VF103 RISC-V based microcontroller development board.
+
+<br/><img src="GD32VF103/images/board.jpg" alt="GD32VF103" width="256">
