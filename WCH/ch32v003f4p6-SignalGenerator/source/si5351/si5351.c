@@ -1,131 +1,23 @@
+/********************************** (C) COPYRIGHT *******************************
+ * File Name          : main.c
+ * Author             : Robby Roboter
+ * Version            : V1.0.0
+ * Date               : 2022/08/08
+ * Description        : Main program body.
+
+/*
+      Hardware connection:
+			      PC1 -- SDA
+            PC2 -- SCL
+*/
+
 #include "si5351.h"
 #include "debug.h"
 #include <stdio.h>
 #include "main.h"
 
-// Crystal frequency (25MHz for most SI5351 modules)
-#define SI5351_XTAL_FREQ 25000000UL
-
-// PLL frequencies
-#define SI5351_PLL_A_FREQ 900000000UL  // 900MHz
-#define SI5351_PLL_B_FREQ 900000000UL  // 900MHz
-
-static uint32_t pll_a_freq = SI5351_PLL_A_FREQ;
-static uint32_t pll_b_freq = SI5351_PLL_B_FREQ;
 
 
-// Begin communication with SI5351
-bool SI5351_begin(void) {
-    // Reset SI5351
-     i2c_err_t err;
-  err = SI5351_write(0xB7, 0xAC);  // Reset device
-    if(err != I2C_OK) {
-        printf("Error reading SI5351 register: %d\n", err);
-        return err;
-    } 
-    Delay_Ms(10);
-    
-    // Disable all outputs
-     err = SI5351_write(3, 0xFF);
-     if(err != I2C_OK) {
-        printf("Error reading SI5351 register: %d\n", err);
-        return err;
-    } 
-    // Power down all output drivers
-    for(uint8_t i = 16; i <= 23; i++) {
-        err = SI5351_write(i, 0x80);
-       if(err != I2C_OK) {
-        printf("Error reading SI5351 register: %d\n", err);
-        return err;
-    } 
-    }
-    
-    // Set crystal load capacitance (typically 6-10pF)
-   err = SI5351_set_crystal_load(6);
-     if(err != I2C_OK) {
-        printf("Error reading SI5351 register: %d\n", err);
-        return err;
-    } 
-    // Configure PLLs
-     SI5351_setup_pll(SI5351_PLL_A, SI5351_PLL_A_FREQ);
-    
-     if(err != I2C_OK) {
-        printf("Error reading SI5351 register: %d\n", err);
-        return err;
-    } 
-     SI5351_setup_pll(SI5351_PLL_B, SI5351_PLL_B_FREQ);
-    
-     if(err != I2C_OK) {
-        printf("Error reading SI5351 register: %d\n", err);
-        return err;
-    } 
-    
-    return I2C_OK;
-}
-
-// Set frequency for a specific clock output
-void SI5351_set_freq(uint32_t freq, si5351_clock_t clock, si5351_pll_t pll_source) {
-    uint32_t pll_freq = (pll_source == SI5351_PLL_A) ? pll_a_freq : pll_b_freq;
-    uint32_t divider = pll_freq / freq;
-    
-    if(divider % 2) divider--;  // Ensure even divider
-    
-    
-    // Calculate multisynth parameters
-    uint32_t a = divider / 4;
-    uint32_t b = divider % 4;
-    uint32_t c = 1;
-    
-    // Set multisynth parameters
-    uint8_t params[8];
-    params[0] = (a >> 8) & 0xFF;
-    params[1] = a & 0xFF;
-    params[2] = (b >> 8) & 0xFF;
-    params[3] = b & 0xFF;
-    params[4] = c & 0xFF;
-    params[5] = 0x00;
-    params[6] = 0x00;
-    params[7] = 0x00;
-    
-    // Write to appropriate multisynth registers
-    uint8_t base_reg = 0;
-    switch(clock) {
-        case SI5351_CLK0: base_reg = SI5351_MULTISYNTH0_0; break;
-        case SI5351_CLK1: base_reg = SI5351_MULTISYNTH1_0; break;
-        case SI5351_CLK2: base_reg = SI5351_MULTISYNTH2_0; break;
-        default: return;
-    }
-    
-    SI5351_bulk_write(base_reg, params, 8);
-    
-    // Configure clock control register
-    uint8_t ctrl_reg = 0x0F;  // Basic settings
-    ctrl_reg |= (pll_source << 5);  // PLL source
-    ctrl_reg |= (SI5351_DRIVE_8MA << 0);  // Drive strength
-    
-    SI5351_write(SI5351_CLK0_CONTROL + clock, ctrl_reg);
-}
-
-// Setup PLL
-void SI5351_setup_pll(si5351_pll_t pll, uint32_t freq) {
-    uint32_t divider = freq / SI5351_XTAL_FREQ;
-    uint32_t a = divider;
-    uint32_t b = 0;
-    uint32_t c = 1;
-    
-    uint8_t params[8];
-    params[0] = (a >> 8) & 0xFF;
-    params[1] = a & 0xFF;
-    params[2] = (b >> 8) & 0xFF;
-    params[3] = b & 0xFF;
-    params[4] = c & 0xFF;
-    params[5] = 0x00;
-    params[6] = 0x00;
-    params[7] = 0x00;
-    
-    uint8_t base_reg = (pll == SI5351_PLL_A) ? SI5351_SYNTH_MSNA_0 : SI5351_SYNTH_MSNB_0;
-    SI5351_bulk_write(base_reg, params, 8);
-}
 
 // Enable/disable clock output
 i2c_err_t SI5351_output_enable(si5351_clock_t clock, bool enable) {
@@ -172,7 +64,7 @@ i2c_err_t SI5351_set_crystal_load(uint8_t load) {
 
 i2c_err_t SI5351_write(uint8_t reg, uint8_t data) {
     uint32_t timeout;
-    printf("write\n");
+//    printf("write\n");
     // 1. Start condition
     I2C_GenerateSTART(I2C1, ENABLE);
     timeout = I2C_TIMEOUT;
@@ -306,27 +198,235 @@ i2c_err_t SI5351_read(uint8_t reg, uint8_t *data) {
     return I2C_OK;
 }
 
-
-// Bulk write to SI5351
-void SI5351_bulk_write(uint8_t reg, uint8_t *data, uint8_t length) {
+// Fixed SI5351_bulk_write function
+i2c_err_t SI5351_bulk_write(uint8_t reg, uint8_t *data, uint8_t length) {
+    uint32_t timeout;
+    
+    // 1. Start condition
     I2C_GenerateSTART(I2C1, ENABLE);
-    while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_MODE_SELECT));
-    
-    I2C_Send7bitAddress(I2C1, SI5351_ADDR, I2C_Direction_Transmitter);
-    while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED));
-    
-    I2C_SendData(I2C1, reg);
-    while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_BYTE_TRANSMITTING));
-    
-    for(uint8_t i = 0; i < length; i++) {
-        I2C_SendData(I2C1, data[i]);
-        while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_BYTE_TRANSMITTING));
+    timeout = I2C_TIMEOUT;
+    while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_MODE_SELECT)) {
+        if(--timeout == 0) {
+            I2C_GenerateSTOP(I2C1, ENABLE);
+            return I2C_TIMEOUT;
+        }
     }
     
-    while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
+    // 2. Send SI5351 address (write) - FIXED: need to shift address left by 1
+    I2C_Send7bitAddress(I2C1, SI5351_ADDR << 1, I2C_Direction_Transmitter);
+    timeout = I2C_TIMEOUT;
+    while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_TRANSMITTER_MODE_SELECTED)) {
+        if(I2C_GetFlagStatus(I2C1, I2C_FLAG_AF)) { // NACK
+            I2C_ClearFlag(I2C1, I2C_FLAG_AF);
+            I2C_GenerateSTOP(I2C1, ENABLE);
+            return I2C_ERR_NACK;
+        }
+        if(--timeout == 0) {
+            I2C_GenerateSTOP(I2C1, ENABLE);
+            return I2C_TIMEOUT;
+        }
+    }
     
+    // 3. Send register address
+    I2C_SendData(I2C1, reg);
+    timeout = I2C_TIMEOUT;
+    while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_BYTE_TRANSMITTED)) {
+        if(--timeout == 0) {
+            I2C_GenerateSTOP(I2C1, ENABLE);
+            return I2C_TIMEOUT;
+        }
+    }
+    
+    // 4. Send data bytes - FIXED: use BYTE_TRANSMITTED event for each byte
+    for(uint8_t i = 0; i < length; i++) {
+        I2C_SendData(I2C1, data[i]);
+        timeout = I2C_TIMEOUT;
+        while(!I2C_CheckEvent(I2C1, I2C_EVENT_MASTER_BYTE_TRANSMITTED)) {
+            if(--timeout == 0) {
+                I2C_GenerateSTOP(I2C1, ENABLE);
+                return I2C_TIMEOUT;
+            }
+        }
+    }
+    
+    // 5. Stop condition
     I2C_GenerateSTOP(I2C1, ENABLE);
-    while(I2C_GetFlagStatus(I2C1, I2C_FLAG_STOPF));
+    timeout = I2C_TIMEOUT;
+    while(I2C_GetFlagStatus(I2C1, I2C_FLAG_STOPF)) {
+        if(--timeout == 0) return I2C_TIMEOUT;
+    }
+    
+    return I2C_OK;
+}
+
+// ALTERNATIVE: If bulk write still has issues, use sequential single writes
+i2c_err_t SI5351_bulk_write_safe(uint8_t reg, uint8_t *data, uint8_t length) {
+    i2c_err_t err;
+    
+    for(uint8_t i = 0; i < length; i++) {
+        err = SI5351_write(reg + i, data[i]);
+        if(err != I2C_OK) {
+            return err;
+        }
+        Delay_Us(10);  // Small delay between writes
+    }
+    
+    return I2C_OK;
+}
+
+// Fixed SI5351_setup_pll with proper error handling
+i2c_err_t SI5351_setup_pll(si5351_pll_t pll, uint32_t freq) {
+    uint32_t divider = freq / SI5351_XTAL_FREQ;
+    uint32_t a = divider;
+    uint32_t b = 0;
+    uint32_t c = 1;
+    
+    uint8_t params[8];
+    params[0] = (a >> 8) & 0xFF;
+    params[1] = a & 0xFF;
+    params[2] = (b >> 8) & 0xFF;
+    params[3] = b & 0xFF;
+    params[4] = c & 0xFF;
+    params[5] = 0x00;
+    params[6] = 0x00;
+    params[7] = 0x00;
+    
+    uint8_t base_reg = (pll == SI5351_PLL_A) ? SI5351_SYNTH_MSNA_0 : SI5351_SYNTH_MSNB_0;
+    
+    // Use safe bulk write or single writes
+    return SI5351_bulk_write_safe(base_reg, params, 8);
+}
+
+// Fixed SI5351_set_freq with proper error handling
+i2c_err_t SI5351_set_freq(uint32_t freq, si5351_clock_t clock, si5351_pll_t pll_source) {
+    uint32_t pll_freq = (pll_source == SI5351_PLL_A) ? SI5351_PLL_A_FREQ : SI5351_PLL_B_FREQ;
+    uint32_t divider = pll_freq / freq;
+    
+    if(divider % 2) divider--;  // Ensure even divider
+    
+    // Calculate multisynth parameters
+    uint32_t a = divider / 4;
+    uint32_t b = divider % 4;
+    uint32_t c = 1;
+    
+    // Set multisynth parameters
+    uint8_t params[8];
+    params[0] = (a >> 8) & 0xFF;
+    params[1] = a & 0xFF;
+    params[2] = (b >> 8) & 0xFF;
+    params[3] = b & 0xFF;
+    params[4] = c & 0xFF;
+    params[5] = 0x00;
+    params[6] = 0x00;
+    params[7] = 0x00;
+    
+    // Write to appropriate multisynth registers
+    uint8_t base_reg = 0;
+    switch(clock) {
+        case SI5351_CLK0: base_reg = SI5351_MULTISYNTH0_0; break;
+        case SI5351_CLK1: base_reg = SI5351_MULTISYNTH1_0; break;
+        case SI5351_CLK2: base_reg = SI5351_MULTISYNTH2_0; break;
+        default: return I2C_ERR_OTHER;
+    }
+    
+    i2c_err_t err = SI5351_bulk_write_safe(base_reg, params, 8);
+    if(err != I2C_OK) return err;
+    
+    // Configure clock control register
+    uint8_t ctrl_reg = 0x0F;  // Basic settings
+    ctrl_reg |= (pll_source << 5);  // PLL source
+    ctrl_reg |= (SI5351_DRIVE_8MA << 0);  // Drive strength
+    
+    return SI5351_write(SI5351_CLK0_CONTROL + clock, ctrl_reg);
+}
+
+// Fixed SI5351_begin with proper error checking
+i2c_err_t SI5351_begin(void) {
+    i2c_err_t err;
+    
+    printf("SI5351: Resetting device...\n");
+    
+    // Reset SI5351
+    err = SI5351_write(0xB7, 0xAC);
+    if(err != I2C_OK) {
+        printf("SI5351: Reset failed - error %d\n", err);
+        return err;
+    }
+    Delay_Ms(10);
+    
+    printf("SI5351: Disabling outputs...\n");
+    
+    // Disable all outputs
+    err = SI5351_write(3, 0xFF);
+    if(err != I2C_OK) {
+        printf("SI5351: Disable outputs failed - error %d\n", err);
+        return err;
+    }
+    
+    // Power down all output drivers
+    for(uint8_t i = 16; i <= 23; i++) {
+        err = SI5351_write(i, 0x80);
+        if(err != I2C_OK) {
+            printf("SI5351: Power down output %d failed - error %d\n", i, err);
+            return err;
+        }
+    }
+    
+    printf("SI5351: Setting crystal load...\n");
+    
+    // Set crystal load capacitance (typically 6-10pF)
+    err = SI5351_set_crystal_load(6);
+    if(err != I2C_OK) {
+        printf("SI5351: Crystal load failed - error %d\n", err);
+        return err;
+    }
+    
+    printf("SI5351: Configuring PLLs...\n");
+    
+    // Configure PLLs
+    err = SI5351_setup_pll(SI5351_PLL_A, SI5351_PLL_A_FREQ);
+    if(err != I2C_OK) {
+        printf("SI5351: PLL A setup failed - error %d\n", err);
+        return err;
+    }
+    
+    err = SI5351_setup_pll(SI5351_PLL_B, SI5351_PLL_B_FREQ);
+    if(err != I2C_OK) {
+        printf("SI5351: PLL B setup failed - error %d\n", err);
+        return err;
+    }
+    
+    printf("SI5351: Initialization complete!\n");
+    
+    return I2C_OK;
+}
+
+// Debug function to dump SI5351 registers
+void SI5351_dump_registers(void) {
+    uint8_t data;
+    i2c_err_t err;
+    
+    printf("\n--- SI5351 Register Dump ---\n");
+    
+    // Device Status
+    err = SI5351_read(0, &data);
+    printf("Reg 0 (Status): 0x%02X %s\n", data, (err == I2C_OK) ? "OK" : "FAIL");
+    
+    // Output Enable Control
+    err = SI5351_read(3, &data);
+    printf("Reg 3 (Output Enable): 0x%02X %s\n", data, (err == I2C_OK) ? "OK" : "FAIL");
+    
+    // Clock Control registers
+    for(uint8_t i = 16; i <= 23; i++) {
+        err = SI5351_read(i, &data);
+        printf("Reg %d (CLK%d Control): 0x%02X %s\n", i, i-16, data, (err == I2C_OK) ? "OK" : "FAIL");
+    }
+    
+    // Crystal Load
+    err = SI5351_read(SI5351_CRYSTAL_LOAD, &data);
+    printf("Reg 183 (Crystal Load): 0x%02X %s\n", data, (err == I2C_OK) ? "OK" : "FAIL");
+    
+    printf("--- End Register Dump ---\n\n");
 }
 
 

@@ -71,6 +71,16 @@
           "source-analysis-status-hdir": 1,
           "source-analysis-type": "header",
           "source-analysis-mode": null
+        },
+        "ssd1306_font.h": {
+          "type": "file",
+          "name": "ssd1306_font.h",
+          "relative-path": "source/SSD1306WCH/ssd1306_font.h",
+          "source-analysis-status-file": null,
+          "source-analysis-status-file-manual": null,
+          "source-analysis-status-hdir": 1,
+          "source-analysis-type": "header",
+          "source-analysis-mode": null
         }
       },
       "source-analysis-status-file": 1,
