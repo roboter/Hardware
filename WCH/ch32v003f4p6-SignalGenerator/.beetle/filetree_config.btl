@@ -60,7 +60,8 @@
           "source-analysis-status-file-manual": "force-included",
           "source-analysis-status-hdir": null,
           "source-analysis-type": "source",
-          "source-analysis-mode": null
+          "source-analysis-mode": null,
+          "selected": true
         },
         "ssd1306.h": {
           "type": "file",
@@ -98,7 +99,8 @@
       "source-analysis-status-file-manual": "force-included",
       "source-analysis-status-hdir": null,
       "source-analysis-type": "source",
-      "source-analysis-mode": null
+      "source-analysis-mode": null,
+      "selected": true
     }
   }
 }

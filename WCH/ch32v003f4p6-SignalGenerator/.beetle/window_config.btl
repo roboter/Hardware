@@ -31,67 +31,67 @@
                                         "x-view-offset": 0
                                     }
                                 },
-                                "rel://source/si5351/si5351.c": {
+                                "rel://source/User/main.c": {
                                     "class": "Editor",
                                     "tab-index": 1,
                                     "data": {
-                                        "line": 66,
-                                        "index": 2,
-                                        "first-visible-line": 42,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "rel://source/User/main.c": {
-                                    "class": "Editor",
-                                    "tab-index": 2,
-                                    "data": {
-                                        "line": 89,
-                                        "index": 9,
-                                        "first-visible-line": 79,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "rel://source/SSD1306WCH/ssd1306_font.h": {
-                                    "class": "Editor",
-                                    "tab-index": 3,
-                                    "data": {
-                                        "line": 33,
-                                        "index": 0,
-                                        "first-visible-line": 33,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "rel://readme.md": {
-                                    "class": "Editor",
-                                    "tab-index": 4,
-                                    "data": {
-                                        "line": 25,
-                                        "index": 47,
+                                        "line": 40,
+                                        "index": 38,
                                         "first-visible-line": 0,
                                         "x-view-offset": 0
                                     }
                                 },
                                 "rel://source/SSD1306WCH/ssd1306.h": {
                                     "class": "Editor",
-                                    "tab-index": 5,
+                                    "tab-index": 2,
                                     "data": {
-                                        "line": 19,
-                                        "index": 17,
+                                        "line": 4,
+                                        "index": 20,
                                         "first-visible-line": 0,
                                         "x-view-offset": 0
                                     }
                                 },
                                 "rel://source/SSD1306WCH/ssd1306.c": {
                                     "class": "Editor",
-                                    "tab-index": 6,
+                                    "tab-index": 3,
                                     "data": {
-                                        "line": 481,
-                                        "index": 16,
-                                        "first-visible-line": 461,
+                                        "line": 124,
+                                        "index": 8,
+                                        "first-visible-line": 0,
                                         "x-view-offset": 0
                                     }
                                 },
-                                "CURRENT-INDEX": 2
+                                "rel://config/makefile": {
+                                    "class": "Editor",
+                                    "tab-index": 4,
+                                    "data": {
+                                        "line": 474,
+                                        "index": 25,
+                                        "first-visible-line": 467,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://config/dashboard.mk": {
+                                    "class": "Editor",
+                                    "tab-index": 5,
+                                    "data": {
+                                        "line": 121,
+                                        "index": 32,
+                                        "first-visible-line": 106,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "rel://source/SSD1306WCH/ssd1306_font.h": {
+                                    "class": "Editor",
+                                    "tab-index": 6,
+                                    "data": {
+                                        "line": 102,
+                                        "index": 0,
+                                        "first-visible-line": 87,
+                                        "x-view-offset": 0
+                                    }
+                                },
+                                "CURRENT-INDEX": 3
                             }
                         },
                         "1": {
@@ -153,7 +153,7 @@
                                         "SEARCH RESULTS": {
                                             "class": "SearchResultsWindow"
                                         },
-                                        "CURRENT-INDEX": 0
+                                        "CURRENT-INDEX": 2
                                     }
                                 },
                                 "1": {

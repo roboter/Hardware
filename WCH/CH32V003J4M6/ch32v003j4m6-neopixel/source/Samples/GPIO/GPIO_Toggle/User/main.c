@@ -8,7 +8,7 @@
 
 #define LED_PIN GPIO_Pin_6
 #define LED_PORT GPIOD
-#define NUM_LEDS 1
+#define NUM_LEDS 8
 
 
 void WS2812B_Init(void) {
@@ -138,6 +138,6 @@ int main(void) {
 		Delay_Init();
 
     while (1) {			
-			 WS2812B_FadeColors(NUM_LEDS);
+			 WS2812B_Rainbow(NUM_LEDS);
     }
 }

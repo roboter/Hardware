@@ -1,0 +1,36 @@
+!SESSION 2025-11-17 19:05:40.699 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.20.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\PROJECTS\Hardware\STM8\STM8S103F3\IAR\IAR-LED-Blink-Registers
+
+!ENTRY com.iar.cdt.arm.toolchain.cmsis.adapter 1 0 2025-11-17 19:06:47.668
+!MESSAGE Using CMSIS pack repositories: http://links.iar.com/cmsis/pack/
+
+!ENTRY com.iar.cmsismanager.product 1 0 2025-11-17 19:06:51.648
+!MESSAGE CMSIS Agent interface registered with service registry at ServiceLocation(host:\\.\pipe\iar-cspy-cpp-binary-com.iar.thrift.service.registry-77f28a0b-57c2-4656-bc84-eeeefa76c2f1-1, port:0, protocol:Binary, transport:Pipe)
+
+!ENTRY com.iar.cmsismanager.product 1 0 2025-11-17 19:08:30.751
+!MESSAGE CMSIS Agent interface deregistered with service registry at ServiceLocation(host:\\.\pipe\iar-cspy-cpp-binary-com.iar.thrift.service.registry-77f28a0b-57c2-4656-bc84-eeeefa76c2f1-1, port:0, protocol:Binary, transport:Pipe)
+
+!ENTRY com.iar.cmsismanager.product 1 0 2025-11-17 19:08:30.754
+!MESSAGE Exiting workbench is response to shutdown() command.
+!SESSION 2025-11-17 19:08:57.638 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.20.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\PROJECTS\Hardware\STM8\STM8S103F3\IAR\IAR-LED-Blink-Registers
+
+!ENTRY com.iar.cdt.arm.toolchain.cmsis.adapter 1 0 2025-11-17 19:09:25.484
+!MESSAGE Using CMSIS pack repositories: http://links.iar.com/cmsis/pack/
+
+!ENTRY com.iar.cmsismanager.product 1 0 2025-11-17 19:09:35.124
+!MESSAGE CMSIS Agent interface registered with service registry at ServiceLocation(host:\\.\pipe\iar-cspy-cpp-binary-com.iar.thrift.service.registry-631a4b8c-4bee-45c6-9179-09b74ef422e6-1, port:0, protocol:Binary, transport:Pipe)
+
+!ENTRY com.iar.cmsismanager.product 1 0 2025-11-17 19:17:57.517
+!MESSAGE CMSIS Agent interface deregistered with service registry at ServiceLocation(host:\\.\pipe\iar-cspy-cpp-binary-com.iar.thrift.service.registry-631a4b8c-4bee-45c6-9179-09b74ef422e6-1, port:0, protocol:Binary, transport:Pipe)
+
+!ENTRY com.iar.cmsismanager.product 1 0 2025-11-17 19:17:57.519
+!MESSAGE Exiting workbench is response to shutdown() command.

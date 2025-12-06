@@ -3,8 +3,8 @@
         "NUMBER-OF-SCREENS": 1,
         "SCREEN-RESOLUTIONS": [
             [
-                1920,
-                1080
+                1536,
+                864
             ]
         ]
     },
@@ -12,7 +12,7 @@
     "SCREEN-INDEX": 0,
     "X-Y-OFFSET": [
         0,
-        -8
+        -7
     ],
     "BOXES": {
         "0": {
@@ -34,22 +34,12 @@
                                 "Output": {
                                     "class": "Console"
                                 },
-                                "": {
-                                    "class": "Editor",
-                                    "tab-index": 2,
-                                    "data": {
-                                        "line": 0,
-                                        "index": 0,
-                                        "first-visible-line": 0,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "CURRENT-INDEX": 2
+                                "CURRENT-INDEX": 1
                             }
                         }
                     },
                     "SIZES": [
-                        898
+                        682
                     ]
                 },
                 "1": {
@@ -74,8 +64,8 @@
                                 }
                             },
                             "SIZES": [
-                                321,
-                                315
+                                256,
+                                252
                             ]
                         },
                         "1": {
@@ -98,20 +88,20 @@
                                 }
                             },
                             "SIZES": [
-                                310,
-                                326
+                                248,
+                                260
                             ]
                         }
                     },
                     "SIZES": [
-                        450,
-                        446
+                        342,
+                        338
                     ]
                 }
             },
             "SIZES": [
-                1280,
-                638
+                1024,
+                510
             ]
         }
     }

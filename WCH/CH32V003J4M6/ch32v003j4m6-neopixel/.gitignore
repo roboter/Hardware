@@ -1,0 +1,6 @@
+.DS_Store
+.cache
+.config_orig
+software
+output.txt
+build

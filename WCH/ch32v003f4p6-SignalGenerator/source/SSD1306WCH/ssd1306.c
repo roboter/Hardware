@@ -36,6 +36,13 @@
 #define SSD1306_VERT_AND_LEFT_HORIZ_SCROLL  0x2A
 #define SSD1306_SET_VERTICAL_SCROLL_AREA    0xA3
 
+#define MY_STRLEN(s) ({           \
+    const char *p = (s);          \
+    size_t n = 0;                 \
+    while (*p++) n++;             \
+    n; })
+
+
 // Display buffer
 static uint8_t ssd1306_buffer[SSD1306_BUFFER_SIZE];
 
@@ -582,7 +589,7 @@ void OLED_printf(const char *fmt, ...) {
 // Get text bounds
 void OLED_getTextBounds(const char *str, uint8_t x, uint8_t y, 
                         uint8_t *x1, uint8_t *y1, uint8_t *w, uint8_t *h) {
-    uint8_t len = strlen(str);
+    uint8_t len = MY_STRLEN(str);
     *x1 = x;
     *y1 = y;
     *w = len * 6 * text_size;
@@ -591,7 +598,7 @@ void OLED_getTextBounds(const char *str, uint8_t x, uint8_t y,
 
 // Print with alignment
 void OLED_printAlign(const char *str, TEXT_ALIGN align) {
-    uint8_t len = strlen(str);
+    uint8_t len = MY_STRLEN(str);
     uint8_t width = len * 6 * text_size;
     
     switch(align) {

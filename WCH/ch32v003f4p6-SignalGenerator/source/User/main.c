@@ -6,7 +6,7 @@
 #include <si5351.h>
 #include <ssd1306.h>
 #include <ssd1306_font.h>
-#include <string.h>
+//#include <string.h>
 
 #define IF                                                                     \
   455 // Enter your IF frequency, ex: 455 = 455kHz, 10700 = 10.7MHz,  0 = to
