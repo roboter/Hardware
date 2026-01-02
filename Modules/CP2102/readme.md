@@ -1,5 +1,7 @@
 # FT232RL FTDI Type-C to TTL Serial Converter Adapter Module 3.3V 5.5V FT232R Breakout Mini USB to TTL Adapter Board for Arduino
 
+<img src="./S850442641c3049caac560fd38e2f1667S.webp" width="320" alt="CP2102 module"/>
+
 ## Features:
 1.Use the best FT232RL chip from USB2.0, and use a 500MA fuse (FUSE) to protect your USB power supply and device, resulting in more stable performance;
 2.FT232RL USB to serial module USB to TTL level, USB2TTL protection version supports overcurrent protection version;

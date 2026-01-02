@@ -1,7 +1,17 @@
-# MH-CD42 DC 5V 2.1A Mobile Power Module
+# MH‑CD42 DC 5V 2.1A Mobile Power Module
 
 **Short description**
-Compact 5 V boost / mobile power module intended to work with a single 3.7 V Li-ion cell (eg. 18650). Typical use is portable USB power for small devices and microcontroller boards.
+Compact 5 V boost module for single‑cell Li‑ion batteries. Use for charging small USB devices or powering microcontrollers.
+
+**Typical specs (verify on your board)**
+- Input: single cell Li‑ion (3.7–4.2 V)
+- Output: ~5 V boost (up to ~2.1 A depending on board condition)
+
+**Pinout**
+- BAT / VIN : battery +
+- GND : ground
+- VOUT : 5 V output +
+- KEY / EN : enable or trigger (if present)
 
 **Typical features (verify on your board)**
 - Input (BAT): 3.7–4.2 V single-cell Li-ion

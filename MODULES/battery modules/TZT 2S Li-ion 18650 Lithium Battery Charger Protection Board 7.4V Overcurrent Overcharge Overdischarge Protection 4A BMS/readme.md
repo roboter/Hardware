@@ -1,21 +1,24 @@
-# TZT 2S Li-ion 18650 Charger / Protection Board (4A)
+# TZT 2S Li‑ion Charger / Protection Board (≈4 A)
+
+<img src="./S0d605b834bc345369fcd0a1a6a79c3ab2.webp" width="320" alt="TZT 2S BMS"/>
 
 **Short description**
-2S (two-cell) Li-ion protection and charging board intended for 2×18650 battery packs. Typical functions include charge/discharge control, cell balancing, and protection against overcharge, overdischarge and overcurrent.
+2S protection board with balancing for dual 18650 packs. Provides overcharge, overdischarge and overcurrent protection and balance support.
 
 **Typical specs (verify on your board)**
 - Configuration: 2S (7.4 V nominal)
-- Rated working current: ~4 A (check silkscreen or seller listing)
-- Protections: overcharge, overdischarge, overcurrent, short-circuit, balance between cells
+- Rated working current: ≈4 A (check board marking)
+- Protections: overcharge, overdischarge, overcurrent, short-circuit
 
-**Common pinout / terminals (verify physically)**
-- B+ : pack positive
-- B- : pack negative
-- B1 (or MMB) : middle cell connection / cell balance between cell1 and cell2
-- P+ / P- : pack power output (charge/discharge terminals)
+**Wiring**
+See `wiring.md` in this folder for the 2S wiring example and safety notes.
 
-**Notes / Safety**
-- Exact thresholds and current ratings vary. Do not use these modules for high-current loads without verifying the board and fusing appropriately.
-- Provide photos of the board markings or any IC numbers (e.g., BMS controller IC) and I will add a detailed spec summary.
+**Files**
+- Images: present in the folder (embed added to main index)
+- README: this file
 
-*Please measure and confirm before use; I can help update this README once you provide measurements or the seller listing.*
+**Notes & Safety**
+- Confirm ratings and IC markings for exact thresholds.
+- Use correct fusing and test with a low-current load before full use.
+
+*Send pictures of the board silkscreen or IC markings and I will add more precise threshold values.*

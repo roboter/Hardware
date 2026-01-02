@@ -1,3 +1,5 @@
+<img src="./cjmcu-2232hl.jpg" width="320" alt="CJMCU-2232HL"/>
+
 This device have `MPSSE`
 
 

@@ -1,5 +1,7 @@
 # UMFT200Xd
 
+<img src="./2081338-40.jpg" width="320" alt="UMFT200Xd"/>
+
 FT232EX
 
 Have 1 configurable PIN 

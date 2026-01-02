@@ -1,4 +1,9 @@
-## Description: 
+# DC 5V 2.1A Mobile Power Module (DD06CVSA)
+
+<img src="./HTB1y5nybzihSKJjy0Feq6zJtpXae.webp" width="320" alt="DC 5V module"/>
+
+**Short description**
+Multifunctional mobile power module with charging, boosting (step-up), battery protection and level indication. Ideal for DIY power banks and portable devices using a single Li‑ion cell. 
 4 in 1 charge/Discharger(boost)/battery protection/Battery level indicator modules
  
 DD06CVSA is a multifunctional 3.7V/4.2V Mobile Power Diy  module,3 in 1 Function: charge,discharge and battery protection.

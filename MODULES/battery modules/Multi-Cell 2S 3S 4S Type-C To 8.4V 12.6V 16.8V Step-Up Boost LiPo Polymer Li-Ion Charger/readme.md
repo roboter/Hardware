@@ -1,39 +1,26 @@
-## Description
+# Multi‑Cell Type‑C Step‑Up Charger (2S / 3S / 4S)
 
-Multi-Cell 2S 3S 4S Type-C To 8.4V 12.6V 16.8V Step-Up Boost LiPo Polymer Li-Ion Charger 7.4V 11.1V 14.8V 18650 Lithium Battery
+<img src="./schematic.webp" width="320" alt="Multi-cell schematic"/>
 
-## Description:
+**Short description**
+Type‑C input step‑up charger for 2S/3S/4S Li‑ion packs. Provides charging and boost functionality depending on version and selected current option.
 
-1: Diverse choices, customers can choose what they need according to different needs
-2: Widely used
-3: High safety performance
-4: Simple and easy to understand and operate
-5: Battery overvoltage protection
+**Key specs (2S example)**
+- Input voltage: DC 3–6 V (recommend 3.7 V / 5 V)
+- Charging voltage (2S): 8.4 V
+- Charging current variants: 0.55 A / 1.1 A / 2.2 A (depending on version)
+- Switching up to 1 MHz, quasi‑CV charging behavior, LEDs for charge/OK
+- Size: ~39 × 18 × 6.3 mm
 
+**Wiring**
+See `wiring.md` in this folder for 2S/3S/4S wiring examples and balance connections.
 
+**Files**
+- `readme.md` (this file)
+- `schematic.webp` (schematic image)
 
-## Parameter:
+**Notes & Safety**
+- Confirm the exact charging current variant of your board before connecting to batteries.
+- Use proper fusing and verify balance connections for multi‑cell packs.
 
-#### 2-Cell(2S) 8.4V Version:
-
-Input voltage : `DC` `3-6V`(Recommend `DC` `3.7V` `5V`)
-Input current : `1A`(`1A` Version); `2A`(`2A` Version); `4A`(`4A` Version)
-Charging voltage : `8.4V`
-Charging current : `0.55A`(`1A` Version); `1.1A`(`2A` Version); `2.2A`(`4A` Version)
-
-## Feature:
-Switching Frequency up to 1MHz
-Quasi-CV mode to Compensate for the Voltage Loss on Battery Internal Resistance and Trace Resistance
-Automatic Recharge
-Protection for Battery Voltage Being Low than Input and Short Battery
-Good adaptability to Input Supply with Limited Driving Capability
-Battery Overvoltage Protection
-Led indicator : ''CR'' LED is charge status indicator
-''OK'' LED is fully charged OR Constant voltage mode;
-Operating Ambient Temperature－40℃ to ＋85℃
-Size 39mm x 18mm x 6.3mm
-Weight : 5g
-
-
-## Applications:
-PDA, MP3 Players, MP4 Players, Digital Cameras
+*If you have the seller listing or measured values, attach and I will add a precise spec table.*

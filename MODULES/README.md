@@ -2,6 +2,8 @@
 
 This directory contains various electronic modules, breakout boards, and interface modules.
 
+Many module folders include a `readme.md` and a `wiring.md` file with wiring notes, power information, and safety tips.
+
 ## Contents
 
 ### 8x8 RGB board

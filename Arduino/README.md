@@ -2,6 +2,8 @@
 
 This directory contains various Arduino-compatible development boards and related projects.
 
+Each board folder may include a `wiring.md` file with wiring notes and safety tips.
+
 ## Boards
 
 ### CJMCU-Beetle USB ATMEGA32U4

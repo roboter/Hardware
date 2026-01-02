@@ -1,15 +1,22 @@
-# AA / AAA Li-ion Adapter (3.7–4.2 V → ~1.5 V)
+# AA / AAA Li‑ion Adapter (3.7–4.2 V → ~1.5 V)
+
+<img src="./Se2403a4270644fe3a738096ad8ea9fbcl.webp" width="320" alt="AA/AAA adapter"/>
 
 **Short description**
-This adapter allows using a single Li-ion cell (typically 18650) as a substitute for AA/AAA cells by reducing the voltage to approximately 1.5 V. It is useful for legacy devices that expect ~1.5 V disposable cells.
+Adapter that steps a single Li‑ion cell down to ~1.5 V to mimic AA/AAA disposable batteries. Good for low‑power legacy devices that require ~1.5 V.
 
-**Usage**
-- Insert the Li-ion cell with correct polarity into the adapter.
-- Measure the adapter output (Vout) before connecting to your device — verify it is within expected voltage range for your device.
-- Do NOT use this adapter in devices that charge AA/AAA cells unless the adapter explicitly supports charging.
+**Typical behavior**
+- Expect a no‑load voltage around 1.5 V; regulation under varying loads may change depending on the adapter design.
 
-**Notes / Safety**
-- This is an adapter, not a battery chemistry converter for charging — batteries should be charged with a proper Li-ion charger, not by the host device unless explicitly supported.
-- Some devices expect specific characteristics of AA/AAA cells (internal resistance, capacity); performance may vary.
+**Wiring**
+See `wiring.md` in this folder for connection and quick checks (measure no‑load and under light load).
 
-*If you have photos of the adapter PCB (solder pads / traces) or measured voltages under load, add them here and I will update this README with more precise guidance.*
+**Files**
+- Image: `Se2403a4270644fe3a738096ad8ea9fbcl.webp`
+- README: this file
+
+**Notes & Safety**
+- Do NOT attempt to charge the Li‑ion cell through a device unless the adapter explicitly supports charging.
+- Verify polarity and measure the adapter output before insertion into devices.
+
+*Add photos or measured voltage under load to improve this documentation.*

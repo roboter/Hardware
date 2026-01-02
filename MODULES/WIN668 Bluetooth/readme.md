@@ -1,5 +1,7 @@
 Win668 Bluetooth 4.0 Stereo Wireless Audio Module Усилитель (arduino)
 
+<img src="./49302148.webp" width="320" alt="WIN668 Bluetooth module"/>
+
 Description
 Report Item
 

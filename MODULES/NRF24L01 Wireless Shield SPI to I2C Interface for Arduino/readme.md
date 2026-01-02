@@ -1,3 +1,4 @@
+<img src="./nrf24l01_wireless_shield_spi_06.jpg" width="320" alt="NRF24L01 shield"/>
 
 Details
     This is a platform using the ATMEGA48 to help you using the NRF24L0 Module easily. It uses the I2C (TWI) communication protocol to communicate with other controller such as the Arduino thus to simplify the NRF24L01 communication. With this module, you do not need to understand the tedious communication process of NRF24L01 anymore, building NRF24L01 wireless application would be much easily. Also Demo on Arduino platform would help you learning how to use this module in detail.

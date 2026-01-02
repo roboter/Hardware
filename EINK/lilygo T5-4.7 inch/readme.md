@@ -11,3 +11,6 @@ https://quadmeup.com/lilygo-t5-4-7-inch-e-paper-esp32-development-board/
   *  built-in LiPo/Li-Ion battery charger
   *  integrated 18650 Li-Ion battery holder
   *  3 general purpose buttons
+## Wiring
+
+See `wiring.md` for wiring notes, battery, and charging information.
