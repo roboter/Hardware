@@ -24,3 +24,7 @@ um1907-discovery-kit-for-stm32f7-series-with-stm32f746ng-mcu-stmicroelectronics.
  * TouchGFX https://www.youtube.com/watch?v=12KXreXaLp0
 
  ## Displaysize 480x272
+
+## Wiring
+
+See `wiring.md` for power and debug notes.

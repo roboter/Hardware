@@ -29,4 +29,8 @@ Hot entry: Press and hold the reset and BOOT buttons simultaneously, first relea
 Press the button to enter BOOT download mode.
 Cold entry: Press and hold the BOOT button, then connect the USB power for about 1 second, then release the BOOT button to enter
 BOOT download mode.
+
+## Wiring
+
+See `wiring.md` for BOOT/RST and Type-C configuration notes.
 STM32/CH32 serial port download interface:

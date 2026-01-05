@@ -14,3 +14,7 @@ STM32 I/O.
 
 # Debug
 NO SWO trace (Cortex M0 Don't have this)
+
+## Wiring
+
+See `wiring.md` for power and debug connections (SWD, Vcc levels).

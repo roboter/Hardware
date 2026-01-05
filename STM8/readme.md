@@ -3,6 +3,8 @@
 
 This directory contains STM8 microcontroller development boards and documentation.
 
+Many board folders include a `wiring.md` with wiring and programming notes.
+
 ## Contents
 
 ### STM8S103F3

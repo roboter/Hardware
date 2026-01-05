@@ -63,3 +63,7 @@ https://github.com/lujji/stm8-bare-min
 ## When connecting original ST-Link 
 
 * power must come from USB connector
+
+## Wiring
+
+See `wiring.md` for SWIM/JTAG, power, and peripheral wiring notes.

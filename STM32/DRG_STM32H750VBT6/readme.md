@@ -88,3 +88,7 @@ All projects now have:
 - Organized code structure
 - Consistent header formatting
 - Proper function organization
+
+## Wiring
+
+See `wiring.md` for power, DCMI, and ST-Link debug notes.

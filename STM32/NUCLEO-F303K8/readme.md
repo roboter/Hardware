@@ -11,4 +11,7 @@ from maga shield arduino source:
 NO HCE Crystal on board
 X1, C12, C13 is not soldered on Nucleo board
 
+## Wiring
+
+See `wiring.md` for power and debug (ST-Link) connections.
 

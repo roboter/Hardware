@@ -2,6 +2,8 @@
 
 This directory contains WCH (Nanjing Qinheng Microelectronics) microcontroller development boards and resources.
 
+Many board folders include a `wiring.md` file with wiring, power, and programming notes.
+
 ## Contents
 
 ### CH32V003-DEV-KIT
