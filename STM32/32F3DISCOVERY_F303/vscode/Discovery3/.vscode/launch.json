@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex Debug",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/Debug/Discovery3.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "runToEntryPoint": "main",
+            "servertype": "openocd",
+            "device": "STM32F303XC",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f3x.cfg"
+            ],
+            "toolchainPath": "${workspaceFolder}/.vscode/tools",
+            "svdFile": "${workspaceFolder}/.vscode/STM32F303.svd",
+            "showDevDebugOutput": "raw",
+            "preLaunchTask": "Build Debug"
+        }
+    ]
+}
