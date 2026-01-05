@@ -2,6 +2,8 @@
 
 This directory contains Geehy APM32 microcontroller development boards and SDKs.
 
+See [wiring.md](wiring.md) for general Geehy wiring and programming notes.
+
 ## Contents
 
 ### APM32F072VB

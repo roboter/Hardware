@@ -1,6 +1,6 @@
-
-
 # Maple mini (clone)
+
+See [wiring.md](wiring.md) for wiring and programming details.
 ![Maple mini](STM32F103C8T6_Maple_Mini_Clone-1.jpg)
 # Board
 * Name	Maple Mini Clone

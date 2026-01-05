@@ -1,5 +1,6 @@
-# Description
-STM32F103C8T6 ARM Minisystem Development Board STM32 Development Core Board
+# STM32F103C8T6 Black Board (Minisystem)
+
+See [wiring.md](wiring.md) for wiring and programming details.
 
 
     MCU: STM32F103C8T6 ARM Cortex M3 72 MHz

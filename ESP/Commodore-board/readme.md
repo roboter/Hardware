@@ -1,3 +1,7 @@
+# Commodore-board (ESP32-WROOM-32UE)
+
+See [wiring.md](wiring.md) for wiring and programming details.
+
 ## ESP32-WROOM-32UE
 
 ## Arduino

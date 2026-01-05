@@ -2,6 +2,8 @@
 
 This directory contains display modules, drivers, and example code for various display technologies.
 
+See [wiring.md](wiring.md) for general display wiring and notes.
+
 ## Contents
 
 ### 1,7_SPI_128x160_OLED_ST7735

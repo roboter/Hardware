@@ -2,6 +2,8 @@
 
 This directory contains e-ink (electronic paper) display modules and related resources.
 
+See [wiring.md](wiring.md) for general E-Ink wiring and notes.
+
 ## Contents
 
 ### lilygo T5-4.7 inch

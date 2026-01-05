@@ -1,4 +1,8 @@
-### TTGO TS V1.0 - ESP32 WiFi BLE + 1.44" TFT LCD + MicroSD Card Slot + Speaker + Battery charger
+### TTGO TS V1.0
+
+See [wiring.md](wiring.md) for wiring and programming details.
+
+### Features
 https://github.com/LilyGO/TTGO-TS-V1.2
 
 # USB Drivers

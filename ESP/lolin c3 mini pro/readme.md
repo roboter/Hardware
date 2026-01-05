@@ -1,4 +1,8 @@
-WiFi & BLE boards based ESP32-S3FH4R2 with 0.85 inch TFT Screen and IMU.
+# Lolin S3 Mini Pro
+
+See [wiring.md](wiring.md) for wiring and programming details.
+
+WiFi & BLE boards based ESP32-S3FH4R2
 
 ## Features
 

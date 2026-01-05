@@ -1,4 +1,8 @@
-#Programming
+# Frankenstein (ESP-12E)
+
+See [wiring.md](wiring.md) for wiring and programming details.
+
+# Programming
 Same as ESP-01
 
 #device

@@ -2,7 +2,11 @@
 
 ## Introduction
 
-`nanoESP32-C6` is a `ESP32-C6` minimum system board designed and made by Muse Lab based on `ESP32-C6-WROOM-1` module of Expressif. It features `RGB` `LED`, a `BOOT` button and a `RST` button. The dual TYPE-C USB ports including `USB` to `TTL` and native `USB` are more convenient for developers to develop and test.
+`nanoESP32-C6` is a `ESP32-C6` minimum system board designed and made by Muse Lab.
+
+See [wiring.md](wiring.md) for wiring and programming details.
+
+It features `RGB` `LED`, a `BOOT` button and a `RST` button.
 <img alt="nanoESP32-C6" src="Sfbee5e59702d4e92b3ee03f7a2549696B.avif">
 
 ## Specification
