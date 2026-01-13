@@ -10,11 +10,11 @@
             "runToEntryPoint": "main",
             "servertype": "openocd",
             "device": "STM32F303XC",
+            "gdbPath": "C:\\ST\\STM32CubeCLT_1.18.0\\GNU-tools-for-STM32\\bin\\arm-none-eabi-gdb.exe",
             "configFiles": [
                 "interface/stlink.cfg",
                 "target/stm32f3x.cfg"
             ],
-            "toolchainPath": "${workspaceFolder}/.vscode/tools",
             "svdFile": "${workspaceFolder}/.vscode/STM32F303.svd",
             "showDevDebugOutput": "raw",
             "preLaunchTask": "Build Debug"

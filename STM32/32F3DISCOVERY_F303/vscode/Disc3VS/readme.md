@@ -1,0 +1,1 @@
+Visual Studio Code STM32 Cube New Project don't have HAL AND no INO file

@@ -8,7 +8,10 @@
             ]
         ]
     },
-    "WINDOW-SIZE": "MAXIMIZED",
+    "WINDOW-SIZE": [
+        980,
+        660
+    ],
     "SCREEN-INDEX": 0,
     "X-Y-OFFSET": [
         0,
@@ -107,8 +110,8 @@
                         }
                     },
                     "SIZES": [
-                        446,
-                        211
+                        372,
+                        175
                     ]
                 },
                 "1": {
@@ -133,8 +136,8 @@
                                 }
                             },
                             "SIZES": [
-                                287,
-                                280
+                                184,
+                                180
                             ]
                         },
                         "1": {
@@ -150,10 +153,7 @@
                                                 "gdb-url": "localhost:3333"
                                             }
                                         },
-                                        "SEARCH RESULTS": {
-                                            "class": "SearchResultsWindow"
-                                        },
-                                        "CURRENT-INDEX": 2
+                                        "CURRENT-INDEX": 0
                                     }
                                 },
                                 "1": {
@@ -169,20 +169,20 @@
                                 }
                             },
                             "SIZES": [
-                                297,
-                                270
+                                182,
+                                182
                             ]
                         }
                     },
                     "SIZES": [
-                        314,
-                        343
+                        261,
+                        286
                     ]
                 }
             },
             "SIZES": [
-                965,
-                569
+                612,
+                366
             ]
         }
     }

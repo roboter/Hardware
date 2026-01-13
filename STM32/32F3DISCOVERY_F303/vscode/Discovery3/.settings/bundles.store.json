@@ -15,6 +15,10 @@
     {
       "name": "st-arm-clangd",
       "version": "19.1.2+st.3"
+    },
+    {
+      "name": "gnu-tools-for-stm32-14_3_1-description",
+      "version": "1.0.1+st.1"
     }
   ]
 }
