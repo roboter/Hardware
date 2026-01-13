@@ -2,6 +2,8 @@
 
 This directory contains Cypress microcontroller development boards and resources.
 
+See [wiring.md](wiring.md) for general Cypress wiring and programming notes.
+
 ## Contents
 
 ### CY8CKIT-059

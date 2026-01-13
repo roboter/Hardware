@@ -2,6 +2,8 @@
 
 This directory contains STM32 microcontroller development boards, projects, and resources.
 
+See [wiring.md](wiring.md) for general STM32 wiring and programming notes.
+
 ## Contents
 
 ### 32F3DISCOVERY_F303

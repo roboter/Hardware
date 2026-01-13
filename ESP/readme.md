@@ -2,6 +2,8 @@
 
 This directory contains ESP32 and ESP8266 development boards, projects, and resources.
 
+See [wiring.md](wiring.md) for general ESP wiring and programming notes.
+
 ## All ESPs
 
 * <a href="HELTEC"> Heltec WiFi Kit 8 <br/><img alt="Heltec WiFi Kit 8" src="HELTEC/heltec_front.jpg" width="128"></a>

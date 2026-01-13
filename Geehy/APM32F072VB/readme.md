@@ -1,5 +1,8 @@
 # Geehy APM32F072VB Mini Board
 
+See [wiring.md](wiring.md) for wiring and programming details.
+
+
 ## Performance
 
 * 32 bit Arm® Cortex® M0+

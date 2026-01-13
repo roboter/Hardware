@@ -2,7 +2,9 @@
 
 This directory contains various electronic modules, breakout boards, and interface modules.
 
-Many module folders include a `readme.md` and a `wiring.md` file with wiring notes, power information, and safety tips.
+Many module folders include a `readme.md` and a `wiring.md` file.
+
+See the root [wiring.md](wiring.md) for general module wiring notes.
 
 ## Contents
 

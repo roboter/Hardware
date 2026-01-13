@@ -1,3 +1,7 @@
+# TTGO ESP32 with 18650 Battery & OLED
+
+See [wiring.md](wiring.md) for wiring and programming details.
+
 # Features
 
 * ESP-WROOM-32 Module (Wifi, Bluetooth, two cores)

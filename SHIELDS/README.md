@@ -1,6 +1,8 @@
 # SHIELDS
 
-This directory contains Arduino shields - expansion boards that plug into Arduino-compatible boards.
+This directory contains Arduino shields.
+
+See [wiring.md](wiring.md) for general shield compatibility and wiring notes.
 
 ## Contents
 

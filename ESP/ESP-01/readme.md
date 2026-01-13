@@ -1,4 +1,8 @@
-#Installation
+# ESP-01
+
+See [wiring.md](wiring.md) for wiring and programming details.
+
+# Installation
 https://github.com/esp8266/Arduino
 
 #docs

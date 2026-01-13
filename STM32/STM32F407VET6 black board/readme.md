@@ -1,4 +1,6 @@
+# STM32F407VET6 Black Board
 
+See [wiring.md](wiring.md) for wiring and programming details.
 
 ## Microcontroller features
 

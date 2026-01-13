@@ -1,3 +1,6 @@
+# Lolin C3 Pico
+
+See [wiring.md](wiring.md) for wiring and programming details.
 
 ## Features
 * based ESP32-C3 WIFI & Bluetooth LE RISC-V Single-Core CPU
