@@ -16,14 +16,13 @@
 // Include all peripheral drivers
 #include "gpio.h"
 #include "wdt_a.h"
-// TODO: Add other drivers as needed
-// #include "timer_a.h"
-// #include "usci_a_uart.h"
-// #include "usci_a_spi.h"
-// #include "usci_b_i2c.h"
-// #include "adc10_a.h"
-// #include "bcs.h"
-// #include "pmm.h"
-// #include "flashctl.h"
+#include "timer_a.h"
+#include "usci_a_uart.h"
+#include "usci_a_spi.h"
+#include "usci_b_i2c.h"
+#include "adc10_a.h"
+#include "bcs.h"
+#include "pmm.h"
+#include "flashctl.h"
 
 #endif // __MSP430WARE_DRIVERLIB_H__

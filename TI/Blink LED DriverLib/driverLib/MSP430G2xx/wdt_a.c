@@ -4,20 +4,26 @@
 //
 //*****************************************************************************
 
-#include <msp430g2553.h>
+#include "inc/hw_memmap.h"
 #include "wdt_a.h"
 
-//*****************************************************************************
-//
-//! Holds the WDT.
-//!
-//! This function holds the WDT.
-//!
-//! \return None
-//
-//*****************************************************************************
+#ifdef __MSP430_HAS_WDT__
+
+#include <assert.h>
+
 void WDT_A_holdTimer(void)
 {
-    // Stop watchdog timer using inline assembly
-    __asm(" MOV.W #0x5A80, &0x0120 ");
+    WDTCTL = WDTPW | WDTHOLD;
 }
+
+void WDT_A_startTimer(void)
+{
+    WDTCTL = WDTPW;
+}
+
+void WDT_A_clearTimer(void)
+{
+    WDTCTL |= WDTPW | WDTCNTCL;
+}
+
+#endif // __MSP430_HAS_WDT__

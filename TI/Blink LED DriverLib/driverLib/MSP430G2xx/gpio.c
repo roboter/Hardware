@@ -14,8 +14,7 @@
 #include <stdint.h>
 #include <msp430g2553.h>
 
-#if defined(__MSP430_HAS_PORT1_R__) || defined(__MSP430_HAS_PORT2_R__) ||\
-    defined(__MSP430_HAS_PORTA_R__)
+#ifdef __MSP430_HAS_PORT1__
 #include "gpio.h"
 
 #include <assert.h>

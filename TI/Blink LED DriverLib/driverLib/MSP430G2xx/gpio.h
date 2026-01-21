@@ -17,8 +17,11 @@ typedef unsigned char uint8_t;
 typedef unsigned int uint16_t;
 #endif
 
-#if defined(__MSP430_HAS_PORT1_R__) || defined(__MSP430_HAS_PORT2_R__) ||\
-    defined(__MSP430_HAS_PORTA_R__)
+// Basic GPIO port defines for MSP430G2xx
+#define GPIO_PORT_P1                                                          1
+#define GPIO_PORT_P2                                                          2
+
+#ifdef __MSP430_HAS_PORT1__
 
 //*****************************************************************************
 //
@@ -44,8 +47,6 @@ extern "C"
 // GPIO_getInterruptStatus(), and GPIO_clearInterrupt().
 //
 //*****************************************************************************
-#define GPIO_PORT_P1                                                          1
-#define GPIO_PORT_P2                                                          2
 // MSP430G2553 only supports P1 and P2 ports
 // Other port definitions commented out for compatibility
 // #define GPIO_PORT_P3                                                          3
