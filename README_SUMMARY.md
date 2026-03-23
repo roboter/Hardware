@@ -27,6 +27,7 @@ graph TD
     MCU --> NORDIC[Nordic nRF]
     MCU --> Cyp[Cypress PSoC]
     MCU --> CH582[CH582F]
+    MCU --> TI[TI MSP430]
     
     PER --> DISP[Displays & E-Ink]
     PER --> MOD[Breakout Modules]
@@ -51,7 +52,8 @@ graph TD
 | **STM32** | ✅ Complete | Extensive subfolder coverage (F1, F3, F4, F7, H7, G4, L1, WB) |
 | **ESP** | ✅ Complete | ESP32, ESP8266, S3, C3, C6 variants |
 | **WCH** | ✅ Complete | CH32V003 series and core wiring notes |
-| **STM8** | ✅ Complete | STM8S103F3 and general notes |
+| **STM8** | ✅ Complete | STM8S103F3 and general notes (standardized README.md) |
+| **TI** | ✅ Complete | MSP430 LaunchPad and wiring notes |
 | **Geehy** | ✅ Complete | APM32F072VB and STM32 compatibility notes |
 | **NORDIC** | ✅ Complete | nRF52 series notes |
 | **NXP** | ✅ Complete | Kinetis FRDM boards |
