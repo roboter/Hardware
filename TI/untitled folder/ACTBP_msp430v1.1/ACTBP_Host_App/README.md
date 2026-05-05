@@ -252,6 +252,8 @@ Redistribution and use in source and binary forms, with or without modification,
 
 ## 🔗 Resources
 
+- 📁 [docs/](docs/README.md) — Official TI documentation index (datasheets, user guides, reference design)
+- 📡 [C5000 UART Protocol Specification](C5000_protocol.md) — Complete protocol documentation
 - 🌐 [TI Audio BoosterPack product page](https://www.ti.com/audioboosterpack) ❌
 - 💬 [ACTBP E2E support thread](https://e2e.ti.com/support/processors-group/processors/f/processors-forum/188254/audio-capacitive-touch-booster-pack-software) ✅
 - 📖 [MSP430G2553 datasheet](https://www.ti.com/product/MSP430G2553) ✅
