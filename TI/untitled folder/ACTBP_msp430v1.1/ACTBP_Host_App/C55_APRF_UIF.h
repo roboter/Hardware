@@ -1,0 +1,479 @@
+/*******************************************************************************
+ *
+ *  C55_APRF_UIF.h - Definition file for UART communication interface for 
+ *                   controlling the Raga software on the C55x DSP  
+ *
+ *  Copyright (C) 2012 Texas Instruments Incorporated - http://www.ti.com/ 
+ * 
+ *  Redistribution and use in source and binary forms, with or without 
+ *  modification, are permitted provided that the following conditions 
+ *  are met:
+ *
+ *    Redistributions of source code must retain the above copyright 
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ *    Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the 
+ *    documentation and/or other materials provided with the   
+ *    distribution.
+ *
+ *    Neither the name of Texas Instruments Incorporated nor the names of
+ *    its contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
+ *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
+ *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ *  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT 
+ *  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+ *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT 
+ *  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ *  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ *  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
+ *  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
+ *  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ ******************************************************************************/
+
+/** To avoid redefinition for variables declared in this header */
+#ifndef _C55_APRF_UIF_H_
+#define _C55_APRF_UIF_H_
+
+/** Macro Definitions */
+#define HANDLE int
+#define UIF HANDLE
+
+/** Macro The control settings */
+#define ControlSettings DCB
+
+/** Macro The timeout constant */
+#define UIF_TIMEOUT 1000
+
+/** Macro 100 msec. */
+#define HUNDRED_MILLISEC 100
+
+/** Macro The maximum array buffer size */
+#define UIF_MAX_ARRAY_BUF_SIZE 1650
+
+/** Macro The max scalar buffer size */
+#define MAX_SCALAR_BUFF_SIZE 80
+
+/** Macro Status to indicate success or failure */
+#define Status int
+
+/** Macro Success */
+#define SUCCESS 0
+
+/** Macro Failure */
+#define FAILURE 1
+
+/** Macro Maximum File Count Reached Error Code */
+#define MAX_FC_ERR 7
+
+/** Macro Length of packet */
+#define LEN_OF_PACKET 4
+
+/** Macro Length of response packet */
+#define LEN_OF_RESPONSEPACKET 4
+
+/** Macro Length of request buffer */
+#define LEN_REQ_BUFF_SIZE 6
+
+/** Macro Identifier for write scalar data */
+#define UIF_WRITE_SCALAR_DATA 0
+
+/** Macro Identifier for write array data */
+#define UIF_WRITE_ARRAY_DATA 1
+
+/** Macro Identifier for read scalar data */
+#define UIF_READ_SCALAR_DATA 2
+
+/** Macro Identifier for read array data */
+#define UIF_READ_ARRAY_DATA 3
+
+/** Macro Identifier for write completion ack packet */
+#define UIF_WRITE_COMPLETION_ACK 4
+
+/** Macro Identifier for read completion ack packet */
+#define UIF_READ_COMPLETION_ACK 5
+
+/** Macro Length of ack packet */
+#define LEN_OF_ACK_PACKET 6
+
+/** Macro Length of scalar command packet */
+#define UIF_SCALAR_CMD_PKT_SIZE (6)
+
+/** Macro Request packet padding content */
+#define RSV0 0x0
+
+/** Macro Request packet padding content */
+#define RSV1 0x0
+
+/** Macro Request packet padding content */
+#define RSV2 0x0
+
+/** Macro Request packet padding content */
+#define RSV3 0x0
+
+/** Macro ON value */
+#define ON 1
+
+/** Macro OFF value */
+#define OFF 0
+
+/** Macro Define Yes */
+#define YES 0
+
+/** Macro Define No  */
+#define NO 1
+
+/** The virtual register values set */
+typedef enum 
+{
+	UIF_CMD_OPERATION = 0x00,
+	UIF_CMD_PLAY_FILE,
+	UIF_CMD_RECORD_FILE,
+	UIF_CMD_VOLUME,
+	UIF_CMD_BALANCE,
+	UIF_CMD_STEREO,
+	UIF_CMD_CONTROL_EQ,
+	UIF_CMD_CONTROL_KS,
+	UIF_CMD_RECORD_BIT_RATE,
+	UIF_CMD_RECORD_SAMPLE_RATE,
+	UIF_CMD_RECORD_FORMAT,
+	UIF_CMD_PLAY_FORMAT,
+	UIF_CMD_PLAY_BIT_RATE,
+	UIF_CMD_PLAY_SAMPLE_RATE,
+	UIF_CMD_AUDIO_OUTPUT,
+	UIF_CMD_AUDIO_INPUT,
+	UIF_CMD_DIR_INFO,
+	UIF_CMD_SYS_FILE,
+	UIF_CMD_POWER_IO,
+	UIF_CMD_POWER_CORE,
+	UIF_CMD_BAUDRATE,
+	UIF_CMD_PLAY_NUMBER,
+	UIF_CMD_CURRENT_PLAY_FILE,
+	UIF_CMD_RECORD_STATUS,
+	UIF_CMD_CURRENT_RECORD_FILE,
+	UIF_CMD_TIME_OUT,
+	UIF_CMD_POWER_MODE,
+	UIF_CMD_SYS_STATUS,
+	UIF_CMD_FILE_COUNT,
+	UIF_CMD_DIR_COUNT,
+	UIF_CMD_PLAY_STATUS,
+	UIF_CMD_PLAY_MODE,
+	UIF_CMD_SHUFFLE_STATUS,
+	UIF_CMD_USB_CTRL,
+	UIF_CMD_USB_STATUS,
+	UIF_CMD_EVENT_CTRL,
+	UIF_CMD_VERSION,
+	UIF_CMD_PARAM,
+	UIF_CMD_STR,
+	UIF_CMD_UNKNOWNINSTRUCTION = 0xffff
+}UifRegNames;
+
+
+/** The list of values corresponding to the register "operation" */
+typedef enum
+{
+    UIF_CMD_NOP = 0,
+    UIF_CMD_PLAY_LIST,
+    UIF_CMD_PAUSE_PLAY,
+    UIF_CMD_RESUME_PLAY,
+    UIF_CMD_PLAY_NEXT,
+    UIF_CMD_PLAY_PREV,
+    UIF_CMD_FF_NORMAL,
+    UIF_CMD_REWIND_NORMAL,
+    UIF_CMD_CYCLE,
+    UIF_CMD_SHUFFLE,
+    UIF_CMD_STOP_PLAY,
+    UIF_CMD_RECORD,
+    UIF_CMD_STOP_RECORD,
+    UIF_CMD_PAUSE_RECORD,
+    UIF_CMD_RESUME_RECORD,
+    UIF_CMD_MUTE_UNMUTE,
+    UIF_CMD_VOLUME_UP_01,
+    UIF_CMD_VOLUME_UP_02,
+    UIF_CMD_VOLUME_UP_03,
+    UIF_CMD_VOLUME_UP_04,
+    UIF_CMD_VOLUME_UP_05,
+    UIF_CMD_VOLUME_UP_06,
+    UIF_CMD_VOLUME_UP_07,
+    UIF_CMD_VOLUME_UP_08,
+    UIF_CMD_VOLUME_UP_09,
+    UIF_CMD_VOLUME_UP_10,
+    UIF_CMD_VOLUME_UP_11,
+    UIF_CMD_VOLUME_UP_12,
+    UIF_CMD_VOLUME_UP_13,
+    UIF_CMD_VOLUME_UP_14,
+    UIF_CMD_VOLUME_UP_15,
+    UIF_CMD_VOLUME_UP_16,
+    UIF_CMD_VOLUME_DOWN_01,
+    UIF_CMD_VOLUME_DOWN_02,
+    UIF_CMD_VOLUME_DOWN_03,
+    UIF_CMD_VOLUME_DOWN_04,
+    UIF_CMD_VOLUME_DOWN_05,
+    UIF_CMD_VOLUME_DOWN_06,
+    UIF_CMD_VOLUME_DOWN_07,
+    UIF_CMD_VOLUME_DOWN_08,
+    UIF_CMD_VOLUME_DOWN_09,
+    UIF_CMD_VOLUME_DOWN_10,
+    UIF_CMD_VOLUME_DOWN_11,
+    UIF_CMD_VOLUME_DOWN_12,
+    UIF_CMD_VOLUME_DOWN_13,
+    UIF_CMD_VOLUME_DOWN_14,
+    UIF_CMD_VOLUME_DOWN_15,
+    UIF_CMD_VOLUME_DOWN_16,
+    UIF_CMD_BALANCE_LEFT_01,
+    UIF_CMD_BALANCE_LEFT_02,
+    UIF_CMD_BALANCE_LEFT_03,
+    UIF_CMD_BALANCE_LEFT_04,
+    UIF_CMD_BALANCE_LEFT_05,
+    UIF_CMD_BALANCE_LEFT_06,
+    UIF_CMD_BALANCE_LEFT_07,
+    UIF_CMD_BALANCE_LEFT_08,
+    UIF_CMD_BALANCE_LEFT_09,
+    UIF_CMD_BALANCE_LEFT_10,
+    UIF_CMD_BALANCE_LEFT_11,
+    UIF_CMD_BALANCE_LEFT_12,
+    UIF_CMD_BALANCE_LEFT_13,
+    UIF_CMD_BALANCE_LEFT_14,
+    UIF_CMD_BALANCE_LEFT_15,
+    UIF_CMD_BALANCE_LEFT_16,
+    UIF_CMD_BALANCE_RIGHT_01,
+    UIF_CMD_BALANCE_RIGHT_02,
+    UIF_CMD_BALANCE_RIGHT_03,
+    UIF_CMD_BALANCE_RIGHT_04,
+    UIF_CMD_BALANCE_RIGHT_05,
+    UIF_CMD_BALANCE_RIGHT_06,
+    UIF_CMD_BALANCE_RIGHT_07,
+    UIF_CMD_BALANCE_RIGHT_08,
+    UIF_CMD_BALANCE_RIGHT_09,
+    UIF_CMD_BALANCE_RIGHT_10,
+    UIF_CMD_BALANCE_RIGHT_11,
+    UIF_CMD_BALANCE_RIGHT_12,
+    UIF_CMD_BALANCE_RIGHT_13,
+    UIF_CMD_BALANCE_RIGHT_14,
+    UIF_CMD_BALANCE_RIGHT_15,
+    UIF_CMD_BALANCE_RIGHT_16,
+    UIF_CMD_FORMAT,
+    UIF_CMD_CD,
+    UIF_CMD_DIR,
+    UIF_CMD_DEL,
+    UIF_CMD_MKDIR,
+	UIF_CMD_NEXTF,
+	UIF_CMD_PREVF,
+	UIF_CMD_NEXTD,
+	UIF_CMD_PREVD,
+	UIF_CMD_FSTF,
+	UIF_CMD_FSTD,
+	UIF_CMD_VOLUME_RESET,
+	UIF_CMD_BALANCE_RESET,
+//OLED display commands
+	UIF_CMD_SIDSL_00,
+	UIF_CMD_SIDSL_01,
+	UIF_CMD_SIDSL_02,
+	UIF_CMD_SIDSL_03,
+	UIF_CMD_SIDSL_04,
+	UIF_CMD_SIDSL_05,
+	UIF_CMD_SIDSL_06,
+	UIF_CMD_SIDSL_07,
+	UIF_CMD_SIDSL_08,
+	UIF_CMD_SIDSL_09,
+	UIF_CMD_SIDSL_10,
+	UIF_CMD_SIDSL_11,
+	UIF_CMD_SIDSL_12,
+	UIF_CMD_SIDSL_13,
+	UIF_CMD_SIDSL_14,
+	UIF_CMD_SIDSL_15,
+	UIF_CMD_SIDSL_16,
+	UIF_CMD_SIDSL_17,
+	UIF_CMD_SIDSL_18,
+	UIF_CMD_SIDSL_19,
+	UIF_CMD_SIDSL_20,
+	UIF_CMD_SIDSL_21,
+	UIF_CMD_SIDSL_22,
+	UIF_CMD_SIDSL_23,
+	UIF_CMD_SIDSL_24,
+	UIF_CMD_SIDSL_25,
+	UIF_CMD_SIDSL_26,
+	UIF_CMD_SIDSL_27,
+	UIF_CMD_SIDSL_28,
+	UIF_CMD_SIDSL_29,
+	UIF_CMD_SIDSL_30,
+	UIF_CMD_SIDSL_31,
+	UIF_CMD_SID_00,
+	UIF_CMD_SID_01,
+	UIF_CMD_SID_02,
+	UIF_CMD_SID_03,
+	UIF_CMD_SID_04,
+	UIF_CMD_SID_05,
+	UIF_CMD_SID_06,
+	UIF_CMD_SID_07,
+	UIF_CMD_SID_08,
+	UIF_CMD_SID_09,
+	UIF_CMD_SID_10,
+	UIF_CMD_SID_11,
+	UIF_CMD_SID_12,
+	UIF_CMD_SID_13,
+	UIF_CMD_SID_14,
+	UIF_CMD_SID_15,
+	UIF_CMD_SID_16,
+	UIF_CMD_SID_17,
+	UIF_CMD_SID_18,
+	UIF_CMD_SID_19,
+	UIF_CMD_SID_20,
+	UIF_CMD_SID_21,
+	UIF_CMD_SID_22,
+	UIF_CMD_SID_23,
+	UIF_CMD_SID_24,
+	UIF_CMD_SID_25,
+	UIF_CMD_SID_26,
+	UIF_CMD_SID_27,
+	UIF_CMD_SID_28,
+	UIF_CMD_SID_29,
+	UIF_CMD_SID_30,
+	UIF_CMD_SID_31,
+	UIF_CMD_PRTS_00,
+	UIF_CMD_PRTS_01,
+	UIF_CMD_PRTS_02,
+	UIF_CMD_PRTS_03,
+	UIF_CMD_PRTS_04,
+	UIF_CMD_PRTS_05,
+	UIF_CMD_PRTS_06,
+	UIF_CMD_PRTS_07,
+	UIF_CMD_PRTS_08,
+	UIF_CMD_PRTS_09,
+	UIF_CMD_PRTS_10,
+	UIF_CMD_PRTS_11,
+	UIF_CMD_PRTS_12,
+	UIF_CMD_PRTS_13,
+	UIF_CMD_PRTS_14,
+	UIF_CMD_PRTS_15,
+	UIF_CMD_PRTS_16,
+	UIF_CMD_PRTS_17,
+	UIF_CMD_PRTS_18,
+	UIF_CMD_PRTS_19,
+	UIF_CMD_PRTS_20,
+	UIF_CMD_PRTS_21,
+	UIF_CMD_PRTS_22,
+	UIF_CMD_PRTS_23,
+	UIF_CMD_PRTS_24,
+	UIF_CMD_PRTS_25,
+	UIF_CMD_PRTS_26,
+	UIF_CMD_PRTS_27,
+	UIF_CMD_PRTS_28,
+	UIF_CMD_PRTS_29,
+	UIF_CMD_PRTS_30,
+	UIF_CMD_PRTS_31,
+	UIF_CMD_PRTSLN_00,
+	UIF_CMD_PRTSLN_01,
+	UIF_CMD_PRTSLN_02,
+	UIF_CMD_PRTSLN_03,
+	UIF_CMD_PRTSLN_04,
+	UIF_CMD_PRTSLN_05,
+	UIF_CMD_PRTSLN_06,
+	UIF_CMD_PRTSLN_07,
+	UIF_CMD_PRTSLN_08,
+	UIF_CMD_PRTSLN_09,
+	UIF_CMD_PRTSLN_10,
+	UIF_CMD_PRTSLN_11,
+	UIF_CMD_PRTSLN_12,
+	UIF_CMD_PRTSLN_13,
+	UIF_CMD_PRTSLN_14,
+	UIF_CMD_PRTSLN_15,
+	UIF_CMD_PRTSLN_16,
+	UIF_CMD_PRTSLN_17,
+	UIF_CMD_PRTSLN_18,
+	UIF_CMD_PRTSLN_19,
+	UIF_CMD_PRTSLN_20,
+	UIF_CMD_PRTSLN_21,
+	UIF_CMD_PRTSLN_22,
+	UIF_CMD_PRTSLN_23,
+	UIF_CMD_PRTSLN_24,
+	UIF_CMD_PRTSLN_25,
+	UIF_CMD_PRTSLN_26,
+	UIF_CMD_PRTSLN_27,
+	UIF_CMD_PRTSLN_28,
+	UIF_CMD_PRTSLN_29,
+	UIF_CMD_PRTSLN_30,
+	UIF_CMD_PRTSLN_31,
+	UIF_CMD_SETCUR,
+	UIF_CMD_SETVP,
+	UIF_CMD_SETSPD,
+	UIF_CMD_SCPY,
+	UIF_CMD_SETFB,
+	UIF_CMD_GETFB,
+	UIF_CMD_SETWIN,
+    UIF_CMD_SETSC,
+	UIF_CMD_SCON,
+	UIF_CMD_SCOFF,
+//Sleep command
+    UIF_CMD_SLEEP,
+//Reserved for future APRF commands
+	UIF_CMD_RAGA00,
+	UIF_CMD_RAGA01,
+	UIF_CMD_RAGA02,
+	UIF_CMD_RAGA03,
+	UIF_CMD_RAGA04,
+	UIF_CMD_RAGA05,
+	UIF_CMD_RAGA06,
+	UIF_CMD_RAGA07,
+	UIF_CMD_RAGA08,
+	UIF_CMD_RAGA09,
+	UIF_CMD_RAGA10,
+	UIF_CMD_RAGA11,
+	UIF_CMD_RAGA12,
+	UIF_CMD_RAGA13,
+	UIF_CMD_RAGA14,
+	UIF_CMD_RAGA15,
+	UIF_CMD_RAGA16,
+	UIF_CMD_RAGA17,
+	UIF_CMD_RAGA18,
+	UIF_CMD_RAGA19,
+//Display on and off commads
+    UIF_CMD_DPON,
+	UIF_CMD_DPOFF,
+//Reserved for LCD commands
+	UIF_CMD_LCD00,
+	UIF_CMD_LCD01,
+	UIF_CMD_LCD02,
+	UIF_CMD_LCD03,
+	UIF_CMD_LCD04,
+	UIF_CMD_LCD05,
+	UIF_CMD_LCD06,
+	UIF_CMD_LCD07,
+	UIF_CMD_LCD08,
+	UIF_CMD_LCD09,
+	UIF_CMD_LCD10,
+	UIF_CMD_LCD11,
+	UIF_CMD_LCD12,
+	UIF_CMD_LCD13,
+	UIF_CMD_LCD14,
+	UIF_CMD_LCD15,
+	UIF_CMD_LCD16,
+	UIF_CMD_LCD17,
+	UIF_CMD_LCD18,
+	UIF_CMD_LCD19,
+	UIF_CMD_UNKNOWN
+}UifCommand;
+
+/** Values for play status */
+typedef enum
+{
+	UIF_STATUS_STOPPED,
+	UIF_STATUS_NORMAL_RUN,
+	UIF_STATUS_PAUSED,
+	UIF_STATUS_FF_RUN,
+	UIF_STATUS_REWIND_RUN,
+	UIF_STATUS_UNKNOWN
+}UifPlayStatus;
+
+/** Values for USB status */
+typedef enum
+{
+	UIF_USB_DISABLED,
+	UIF_USB_ENABLED,
+	UIF_USB_UNKNOWN
+} UifUsbStatus;
+#endif
