@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" style="background-color: #1e1e24; font-family: 'Segoe UI', Arial, sans-serif;">
+  
+  <style>
+    .wire { stroke: #4cc9f0; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .wire-3v3 { stroke: #f72585; stroke-width: 3; fill: none; stroke-linecap: round; }
+    .wire-5v { stroke: #7209b7; stroke-width: 3; fill: none; stroke-linecap: round; }
+    .wire-gnd { stroke: #4895ef; stroke-width: 3; fill: none; stroke-linecap: round; }
+    .component { stroke: #4cc9f0; stroke-width: 2.5; fill: #2b2d42; }
+    .mosfet-body { fill: #2b2d42; stroke: #4cc9f0; stroke-width: 2.5; }
+    .text-title { fill: #ffffff; font-size: 20px; font-weight: bold; }
+    .text-label { fill: #e0e0e0; font-size: 14px; }
+    .text-pin { fill: #4cc9f0; font-size: 12px; font-weight: bold; }
+    .text-val { fill: #f72585; font-size: 13px; font-weight: bold; }
+    .text-val-5v { fill: #b5179e; font-size: 13px; font-weight: bold; }
+    .node { fill: #4cc9f0; }
+    .node-3v3 { fill: #f72585; }
+    .node-5v { fill: #7209b7; }
+  </style>
+
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" class="text-title">Correct N-Channel MOSFET Level Shifter Circuit</text>
+  <text x="400" y="65" text-anchor="middle" fill="#a0a0a0" font-size="13px">(Valid for SRQ, Data, Clock, ATN, and RESET channels)</text>
+
+  <!-- Power Rails Top -->
+  <!-- 3.3V Rail -->
+  <line x1="80" y1="100" x2="380" y2="100" class="wire-3v3" />
+  <circle cx="80" cy="100" r="4" class="node-3v3" />
+  <text x="75" y="92" text-anchor="end" class="text-val"> +3.3V Rail (VD)</text>
+
+  <!-- 5V Rail -->
+  <line x1="420" y1="100" x2="720" y2="100" class="wire-5v" />
+  <circle cx="720" cy="100" r="4" class="node-5v" />
+  <text x="725" y="92" text-anchor="start" class="text-val-5v">+5V Rail (VDD)</text>
+
+  <!-- Resistor R1 (3.3V Pull-Up) -->
+  <line x1="240" y1="100" x2="240" y2="140" class="wire-3v3" />
+  <rect x="225" y="140" width="30" height="60" class="component" rx="3" />
+  <text x="210" y="172" text-anchor="end" class="text-label">R_PU1</text>
+  <text x="210" y="190" text-anchor="end" class="text-val">10k</text>
+  <line x1="240" y1="200" x2="240" y2="260" class="wire" />
+
+  <!-- Resistor R2 (5V Pull-Up) -->
+  <line x1="560" y1="100" x2="560" y2="140" class="wire-5v" />
+  <rect x="545" y="140" width="30" height="60" class="component" rx="3" />
+  <text x="590" y="172" text-anchor="start" class="text-label">R_PU2</text>
+  <text x="590" y="190" text-anchor="start" class="text-val-5v">10k</text>
+  <line x1="560" y1="200" x2="560" y2="260" class="wire" />
+
+  <!-- Left Side Line (ESP32 Signal) -->
+  <line x1="60" y1="260" x2="340" y2="260" class="wire" />
+  <circle cx="240" cy="260" r="4" class="node" />
+  <circle cx="60" cy="260" r="5" fill="#f72585" />
+  <text x="50" y="245" text-anchor="start" class="text-title" font-size="15px">ESP32 GPIO</text>
+  <text x="50" y="280" text-anchor="start" class="text-label">(3.3V Side Signal)</text>
+
+  <!-- Right Side Line (5V Bus Signal) -->
+  <line x1="460" y1="260" x2="740" y2="260" class="wire" />
+  <circle cx="560" cy="260" r="4" class="node" />
+  <circle cx="740" cy="260" r="5" fill="#7209b7" />
+  <text x="750" y="245" text-anchor="end" class="text-title" font-size="15px">5V Bus Line</text>
+  <text x="750" y="280" text-anchor="end" class="text-label">(Target 5V Signal)</text>
+
+  <!-- MOSFET Block Envelope -->
+  <rect x="340" y="210" width="120" height="180" rx="10" fill="#161824" stroke="#4cc9f0" stroke-width="1.5" stroke-dasharray="4 4" />
+  <text x="400" y="380" text-anchor="middle" class="text-label" font-size="11px">AO3400 (N-Ch)</text>
+
+  <!-- MOSFET Pin Connections -->
+  <!-- Source (Pin 3) - Left -->
+  <line x1="340" y1="260" x2="370" y2="260" class="wire" />
+  <text x="330" y="253" text-anchor="end" class="text-pin">Pin 3 (S)</text>
+  
+  <!-- Drain (Pin 1) - Right -->
+  <line x1="430" y1="260" x2="460" y2="260" class="wire" />
+  <text x="470" y="253" text-anchor="start" class="text-pin">Pin 1 (D)</text>
+
+  <!-- Gate (Pin 2) - Bottom -->
+  <line x1="400" y1="300" x2="400" y2="440" class="wire-3v3" />
+  <text x="412" y="330" text-anchor="start" class="text-pin">Pin 2 (G)</text>
+
+  <!-- Internal MOSFET Schematic -->
+  <!-- Gate Line -->
+  <line x1="385" y1="245" x2="385" y2="295" stroke="#4cc9f0" stroke-width="3" />
+  <line x1="385" y1="300" x2="400" y2="300" stroke="#4cc9f0" stroke-width="2.5" />
+  
+  <!-- Channel Breaks -->
+  <line x1="393" y1="245" x2="393" y2="257" stroke="#4cc9f0" stroke-width="2.5" />
+  <line x1="393" y1="264" x2="393" y2="276" stroke="#4cc9f0" stroke-width="2.5" />
+  <line x1="393" y1="283" x2="393" y2="295" stroke="#4cc9f0" stroke-width="2.5" />
+
+  <!-- Source/Drain Internal Leads -->
+  <line x1="370" y1="260" x2="393" y2="260" stroke="#4cc9f0" stroke-width="2" />
+  <line x1="430" y1="260" x2="393" y2="260" stroke="#4cc9f0" stroke-width="2" />
+  <line x1="393" y1="250" x2="420" y2="250" stroke="#4cc9f0" stroke-width="2" />
+  <line x1="420" y1="250" x2="420" y2="260" stroke="#4cc9f0" stroke-width="2" />
+  <line x1="393" y1="290" x2="420" y2="290" stroke="#4cc9f0" stroke-width="2" />
+  <line x1="420" y1="290" x2="420" y2="260" stroke="#4cc9f0" stroke-width="2" />
+
+  <!-- Body Diode (Anode on Source S, Cathode on Drain D) -->
+  <line x1="410" y1="280" x2="410" y2="250" stroke="#f72585" stroke-width="1.5" />
+  <polygon points="405,270 415,270 410,260" fill="#f72585" stroke="#f72585" stroke-width="1" />
+  <line x1="404" y1="260" x2="416" y2="260" stroke="#f72585" stroke-width="1.5" />
+
+  <!-- Gate Wire Routing to 3.3V Rail -->
+  <line x1="400" y1="440" x2="280" y2="440" class="wire-3v3" />
+  <line x1="280" y1="440" x2="280" y2="100" class="wire-3v3" />
+  <circle cx="280" cy="100" r="4" class="node-3v3" />
+
+  <!-- Callout Notes -->
+  <g transform="translate(100, 330)">
+    <rect x="0" y="0" width="200" height="70" rx="6" fill="#252836" stroke="#f72585" stroke-width="1" />
+    <text x="10" y="20" fill="#f72585" font-size="12px" font-weight="bold">Fix Highlights:</text>
+    <text x="10" y="38" fill="#e0e0e0" font-size="11px">• Gate connected to 3.3V rail</text>
+    <text x="10" y="54" fill="#e0e0e0" font-size="11px">• 22k Ground divider removed</text>
+  </g>
+  
+  <g transform="translate(500, 330)">
+    <rect x="0" y="0" width="200" height="70" rx="6" fill="#252836" stroke="#7209b7" stroke-width="1" />
+    <text x="10" y="20" fill="#4cc9f0" font-size="12px" font-weight="bold">Pins &amp; Orientations:</text>
+    <text x="10" y="38" fill="#e0e0e0" font-size="11px">• Pin 3 (Source) to 3.3V side</text>
+    <text x="10" y="54" fill="#e0e0e0" font-size="11px">• Pin 1 (Drain) to 5V side</text>
+  </g>
+
+</svg>

@@ -66,3 +66,11 @@ Detected flash size: 4MB
 Flash voltage set by a strapping pin to 3.3V
 Hard resetting via RTS pin...
 ```
+
+```
+Your hardware matches the esp32-wroom32 target configuration:
+
+Chip: ESP32-D0WDQ6 (Dual Core, 240MHz)
+Flash Size: 4MB
+PSRAM: None (ESP32-WROOM-32)
+```
