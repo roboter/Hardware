@@ -35,7 +35,7 @@
                                     "class": "Editor",
                                     "tab-index": 1,
                                     "data": {
-                                        "line": 42,
+                                        "line": 6,
                                         "index": 13,
                                         "first-visible-line": 0,
                                         "x-view-offset": 0
@@ -107,8 +107,8 @@
                         }
                     },
                     "SIZES": [
-                        84,
-                        812
+                        309,
+                        587
                     ]
                 },
                 "1": {
