@@ -29,7 +29,7 @@ The **CH32V307V-EVT-R1** (black PCB revision) is an evaluation board for the **C
 ## Board Features & Layout
 
 - **Programming / Debug Interface (External):**
-  - No onboard WCH-Link is present on this revision; connect an external **WCH-Link / WCH-LinkE** to the `SWDIO`, `SWCLK`, `GND`, and `3V3` pins on the header, or use the built-in USB ISP bootloader.
+  - No onboard WCH-Link is present on this revision; instead, it features a **2x5 (10-pin) IDC debug header** (`+5V`, `3V3`, `GND`, `PA10`/`PA9`, `DIO`/`CLK`) at the top edge for connecting an external **WCH-Link / WCH-LinkE** via ribbon cable.
 - **Connectivity (Bottom Edge):**
   - **RJ45 Ethernet (`HanRun HR911105A`):** Connected directly to the CH32V307 internal Ethernet MAC/PHY.
   - **USB-C Ports (`P6`, `P7`):** Dedicated USB Type-C connectors for the MCU's USB 2.0 Full-Speed OTG and USB 2.0 High-Speed interfaces.
@@ -37,6 +37,12 @@ The **CH32V307V-EVT-R1** (black PCB revision) is an evaluation board for the **C
   - **Buttons:** `RESET` (`S1`) and `USER` (`S2`).
   - **LEDs:** `LED1` and `LED2` (uncommitted by default — wire them to desired GPIO pins via jumper wires on the header).
   - **Expansion Headers:** Dual-row breakouts exposing all LQFP100 pins (`PA0–PA15`, `PB0–PB15`, `PC0–PC15`, `PD0–PD15`, `PE0–PE15`) alongside Arduino Uno-compatible inner headers.
+
+---
+
+## Pinout Overview
+
+<img src="CH32V307V-EVT-R1-pinout.svg" alt="CH32V307V-EVT-R1 Pinout Overview" width="600">
 
 ---
 
