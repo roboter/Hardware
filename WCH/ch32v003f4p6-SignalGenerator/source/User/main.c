@@ -6,251 +6,343 @@
 #include <si5351.h>
 #include <ssd1306.h>
 #include <ssd1306_font.h>
-//#include <string.h>
 
-#define IF                                                                     \
-  455 // Enter your IF frequency, ex: 455 = 455kHz, 10700 = 10.7MHz,  0 = to
-      // direct convert receiver or RF generator, + will
-// VFO Parameters
-static uint32_t freq = 127100000; // 7.1 MHz default
-static uint32_t interfreq = 0;    // IF frequency
-static uint8_t stp = 3;           // Step index
-static uint8_t sts = 0;           // RX/TX status
-static uint8_t s_meter = 5;       // S-meter value (0-9)
-static const uint8_t total_digits = 8;
+#define SI5351_MIN_FREQ 10000UL
+#define SI5351_MAX_USER_FREQ 225000000UL
+#define LONG_PRESS_TICKS 50 /* 50 * 10ms = 500 ms */
 
-static uint8_t select_digit = 0;
-uint8_t count, x, xo;
+typedef enum {
+  TAB_CLK0 = 0,
+  TAB_CLK1,
+  TAB_CLK2,
+  TAB_SYS
+} ui_tab_t;
 
-// Band definitions
-typedef struct {
-  const char *name;
-  uint32_t start;
-  uint32_t end;
-} Band;
+typedef enum {
+  FOCUS_TABS = 0,
+  FOCUS_DIAL,
+  FOCUS_CONFIG
+} ui_focus_t;
 
-const Band bands[] = {
-    {"160m", 1800000, 2000000},  {"80m", 3500000, 4000000},
-    {"40m", 7000000, 7300000},   {"30m", 10100000, 10150000},
-    {"20m", 14000000, 14350000}, {"17m", 18068000, 18168000},
-    {"15m", 21000000, 21450000}, {"12m", 24890000, 24990000},
-    {"10m", 28000000, 29700000},
-};
+static const uint32_t step_table[9] = {
+    100000000UL, 10000000UL, 1000000UL, 100000UL, 10000UL,
+    1000UL,      100UL,      10UL,      1UL};
 
-// Function prototypes
-void update_frequency(int32_t change);
-void change_step(void);
-const char *get_current_band(void);
+static const char *const step_labels[9] = {
+    "100M", "10M", "1M", "100k", "10k", "1k", "100", "10", "1"};
 
-long pow10(int n) {
-  if (n <= 0)
-    return 1; // 10^0 = 1, guard negative
-  long result = 1;
-  for (int i = 0; i < n; i++) {
-    result *= 10;
-    // optional: could check overflow here
-  }
-  return result;
+static const uint32_t if_offsets[3] = {0UL, 455000UL, 10700000UL};
+static const char *const if_labels[3] = {"0", "455k", "10.7M"};
+
+/* Per-channel state */
+static uint32_t ch_freq[3] = {145000000UL, 10700000UL, 7100000UL};
+static uint8_t ch_enabled[3] = {1, 0, 0};
+static uint8_t ch_digit[3] = {4, 4, 4}; /* Default: 10 kHz step */
+
+/* UI & Config state */
+static ui_tab_t active_tab = TAB_CLK0;
+static ui_focus_t active_focus = FOCUS_DIAL;
+static uint8_t dial_curved = 1;
+static uint8_t if_mode = 0;   /* 0:VFO, 1:+455k, 2:+10.7M */
+static uint8_t cfg_idx = 0;   /* 0:DIAL, 1:IF */
+
+static void apply_channel_hw(uint8_t ch) {
+  if (ch >= 3)
+    return;
+  uint32_t out_freq = ch_freq[ch] + if_offsets[if_mode];
+  if (out_freq > SI5351_MAX_USER_FREQ)
+    out_freq = SI5351_MAX_USER_FREQ;
+  SI5351_set_freq(out_freq, (si5351_clock_t)ch, SI5351_PLL_A);
+  SI5351_output_enable((si5351_clock_t)ch, ch_enabled[ch] ? true : false);
 }
 
-void decrement_freq() {
-  // use total_digits-1 - select_digit to get correct place value
-  int exp = (int)total_digits - (int)select_digit;
-  if (exp < 0)
-    exp = 0;
-  int64_t delta = pow10(exp);
-  if ((int64_t)freq >= delta) {
-    freq -= (uint32_t)delta;
+static void tune_channel(uint8_t ch, int8_t dir) {
+  if (ch >= 3)
+    return;
+  uint32_t step = step_table[ch_digit[ch]];
+  uint32_t f = ch_freq[ch];
+
+  if (dir > 0) {
+    if (f + step <= SI5351_MAX_USER_FREQ && f + step >= f) {
+      f += step;
+    } else {
+      f = SI5351_MAX_USER_FREQ;
+    }
   } else {
-    freq = 0; // prevent underflow
-  }
-}
-
-void increment_freq() {
-  int exp = (int)total_digits - (int)select_digit;
-  if (exp < 0)
-    exp = 0;
-  int64_t delta = pow10(exp);
-  if ((int64_t)freq + delta <= (int64_t)SI5351_MAX_FREQ) {
-    freq += (uint32_t)delta;
-  } else {
-    freq = SI5351_MAX_FREQ; // prevent overflow
-  }
-}
-
-// Get step size based on stp index
-uint32_t get_step_size(void) {
-  switch (stp) {
-  case 0:
-    return 1;
-  case 1:
-    return 10;
-  case 2:
-    return 100;
-  case 3:
-    return 1000; // 1kHz default
-  case 4:
-    return 10000; // 10kHz
-  case 5:
-    return 100000; // 100kHz
-  case 6:
-    return 1000000; // 1MHz
-  default:
-    return 1000;
-  }
-}
-
-// Get current band name
-const char *get_current_band(void) {
-  for (uint8_t i = 0; i < sizeof(bands) / sizeof(Band); i++) {
-    if (freq >= bands[i].start && freq <= bands[i].end) {
-      return bands[i].name;
+    if (f >= SI5351_MIN_FREQ + step) {
+      f -= step;
+    } else {
+      f = SI5351_MIN_FREQ;
     }
   }
-  return "GEN";
+
+  ch_freq[ch] = f;
+  apply_channel_hw(ch);
 }
 
-// Update frequency with bounds checking
-void update_frequency(int32_t change) {
-  int64_t new_freq = (int64_t)freq + change;
-
-  // Bounds: 10kHz to 225MHz (SI5351 range)
-  if (new_freq < 10000)
-    new_freq = 10000;
-  if (new_freq > 225000000)
-    new_freq = 225000000;
-
-  freq = (uint32_t)new_freq;
-
-  // Update SI5351 (you'll need to implement this)
-  SI5351_set_freq(freq, 0, SI5351_PLL_A_FREQ);
+static void format_freq_str(uint32_t f, char *buf) {
+  /* Format as XXX.XXX.XXX (11 chars + NUL) without sprintf bloat */
+  uint8_t d[9];
+  for (int8_t i = 8; i >= 0; i--) {
+    d[i] = (uint8_t)(f % 10);
+    f /= 10;
+  }
+  buf[0] = '0' + d[0];
+  buf[1] = '0' + d[1];
+  buf[2] = '0' + d[2];
+  buf[3] = '.';
+  buf[4] = '0' + d[3];
+  buf[5] = '0' + d[4];
+  buf[6] = '0' + d[5];
+  buf[7] = '.';
+  buf[8] = '0' + d[6];
+  buf[9] = '0' + d[7];
+  buf[10] = '0' + d[8];
+  buf[11] = '\0';
 }
 
-// Change step size
-void change_step(void) {
-  stp++;
-  if (stp > 6)
-    stp = 0;
-}
-
-void bandlist() {
-  const char *band_names[] = {"GEN", "MW",  "160m", "80m", "60m", "49m", "40m",
-                              "31m", "25m", "22m",  "20m", "19m", "16m", "13m",
-                              "11m", "10m", "6m",   "WFM", "AIR", "2m",  "1m"};
-
-  OLED_setTextSize(2);
-
-  if (count >= 1 &&
-      count <= (int)(sizeof(band_names) / sizeof(band_names[0]))) {
-    OLED_setCursor(0, 25);
-    OLED_print(band_names[count - 1]);
+static void format_scale_label(uint32_t f, uint32_t step_hz, char *buf) {
+  /* Compact 5-char label for drum scale: MHz.tenths or kHz.tenths */
+  uint32_t whole, frac;
+  if (step_hz >= 10000UL) {
+    whole = f / 1000000UL;
+    frac = (f % 1000000UL) / 100000UL;
+  } else if (step_hz >= 10UL) {
+    whole = (f / 1000UL) % 1000UL;
+    frac = (f % 1000UL) / 100UL;
+  } else {
+    whole = f % 1000UL;
+    frac = 0;
   }
 
-  if (count == 1) {
-    interfreq = 0;
-  } else if (!sts) {
-    interfreq = IF;
+  uint8_t pos = 0;
+  if (whole >= 100) {
+    buf[pos++] = '0' + (uint8_t)((whole / 100) % 10);
+    buf[pos++] = '0' + (uint8_t)((whole / 10) % 10);
+  } else if (whole >= 10) {
+    buf[pos++] = '0' + (uint8_t)(whole / 10);
   }
+  buf[pos++] = '0' + (uint8_t)(whole % 10);
+  if (step_hz >= 10UL) {
+    buf[pos++] = '.';
+    buf[pos++] = '0' + (uint8_t)frac;
+  }
+  buf[pos] = '\0';
+}
+
+static void draw_clipped_str(int16_t x, uint8_t y, const char *s) {
+  while (*s) {
+    if (x >= 0 && x <= 122) {
+      OLED_drawChar((uint8_t)x, y, *s, White, 1);
+    }
+    x += 6;
+    s++;
+  }
+}
+
+/* Zero-RAM column renderer for Retro Drum Dial (Pages 5..6, Y=40..55) */
+static uint16_t render_dial_column(uint8_t x, int32_t center_pos,
+                                   int32_t min_pos, int32_t max_pos) {
+  if (x == 64)
+    return 0xFFFF; /* Fixed center hairline */
+
+  uint8_t droop = 0;
+  if (dial_curved) {
+    uint16_t dx = (x < 64) ? (uint16_t)(64 - x) : (uint16_t)(x - 64);
+    droop = (uint8_t)((dx * dx) >> 9);
+  }
+
+  int32_t tick_pos = center_pos + ((int32_t)x - 64);
+  if (tick_pos < min_pos || tick_pos > max_pos)
+    return 0x0000;
+
+  uint16_t col_bits = 0x0000;
+  int32_t mod40 = ((tick_pos % 40) + 40) % 40;
+
+  if (tick_pos == min_pos || tick_pos == max_pos) {
+    col_bits = 0x03FF; /* Limit stop bar */
+  } else if (mod40 == 0) {
+    col_bits = 0x00FF; /* Major tick (8 px tall) */
+  } else if (mod40 == 20) {
+    col_bits = 0x003E; /* Half-way tick (5 px tall) */
+  } else if ((mod40 & 0x03) == 0) {
+    col_bits = 0x000E; /* Minor vernier tick (3 px tall) */
+  }
+
+  return (uint16_t)(col_bits << droop);
+}
+
+static void draw_top_bar(uint8_t active_ch) {
+  static const char *const tab_names[4] = {"CLK0", "CLK1", "CLK2", "SYS"};
+  static const uint8_t tab_x[4] = {1, 27, 53, 79};
+  static const uint8_t tab_w[4] = {24, 24, 24, 18};
+
+  OLED_setTextSize(1);
+  for (uint8_t i = 0; i < 4; i++) {
+    if (i == (uint8_t)active_tab) {
+      OLED_fillRect(tab_x[i] - 1, 1, tab_w[i] + 2, 10, White);
+      OLED_setTextColor(Inverse);
+      OLED_setCursor(tab_x[i], 2);
+      OLED_print(tab_names[i]);
+      OLED_setTextColor(White);
+    } else {
+      OLED_setCursor(tab_x[i], 2);
+      OLED_print(tab_names[i]);
+    }
+    if (i == (uint8_t)active_tab && active_focus == FOCUS_TABS) {
+      OLED_drawFastHLine(tab_x[i] - 1, 13, tab_w[i] + 2, White);
+    }
+  }
+
+  /* Divider and Output Status */
+  OLED_drawFastVLine(100, 1, 11, White);
+  if (ch_enabled[active_ch]) {
+    OLED_fillRect(103, 1, 24, 10, White);
+    OLED_setTextColor(Inverse);
+    OLED_setCursor(109, 2);
+    OLED_print("ON");
+    OLED_setTextColor(White);
+  } else {
+    OLED_drawRect(103, 1, 24, 10, White);
+    OLED_setCursor(106, 2);
+    OLED_print("OFF");
+  }
+  OLED_drawFastHLine(0, 15, 128, White);
+}
+
+static void draw_retro_dial(uint8_t ch) {
+  uint32_t f = ch_freq[ch];
+  uint32_t step_hz = step_table[ch_digit[ch]];
+  char buf[16];
+
+  /* Blue Zone 1 (Y=16..29): Digital Readout + Active Digit Underline */
+  format_freq_str(f, buf);
+  OLED_setTextSize(1);
+  OLED_setCursor(2, 17);
+  OLED_print(buf);
+
+  /* Underline / caret under active digit */
+  uint8_t d = ch_digit[ch];
+  uint8_t char_idx = d + (d >= 3 ? 1 : 0) + (d >= 6 ? 1 : 0);
+  uint8_t ux = 2 + char_idx * 6;
+  if (active_focus == FOCUS_DIAL) {
+    OLED_drawFastHLine(ux, 26, 5, White);
+    OLED_drawPixel(ux + 2, 27, White);
+  } else {
+    OLED_drawFastHLine(ux, 26, 5, White);
+  }
+
+  /* Step size on right */
+  OLED_setCursor(76, 17);
+  OLED_print("STP:");
+  OLED_print(step_labels[ch_digit[ch]]);
+
+  if (active_focus == FOCUS_CONFIG) {
+    /* Bottom Config Strip (Y=32..63) */
+    OLED_drawFastHLine(0, 31, 128, White);
+    OLED_setCursor(2, 37);
+    OLED_print(cfg_idx == 0 ? ">DIAL: " : " DIAL: ");
+    OLED_print(dial_curved ? "CURVED" : "FLAT");
+
+    OLED_setCursor(2, 49);
+    OLED_print(cfg_idx == 1 ? ">IF  : " : " IF  : ");
+    OLED_print(if_labels[if_mode]);
+    return;
+  }
+
+  uint8_t *fb = OLED_getBuffer();
+
+  /* Full-range min..max limit gauge bar (Y=28..30 in Page 3) */
+  uint8_t pos_x = (uint8_t)(f / 1800000UL);
+  uint8_t *p3 = fb + 3 * 128;
+  p3[0] |= 0x70;
+  p3[127] |= 0x70;
+  p3[pos_x] |= 0x20;
+  p3[pos_x + 1] |= 0x20;
+
+  /* Blue Zone 2 (Y=31..39): Sliding Major Scale Numbers */
+  uint32_t center_steps = f / step_hz;
+  uint32_t center_major = center_steps - (center_steps % 10);
+  int16_t x_major = 64 - (int16_t)((center_steps % 10) * 4);
+
+  for (int8_t k = -2; k <= 2; k++) {
+    int32_t m_steps = (int32_t)center_major + (int32_t)k * 10;
+    if (m_steps < 0)
+      continue;
+    uint32_t m_freq = (uint32_t)m_steps * step_hz;
+    if (m_freq < SI5351_MIN_FREQ || m_freq > SI5351_MAX_USER_FREQ)
+      continue;
+    int16_t tx = x_major + (int16_t)k * 40;
+    if (tx < -15 || tx > 142)
+      continue;
+    format_scale_label(m_freq, step_hz, buf);
+    uint8_t len = 0;
+    while (buf[len])
+      len++;
+    draw_clipped_str(tx - (int16_t)(len * 3), 31, buf);
+  }
+
+  /* Blue Zone 2/3 (Pages 5..6, Y=40..55): Zero-RAM Drum Dial Columns */
+  int32_t center_pos = (int32_t)(center_steps * 4);
+  int32_t min_pos = (int32_t)((SI5351_MIN_FREQ / step_hz) * 4);
+  int32_t max_pos = (int32_t)((SI5351_MAX_USER_FREQ / step_hz) * 4);
+  for (uint8_t col = 0; col < 128; col++) {
+    uint16_t bits = render_dial_column(col, center_pos, min_pos, max_pos);
+    fb[5 * 128 + col] |= (uint8_t)(bits & 0xFF);
+    fb[6 * 128 + col] |= (uint8_t)((bits >> 8) & 0xFF);
+  }
+
+  /* Blue Zone 3 (Y=56..63): Center Fiducial Pointer (solid=ON, hollow=OFF) */
+  if (ch_enabled[ch]) {
+    OLED_fillTriangle(61, 63, 67, 63, 64, 57, White);
+  } else {
+    OLED_drawTriangle(61, 63, 67, 63, 64, 57, White);
+  }
+
+  /* Subtle mode & IF indicators on bottom corners */
+  OLED_setCursor(2, 56);
+  OLED_print(if_mode ? "LO" : "VFO");
+  OLED_setCursor(104, 56);
+  OLED_print(dial_curved ? "CRV" : "FLT");
+}
+
+static void draw_sys_view(void) {
+  char buf[16];
+  OLED_setTextSize(1);
+  for (uint8_t i = 0; i < 3; i++) {
+    uint8_t y = 18 + i * 11;
+    OLED_setCursor(2, y);
+    buf[0] = 'C';
+    buf[1] = '0' + i;
+    buf[2] = ':';
+    buf[3] = '\0';
+    OLED_print(buf);
+    format_freq_str(ch_freq[i], buf);
+    OLED_print(buf);
+    OLED_setCursor(104, y);
+    OLED_print(ch_enabled[i] ? "[ON]" : "[--]");
+  }
+  OLED_drawFastHLine(0, 52, 128, White);
+  OLED_setCursor(2, 55);
+  OLED_print("IF:");
+  OLED_print(if_labels[if_mode]);
 }
 
 void layout_ui(void) {
+  uint8_t active_ch = (active_tab <= TAB_CLK2) ? (uint8_t)active_tab : 0;
   OLED_clear();
   OLED_setTextColor(White);
 
-  char freq_str[16];
-  uint32_t mhz = freq / 1000000;
-  uint32_t khz = (freq % 1000000) / 1000;
-  uint32_t hz = freq % 1000;
-
-  // ensure correct types for printf-like formatting
-  sprintf(freq_str, "%03lu%03lu%03lu", (unsigned long)mhz, (unsigned long)khz,
-          (unsigned long)hz);
-
-  // Draw frequency with large text
-  OLED_setTextSize(2);
-  OLED_drawSymbol(select_digit * 12, 14, CHAR_UP_S, White);
-  OLED_drawSymbol(select_digit * 12, 14 * 3 - 5, CHAR_DOWN_S, White);
-
-  OLED_drawSymbol(40, 0, CHAR_CURSOR, White);
-
-  // OLED_setCursor(0, 20);
-  OLED_setpos(0, 4);
-  OLED_print(freq_str);
-
-  OLED_setTextSize(1);
-
-  OLED_drawSymbol(60, 0, CHAR_CURSOR, White);
-  OLED_drawSymbol(61, 8, CHAR_CURSOR, White);
-
-  // Unit (MHz/kHz)
-  //    OLED_setTextSize(1);
-  //    OLED_setCursor(108, 32);
-  //    if(freq < 1000000)
-  //        OLED_print("kHz");
-  //    else
-  //        OLED_print("MHz");
-
-  // RX/TX indicator
-  //    OLED_setTextSize(1);
-  //    if(!sts) {
-  //        OLED_fillRect(0, 0, 20, 12, White);
-  //        OLED_setTextColor(Black);
-  //        OLED_setCursor(2, 2);
-  //        OLED_print("RX");
-  //        OLED_setTextColor(White);
-  //    } else {
-  //        OLED_drawRect(0, 0, 20, 12, White);
-  //        OLED_setCursor(2, 2);
-  //        OLED_print("TX");
-  //    }
-  //
-  //    // Band indicator
-  //    OLED_setCursor(23, 2);
-  //    OLED_print(get_current_band());
-  //
-  //    // VFO/LO mode
-  //    OLED_setCursor(55, 2);
-  //    if(interfreq == 0)
-  //        OLED_print("VFO");
-  //    else
-  //        OLED_print("LO");
-  //
-  //    // Draw step size box
-  //    OLED_drawRect(88, 0, 40, 12, White);
-  //    OLED_setCursor(90, 2);
-  //    OLED_print("STEP");
-  //
-  //    OLED_setCursor(90, 8);
-  //    uint32_t step = get_step_size();
-  //    if(step >= 1000000) {
-  //        OLED_printf("%luM", step / 1000000);
-  //    } else if(step >= 1000) {
-  //        OLED_printf("%luk", step / 1000);
-  //    } else {
-  //        OLED_printf("%luHz", step);
-  //    }
-  //
-  //    // IF frequency if applicable
-  //    if(interfreq > 0) {
-  //        OLED_setCursor(0, 48);
-  //        OLED_print("IF:");
-  //        OLED_printf("%lukHz", interfreq / 1000);
-  //    }
-  //
-  //    // S-meter
-  //    OLED_setCursor(0, 56);
-  //    OLED_print("S:");
-  //    OLED_drawBargraph(12, 56, 60, 6, 9, s_meter);
-  //
-  //    if(s_meter >= 9) {
-  //        OLED_setCursor(75, 56);
-  //        OLED_print("+20");
-  //    }
+  draw_top_bar(active_ch);
+  if (active_tab == TAB_SYS) {
+    draw_sys_view();
+  } else {
+    draw_retro_dial(active_ch);
+  }
 
   OLED_display();
 }
 
-// Keep your existing functions
 void GPIO_Buttons_INIT(void) {
   GPIO_InitTypeDef GPIO_InitStructure = {0};
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
@@ -293,14 +385,53 @@ i2c_err_t I2C_HAL_Init(i2c_device_t *dev) {
   return I2C_OK;
 }
 
+static void handle_short_nav(uint8_t up, uint8_t down, uint8_t left,
+                           uint8_t right) {
+  uint8_t ch = (active_tab <= TAB_CLK2) ? (uint8_t)active_tab : 0;
+
+  if (active_focus == FOCUS_TABS) {
+    if (right) {
+      active_tab = (ui_tab_t)((active_tab + 1) & 0x03);
+    } else if (left) {
+      active_tab = (ui_tab_t)((active_tab + 3) & 0x03);
+    } else if (up || down) {
+      ch_enabled[ch] = !ch_enabled[ch];
+      apply_channel_hw(ch);
+    }
+  } else if (active_focus == FOCUS_DIAL) {
+    if (active_tab == TAB_SYS)
+      return;
+    if (up) {
+      tune_channel(ch, 1);
+    } else if (down) {
+      tune_channel(ch, -1);
+    } else if (right) {
+      if (ch_digit[ch] < 8)
+        ch_digit[ch]++;
+    } else if (left) {
+      if (ch_digit[ch] > 0)
+        ch_digit[ch]--;
+    }
+  } else { /* FOCUS_CONFIG */
+    if (up || down) {
+      if (cfg_idx == 0) {
+        dial_curved = !dial_curved;
+      } else {
+        if_mode = (uint8_t)((if_mode + (up ? 1 : 2)) % 3);
+        for (uint8_t i = 0; i < 3; i++)
+          apply_channel_hw(i);
+      }
+    } else if (left || right) {
+      cfg_idx = !cfg_idx;
+    }
+  }
+}
+
 int main(void) {
   Delay_Init();
   GPIO_Buttons_INIT();
   USART_Printf_Init(115200);
-  printf("SystemClk:%lu\r\n", (unsigned long)SystemCoreClock);
-  printf("VFO/RF Generator v2.0\r\n");
 
-  // Initialize I2C
   i2c_device_t dev = {
       .clkr = I2C_CLK_400KHZ,
       .type = I2C_ADDR_7BIT,
@@ -309,136 +440,88 @@ int main(void) {
       .tout = 2000,
   };
 
-  if (I2C_HAL_Init(&dev) != I2C_OK) {
-    printf("Failed to init I2C Bus\n");
-  }
+  I2C_HAL_Init(&dev);
 
-  // Initialize OLED
   OLED_init();
   OLED_clear();
+  Delay_Ms(200);
 
-  // Splash screen
-  //    OLED_setTextSize(2);
-  //    OLED_setCursor(10, 10);
-  //    OLED_print("VFO/RF");
-  //    OLED_setTextSize(1);
-  //    OLED_setCursor(15, 30);
-  //    OLED_print("Generator v2.0");
-  //    OLED_drawRect(0, 0, 128, 64, White);
-  //    OLED_update();
-  Delay_Ms(2000);
-  //    OLED_clear();
-
-  // Initialize SI5351
-  i2c_err_t err = SI5351_begin();
-  if (err != I2C_OK) {
-    OLED_clear();
-    OLED_setCursor(10, 20);
+  if (SI5351_begin() != I2C_OK) {
+    OLED_setCursor(10, 24);
     OLED_print("SI5351 Error!");
     OLED_update();
-    printf("Error initializing SI5351: %d\n", err);
-    Delay_Ms(2000);
+    Delay_Ms(1000);
+  } else {
+    for (uint8_t i = 0; i < 3; i++) {
+      apply_channel_hw(i);
+    }
   }
 
-  // Main UI
   layout_ui();
 
-  // Button state tracking
-  static uint8_t last_button_state = 0;
-  static uint32_t button_press_time = 0;
-  static uint32_t repeat_timer = 0;
-  static uint8_t repeat_count = 0;
+  uint8_t last_state = 0;
+  uint32_t press_ticks = 0;
+  uint32_t repeat_ticks = 0;
+  uint8_t repeat_count = 0;
+  uint8_t enter_long_handled = 0;
 
   while (1) {
-    // Read buttons
     uint8_t up = GPIO_ReadInputDataBit(BUTTONPORT, UP);
-    uint8_t right = GPIO_ReadInputDataBit(BUTTONPORT, RIGHT);
-    uint8_t left = GPIO_ReadInputDataBit(BUTTONPORT, LEFT);
     uint8_t down = GPIO_ReadInputDataBit(BUTTONPORT, DOWN);
+    uint8_t left = GPIO_ReadInputDataBit(BUTTONPORT, LEFT);
+    uint8_t right = GPIO_ReadInputDataBit(BUTTONPORT, RIGHT);
     uint8_t enter = GPIO_ReadInputDataBit(BUTTONPORT, ENTER);
 
-    uint8_t current_state =
+    uint8_t state =
         (up << 0) | (down << 1) | (left << 2) | (right << 3) | (enter << 4);
 
-    // Check for button press (low to high transition)
-    if (current_state != last_button_state) {
-      last_button_state = current_state;
-      button_press_time = 0;
-      repeat_count = 0;
-
-      // Handle button actions
-      if (up) {
-        printf("UP - Increase Frequency\n");
-        increment_freq();
-        layout_ui();
-
-      } else if (down) {
-        printf("DOWN - Decrease Frequency\n");
-        decrement_freq();
-        layout_ui();
-
-      } else if (right) {
-        printf("RIGHT - Increase Step\n");
-        // allow select_digit in range 0..(total_digits-1)
-        if (select_digit < total_digits)
-          select_digit++;
-        layout_ui();
-
-      } else if (left) {
-        printf("LEFT - Decrease Step\n");
-        if (select_digit > 0)
-          select_digit--;
-        layout_ui();
-
-      } else if (enter) {
-        printf("ENTER - Toggle RX/TX\n");
-        sts = !sts;
-        if (sts) {
-          interfreq = 0; // TX mode, no IF
+    if (state != last_state) {
+      /* Detect ENTER short press on release if long press didn't fire */
+      if ((last_state & (1 << 4)) && !enter && !enter_long_handled) {
+        if (active_tab == TAB_SYS) {
+          active_focus = (active_focus == FOCUS_TABS) ? FOCUS_CONFIG : FOCUS_TABS;
         } else {
-          interfreq = IF; // RX mode, use IF frequency
+          active_focus = (ui_focus_t)((active_focus + 1) % 3);
         }
         layout_ui();
       }
-    }
 
-    // Button repeat logic (for fast frequency changes)
-    if (current_state != 0) {
-      button_press_time++;
+      last_state = state;
+      press_ticks = 0;
+      repeat_ticks = 0;
+      repeat_count = 0;
+      enter_long_handled = 0;
 
-      // Initial delay before repeat
-      if (button_press_time > 30) {
-        repeat_timer++;
+      if (up || down || left || right) {
+        handle_short_nav(up, down, left, right);
+        layout_ui();
+      }
+    } else if (state != 0) {
+      press_ticks++;
 
-        // Repeat rate increases with time
-        uint32_t repeat_delay = (repeat_count < 10) ? 10 : 5;
+      /* ENTER long press (500 ms): toggle active channel output ON/OFF */
+      if (enter && !enter_long_handled && press_ticks >= LONG_PRESS_TICKS) {
+        uint8_t ch = (active_tab <= TAB_CLK2) ? (uint8_t)active_tab : 0;
+        ch_enabled[ch] = !ch_enabled[ch];
+        apply_channel_hw(ch);
+        enter_long_handled = 1;
+        layout_ui();
+      }
 
-        if (repeat_timer >= repeat_delay) {
-          repeat_timer = 0;
+      /* Smooth 15-20 Hz auto-repeat for UP/DOWN tuning in Dial mode */
+      if ((up || down) && active_focus == FOCUS_DIAL && active_tab <= TAB_CLK2 &&
+          press_ticks > 25) {
+        repeat_ticks++;
+        uint8_t delay_ticks = (repeat_count < 10) ? 7 : 5; /* ~14-20 Hz */
+        if (repeat_ticks >= delay_ticks) {
+          repeat_ticks = 0;
           repeat_count++;
-
-          if (up) {
-            increment_freq();
-            //    update_frequency(get_step_size());
-            layout_ui();
-          } else if (down) {
-            decrement_freq();
-            //      update_frequency(-get_step_size());
-            layout_ui();
-          }
+          tune_channel((uint8_t)active_tab, up ? 1 : -1);
+          layout_ui();
         }
       }
     }
 
-    // Simulate S-meter update (in real use, read from ADC)
-    static uint32_t s_meter_counter = 0;
-    if (++s_meter_counter > 50) {
-      s_meter_counter = 0;
-      // Random S-meter for demo (replace with actual signal strength)
-      s_meter = (s_meter + 1) % 10;
-      layout_ui();
-    }
-
-    Delay_Ms(10); // Faster polling for better responsiveness
+    Delay_Ms(10);
   }
 }

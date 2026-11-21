@@ -1,167 +1,73 @@
-# Si5351 VFO/RF Generator - Button Controls
+# Si5351 VFO/RF Generator — Button Controls
 
 ## Overview
-This project implements a VFO (Variable Frequency Oscillator) / RF Generator using the Si5351 clock generator chip with an OLED display and button controls.
+This firmware implements a **3-channel VFO / RF Signal Generator** (`CLK0`, `CLK1`, `CLK2`) using a **CH32V003F4P6**, an **Si5351A** clock generator, a **128×64 dual-color SSD1306 OLED** with a **Retro Vernier Drum Dial**, and 5 navigation buttons.
 
 ## Hardware Setup
-- **MCU**: CH32V003F4P6
-- **Display**: SSD1306 128x64 OLED (I2C)
-- **Generator**: Si5351 Clock Generator (I2C)
-- **Buttons**: 5 buttons (UP, DOWN, LEFT, RIGHT, ENTER)
+- **MCU**: WCH CH32V003F4P6
+- **Display**: SSD1306 128×64 OLED (`0x3C`, I2C1) — 16 px yellow top bar + 48 px blue area
+- **Generator**: Si5351A (`0x60`, I2C1) — `10 kHz` to `225 MHz`
+- **Buttons (`GPIOC`, active-high)**:
+  - `UP` (`PC7`), `DOWN` (`PC4`), `LEFT` (`PC5`), `RIGHT` (`PC6`), `ENTER` (`PC3`)
 
-## Button Controls
+---
 
-### UP Button
-- **Function**: Increase frequency
-- **Behavior**: 
-  - Single press: Increase by current step size
-  - Hold: After 300ms, starts repeating at increasing speed
-  - Fast repeat: After 10 repeats, accelerates to 2x speed
+## Focus Modes (`ENTER` Short Press)
 
-### DOWN Button
-- **Function**: Decrease frequency
-- **Behavior**: 
-  - Single press: Decrease by current step size
-  - Hold: After 300ms, starts repeating at increasing speed
-  - Fast repeat: After 10 repeats, accelerates to 2x speed
+A **short press** on `ENTER` cycles the active UI focus:
 
-### LEFT Button
-- **Function**: Decrease step size
-- **Step Sizes**: 1Hz → 10Hz → 100Hz → 1kHz → 10kHz → 100kHz → 1MHz → (cycles back to 1Hz)
+1. **`FOCUS_TABS`** (Top Yellow Bar): Select `CLK0`, `CLK1`, `CLK2`, or `SYS`
+2. **`FOCUS_DIAL`** *(default)* (Frequency & Drum Dial): Tune frequency and step cursor
+3. **`FOCUS_CONFIG`** (Bottom Config Strip): Configure dial style and IF offset
 
-### RIGHT Button
-- **Function**: Increase step size
-- **Step Sizes**: 1Hz → 10Hz → 100Hz → 1kHz → 10kHz → 100kHz → 1MHz → (cycles back to 1Hz)
+*(When on the `SYS` tab, short-pressing `ENTER` toggles between `FOCUS_TABS` and `FOCUS_CONFIG`.)*
 
-### ENTER Button
-- **Function**: Toggle RX/TX mode
-- **RX Mode**: 
-  - Shows "RX" indicator
-  - IF frequency is added (configured in code)
-  - Displays "LO" for Local Oscillator
-- **TX Mode**:
-  - Shows "TX" indicator
-  - No IF offset (VFO mode)
-  - Displays "VFO"
+---
+
+## Button Actions by Focus Mode
+
+### 1. Dial Focus (`FOCUS_DIAL`)
+- **`UP` / `DOWN`**: Tune active channel frequency up or down by the selected step size.
+  - Holding `UP` or `DOWN` triggers **14–20 Hz auto-repeat** after ~250 ms, smoothly scrolling the drum dial.
+- **`LEFT` / `RIGHT`**: Move the digit cursor across the 9-digit readout (`XXX.XXX.XXX`), changing the step size per tick:
+  - `100 MHz` ↔ `10 MHz` ↔ `1 MHz` ↔ `100 kHz` ↔ `10 kHz` *(default)* ↔ `1 kHz` ↔ `100 Hz` ↔ `10 Hz` ↔ `1 Hz`
+- **`ENTER` (Short)**: Switch to `FOCUS_CONFIG`.
+- **`ENTER` (Hold ≥ 500 ms)**: Toggle the active channel output **ON / OFF** (`▲` solid = ON, `△` hollow = OFF).
+
+### 2. Tab Focus (`FOCUS_TABS`)
+- **`LEFT` / `RIGHT`**: Switch between `CLK0`, `CLK1`, `CLK2`, and `SYS`.
+- **`UP` / `DOWN`**: Toggle the active channel output **ON / OFF**.
+- **`ENTER` (Short)**: Switch to `FOCUS_DIAL` (or `FOCUS_CONFIG` on `SYS`).
+- **`ENTER` (Hold ≥ 500 ms)**: Toggle the active channel output **ON / OFF**.
+
+### 3. Config Focus (`FOCUS_CONFIG`)
+- **`LEFT` / `RIGHT`**: Select setting (`DIAL` or `IF`).
+- **`UP` / `DOWN`**: Change value:
+  - **`DIAL`**: `CURVED` (parabolic drum droop) ↔ `FLAT`
+  - **`IF`**: `0` (`VFO` mode) ↔ `455k` (`+455 kHz` `LO` mode) ↔ `10.7M` (`+10.7 MHz` `LO` mode)
+- **`ENTER` (Short)**: Return to `FOCUS_TABS`.
+- **`ENTER` (Hold ≥ 500 ms)**: Toggle the active channel output **ON / OFF**.
+
+---
 
 ## Display Layout
 
-```
-┌─────────────────────────────────────────┐
-│ RX  40m  VFO        [STEP:1k]           │ ← Status bar
-├─────────────────────────────────────────┤
-│                                         │
-│   07.100.000                            │ ← Large frequency display
-│                    MHz                  │
-│                                         │
-│                                         │
-│ IF: 455kHz                              │
-│ S: [████████░░]                         │ ← S-meter
-└─────────────────────────────────────────┘
-```
-
-### Status Bar (Top)
-- **RX/TX**: Current mode (RX = filled box, TX = outlined box)
-- **Band**: Current amateur radio band (160m, 80m, 40m, etc.)
-- **VFO/LO**: Frequency mode
-- **STEP**: Current frequency step size
-
-### Main Display
-- **Large Frequency**: Shows frequency in format `XX.XXX.XXX`
-- **Unit**: MHz or kHz depending on frequency range
-- **IF Display**: Shows IF frequency when in RX mode
-- **S-Meter**: Signal strength indicator (0-9, +20dB)
-
-## Frequency Range
-- **Minimum**: 10 kHz
-- **Maximum**: 225 MHz (Si5351 limit)
-- **Default**: 7.1 MHz (40m band)
-
-## Amateur Radio Bands Supported
-- 160m: 1.8 - 2.0 MHz
-- 80m: 3.5 - 4.0 MHz
-- 40m: 7.0 - 7.3 MHz
-- 30m: 10.1 - 10.15 MHz
-- 20m: 14.0 - 14.35 MHz
-- 17m: 18.068 - 18.168 MHz
-- 15m: 21.0 - 21.45 MHz
-- 12m: 24.89 - 24.99 MHz
-- 10m: 28.0 - 29.7 MHz
-
-## Configuration
-
-### IF Frequency
-Edit line 11 in `main.c`:
-```c
-#define IF 455  // Enter your IF frequency in kHz
+```text
++------------------------------------------+
+| [CLK0]  CLK1   CLK2   SYS  |    ON       | ← Yellow Bar: Tabs + Output Status
++------------------------------------------+
+| 145.000.000               STP:10k        | ← Digital Readout + Active Step
+|     ^                                    | ← Active Digit Cursor
+| |         ===                            | ← Min..Max Limit Bar (10k..225M)
+|  144.9      145.0      145.1             | ← Sliding Major Scale Labels
+|   .  |  .  |  .  |  .  |  .  |  .  |     | ← Parabolic Drum Dial (0-RAM)
+| VFO               ▲                 CRV  | ← Mode, Pointer (▲/△), Dial Style
++------------------------------------------+
 ```
 
-Common IF frequencies:
-- **455 kHz**: Standard AM radio
-- **10.7 MHz**: FM radio
-- **9 MHz**: Common HF receiver
-
-### Initial Frequency
-Edit line 13 in `main.c`:
-```c
-static uint32_t freq = 7100000;  // 7.1 MHz default
-```
-
-## Usage Tips
-
-1. **Quick Tuning**: Use UP/DOWN buttons for rapid frequency changes
-2. **Fine Tuning**: Set step to 1Hz or 10Hz for precise adjustments
-3. **Band Hopping**: Use large steps (10kHz, 100kHz) to quickly move between bands
-4. **RX/TX Switching**: Press ENTER to toggle between receive and transmit modes
-5. **Button Repeat**: Hold UP/DOWN for continuous frequency changes
-
-## Technical Details
-
-### Button Debouncing
-- Hardware debouncing: 10ms polling rate
-- Software debouncing: State change detection
-- Repeat delay: 300ms initial, then accelerating
-
-### Display Update
-- Full redraw on button press
-- S-meter updates every 500ms
-- Optimized for 128x64 OLED
-
-### I2C Communication
-- **SSD1306**: 0x3C (7-bit address)
-- **Si5351**: 0x60 (7-bit address)
-- **Speed**: 400 kHz (Fast Mode)
-
-## Troubleshooting
-
-### Display Not Working
-1. Check I2C connections (SDA, SCL)
-2. Verify I2C address (0x3C for SSD1306)
-3. Check power supply (3.3V or 5V)
-
-### Si5351 Not Working
-1. Check I2C connections
-2. Verify Si5351 address (0x60)
-3. Check crystal frequency (25 MHz)
-4. Verify power supply (3.3V)
-
-### Buttons Not Responding
-1. Check button connections to GPIO
-2. Verify button pull-up resistors
-3. Check button definitions in code
-
-## Future Enhancements
-- [ ] Memory channels (save/recall frequencies)
-- [ ] RIT/XIT offset
-- [ ] Split frequency operation
-- [ ] CTCSS/DCS tone generation
-- [ ] Frequency scanning
-- [ ] Real S-meter from ADC
-
-## License
-This project is open source and available for educational and amateur radio use.
-
-## Credits
-Based on the Arduino Si5351 Clock Generator project by TeknoTrek
-Adapted for CH32V003F4P6 with button controls
-
+### Channel Defaults & Limits
+- **Frequency Range**: `10 kHz` (`SI5351_MIN_FREQ`) to `225 MHz` (`SI5351_MAX_USER_FREQ`)
+- **Defaults**:
+  - `CLK0`: `145.000.000 Hz` (`ON`, `10 kHz` step)
+  - `CLK1`: `10.700.000 Hz` (`OFF`, `10 kHz` step)
+  - `CLK2`: `7.100.000 Hz` (`OFF`, `10 kHz` step)
