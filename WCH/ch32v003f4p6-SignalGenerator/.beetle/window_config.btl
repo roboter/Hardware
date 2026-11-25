@@ -81,7 +81,7 @@
                                         "x-view-offset": 0
                                     }
                                 },
-                                "CURRENT-INDEX": 2
+                                "CURRENT-INDEX": 1
                             }
                         },
                         "1": {
@@ -89,26 +89,13 @@
                                 "Output": {
                                     "class": "Console"
                                 },
-                                "Serial Monitor": {
-                                    "class": "SerialConsole"
-                                },
-                                "rel://readme.md": {
-                                    "class": "Editor",
-                                    "tab-index": 2,
-                                    "data": {
-                                        "line": 0,
-                                        "index": 0,
-                                        "first-visible-line": 0,
-                                        "x-view-offset": 0
-                                    }
-                                },
-                                "CURRENT-INDEX": 2
+                                "CURRENT-INDEX": 0
                             }
                         }
                     },
                     "SIZES": [
-                        309,
-                        587
+                        646,
+                        250
                     ]
                 },
                 "1": {

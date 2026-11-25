@@ -35,15 +35,15 @@ Both devices share **I2C1** on Port C at `400 kHz` (`I2C_AFIO_REG = 0x00000000`)
 
 ## 3. 5-Way Navigation Buttons
 
-Buttons are configured as **`GPIO_Mode_IN_FLOATING`** on `GPIOC` (active-high when pressed):
+Buttons are configured with internal pull-downs (**`GPIO_Mode_IPD`**) on `GPIOC` (active-high when pressed, so external `10 kΩ` pull-down resistors are not required):
 
 | CH32V003 Pin | Button | Recommended Wiring |
 |---|---|---|
-| **`PC3`** | `ENTER` | Switch between `3.3V` and `PC3`, with `10 kΩ` pull-down to `GND` |
-| **`PC4`** | `DOWN` | Switch between `3.3V` and `PC4`, with `10 kΩ` pull-down to `GND` |
-| **`PC5`** | `LEFT` | Switch between `3.3V` and `PC5`, with `10 kΩ` pull-down to `GND` |
-| **`PC6`** | `RIGHT` | Switch between `3.3V` and `PC6`, with `10 kΩ` pull-down to `GND` |
-| **`PC7`** | `UP` | Switch between `3.3V` and `PC7`, with `10 kΩ` pull-down to `GND` |
+| **`PC3`** | `ENTER` | Tactile switch between `3.3V` and `PC3` |
+| **`PC4`** | `DOWN` | Tactile switch between `3.3V` and `PC4` |
+| **`PC5`** | `LEFT` | Tactile switch between `3.3V` and `PC5` |
+| **`PC6`** | `RIGHT` | Tactile switch between `3.3V` and `PC6` |
+| **`PC7`** | `UP` | Tactile switch between `3.3V` and `PC7` |
 
 > **Tip:** Add a `100 nF` capacitor across each button or to `GND` for hardware debouncing if needed.
 

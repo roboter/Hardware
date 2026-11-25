@@ -1,6 +1,6 @@
 # CH32V003F4P6 + Si5351A Retro VFO & RF Signal Generator
 
-A compact, bare-metal **3-channel RF Signal Generator & VFO** built on the **WCH CH32V003F4P6** (RISC-V, 16 KB Flash / 2 KB SRAM), driving a **Silicon Labs Si5351A (CJMCU-5351)** clock generator and a **128×64 dual-color SSD1306 OLED** with a zero-RAM **Retro Vernier Drum Dial**.
+A compact, bare-metal **3-channel RF Signal Generator & VFO** built on the **WCH CH32V003F4P6** (RISC-V, 16 KB Flash / 2 KB SRAM), driving a **Silicon Labs Si5351A (CJMCU-5351)** clock generator and a **128×64 dual-color SSD1306 OLED** with a **zero-extra-RAM Retro Vernier Drum Dial**.
 
 ![Project Preview](images/IMG_3290.jpg)
 
@@ -13,7 +13,7 @@ The **Si5351A** (commonly found on **CJMCU-5351** breakout boards) is a programm
 | Parameter | Specification | Notes in This Firmware |
 |---|---|---|
 | **Channels** | 3 independent outputs (`CLK0`, `CLK1`, `CLK2`) | Each channel has its own frequency, step cursor, and `ON/OFF` state |
-| **Frequency Range** | `8 kHz – 160 MHz` (datasheet) / up to `225 MHz` (VCO/4) | Firmware tunes **`10 kHz – 225 MHz`** |
+| **Frequency Range** | `2.5/8 kHz – 200 MHz` (datasheet) / up to `225 MHz` (VCO/4 OC) | Firmware tunes **`10 kHz – 225 MHz`** *(>200 MHz is overclocked and not guaranteed by Silicon Labs)* |
 | **PLL Architecture** | Dual fractional PLLs (`PLLA`, `PLLB`) `600 – 900 MHz` | `PLLA` locked at `900 MHz` from `25 MHz` XTAL |
 | **Dividers** | Fractional MultiSynth (`a + b/c`) + R-divider (`1..128`) | Smooth `1 Hz` to `100 MHz` step tuning |
 | **Output Waveform** | `3.3V` CMOS square wave (`~50 Ω` output impedance) | AC-couple (`100 nF`) or low-pass filter for sine/RF use |
@@ -68,7 +68,7 @@ The display is partitioned into the SSD1306's **16 px yellow top bar** and **48 
 - **Digital Readout & Step (`Y = 16..27`)**: `XXX.XXX.XXX` Hz readout with an underline/caret under the active tuning digit and the active step size (`1 Hz` – `100 MHz`).
 - **Min–Max Limit Bar (`Y = 28..30`)**: Full-span indicator from `10 kHz` (left stop) to `225 MHz` (right stop).
 - **Parabolic Drum Dial (`Y = 31..55`)**:
-  - Computed column-by-column in [`render_dial_column()`](source/User/main.c) with **0 bytes of extra RAM** and no floating-point math.
+  - Computed column-by-column in [`render_dial_column()`](source/User/main.c) with **0 bytes of extra RAM** beyond the main 1,024-byte OLED framebuffer and no floating-point math.
   - Parabolic edge droop (`dx² >> 9`) gives a 3D cylindrical drum illusion across all 128 pixels (toggleable between `CRV` and `FLT` in the Config menu).
   - Hard limit stop bars appear on the dial when approaching `10 kHz` or `225 MHz`.
 - **Center Fiducial Pointer (`Y = 56..63`)**: Fixed hairline at `X = 64` with a **solid `▲`** when output is enabled and a **hollow `△`** when muted.

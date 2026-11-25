@@ -101,7 +101,7 @@ static void format_freq_str(uint32_t f, char *buf) {
   buf[11] = '\0';
 }
 
-static void format_scale_label(uint32_t f, uint32_t step_hz, char *buf) {
+static uint8_t format_scale_label(uint32_t f, uint32_t step_hz, char *buf) {
   /* Compact 5-char label for drum scale: MHz.tenths or kHz.tenths */
   uint32_t whole, frac;
   if (step_hz >= 10000UL) {
@@ -128,6 +128,7 @@ static void format_scale_label(uint32_t f, uint32_t step_hz, char *buf) {
     buf[pos++] = '0' + (uint8_t)frac;
   }
   buf[pos] = '\0';
+  return pos;
 }
 
 static void draw_clipped_str(int16_t x, uint8_t y, const char *s) {
@@ -254,6 +255,8 @@ static void draw_retro_dial(uint8_t ch) {
 
   /* Full-range min..max limit gauge bar (Y=28..30 in Page 3) */
   uint8_t pos_x = (uint8_t)(f / 1800000UL);
+  if (pos_x > 125)
+    pos_x = 125;
   uint8_t *p3 = fb + 3 * 128;
   p3[0] |= 0x70;
   p3[127] |= 0x70;
@@ -275,10 +278,7 @@ static void draw_retro_dial(uint8_t ch) {
     int16_t tx = x_major + (int16_t)k * 40;
     if (tx < -15 || tx > 142)
       continue;
-    format_scale_label(m_freq, step_hz, buf);
-    uint8_t len = 0;
-    while (buf[len])
-      len++;
+    uint8_t len = format_scale_label(m_freq, step_hz, buf);
     draw_clipped_str(tx - (int16_t)(len * 3), 31, buf);
   }
 
@@ -347,7 +347,7 @@ void GPIO_Buttons_INIT(void) {
   GPIO_InitTypeDef GPIO_InitStructure = {0};
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
   GPIO_InitStructure.GPIO_Pin = ENTER | UP | DOWN | RIGHT | LEFT;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD;
   GPIO_Init(BUTTONPORT, &GPIO_InitStructure);
 }
 
